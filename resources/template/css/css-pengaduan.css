@@ -1,0 +1,435 @@
+/* CSS Untuk file index.html */
+/* Logo Website Header */
+a.navbar-brand img.d-inline-block.align-top {
+    /* filter: invert(1); */
+    width: 170px;
+    height: auto;
+}
+
+.masthead {
+    background-color: #ecf0f6;
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+    background-image: url(https://ensiklopediakesaguan.com/wp-content/uploads/2021/07/header_1.png);
+    background-position: center bottom !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Icon Menu di topbar */
+#mainNav {
+    background-color: #cd0c43;
+    box-shadow: none !important;
+    /* background-image: url(https://ensiklopediakesaguan.com/wp-content/uploads/2021/06/bg_1.png);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: 51%; */
+}
+
+#mainNav .navbar-nav .nav-item .nav-link.active {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+header#header h1.display-1.lh-1.mb-3,
+header#header h2.display-4.text-center.lh-1.mb-4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    color: #fff;
+}
+
+.masthead .text-muted {
+    color: #ffffff !important;
+    margin-bottom: 10px !important;
+}
+
+header#header a.me-lg-3.mb-4.mb-lg-0:last-child {
+    padding: 20px 40px;
+    background-color: #4e2eeb !important;
+    border-radius: 50px;
+    color: #fff;
+    text-decoration: none;
+    /* border: 3px solid #fff; */
+}
+
+#mainNav button.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0 {
+    background-color: #4e2eeb !important;
+    border: 0;
+}
+
+#mainNav .navbar-toggler {
+    font-size: 0.875rem;
+    padding: 10px;
+    border: 0;
+    font-weight: bold;
+}
+
+i.bi.bi-list {
+    font-size: 30px !important;
+}
+
+/* Tombol Masuk */
+button.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0 {
+    background-color: orange;
+    border: 0;
+}
+
+/* Untuk Button Lapor sekarang dan alur */
+.masthead a.me-lg-3.mb-4.mb-lg-0:first-child {
+    padding: 10px 20px;
+    background-color: #e52473;
+    border-radius: 30px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.masthead a.me-lg-3.mb-4.mb-lg-0:last-child {
+    padding: 10px 20px;
+    background-color: orange;
+    border-radius: 30px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.px-5 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+/* Block Formulir */
+#formulir {
+    padding-top: 5rem;
+    background-color: #fff;
+    background-image: url(https://ensiklopediakesaguan.com/wp-content/uploads/2021/06/bg_2.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    max-width: 100%;
+}
+
+#formulir input {
+    border-radius: 5px;
+    border: 0;
+    background-color: #ecf0f6;
+    box-shadow: none !important;
+    height: 45px;
+}
+
+#formulir textarea {
+    border-radius: 5px;
+    border: 0;
+    background-color: #ecf0f6;
+}
+
+#formulir .align-items-center {
+    align-items: end !important;
+}
+
+#formulir button.btn.btn-primary.btn-block.mb-4 {
+    margin-bottom: 6rem !important;
+    width: 100%;
+    padding: 10px;
+    background-color: #4e2eeb;
+    border: 0;
+}
+
+#formulir h2 {
+    margin-bottom: 3rem !important;
+}
+
+#formulir .container-fluid.px-5 .row {
+    background-color: #ecf0f6;
+    margin: 20px 0 !important;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#formulir .container-fluid.px-5 .row .col-md-6.mb-5 {
+    margin-bottom: 0 !important;
+}
+
+#formulir .col-lg-6 .container-fluid.px-5 {
+    padding: 0 !important;
+}
+
+#formulir .form-check-input:checked {
+    background-color: #2937f0;
+    border-color: #2937f0;
+    height: 25px;
+    width: 40px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#formulir div#newest .text-muted {
+    color: #6c757d !important;
+    line-height: 1.8;
+    margin-bottom: 5px !important;
+}
+
+.col-md-6.mb-5 img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .col-md-6.mb-5 img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 10px !important;
+    }
+}
+
+#formulir div#newest .col-md-6.mb-5 button {
+    margin: 10px 0;
+    background-color: orange;
+    border: 0;
+}
+
+#formulir .form-check.d-flex.justify-content-center.mb-4 label.form-check-label {
+    font-size: 13px;
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Statistik */
+section#statistik {
+    padding-top: 2rem;
+    background-color: #ecf0f6;
+    /* background-image: url(https://ensiklopediakesaguan.com/wp-content/uploads/2021/06/login_bottom.png);
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: contain; */
+    padding-bottom: 200px;
+}
+
+section#statistik h2 {
+    margin-bottom: 3rem !important;
+}
+
+
+/* FOOTER */
+footer.bg-black.text-center.py-5 .text-white-50.small,
+footer.bg-black.text-center.py-5 * {
+    color: #fff !important;
+}
+
+footer.bg-black {
+    margin-top: 4rem;
+}
+
+
+/* Unggah File Lampiran */
+.form-outline.mb-4 .form-control-file {
+    background-color: transparent;
+    width: 100%;
+}
+
+input#form6Example9 {
+    background-color: transparent;
+}
+
+input#form6Example10 {
+    position: relative;
+    background-color: orange;
+    width: 40px;
+    height: 25px;
+}
+
+/* Modal */
+.modal-dialog {
+    max-width: 90%;
+    margin: 1.75rem auto;
+}
+
+/* Counter */
+.counter {
+    background-color: #eaecf0;
+    text-align: center;
+}
+
+.employees,
+.customer,
+.design,
+.order {
+    margin: 20px 10px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.counter-count {
+    font-size: 70px;
+    font-weight: 900;
+    position: relative;
+    color: #ffffff;
+    text-align: center;
+    line-height: 92px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.employee-p,
+.customer-p,
+.order-p,
+.design-p {
+    font-size: 20px;
+    color: #000000;
+    line-height: 34px;
+    text-align: center;
+}
+
+.col-lg-6.col-md-6.col-sm-6.col-xs-12 p.employee-p {
+    text-align: center;
+}
+
+p.counter-count {
+    background: #4e2eeb;
+}
+
+/* modal/Popup */
+.modal-content {
+    position: relative;
+    width: 350px !important;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0;
+    outline: 0;
+    margin: 0 auto;
+    border-radius: 20px !important;
+    background-image: url(https://ensiklopediakesaguan.com/wp-content/uploads/2021/06/bg_1.png);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.modal-header.bg-gradient-primary-to-secondary.p-4 {
+    display: none;
+}
+
+.modal-content button.btn.btn-primary {
+    background-color: orange;
+    border: 0;
+    width: 100%;
+}
+
+.bg-gradient-primary-to-secondary h5 {
+    color: #000 !important;
+    text-shadow: none !important;
+}
+.bg-gradient-primary-to-secondary {
+    background: orange;
+    color: #000 !important;
+}
+
+.btn-primary:disabled, .btn-primary.disabled {
+    color: #fff;
+    background-color: #ffa500;
+    border: 0;
+    opacity: 1 !important;
+}
+
+/* Dropdown Pilih Infrastruktur */
+button#dropdownMenuButton {
+    width: 100%;
+    background-color: #ecf0f6;
+    color: #000;
+    text-align: left;
+    border: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-check:focus + .btn-secondary, .btn-secondary:focus {
+    color: #fff;
+    background-color: transparent;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.btn-check:checked + .btn-secondary:focus,
+.btn-check:active + .btn-secondary:focus,
+.btn-secondary:active:focus,
+.btn-secondary.active:focus,
+.show > .btn-secondary.dropdown-toggle:focus {
+    box-shadow: none !important;
+}
+
+div#formulir .row.mb-4 select {
+    background-color: #ecf0f6 !important;
+    width: 100%;
+    height: 45px;
+    border: 0;
+    border-radius: 5px;
+    color: #757575;
+    padding: 10px !important;
+}
+
+h1.display-1.lh-1.mb-3,
+h2.display-4.text-center.lh-1.mb-4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+}
+/* CSS Untuk file index.html */
+
+
+/* .spacer {
+    background-image: url(https://ensiklopediakesaguan.com/wp-content/uploads/2021/07/sisikat.png);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100px;
+} */
+
+div#formulir .container.px-5 {
+    background-color: #fff;
+    padding: 20px !important;
+    box-shadow: 0 10px 30px 0 rgb(0 0 0 / 20%);
+    margin-bottom: 30px;
+    margin-top: -240px;
+}
+
+div#laporan img {
+    vertical-align: middle !important;
+    width: 100% !important;
+    margin-top: 2rem !important;
+    border-radius: 10px !important;
+}
+
+div#laporan .btn-primary {
+    color: #fff;
+    background-color: #2937f0;
+    border-color: #2937f0;
+    margin-top: 20px;
+}
+
+
+@media (max-width: 768px) {
+#img {
+    display: none;
+}
+}
+
+@media (min-width: 768px) {
+div#formulir .container.px-5 {
+    width: 60% !important;
+    margin-left: 20% !important;
+    padding: 60px !important;
+}
+}
+
+/* Blok Laporan */
+div#laporan {
+    padding-top: 50px;
+}

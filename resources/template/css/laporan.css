@@ -1,0 +1,64 @@
+.laporan {
+    padding-top: 7rem;
+}
+
+/* Mengatur Gambar  */
+.table-responsive tbody img {
+    width: 90%;
+    border-radius: 5px;
+}
+
+/* Isi tabel */
+.table-responsive .table td,
+.table-responsive .table th {
+    padding: .75rem;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+    font-weight: normal;
+}
+
+/* Judul tabel */
+.table-responsive .table thead th {
+    vertical-align: middle;
+    border-bottom: 2px solid #dee2e6;
+}
+
+/* paragraf */
+.table-responsive .table td p {
+    text-align: center;
+}
+
+/* Latar header table */
+.table-responsive .table .thead-dark th {
+    color: #000;
+    background-color: #ecf0f6 !important;
+    border: orange !important;
+    box-shadow: none !important;
+}
+
+.laporan h1.display-1.lh-1.mb-3, h2.display-4.text-center.lh-1.mb-4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+
+.table-responsive i.bi.bi-check-square-fill.me-2,
+.table-responsive i.bi.bi-x-square-fill.me-2,
+.table-responsive i.bi.bi-exclamation-square-fill.me-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.table-responsive i.bi.bi-check-square-fill.me-2 {
+    color: green;
+}
+.table-responsive i.bi.bi-x-square-fill.me-2 {
+    color: red;
+}
+
+.table-responsive i.bi.bi-exclamation-square-fill.me-2 {
+    color: blue;
+}
