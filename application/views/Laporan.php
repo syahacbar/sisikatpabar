@@ -6,7 +6,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <!-- Untuk Favicon -->
-        <title>SI-SIKAT - Laporan Pengaduan</title>
+        <title>SI-SIKAT - Laporan Pengaduan </title>
         <link rel="icon" type="image/x-icon" href="<?php echo base_url();?>resources/web-pengaduan/assets/favicon.png" />
 
         <!-- Bootstrap CSS -->
