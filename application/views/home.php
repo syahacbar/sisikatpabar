@@ -228,7 +228,7 @@
                                     <div class="col">
                                       <div class="form-outline">
                                         <select name="kec" id="kecamatan">
-                                            <option>Pilih Kecamatan</option>
+                                            <option>- Pilih Kecamatan -</option>
                                         </select>
                                         <!-- <label class="form-label" for="form6Example7">Distrik</label>   -->
                                       </div>
