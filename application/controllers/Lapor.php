@@ -12,9 +12,33 @@ class Lapor extends CI_Controller{
      */
     function index()
     {
+        $get_kab = $this->db->select('*')->from('regencies')->get();
         $data['laporan'] = $this->Laporan_model->get_all_laporan();
+        $data['kabupaten'] = $get_kab->result();
         
         $data['_view'] = 'home';
         $this->load->view('home',$data);
     }
+
+    function add_ajax_kab($id_prov)
+    {
+        $query = $this->db->get_where('regencies',array('province_id'=>$id_prov));
+        $data = "<option value=''>- Pilih Kabupaten -</option>";
+        foreach ($query->result() as $value) {
+            $data .= "<option value='".$value->id."'>".$value->name."</option>";
+        }
+        echo $data;
+    }
+  
+    function add_ajax_kec($id_kab)
+    {
+        $query = $this->db->get_where('districts',array('regency_id'=>$id_kab));
+        $data = "<option value=''> - Pilih Kecamatan - </option>";
+        foreach ($query->result() as $value) {
+            $data .= "<option value='".$value->id."'>".$value->name."</option>";
+        }
+        echo $data;
+    }
+
+
 }

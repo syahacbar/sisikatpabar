@@ -186,7 +186,7 @@
 
                                 <div class="row mb-4">
                                     <div class="col">
-                                        <select>
+                                        <select >
                                             <option value="1"><i class="fas fa-chevron-down"></i>Pilih Jenis Infrastruktur</option>
                                             <option value="2">Jalan</option>
                                             <option value="3">Drainase</option>
@@ -209,7 +209,15 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <input type="text" id="form6Example6" class="form-control" placeholder="Kabupaten/Kota"/>
+                                        <select name="kab" id="kabupaten">
+                                            <option>- Pilih Kabupaten -</option>
+                                            <?php 
+                                                foreach($kabupaten as $kab)
+                                                {
+                                                    echo '<option value="'.$kab->id.'">'.$kab->name.'</option>';
+                                                }
+                                            ?>
+                                        </select>
                                         <!-- <label class="form-label" for="form6Example6">Kabupaten/Kota</label>  -->
                                       </div>
                                     </div>
@@ -219,7 +227,9 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <input type="text" id="form6Example7" class="form-control" placeholder="Distrik"/>
+                                        <select name="kec" id="kecamatan">
+                                            <option>Pilih Kecamatan</option>
+                                        </select>
                                         <!-- <label class="form-label" for="form6Example7">Distrik</label>   -->
                                       </div>
                                     </div>
@@ -424,6 +434,14 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="<?php echo base_url();?>resources/web-pengaduan/js/js-pengaduan.js"></script>
-
+        <script>
+            $(document).ready(function(){       
+                $("#kabupaten").change(function (){
+                    var url = "<?php echo site_url('lapor/add_ajax_kec');?>/"+$(this).val();
+                    $('#kecamatan').load(url);
+                    return false;
+                })
+            });
+        </script>
     </body>
 </html>
