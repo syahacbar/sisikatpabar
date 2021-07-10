@@ -6,7 +6,6 @@ application/cache/*
 
 application/config/config.php
 application/config/database.php
-application/libraries/Googlemaps.php
 application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
