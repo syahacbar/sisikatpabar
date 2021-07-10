@@ -30,6 +30,7 @@
 
         <!-- Tambahan Link CSS Untuk Counter -->
         <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+        <?php echo $map['js']; ?>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -201,6 +202,7 @@
                                       <div class="form-outline">
                                         <input type="text" id="form6Example5" class="form-control" placeholder="Ruas Nama Jalan"/>
                                         <!-- <label class="form-label" for="form6Example5">Ruas Nama Jalan</label>  -->
+                                        <?php echo $map['html']; ?>
                                       </div>
                                     </div>
                                 </div>

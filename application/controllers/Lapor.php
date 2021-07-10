@@ -5,6 +5,7 @@ class Lapor extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Laporan_model');
+        $this->load->model('m_setting');
     } 
 
     /*
@@ -12,6 +13,20 @@ class Lapor extends CI_Controller{
      */
     function index()
     {
+        $setting=$this->m_setting->list_setting();
+        $this->load->library('googlemaps');
+        $config['center'] = "$setting->latitude, $setting->longitude";
+        $config['zoom'] = "$setting->zoom";
+        $this->googlemaps->initialize($config);
+
+        $marker['position'] = "$setting->latitude, $setting->longitude";
+        $marker['draggable'] = true;
+        $marker['ondragend'] = 'setMapToForm(event.latLng.lat(), event.latLng.lng());';
+        $this->googlemaps->add_marker($marker);
+
+        $map=$this->googlemaps->create_map();
+        $data['map'] = $map;
+
         $get_kab = $this->db->select('*')->from('regencies')->get();
         $data['laporan'] = $this->Laporan_model->get_all_laporan();
         $data['kabupaten'] = $get_kab->result();
@@ -39,6 +54,8 @@ class Lapor extends CI_Controller{
         }
         echo $data;
     }
+
+
 
 
 }
