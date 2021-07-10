@@ -17,6 +17,7 @@ class Lapor extends CI_Controller{
         $this->load->library('googlemaps');
         $config['center'] = "$setting->latitude, $setting->longitude";
         $config['zoom'] = "$setting->zoom";
+        $config['apiKey'] = "$setting->apikey";
         $this->googlemaps->initialize($config);
 
         $marker['position'] = "$setting->latitude, $setting->longitude";
