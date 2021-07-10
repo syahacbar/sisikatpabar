@@ -200,9 +200,28 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <input type="text" id="form6Example5" class="form-control" placeholder="Ruas Nama Jalan"/>
-                                        <!-- <label class="form-label" for="form6Example5">Ruas Nama Jalan</label>  -->
+                                        <label class="form-label">Tandai Lokasi Yang Dilaporkan</label>
                                         <?php echo $map['html']; ?>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col">
+                                      <div class="form-outline">
+                                        <input name="latitude" type="text" id="latitude" class="form-control" placeholder="Latitude" value="<?php echo set_value('latitude'); ?>"/>
+                                      </div>
+                                    </div>
+                                    <div class="col">
+                                      <div class="form-outline">
+                                        <input name="longitude" type="text" id="longitude" class="form-control" placeholder="Longitude" value="<?php echo set_value('longitude'); ?>"/>
+                                      </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <div class="col">
+                                      <div class="form-outline">
+                                        <input type="text" id="form6Example5" class="form-control" placeholder="Ruas Nama Jalan"/>
                                       </div>
                                     </div>
                                 </div>
@@ -444,6 +463,15 @@
                     return false;
                 })
             });
+        </script>
+        <script type="text/javascript">
+      
+          function setMapToForm(latitude, longitude) 
+            {
+              $('input[name="latitude"]').val(latitude);
+              $('input[name="longitude"]').val(longitude);
+            }
+
         </script>
     </body>
 </html>
