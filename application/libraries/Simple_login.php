@@ -11,7 +11,7 @@ class Simple_login
         $this->CI->load->model('M_login');
 	}
 
-	//fungsi login
+	//fungsi logins
 
 	public function login($username,$password)
 	{

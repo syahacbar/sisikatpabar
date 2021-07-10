@@ -7,7 +7,7 @@
  * outputs to stdout, this library accepts a string as input and returns another
  * string as output.
  *
- * PHP 5 or higher is required.
+ * PHP 5 or higher is requireds.
  *
  * Permission is hereby granted to use this version of the library under the
  * same terms as jsmin.c, which has the following license:

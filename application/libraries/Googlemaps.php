@@ -6,7 +6,7 @@
  * Displays a Google Map
  *
  * @package		CodeIgniter
- * @subpackage	Libraries
+ * @subpackage	Librariesx
  * @category	Libraries
  * @author		BIOSTALL (Steve Marks)
  * @link		http://biostall.com/codeigniter-google-maps-v3-api-library
