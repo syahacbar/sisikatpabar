@@ -110,6 +110,7 @@
             <div class="spacer">
             </div>
         </div> -->
+        <!-- Komentas baru -->
 
         <!-- App features section-->
         <section id="statistik">
