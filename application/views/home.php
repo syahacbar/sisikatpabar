@@ -182,7 +182,7 @@
                                     <div class="col">
                                       <div class="form-outline">
                                         <label class="form-label" for="form6Example9">Unggah KTP</label> 
-                                        <input type="file" class="form-control-file" id="form6Example9" placeholder="Unggah KTP">
+                                        <input type="file" class="form-control-file" id="fileInput" placeholder="Unggah KTP" data-multiple-caption="{count} files selected" multiple >
                                       </div>
                                     </div>
                                 </div>
@@ -273,7 +273,7 @@
                                     <div class="col">
                                       <div class="form-outline">
                                         <label class="form-label" for="form6Example9">Unggah Lampiran Laporan</label> 
-                                        <input type="file" class="form-control-file" id="form6Example9" placeholder="Unggah Lampiran Laporan">
+                                        <input type="file" class="form-control-file" id="fileInput" placeholder="Unggah Lampiran Laporan" data-multiple-caption="{count} files selected" multiple>
                                       </div>
                                     </div>
                                 </div>
