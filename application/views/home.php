@@ -7,7 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>SI-SIKAT - Beranda</title>
-        <link rel="icon" type="image/x-icon" href="<?php echo base_url();?>resources/web-pengaduan/assets/favicon.png" />
+        <link rel="icon" type="image/x-icon" href="<?php echo base_url();?>resources/template/assets/favicon.png" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
 
@@ -24,10 +24,11 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="<?php echo base_url();?>resources/web-pengaduan/css/styles.css" rel="stylesheet" />
-        <link href="<?php echo base_url();?>resources/web-pengaduan/css/css-pengaduan.css" rel="stylesheet" />
+        <link href="<?php echo base_url();?>resources/template/css/styles.css" rel="stylesheet" />
+        <link href="<?php echo base_url();?>resources/template/css/css-pengaduan.css" rel="stylesheet" />
 
         <!-- Tambahan Link CSS Untuk Counter -->
         <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
@@ -38,7 +39,7 @@
         <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
             <div class="container px-5">
                 <a class="navbar-brand" href="#">
-                <img src="<?php echo base_url();?>resources/web-pengaduan/assets/logo-sisikat.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <img src="<?php echo base_url();?>resources/template/assets/logo-sisikat.png" width="30" height="30" class="d-inline-block align-top" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="bi bi-list"></i>
@@ -181,10 +182,13 @@
                                 
                                 <div class="row mb-4">
                                     <div class="col">
-                                      <div class="form-outline">
-                                        <label class="form-label" for="form6Example9">Unggah KTP</label> 
-                                        <input type="file" class="form-control-file" id="fileInput" placeholder="Unggah KTP" data-multiple-caption="{count} files selected" multiple >
-                                      </div>
+                                      <!-- <div class="form-outline"> -->
+                                        <label class="form-label" for="form6Example9">Unggah Foto KTP Anda (.jpg atau .png)</label> 
+                                        <!-- <input type="file" class="form-control-file" id="fileInput" placeholder="Unggah KTP" data-multiple-caption="{count} files selected" multiple > -->
+                                      <!-- </div> -->
+                                      <div class="drop-zone">
+                                        <span class="drop-zone__prompt"><i class="fas fa-cloud-upload-alt"></i>Seret file ke sini</span>
+                                        <input type="file" name="myFile" class="drop-zone__input">
                                     </div>
                                 </div>
 
@@ -273,9 +277,14 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <label class="form-label" for="form6Example9">Unggah Lampiran Laporan</label> 
-                                        <input type="file" class="form-control-file" id="fileInput" placeholder="Unggah Lampiran Laporan" data-multiple-caption="{count} files selected" multiple>
-                                      </div>
+                                        <label class="form-label" for="form6Example9">Unggah Lampiran Laporan (.jpg atau .png)</label> 
+                                        <!-- <input type="file" class="form-control-file" id="fileInput" placeholder="Unggah Lampiran Laporan" data-multiple-caption="{count} files selected" multiple> -->
+                                        <div class="drop-zone">
+                                        <span class="drop-zone__prompt"><i class="fas fa-cloud-upload-alt"></i>Seret file ke sini</span>
+                                        <input type="file" name="myFile" class="drop-zone__input">
+                                    </div>
+                                    </div>
+                                     </div>
                                     </div>
                                 </div>
 
@@ -457,7 +466,8 @@
         <!-- Link JS Untuk Counter -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="<?php echo base_url();?>resources/web-pengaduan/js/js-pengaduan.js"></script>
+        <script src="<?php echo base_url();?>resources/template/js/js-pengaduan.js"></script>
+        <script src="<?php echo base_url();?>resources/template/dropzone/dist/dropzone.js"></script>
         <script>
             $(document).ready(function(){       
                 $("#kabupaten").change(function (){
@@ -475,6 +485,134 @@
               $('input[name="longitude"]').val(longitude);
             }
 
+        </script>
+
+        <script>
+                    document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+            const dropZoneElement = inputElement.closest(".drop-zone");
+
+            dropZoneElement.addEventListener("click", (e) => {
+                inputElement.click();
+            });
+
+            inputElement.addEventListener("change", (e) => {
+                if (inputElement.files.length) {
+                updateThumbnail(dropZoneElement, inputElement.files[0]);
+                }
+            });
+
+            dropZoneElement.addEventListener("dragover", (e) => {
+                e.preventDefault();
+                dropZoneElement.classList.add("drop-zone--over");
+            });
+
+            ["dragleave", "dragend"].forEach((type) => {
+                dropZoneElement.addEventListener(type, (e) => {
+                dropZoneElement.classList.remove("drop-zone--over");
+                });
+            });
+
+            dropZoneElement.addEventListener("drop", (e) => {
+                e.preventDefault();
+
+                if (e.dataTransfer.files.length) {
+                inputElement.files = e.dataTransfer.files;
+                updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+                }
+
+                dropZoneElement.classList.remove("drop-zone--over");
+            });
+            });
+
+            /**
+            * Updates the thumbnail on a drop zone element.
+            *
+            * @param {HTMLElement} dropZoneElement
+            * @param {File} file
+            */
+            function updateThumbnail(dropZoneElement, file) {
+            let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+
+            // First time - remove the prompt
+            if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+                dropZoneElement.querySelector(".drop-zone__prompt").remove();
+            }
+
+            // First time - there is no thumbnail element, so lets create it
+            if (!thumbnailElement) {
+                thumbnailElement = document.createElement("div");
+                thumbnailElement.classList.add("drop-zone__thumb");
+                dropZoneElement.appendChild(thumbnailElement);
+            }
+
+            thumbnailElement.dataset.label = file.name;
+
+            // Show thumbnail for image files
+            if (file.type.startsWith("image/")) {
+                const reader = new FileReader();
+
+                reader.readAsDataURL(file);
+                reader.onload = () => {
+                thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+                };
+            } else {
+                thumbnailElement.style.backgroundImage = null;
+            }
+            }
+        </script>
+
+        <!-- JS UNTUK DRAG FILE -->
+        <script>
+        const dropArea = document.querySelector(".drag-area"),
+        dragText = dropArea.querySelector("header"),
+        button = dropArea.querySelector("button"),
+        input = dropArea.querySelector("input");
+        let file; //this is a global variable and we'll use it inside multiple functions
+        button.onclick = ()=>{
+        input.click(); //if user click on the button then the input also clicked
+        }
+        input.addEventListener("change", function(){
+        //getting user select file and [0] this means if user select multiple files then we'll select only the first one
+        file = this.files[0];
+        dropArea.classList.add("active");
+        showFile(); //calling function
+        });
+        //If user Drag File Over DropArea
+        dropArea.addEventListener("dragover", (event)=>{
+        event.preventDefault(); //preventing from default behaviour
+        dropArea.classList.add("active");
+        dragText.textContent = "Release to Upload File";
+        });
+        //If user leave dragged File from DropArea
+        dropArea.addEventListener("dragleave", ()=>{
+        dropArea.classList.remove("active");
+        dragText.textContent = "Drag & Drop to Upload File";
+        });
+        //If user drop File on DropArea
+        dropArea.addEventListener("drop", (event)=>{
+        event.preventDefault(); //preventing from default behaviour
+        //getting user select file and [0] this means if user select multiple files then we'll select only the first one
+        file = event.dataTransfer.files[0];
+        showFile(); //calling function
+        });
+        function showFile(){
+        let fileType = file.type; //getting selected file type
+        let validExtensions = ["image/jpeg", "image/jpg", "image/png"]; //adding some valid image extensions in array
+        if(validExtensions.includes(fileType)){ //if user selected file is an image file
+            let fileReader = new FileReader(); //creating new FileReader object
+            fileReader.onload = ()=>{
+            let fileURL = fileReader.result; //passing user file source in fileURL variable
+                // UNCOMMENT THIS BELOW LINE. I GOT AN ERROR WHILE UPLOADING THIS POST SO I COMMENTED IT
+            // let imgTag = `<img src="${fileURL}" alt="image">`; //creating an img tag and passing user selected file source inside src attribute
+            dropArea.innerHTML = imgTag; //adding that created img tag inside dropArea container
+            }
+            fileReader.readAsDataURL(file);
+        }else{
+            alert("This is not an Image File!");
+            dropArea.classList.remove("active");
+            dragText.textContent = "Drag & Drop to Upload File";
+        }
+        }
         </script>
     </body>
 </html>

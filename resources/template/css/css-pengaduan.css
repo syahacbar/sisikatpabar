@@ -433,3 +433,62 @@ div#formulir .container.px-5 {
 div#laporan {
     padding-top: 50px;
 }
+
+/* CSS DRAG FILE UPLOAD */
+.drop-zone {
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+    color: #000;
+    border: 0.25rem dashed #ecf0f6;
+    margin-bottom: 30px;
+    flex-direction: column;
+}
+
+.drop-zone i:before {
+    font-size: 60px;
+    color: #cd0c43;
+}
+
+span.drop-zone__prompt i {
+    display: block;
+}
+  .drop-zone--over {
+    border-style: solid;
+  }
+  
+  .drop-zone__input {
+    display: none;
+  }
+  
+  .drop-zone__thumb {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    background-color: #cccccc;
+    background-size: 100%;
+    position: relative;
+    object-position: center center;
+    background-repeat: no-repeat;
+}
+  
+  .drop-zone__thumb::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 0;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.75);
+    font-size: 14px;
+    text-align: center;
+  }
+  
