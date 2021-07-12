@@ -58,6 +58,7 @@
                 </div>
             </div>
         </nav>
+
         <!-- Mashead header-->
         <header id="header" class="masthead">
             <div class="container px-5">
@@ -110,7 +111,7 @@
             <div class="spacer">
             </div>
         </div> -->
-        <!-- Komentas baru -->
+        <!-- Komentar baru 12072021-->
 
         <!-- App features section-->
         <section id="statistik">
