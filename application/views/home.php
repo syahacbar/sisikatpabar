@@ -467,7 +467,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="<?php echo base_url();?>resources/template/js/js-pengaduan.js"></script>
-        <script src="<?php echo base_url();?>resources/template/dropzone/dist/dropzone.js"></script>
         <script>
             $(document).ready(function(){       
                 $("#kabupaten").change(function (){
