@@ -29,7 +29,7 @@
         <link href="<?php echo base_url();?>resources/web-pengaduan/css/styles.css" rel="stylesheet" />
         <link href="<?php echo base_url();?>resources/web-pengaduan/css/css-pengaduan.css" rel="stylesheet" />
 
-        <!-- Tambahan Link CSS Untuk Counter -->
+        <!-- Tambahan Link CSS Untukzczxczxczczczx Counter -->
         <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
         <?php echo $map['js']; ?>
     </head>
