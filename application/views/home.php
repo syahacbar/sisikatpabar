@@ -143,10 +143,10 @@
         <!-- Formulir Pengaduan -->
         <div id="formulir" class="container">
             <div class="container px-5">
-                <h2 class="display-4 text-center lh-1 mb-4">Form Lapor</h2>
+                <h2 class="display-4 text-center lh-1 mb-4">Form Laporan Pengaduan</h2>
                     <div class="row gx-5 align-items-center">
                     <h3>Identitas Pelapor</h3>
-                    <p>Silakan isi data-data yang diminta di bawah ini.</p>
+                    <p>Silakan isi sesuai KTP.</p>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <form>
 
