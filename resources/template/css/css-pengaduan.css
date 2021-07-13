@@ -1,11 +1,11 @@
 /* CSS Untuk file index.html */
-/* Logo Website Header */
+/* Logo website */
 a.navbar-brand img.d-inline-block.align-top {
-    /* filter: invert(1); */
     width: 170px;
     height: auto;
 }
 
+/* Gambar bg warna merah bagian header */
 .masthead {
     background-color: #ecf0f6;
     padding-top: 8rem;
@@ -16,42 +16,35 @@ a.navbar-brand img.d-inline-block.align-top {
     background-size: cover;
 }
 
-/* Icon Menu di topbar */
+/* Background navigasi topbar */
 #mainNav {
-    background-color: #cd0c43;
-    box-shadow: none !important;
-    /* background-image: url(https://ensiklopediakesaguan.com/wp-content/uploads/2021/06/bg_1.png);
-    background-position: top left;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #fff;
+    background-image: url(https://justapp.id/assets/images/css-26.svg),linear-gradient(163deg,#cd0c43,#cd0c43 49%,#cd0c43);
+    background-position: top;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-size: 51%; */
 }
 
+/* Topbar navigation button ketika active */
 #mainNav .navbar-nav .nav-item .nav-link.active {
+    color: #000 !important;
+    font-weight: bold;
+}
+
+/* Topbar navigation button  */
+#mainNav .navbar-nav .nav-item .nav-link {
     color: #ffffff;
     font-weight: bold;
 }
 
-header#header h1.display-1.lh-1.mb-3,
-header#header h2.display-4.text-center.lh-1.mb-4 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-    color: #fff;
+/* Topbar navigation button ketika klik/hover */
+#mainNav .navbar-nav a.nav-link.me-lg-3:hover {
+    color: #000 !important;
 }
 
-.masthead .text-muted {
-    color: #ffffff !important;
-    margin-bottom: 10px !important;
-}
-
-header#header a.me-lg-3.mb-4.mb-lg-0:last-child {
-    padding: 20px 40px;
-    background-color: #4e2eeb !important;
-    border-radius: 50px;
-    color: #fff;
-    text-decoration: none;
-    /* border: 3px solid #fff; */
-}
-
+/* Button masuk topbar */
 #mainNav button.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0 {
     background-color: #4e2eeb !important;
     border: 0;
@@ -64,31 +57,41 @@ header#header a.me-lg-3.mb-4.mb-lg-0:last-child {
     font-weight: bold;
 }
 
+/* Tulisan SISIKAT dan sistem informasi bagian header */
+header#header h1.display-1.lh-1.mb-3,
+header#header h2.display-4.text-center.lh-1.mb-4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    color: #fff;
+}
+
+/* Tulisan SISIKAT dan sistem informasi bagian header */
+.masthead .text-muted {
+    color: #ffffff !important;
+    margin-bottom: 10px !important;
+}
+
+/* Button Lapor Sekarang */
+header#header a.me-lg-3.mb-4.mb-lg-0:last-child {
+    padding: 20px 40px;
+    background-color: #4e2eeb !important;
+    border-radius: 50px;
+    color: #fff;
+    text-decoration: none;
+}
+
 i.bi.bi-list {
     font-size: 30px !important;
 }
 
-/* Tombol Masuk */
-button.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0 {
+
+/* Tombol masuk di modal Login */
+#feedbackModal .modal-content button.btn.btn-primary {
     background-color: orange;
     border: 0;
-}
-
-/* Untuk Button Lapor sekarang dan alur */
-.masthead a.me-lg-3.mb-4.mb-lg-0:first-child {
-    padding: 10px 20px;
-    background-color: #e52473;
+    width: 100%;
     border-radius: 30px;
-    color: #fff;
-    text-decoration: none;
-}
-
-.masthead a.me-lg-3.mb-4.mb-lg-0:last-child {
-    padding: 10px 20px;
-    background-color: orange;
-    border-radius: 30px;
-    color: #fff;
-    text-decoration: none;
+    margin: 10px 0;
 }
 
 .px-5 {
@@ -107,6 +110,7 @@ button.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0 {
     max-width: 100%;
 }
 
+/* Bidang form */
 #formulir input {
     border-radius: 5px;
     border: 0;
@@ -115,6 +119,7 @@ button.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0 {
     height: 45px;
 }
 
+/* Bidang Textarea */
 #formulir textarea {
     border-radius: 5px;
     border: 0;
@@ -125,6 +130,7 @@ button.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0 {
     align-items: end !important;
 }
 
+/* Button Kirim Laporan */
 #formulir button.btn.btn-primary.btn-block.mb-4 {
     margin-bottom: 6rem !important;
     width: 100%;
@@ -133,6 +139,7 @@ button.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0 {
     border: 0;
 }
 
+/* Judul Form */
 #formulir h2 {
     margin-bottom: 3rem !important;
 }
@@ -152,7 +159,7 @@ button.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0 {
     padding: 0 !important;
 }
 
-#formulir .form-check-input:checked {
+#formulir #policy .form-check-input:checked {
     background-color: #2937f0;
     border-color: #2937f0;
     height: 25px;
@@ -169,6 +176,59 @@ button.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0 {
     margin-bottom: 5px !important;
 }
 
+#formulir div#radio input {
+    background-color: #cd0c43;
+    border-color: #cd0c43;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}
+
+
+#formulir div#radio input .form-check .form-check-input {
+    float: left;
+    margin-left: -1.5em;
+    border-radius: 50%;
+}
+
+#formulir div#radio .form-check {
+    padding-left: 1em !important;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    width: 33.33%;
+}
+
+#formulir div#radio .form-label {
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+div#formulir .container.px-5 {
+    width: 60% !important;
+    margin-left: 20% !important;
+    padding: 60px !important;
+}
+}
+
+div#formulir .container.px-5 {
+    background-color: #fff;
+    padding: 20px !important;
+    box-shadow: 0 10px 30px 0 rgb(0 0 0 / 20%);
+    margin-bottom: 30px;
+    margin-top: -240px;
+}
+
+div#formulir .row.mb-4 select {
+    background-color: #ecf0f6 !important;
+    width: 100%;
+    height: 45px;
+    border: 0;
+    border-radius: 5px;
+    color: #757575;
+    padding: 10px !important;
+}
+
 .col-md-6.mb-5 img {
     width: 100%;
     border-radius: 10px;
@@ -179,7 +239,7 @@ button.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0 {
         width: 100%;
         border-radius: 10px;
         margin-bottom: 10px !important;
-    }
+}
 }
 
 #formulir div#newest .col-md-6.mb-5 button {
@@ -343,7 +403,7 @@ p.counter-count {
 button#dropdownMenuButton {
     width: 100%;
     background-color: #ecf0f6;
-    color: #000;
+    color: #6c757d;
     text-align: left;
     border: 0;
     display: flex;
@@ -351,7 +411,8 @@ button#dropdownMenuButton {
     align-items: center;
 }
 
-.btn-check:focus + .btn-secondary, .btn-secondary:focus {
+.btn-check:focus + .btn-secondary,
+.btn-secondary:focus {
     color: #fff;
     background-color: transparent;
     border: 0 !important;
@@ -366,39 +427,12 @@ button#dropdownMenuButton {
     box-shadow: none !important;
 }
 
-div#formulir .row.mb-4 select {
-    background-color: #ecf0f6 !important;
-    width: 100%;
-    height: 45px;
-    border: 0;
-    border-radius: 5px;
-    color: #757575;
-    padding: 10px !important;
-}
-
 h1.display-1.lh-1.mb-3,
 h2.display-4.text-center.lh-1.mb-4 {
     font-family: 'Poppins', sans-serif;
     font-weight: 900;
 }
 /* CSS Untuk file index.html */
-
-
-/* .spacer {
-    background-image: url(https://ensiklopediakesaguan.com/wp-content/uploads/2021/07/sisikat.png);
-    background-position: top left;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100px;
-} */
-
-div#formulir .container.px-5 {
-    background-color: #fff;
-    padding: 20px !important;
-    box-shadow: 0 10px 30px 0 rgb(0 0 0 / 20%);
-    margin-bottom: 30px;
-    margin-top: -240px;
-}
 
 div#laporan img {
     vertical-align: middle !important;
@@ -414,18 +448,9 @@ div#laporan .btn-primary {
     margin-top: 20px;
 }
 
-
 @media (max-width: 768px) {
 #img {
     display: none;
-}
-}
-
-@media (min-width: 768px) {
-div#formulir .container.px-5 {
-    width: 60% !important;
-    margin-left: 20% !important;
-    padding: 60px !important;
 }
 }
 
@@ -434,7 +459,7 @@ div#laporan {
     padding-top: 50px;
 }
 
-/* CSS DRAG FILE UPLOAD */
+/* Drag and Drop File */
 .drop-zone {
     max-width: 100%;
     height: auto;
@@ -447,7 +472,7 @@ div#laporan {
     font-size: 20px;
     cursor: pointer;
     color: #000;
-    border: 0.25rem dashed #ecf0f6;
+    border: 2px dashed #cd0c43;
     margin-bottom: 30px;
     flex-direction: column;
 }
@@ -460,15 +485,16 @@ div#laporan {
 span.drop-zone__prompt i {
     display: block;
 }
-  .drop-zone--over {
+
+.drop-zone--over {
     border-style: solid;
   }
   
-  .drop-zone__input {
+.drop-zone__input {
     display: none;
   }
   
-  .drop-zone__thumb {
+.drop-zone__thumb {
     width: 250px;
     height: 250px;
     overflow: hidden;
@@ -479,7 +505,7 @@ span.drop-zone__prompt i {
     background-repeat: no-repeat;
 }
   
-  .drop-zone__thumb::after {
+.drop-zone__thumb::after {
     content: attr(data-label);
     position: absolute;
     bottom: 0;
@@ -491,4 +517,54 @@ span.drop-zone__prompt i {
     font-size: 14px;
     text-align: center;
   }
-  
+
+/* tulisan di bawah logo unggah file */
+.form-outline span.drop-zone__prompt {
+    font-size: 16px;
+    color: #cd0c43;
+}
+
+@media (max-width: 990px) {
+    div#date .col-lg-6.col-md-12.col-sm-12.col-xs-12 {
+        margin: 0 0 20px 0;
+    }
+    }
+
+@media (max-width: 580px) {
+    div#date .col-lg-2.col-md-4.col-sm-4.col-xs-4 {
+        margin-bottom: 18px;
+        width: 33.33%;
+    }
+}
+
+div#date select {
+    border: 0;
+    height: 45px;
+    background-color: #ecf0f6;
+    border-radius: 5px;
+    color: #7c848c;
+    width: 100%;
+}
+
+@media (min-width: 560px) {
+div#img-upload {
+        margin-top: 20px;
+    }
+}
+
+/* Pilihan Laki-Laki dan Perempuan pada Blok Jenis Kelamin */
+.form-check.col-lg-6.col-md-6.col-sm-6.col-xs-6 {
+    width: 50%;
+}
+
+/* Jenis Kelamin */
+div#radio {
+    margin-top: 20px;
+}
+
+/* Block RT/RW dst. */
+.col-lg-6.col-md-6.col-sm-6.col-xs-6 {
+    width: 50% !important;
+    flex: 0 0 50%;
+}
+

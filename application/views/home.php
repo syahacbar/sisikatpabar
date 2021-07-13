@@ -34,6 +34,7 @@
         <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
         <?php echo $map['js']; ?>
     </head>
+
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
@@ -107,12 +108,6 @@
                 </div>
             </div>
         </header>
-<!-- 
-        <div class="container">
-            <div class="spacer">
-            </div>
-        </div> -->
-        <!-- Komentar baru 12072021-->
 
         <!-- App features section-->
         <section id="statistik">
@@ -149,49 +144,174 @@
                     <div class="row gx-5 align-items-center">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <form>
-                                <!-- Nama Depan -->
+
+                                <!-- NIK -->
+                                <div class="row mb-4">
+                                    <div class="col">
+                                      <div class="form-outline">
+                                        <input type="text" id="form6Example2" class="form-control" placeholder="Ketik NIK Anda" />
+                                      </div>
+                                    </div>
+                                </div>   
+                                <!-- Akhir NIK -->
+
+                                <!-- Nama -->
                                 <div class="row mb-4">
                                   <div class="col">
                                     <div class="form-outline">
-                                      <input type="text" id="form6Example1" class="form-control" placeholder="Ketik Nama lengkap Anda (Sesuai KTP)"/>
-                                      <!-- <label class="form-label" for="form6Example1">Ketik Nama lengkap Anda (Sesuai KTP)</label> -->
+                                      <input type="text" id="form6Example1" class="form-control" placeholder="Ketik Nama Anda"/>
                                     </div>
                                   </div>
                                 </div>
+                                <!-- Akhir Nama -->
                               
-                                <!-- Nama Belakang -->
-                                <div class="row mb-4">
-                                    <div class="col">
+                               
+                                <!-- Tempat, Tanggal Lahir -->
+                                <div id="date" class="row">
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                       <div class="form-outline">
-                                        <input type="text" id="form6Example2" class="form-control" placeholder="Ketik No. KTP Anda" />
-                                        <!-- <label class="form-label" for="form6Example2">Ketik No. KTP Anda</label> -->
+                                        <input type="text" id="form6Example3" class="form-control" placeholder="Ketika Tempat Lahir" />
                                       </div>
                                     </div>
-                                </div>                                  
+
+                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4">
+                                        <select >
+                                            <option value="1"><i class="fas fa-chevron-down"></i>Tanggal</option>
+                                            <option value="2">1</option>
+                                            <option value="3">2</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4">
+                                        <select >
+                                            <option value="1"><i class="fas fa-chevron-down"></i>Bulan</option>
+                                            <option value="2">Januari</option>
+                                            <option value="3">Februari</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4">
+                                        <select >
+                                            <option value="1"><i class="fas fa-chevron-down"></i>Tahun</option>
+                                            <option value="2">1930</option>
+                                            <option value="3">1931</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Akhir Tempat, Tanggal Lahir -->
+                                                                
+                                <!-- Jenis Kelamin -->
+                                <div id="radio" class="row mb-4">
+                                        <div class="form-check col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                            <label class="form-label" for="form6Example9">Jenis Kelamin</label> 
+                                        </div>
+                                        <div class="form-check col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                            <label class="form-check-label" for="flexRadioDefault1">Laki-Laki</label>
+                                        </div>
+                                        <div class="form-check col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                            <label class="form-check-label" for="flexRadioDefault2">Perempuan</label>
+                                        </div>
+                                </div>
+                                <!-- Akhir Jenis Kelamin -->
 
 
-                                <!-- Nomor KTP -->
+                                <!-- RT/RW, Kel./Desa, Kec.Distrik -->
+                                <div class="row mb-4">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                      <input type="text" id="form6Example1" class="form-control" placeholder="Ketik RT/RW"/>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <select >
+                                            <option value="1"><i class="fas fa-chevron-down"></i>Pilih Kel./Desa</option>
+                                            <option value="2">Wosi</option>
+                                            <option value="3">Sanggeng</option>
+                                            <option value="3">Amban</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <select >
+                                            <option value="1"><i class="fas fa-chevron-down"></i>Pilih Kec./Distrik</option>
+                                            <option value="2">Manokwari Barat</option>
+                                            <option value="3">Manokwari Timur</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <select >
+                                            <option value="1"><i class="fas fa-chevron-down"></i>Pilih Kab./Kota</option>
+                                            <option value="2">Manokwari</option>
+                                            <option value="3">Bintuni</option>
+                                            <option value="3">Pegunungan Arfak</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Akhir RT/RW, Kel./Desa, Kec.Distrik -->
+
+                                <!-- Alamat -->
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <input type="text" id="form6Example3" class="form-control" placeholder="Ketik Alamat Anda" />
-                                        <!-- <label class="form-label" for="form6Example3">ketik Alamat Anda</label> -->
+                                        <textarea class="form-control" id="form6Example8" rows="4" placeholder="Ketik alamat Anda dengan format: Nama Jalan, No. Rumah/Blok, Nama Kompleks, RT/RW"></textarea>
                                       </div>
                                     </div>
                                 </div>
-                                
+                                <!-- Akhir Alamat -->
+
+                                <!-- Agama -->                                
                                 <div class="row mb-4">
                                     <div class="col">
-                                      <!-- <div class="form-outline"> -->
+                                        <select >
+                                            <option value="1"><i class="fas fa-chevron-down"></i>Pilih Agama</option>
+                                            <option value="2">Katolik</option>
+                                            <option value="3">Islam</option>
+                                            <option value="3">Kristen Protestan</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Akhir Agama -->                                
+
+                                <!-- Status Perkawinan -->                                                        
+                                <div class="row mb-4">
+                                    <div class="col">
+                                        <select >
+                                            <option value="1"><i class="fas fa-chevron-down"></i>Pilih Status Perkawinan</option>
+                                            <option value="2">Kawin</option>
+                                            <option value="3">Belum Kawin</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Akhir Status Perkawinan -->                                                        
+
+
+                                <!-- Pekerjaan -->
+                                <div class="row mb-4">
+                                  <div class="col">
+                                    <div class="form-outline">
+                                      <input type="text" id="form6Example1" class="form-control" placeholder="Ketik Pekerjaan Anda"/>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- Akhir ekerjaan -->
+
+                                <!-- Unggah Foto KTP -->
+                                <div id="img-upload" class="row mb-4">
+                                    <div class="col">
                                         <label class="form-label" for="form6Example9">Unggah Foto KTP Anda (.jpg atau .png)</label> 
-                                        <!-- <input type="file" class="form-control-file" id="fileInput" placeholder="Unggah KTP" data-multiple-caption="{count} files selected" multiple > -->
-                                      <!-- </div> -->
-                                      <div class="drop-zone">
-                                        <span class="drop-zone__prompt"><i class="fas fa-cloud-upload-alt"></i>Seret file ke sini</span>
-                                        <input type="file" name="myFile" class="drop-zone__input">
+                                        <div class="drop-zone">
+                                            <span class="drop-zone__prompt"><i class="fas fa-cloud-upload-alt"></i>Seret file ke sini</span>
+                                            <input type="file" name="myFile" class="drop-zone__input">
+                                        </div>
                                     </div>
                                 </div>
+                                <!-- Akhir Unggah Foto KTP -->
 
+                                <!-- Jenis Infrastruktur-->
                                 <div class="row mb-4">
                                     <div class="col">
                                         <select >
@@ -201,9 +321,9 @@
                                         </select>
                                     </div>
                                 </div>
+                                <!-- Akhir Jenis Infrastruktur-->
 
-
-                                <!-- Alamat Lengkap -->
+                                <!-- Maps -->
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
@@ -212,19 +332,25 @@
                                       </div>
                                     </div>
                                 </div>
+                                <!-- Akhir Maps -->
+
+                                <!-- Latitude & Longitude -->
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
                                         <input name="latitude" type="text" id="latitude" class="form-control" placeholder="Latitude" value="<?php echo set_value('latitude'); ?>" readonly/>
                                       </div>
                                     </div>
+
                                     <div class="col">
                                       <div class="form-outline">
                                         <input name="longitude" type="text" id="longitude" class="form-control" placeholder="Longitude" value="<?php echo set_value('longitude'); ?>" readonly/>
                                       </div>
                                     </div>
                                 </div>
+                                <!-- Akhir Latitude & Longitude -->
 
+                                <!-- Ruas Jalan -->
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
@@ -232,8 +358,9 @@
                                       </div>
                                     </div>
                                 </div>
+                                <!-- Akhir Ruas Jalan -->
 
-                                <!-- Email -->
+                                <!-- Kabupaten -->
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
@@ -246,74 +373,71 @@
                                                 }
                                             ?>
                                         </select>
-                                        <!-- <label class="form-label" for="form6Example6">Kabupaten/Kota</label>  -->
                                       </div>
                                     </div>
                                 </div>
+                                <!-- Akhir Kabupaten -->
 
-                                <!-- Nomor HP -->
+                                <!-- Kecamatan -->
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
                                         <select name="kec" id="kecamatan">
                                             <option>- Pilih Kecamatan -</option>
                                         </select>
-                                        <!-- <label class="form-label" for="form6Example7">Distrik</label>   -->
                                       </div>
                                     </div>
                                 </div>
+                                <!-- Akhir Kecamatan -->
 
-                                <!-- Tulis Laporan -->
+                                <!-- Isi Laporan -->
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <textarea class="form-control" id="form6Example8" rows="4" placeholder="Isi laporan Anda di sini"></textarea>
-                                        <!-- <label class="form-label" for="form6Example8">Isi laporan Anda di sini</label> -->
+                                        <textarea class="form-control" id="form6Example8" rows="4" placeholder="Jelaskan laporan Anda di sini"></textarea>
                                       </div>
                                     </div>
                                 </div>
+                                <!-- Akhir Isi Laporan -->
 
-                                <!-- Unggah laporan -->
+                                <!-- Bukti laporan -->
                                 <div class="row mb-4">
                                     <div class="col">
-                                      <div class="form-outline">
-                                        <label class="form-label" for="form6Example9">Unggah Lampiran Laporan (.jpg atau .png)</label> 
-                                        <!-- <input type="file" class="form-control-file" id="fileInput" placeholder="Unggah Lampiran Laporan" data-multiple-caption="{count} files selected" multiple> -->
-                                        <div class="drop-zone">
-                                        <span class="drop-zone__prompt"><i class="fas fa-cloud-upload-alt"></i>Seret file ke sini</span>
-                                        <input type="file" name="myFile" class="drop-zone__input">
-                                    </div>
-                                    </div>
-                                     </div>
+                                        <div class="form-outline">
+                                            <label class="form-label" for="form6Example9">Unggah Lampiran Laporan (.jpg atau .png)</label> 
+                                            <div class="drop-zone">
+                                                <span class="drop-zone__prompt"><i class="fas fa-cloud-upload-alt"></i>Seret file ke sini</span>
+                                                <input type="file" name="myFile" class="drop-zone__input">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <!-- Akhir Bukti laporan -->
 
-                                <!-- Checkbox -->
-                                <div class="form-check d-flex justify-content-center mb-4">
+                                <!-- Kebijakan Privasi -->
+                                <div id="policy" class="form-check d-flex justify-content-center mb-4">
                                   <input class="form-check-input me-2" type="checkbox" value="" id="form6Example10" checked/>
                                   <label class="form-check-label" for="form6Example10">Dengan mencetang pilihan ini, Anda menyetujui persyaratan layanan SI-SIKAT </label>
                                 </div>
-                              
-                                <!-- Submit button -->
+                                <!-- Akhir Kebijakan Privasi -->
+
+                                <!-- Tombol Kirim -->
                                 <button type="submit" class="btn btn-primary btn-block mb-4">Kirim Laporan</button>
+                                <!-- Tombol Kirim -->
                             </form>
                         </div>
-
-                        <!-- <div id="img" class="col-lg-6 col-md-6">
-                            <img src="https://ensiklopediakesaguan.com/wp-content/uploads/2021/04/undraw_Order_confirmed_re_g0if.svg" alt="">
-                        </div> -->
                     </div>
                 </div>
             </div>  
         </div>
         <!-- Akhir Formulir pengaduan -->
 
+        <!--  Blok Laporan Terbaru -->
         <div id="laporan" class="container">
             <div id="newwst" class="col-lg-12">
                 <h2 class="display-4 text-center lh-1 mb-4">Laporan Terbaru</h2>
-                <!-- Masthead device mockup feature-->
                     <div class="container-fluid px-5">
-                        <!-- Feature item-->
+                        <!-- Laporan Baris Pertama -->
                         <div class="row">
                             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                 <img src="https://images.unsplash.com/photo-1596785236251-71fa49ac5760?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="">
@@ -342,7 +466,9 @@
                                 </button>
                             </div>
                         </div>
+                        <!-- Akhir Laporan Baris Pertama -->
 
+                        <!-- Laporan Baris Kedua -->
                         <div class="row">
                             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                 <img src="https://images.unsplash.com/photo-1596785236251-71fa49ac5760?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="">
@@ -371,6 +497,7 @@
                                 </button>
                             </div>
                         </div>
+                        <!-- Laporan Baris Kedua -->
                     </div>
             </div>
         </div>
@@ -402,9 +529,9 @@
             <div class="container px-5">
                 <div class="text-white-50 small">
                     <div class="mb-2">SI-SIKAT &copy; 2021. All Rights Reserved.</div>
-                    <a href="#!">Privacy</a>
+                    <a href="#!">Privasi</a>
                     <span class="mx-1">&middot;</span>
-                    <a href="#!">Terms</a>
+                    <a href="#!">Istilah</a>
                     <span class="mx-1">&middot;</span>
                     <a href="#!">FAQ</a>
                 </div>
@@ -486,7 +613,7 @@
 
         </script>
 
-        <!-- JS DRAG & DROP UPLOAD FILE -->
+        <!-- Drag and Drop Foto -->
         <script>
                     document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
             const dropZoneElement = inputElement.closest(".drop-zone");
