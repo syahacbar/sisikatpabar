@@ -10,4 +10,3 @@ $('.counter-count').each(function () {
             $(this).text(Math.ceil(now));
         }
     });
-});
