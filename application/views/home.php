@@ -5,7 +5,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
-        <meta name="author" content="" /> 
+        <meta name="author" content="" />
         <title>SI-SIKAT - Beranda</title>
         <link rel="icon" type="image/x-icon" href="<?php echo base_url();?>resources/template/assets/favicon.png" />
         <!-- Bootstrap icons-->
@@ -30,7 +30,7 @@
         <link href="<?php echo base_url();?>resources/template/css/styles.css" rel="stylesheet" />
         <link href="<?php echo base_url();?>resources/template/css/css-pengaduan.css" rel="stylesheet" />
 
-        <!-- Tambahan Link CSS Untukzczxczxczczczx Counter -->
+        <!-- Tambahan Link CSS Untuk Counter -->
         <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
         <?php echo $map['js']; ?>
     </head>
@@ -689,6 +689,5 @@
             }
             }
         </script>
-
     </body>
 </html>
