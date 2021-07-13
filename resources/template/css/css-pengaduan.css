@@ -44,6 +44,14 @@ a.navbar-brand img.d-inline-block.align-top {
     color: #000 !important;
 }
 
+/* Button menu topbar ketika diklik */
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+}
+
 /* Button masuk topbar */
 #mainNav button.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0 {
     background-color: #4e2eeb !important;
@@ -55,6 +63,11 @@ a.navbar-brand img.d-inline-block.align-top {
     padding: 10px;
     border: 0;
     font-weight: bold;
+    font-weight: bold;
+    background-image: url(https://justapp.id/assets/images/toggler_icon_white.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 /* Tulisan SISIKAT dan sistem informasi bagian header */
@@ -80,14 +93,16 @@ header#header a.me-lg-3.mb-4.mb-lg-0:last-child {
     text-decoration: none;
 }
 
-i.bi.bi-list {
-    font-size: 30px !important;
+/* Icon garis 3 di menu navbar */
+#mainNav i.bi.bi-list {
+    font-size: 15px !important;
+    color: transparent !important;
 }
 
 
 /* Tombol masuk di modal Login */
 #feedbackModal .modal-content button.btn.btn-primary {
-    background-color: orange;
+    background-color: #4e2eeb;
     border: 0;
     width: 100%;
     border-radius: 30px;
@@ -97,6 +112,20 @@ i.bi.bi-list {
 .px-5 {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
+}
+
+.modal-body.border-0.p-4 img.d-inline-block.align-top {
+    filter: invert(1);
+    margin: 5px 20%;
+    width: 60%;
+}
+
+/* Tulisan login pada modal login */
+.modal-body.border-0.p-4 h1.display-1.lh-1.mb-3, h2.display-4.text-center.lh-1.mb-4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 28px;
 }
 
 /* Block Formulir */
@@ -177,8 +206,8 @@ i.bi.bi-list {
 }
 
 #formulir div#radio input {
-    background-color: #cd0c43;
-    border-color: #cd0c43;
+    background-color: #4e2eeb;
+    border-color: #4e2eeb;
     height: 20px;
     width: 20px;
     border-radius: 50%;
@@ -280,8 +309,12 @@ footer.bg-black.text-center.py-5 * {
 
 footer.bg-black {
     margin-top: 4rem;
+    background-color: #fff;
+    background-image: url(https://justapp.id/assets/images/css-26.svg),linear-gradient(163deg,#cd0c43,#cd0c43 49%,#cd0c43);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
-
 
 /* Unggah File Lampiran */
 .form-outline.mb-4 .form-control-file {
@@ -356,21 +389,37 @@ p.counter-count {
     background: #4e2eeb;
 }
 
-/* modal/Popup */
+/* Popup Untuk detail laporan terakhir */
 .modal-content {
     position: relative;
-    width: 350px !important;
+    width: 100% !important;
     pointer-events: auto;
     background-color: #fff;
     background-clip: padding-box;
     border: 0;
     outline: 0;
-    margin: 0 auto;
+    margin: 0;
     border-radius: 20px !important;
     background-image: url(https://ensiklopediakesaguan.com/wp-content/uploads/2021/06/bg_1.png);
     background-position: top left;
     background-repeat: no-repeat;
     background-size: contain;
+    min-width: 100%;
+}
+
+/* Button tutup pada modal detail laporan terakhir */
+.btn-secondary {
+    color: #fff;
+    background-color: #4e2eeb;
+    border-color: #4e2eeb;
+    padding: 5px 20px;
+    border-radius: 30px;
+}
+
+/* Tinggi modal */
+div#newreport.modal-dialog {
+    transform: none;
+    height: 60%;
 }
 
 .modal-header.bg-gradient-primary-to-secondary.p-4 {
@@ -434,18 +483,24 @@ h2.display-4.text-center.lh-1.mb-4 {
 }
 /* CSS Untuk file index.html */
 
+/* Gambar pada laporan terbaru */
 div#laporan img {
     vertical-align: middle !important;
     width: 100% !important;
     margin-top: 2rem !important;
     border-radius: 10px !important;
+    height: 120px;
+    object-fit: cover;
 }
 
+/* Button Detail pada Laporan terakhir */
 div#laporan .btn-primary {
     color: #fff;
     background-color: #2937f0;
     border-color: #2937f0;
     margin-top: 20px;
+    padding: 5px 20px;
+    border-radius: 30px;
 }
 
 @media (max-width: 768px) {
@@ -472,14 +527,15 @@ div#laporan {
     font-size: 20px;
     cursor: pointer;
     color: #000;
-    border: 2px dashed #cd0c43;
+    border: 2px dashed #4e2eeb;
     margin-bottom: 30px;
     flex-direction: column;
 }
 
+/* Icon cloud upload file */
 .drop-zone i:before {
     font-size: 60px;
-    color: #cd0c43;
+    color: #4e2eeb;
 }
 
 span.drop-zone__prompt i {
@@ -518,10 +574,11 @@ span.drop-zone__prompt i {
     text-align: center;
   }
 
-/* tulisan di bawah logo unggah file */
-.form-outline span.drop-zone__prompt {
+/* Tulisan di bawah logo unggah file */
+.form-outline span.drop-zone__prompt,
+#img-upload span.drop-zone__prompt {
     font-size: 16px;
-    color: #cd0c43;
+    color: #4e2eeb;
 }
 
 @media (max-width: 990px) {
@@ -537,6 +594,7 @@ span.drop-zone__prompt i {
     }
 }
 
+/* Tanggal lahir */
 div#date select {
     border: 0;
     height: 45px;
@@ -546,6 +604,7 @@ div#date select {
     width: 100%;
 }
 
+/* Unggah foto KTP */
 @media (min-width: 560px) {
 div#img-upload {
         margin-top: 20px;

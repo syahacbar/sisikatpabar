@@ -36,7 +36,7 @@
     </head>
 
     <body id="page-top">
-        <!-- Navigation-->
+        <!-- Navigasi Topbar-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
             <div class="container px-5">
                 <a class="navbar-brand" href="#">
@@ -60,13 +60,14 @@
                 </div>
             </div>
         </nav>
+        <!-- Akhir Navigasi Topbar-->
 
-        <!-- Mashead header-->
+        <!-- Header Web -->
         <header id="header" class="masthead">
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
+                    <!-- Header - Bagian tulisan SISIKAT dan tagline-->
                     <div class="col-lg-6">
-                        <!-- Mashead text and app badges-->
                         <div class="mb-5 mb-lg-0 text-center text-lg-start">
                             <h1 class="display-1 lh-1 mb-3">SI-SIKAT</h1>
                             <p class="lead fw-normal text-muted mb-5">Sistem Informasi <br>Infrastruktur Berbasis Partisipasi Masyarakat</p>
@@ -78,8 +79,10 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Header - Akhir Bagian tulisan SISIKAT dan tagline-->
+
+                    <!-- Header - Gambar Mockup HP -->
                     <div class="col-lg-6">
-                        <!-- Masthead device mockup feature-->
                         <div class="masthead-device-mockup">
                             <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
@@ -96,20 +99,19 @@
                             <div class="device-wrapper">
                                 <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
                                     <div class="screen bg-black">
-                                        <!-- PUT CONTENTS HERE:-->
-                                        <!-- * * This can be a video, image, or just about anything else.-->
-                                        <!-- * * Set the max width of your media to 100% and the height to-->
-                                        <!-- * * 100% like the demo example below.--><img src="<?php echo base_url();?>resources/web-pengaduan/assets/img/form.jpg" style="max-width: 100%; height: 100%"/>
+                                        <img src="<?php echo base_url();?>resources/web-pengaduan/assets/img/form.jpg" style="max-width: 100%; height: 100%"/>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Header - Gambar Mockup HP -->
                 </div>
             </div>
         </header>
+        <!-- Header Web -->
 
-        <!-- App features section-->
+        <!-- Statistik Laporan -->
         <section id="statistik">
             <h2 class="display-4 text-center lh-1 mb-4 ">Jumlah Laporan Sekarang</h2>
             <div class="container px-5">
@@ -136,6 +138,7 @@
                 </div>
             </div>
         </section>
+        <!-- Statistik Laporan -->
 
         <!-- Formulir Pengaduan -->
         <div id="formulir" class="container">
@@ -245,9 +248,12 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                         <select >
                                             <option value="1"><i class="fas fa-chevron-down"></i>Pilih Kab./Kota</option>
-                                            <option value="2">Manokwari</option>
-                                            <option value="3">Bintuni</option>
-                                            <option value="3">Pegunungan Arfak</option>
+                                            <?php 
+                                                foreach($kabupaten as $kab)
+                                                {
+                                                    echo '<option value="'.$kab->id.'">'.$kab->name.'</option>';
+                                                }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
@@ -501,30 +507,30 @@
                     </div>
             </div>
         </div>
-
-        <!-- Button trigger modal -->       
-        <!-- Modal -->
+        <!--  Akhir Blok Laporan Terbaru -->
+    
+        <!-- Modal Detail Laporan Terakhir-->
         <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable" role="document">
-            <div class="modal-content">
+            <div id="newreport" class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content col-lg-4 col-md-12 col-sm-12 col-xs-12">
                 <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Laporan 1</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>
                 <div class="modal-body">
-                lorem
+                Detail Laporan di sini
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                 </div>
             </div>
             </div>
         </div>
+        <!-- Akhir Modal Detail Laporan Terakhir-->
 
-        <!-- Footer-->
+        <!-- Footer -->
         <footer class="bg-black text-center py-5">
             <div class="container px-5">
                 <div class="text-white-50 small">
@@ -537,8 +543,9 @@
                 </div>
             </div>
         </footer>
+        <!-- Akhir Footer -->
 
-        <!-- Feedback Modal-->
+        <!-- Modal Login Anggota-->
         <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -547,20 +554,14 @@
                         <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body border-0 p-4">
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-
                         <form>
+                            <a class="navbar-brand" href="#">
+                                <img src="<?php echo base_url();?>resources/template/assets/logo-sisikat.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                            </a>
                             <h2 class="display-4 text-center lh-1 mb-4">Login</h2>
                             <div class="mb-3">
                               <label for="exampleInputEmail1" class="form-label">Email</label>
                               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                              <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                             </div>
                             <div class="mb-3">
                               <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
@@ -577,23 +578,24 @@
                 </div>
             </div>
         </div>
+        <!-- Akhir Modal Login Anggota-->
+
         <!-- Tambahan JS dari Bootstrap -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
+        
+        <!-- JS Inti-->
         <script src="<?php echo base_url();?>resources/web-pengaduan/js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
-        <!-- Link JS Untuk Counter -->
+        <!-- Link ke JS Counter -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="<?php echo base_url();?>resources/template/js/js-pengaduan.js"></script>
+
+        <!-- Internal JS -->
         <script>
             $(document).ready(function(){       
                 $("#kabupaten").change(function (){
