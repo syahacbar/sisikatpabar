@@ -145,6 +145,8 @@
             <div class="container px-5">
                 <h2 class="display-4 text-center lh-1 mb-4">Form Lapor</h2>
                     <div class="row gx-5 align-items-center">
+                    <h3>Identitas Pelapor</h3>
+                    <p>Silakan isi data-data yang diminta di bawah ini.</p>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <form>
 
@@ -168,58 +170,6 @@
                                 </div>
                                 <!-- Akhir Nama -->
                               
-                               
-                                <!-- Tempat, Tanggal Lahir -->
-                                <div id="date" class="row">
-                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                                      <div class="form-outline">
-                                        <input type="text" id="form6Example3" class="form-control" placeholder="Ketika Tempat Lahir" />
-                                      </div>
-                                    </div>
-
-                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4">
-                                        <select >
-                                            <option value="1"><i class="fas fa-chevron-down"></i>Tanggal</option>
-                                            <option value="2">1</option>
-                                            <option value="3">2</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4">
-                                        <select >
-                                            <option value="1"><i class="fas fa-chevron-down"></i>Bulan</option>
-                                            <option value="2">Januari</option>
-                                            <option value="3">Februari</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-4">
-                                        <select >
-                                            <option value="1"><i class="fas fa-chevron-down"></i>Tahun</option>
-                                            <option value="2">1930</option>
-                                            <option value="3">1931</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Akhir Tempat, Tanggal Lahir -->
-                                                                
-                                <!-- Jenis Kelamin -->
-                                <div id="radio" class="row mb-4">
-                                        <div class="form-check col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <label class="form-label" for="form6Example9">Jenis Kelamin</label> 
-                                        </div>
-                                        <div class="form-check col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-                                            <label class="form-check-label" for="flexRadioDefault1">Laki-Laki</label>
-                                        </div>
-                                        <div class="form-check col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                            <label class="form-check-label" for="flexRadioDefault2">Perempuan</label>
-                                        </div>
-                                </div>
-                                <!-- Akhir Jenis Kelamin -->
-
-
                                 <!-- RT/RW, Kel./Desa, Kec.Distrik -->
                                 <div class="row mb-4">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -263,47 +213,27 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <textarea class="form-control" id="form6Example8" rows="4" placeholder="Ketik alamat Anda dengan format: Nama Jalan, No. Rumah/Blok, Nama Kompleks, RT/RW"></textarea>
+                                        <textarea class="form-control" id="form6Example8" rows="4" placeholder="Ketik alamat Anda dengan format: Nama Jalan, No. Rumah/Blok, Nama Kompleks"></textarea>
                                       </div>
                                     </div>
                                 </div>
-                                <!-- Akhir Alamat -->
+                                <!-- Akhir Alamat -->                                                
 
-                                <!-- Agama -->                                
+                                <!-- Email dan Nomor HP-->
                                 <div class="row mb-4">
-                                    <div class="col">
-                                        <select >
-                                            <option value="1"><i class="fas fa-chevron-down"></i>Pilih Agama</option>
-                                            <option value="2">Katolik</option>
-                                            <option value="3">Islam</option>
-                                            <option value="3">Kristen Protestan</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Akhir Agama -->                                
-
-                                <!-- Status Perkawinan -->                                                        
-                                <div class="row mb-4">
-                                    <div class="col">
-                                        <select >
-                                            <option value="1"><i class="fas fa-chevron-down"></i>Pilih Status Perkawinan</option>
-                                            <option value="2">Kawin</option>
-                                            <option value="3">Belum Kawin</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Akhir Status Perkawinan -->                                                        
-
-
-                                <!-- Pekerjaan -->
-                                <div class="row mb-4">
-                                  <div class="col">
+                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="form-outline">
-                                      <input type="text" id="form6Example1" class="form-control" placeholder="Ketik Pekerjaan Anda"/>
+                                      <input type="text" id="form6Example1" class="form-control" placeholder="Ketik Alamat Email Anda"/>
+                                    </div>
+                                  </div>
+
+                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <div class="form-outline">
+                                      <input type="text" id="form6Example1" class="form-control" placeholder="Ketik Nomor HP Anda"/>
                                     </div>
                                   </div>
                                 </div>
-                                <!-- Akhir ekerjaan -->
+                                <!-- Email -->
 
                                 <!-- Unggah Foto KTP -->
                                 <div id="img-upload" class="row mb-4">
@@ -318,6 +248,10 @@
                                 <!-- Akhir Unggah Foto KTP -->
 
                                 <!-- Jenis Infrastruktur-->
+                                <div class="report">
+                                    <h3>Data Laporan</h3>
+                                    <p>Lengkapi data lokasi yang dilaporkan sesuai dengan bidang-bidang di bawah ini.</p>
+                                </div>
                                 <div class="row mb-4">
                                     <div class="col">
                                         <select >
