@@ -74,7 +74,7 @@ class Lapor extends CI_Controller{
         if($this->form_validation->run())     
         {   
             $params = array(
-                'tgl_laporan' => $this->input->post('tgl_laporan'),
+                'tgl_laporan' => date("Y-m-d"),
                 'nama_pelapor' => $this->input->post('nama_pelapor'),
                 'nik' => $this->input->post('nik'),
                 'alamat_pelapor' => $this->input->post('alamat_pelapor'),

@@ -336,7 +336,7 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <textarea class="form-control" rows="4" placeholder="Jelaskan laporan Anda di sini"></textarea>
+                                        <textarea name="pengaduan" class="form-control" rows="4" placeholder="Jelaskan laporan Anda di sini"></textarea>
                                       </div>
                                     </div>
                                 </div>
