@@ -664,3 +664,24 @@ div#radio {
     flex: 0 0 50%;
 }
 
+/* Unggah File Dropzone */
+.upload-file {
+    margin-bottom: 50px;
+}
+
+form#dropzoneFrom {
+    border: 2px dashed #4e2eeb;
+}
+
+.upload-btn {
+    margin-top: 20px;
+}
+
+.upload-btn button#submit-all {
+    background-color: #4e2eeb;
+    padding: 5px 20px;
+    border-radius: 30px;
+    border: 0;
+    color: #fff;
+}
+

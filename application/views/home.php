@@ -33,6 +33,9 @@
         <!-- Tambahan Link CSS Untuk Counter -->
         <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
         <?php echo $map['js']; ?>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
     </head>
 
     <body id="page-top">
@@ -47,7 +50,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                        <li class="nav-item"><a class="nav-link me-lg-3" href="#header">Tentang SI-SIKAT</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="<?php echo base_url();?>">Tentang SI-SIKAT</a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#statistik">Statistik</a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" href="<?php echo base_url('laporan');?>">Lihat Laporan</a></li>
                     </ul>
@@ -179,7 +182,8 @@
                                       </div>
                                     </div>
                                 </div>
-                                <!-- Akhir Alamat -->   
+                                <!-- Akhir Alamat --> 
+
                                 <!-- Kabupaten -->
                                 <div class="row mb-4">
                                     <div class="col">
@@ -236,17 +240,15 @@
                                 </div>
                                 <!-- Email -->
 
-                                <!-- Unggah Foto KTP -->
-                                <div id="img-upload" class="row mb-4">
-                                    <div class="col">
-                                        <label class="form-label" for="form6Example9">Unggah Foto KTP Anda (.jpg atau .png)</label> 
-                                        <div class="drop-zone">
-                                            <span class="drop-zone__prompt"><i class="fas fa-cloud-upload-alt"></i>Seret file ke sini</span>
-                                            <input type="file" name="foto_ktp" class="drop-zone__input">
-                                        </div>
+                                <!-- Unggah Bukti -->
+                                <div class="upload-file">
+                                    <form action="upload.php" class="dropzone" id="dropzoneFrom"></form>   
+                                    <div align="center">
+                                        <button type="button" class="btn btn-info" id="submit-all">Upload</button>
                                     </div>
+                                    <div id="preview"></div>
                                 </div>
-                                <!-- Akhir Unggah Foto KTP -->
+                                <!-- Unggah Bukti -->                          
 
                                 <!-- Jenis Infrastruktur-->
                                 <div class="report">
@@ -341,19 +343,15 @@
                                 </div>
                                 <!-- Akhir Isi Laporan -->
 
-                                <!-- Bukti laporan -->
-                                <div class="row mb-4">
-                                    <div class="col">
-                                        <div class="form-outline">
-                                            <label class="form-label">Unggah Lampiran Laporan (.jpg atau .png)</label> 
-                                            <div class="drop-zone">
-                                                <span class="drop-zone__prompt"><i class="fas fa-cloud-upload-alt"></i>Seret file ke sini</span>
-                                                <input type="file" name="dokumentasi" class="drop-zone__input">
-                                            </div>
-                                        </div>
+                                <!-- Unggah Bukti -->
+                                <div class="upload-file">
+                                    <form action="upload.php" class="dropzone" id="dropzoneFrom"></form>   
+                                    <div class="upload-btn" align="center">
+                                        <button type="button" class="btn btn-info" id="submit-all">Upload</button>
                                     </div>
+                                    <div id="preview"></div>
                                 </div>
-                                <!-- Akhir Bukti laporan -->
+                                <!-- Unggah Bukti -->
 
                                 <!-- Kebijakan Privasi -->
                                 <div id="policy" class="form-check d-flex justify-content-center mb-4">
@@ -634,5 +632,56 @@
             }
             }
         </script>
+
+        <script>
+$(document).ready(function(){
+ 
+ Dropzone.options.dropzoneFrom = {
+  autoProcessQueue: false,
+  acceptedFiles:".png,.jpg,.gif,.bmp,.jpeg",
+  init: function(){
+   var submitButton = document.querySelector('#submit-all');
+   myDropzone = this;
+   submitButton.addEventListener("click", function(){
+    myDropzone.processQueue();
+   });
+   this.on("complete", function(){
+    if(this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0)
+    {
+     var _this = this;
+     _this.removeAllFiles();
+    }
+    list_image();
+   });
+  },
+ };
+
+ list_image();
+
+ function list_image()
+ {
+  $.ajax({
+   url:"upload.php",
+   success:function(data){
+    $('#preview').html(data);
+   }
+  });
+ }
+
+ $(document).on('click', '.remove_image', function(){
+  var name = $(this).attr('id');
+  $.ajax({
+   url:"/upload.php",
+   method:"POST",
+   data:{name:name},
+   success:function(data)
+   {
+    list_image();
+   }
+  })
+ });
+ 
+});
+</script>
     </body>
 </html>
