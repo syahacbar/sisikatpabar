@@ -141,6 +141,7 @@
         <!-- Statistik Laporan -->
 
         <!-- Formulir Pengaduan -->
+        <section id="formlapor">
         <div id="formulir" class="container">
             <div class="container px-5">
                 <h2 class="display-4 text-center lh-1 mb-4">Form Laporan Pengaduan</h2>
@@ -148,13 +149,13 @@
                     <h3>Identitas Pelapor</h3>
                     <p>Lengkapi data identitas anda sesuai KTP.</p>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <form>
+                            <?php echo form_open('lapor/add'); ?>
 
                                 <!-- NIK -->
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <input type="text" id="form6Example2" class="form-control" placeholder="Ketik NIK Anda" />
+                                        <input name="nik" type="text" class="form-control" placeholder="Ketik NIK Anda" />
                                       </div>
                                     </div>
                                 </div>   
@@ -164,7 +165,7 @@
                                 <div class="row mb-4">
                                   <div class="col">
                                     <div class="form-outline">
-                                      <input type="text" id="form6Example1" class="form-control" placeholder="Ketik Nama Anda"/>
+                                      <input name="nama_pelapor" type="text" class="form-control" placeholder="Ketik Nama Anda"/>
                                     </div>
                                   </div>
                                 </div>
@@ -174,7 +175,7 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <textarea class="form-control" id="form6Example8" rows="4" placeholder="Ketik alamat Anda dengan format: Nama Jalan, No. Rumah/Blok, Nama Kompleks, RT/RW"></textarea>
+                                        <textarea name="alamat_pelapor" class="form-control" rows="4" placeholder="Ketik alamat Anda dengan format: Nama Jalan, No. Rumah/Blok, Nama Kompleks, RT/RW"></textarea>
                                       </div>
                                     </div>
                                 </div>
@@ -183,8 +184,8 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                      <select name="kab_alamat" id="kab_alamat">
-                                            <option><i class="fas fa-chevron-down"></i>- Pilih Kab./Kota -</option>
+                                      <select name="kab_pelapor" id="kab_pelapor">
+                                            <option><i class="fas fa-chevron-down"></i>- Pilih Kabupaten/Kota -</option>
                                             <?php 
                                                 foreach($kabupaten as $kab)
                                                 {
@@ -201,8 +202,8 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <select name="kec_alamat" id="kec_alamat">
-                                            <option>- Pilih Kecamatan -</option>
+                                        <select name="kec_pelapor" id="kec_pelapor">
+                                            <option>- Pilih Kecamatan/Distrik -</option>
                                         </select>
                                       </div>
                                     </div>
@@ -212,7 +213,7 @@
                                 <!-- Kel./Desa -->
                                 <div class="row mb-4">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <select name="des_alamat" id="des_alamat">
+                                        <select name="des_pelapor" id="des_pelapor">
                                             <option><i class="fas fa-chevron-down"></i>- Pilih Kelurahan/Desa -</option>
                                         </select>
                                     </div>
@@ -223,13 +224,13 @@
                                 <div class="row mb-4">
                                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="form-outline">
-                                      <input type="text" id="form6Example1" class="form-control" placeholder="Ketik Alamat Email Anda"/>
+                                      <input name="email" type="text" class="form-control" placeholder="Ketik Alamat Email Anda"/>
                                     </div>
                                   </div>
 
                                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="form-outline">
-                                      <input type="text" id="form6Example1" class="form-control" placeholder="Ketik Nomor HP Anda"/>
+                                      <input name="no_hp" type="text" class="form-control" placeholder="Ketik Nomor HP Anda"/>
                                     </div>
                                   </div>
                                 </div>
@@ -241,7 +242,7 @@
                                         <label class="form-label" for="form6Example9">Unggah Foto KTP Anda (.jpg atau .png)</label> 
                                         <div class="drop-zone">
                                             <span class="drop-zone__prompt"><i class="fas fa-cloud-upload-alt"></i>Seret file ke sini</span>
-                                            <input type="file" name="myFile" class="drop-zone__input">
+                                            <input type="file" name="foto_ktp" class="drop-zone__input">
                                         </div>
                                     </div>
                                 </div>
@@ -254,10 +255,10 @@
                                 </div>
                                 <div class="row mb-4">
                                     <div class="col">
-                                        <select >
-                                            <option value="1"><i class="fas fa-chevron-down"></i>Pilih Jenis Infrastruktur</option>
-                                            <option value="2">Jalan</option>
-                                            <option value="3">Drainase</option>
+                                        <select name="infrastruktur">
+                                            <option><i class="fas fa-chevron-down"></i>Pilih Jenis Infrastruktur</option>
+                                            <option value="Jalan">Jalan</option>
+                                            <option value="Drainase">Drainase</option>
                                         </select>
                                     </div>
                                 </div>
@@ -267,7 +268,7 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <label class="form-label">Tandai Lokasi Yang Dilaporkan</label>
+                                        <label class="form-label">Tandai Lokasi Yang Dilaporkan Dengan Menggeser Penanda Merah Pada Peta Berikut Ini</label>
                                         <?php echo $map['html']; ?>
                                       </div>
                                     </div>
@@ -294,7 +295,7 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <input type="text" id="form6Example5" class="form-control" placeholder="Ruas Nama Jalan"/>
+                                        <input name="lokasi_namajalan" type="text" class="form-control" placeholder="Ruas Nama Jalan"/>
                                       </div>
                                     </div>
                                 </div>
@@ -304,8 +305,8 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <select name="kab" id="kabupaten">
-                                            <option>- Pilih Kabupaten -</option>
+                                        <select name="lokasi_kabkota" id="lokasi_kabkota">
+                                            <option>- Pilih Kabupaten/Kota -</option>
                                             <?php 
                                                 foreach($kabupaten as $kab)
                                                 {
@@ -322,8 +323,8 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <select name="kec" id="kecamatan">
-                                            <option>- Pilih Kecamatan -</option>
+                                        <select name="lokasi_distrik" id="lokasi_distrik">
+                                            <option>- Pilih Kecamatan/Distrik -</option>
                                         </select>
                                       </div>
                                     </div>
@@ -334,7 +335,7 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <textarea class="form-control" id="form6Example8" rows="4" placeholder="Jelaskan laporan Anda di sini"></textarea>
+                                        <textarea class="form-control" rows="4" placeholder="Jelaskan laporan Anda di sini"></textarea>
                                       </div>
                                     </div>
                                 </div>
@@ -344,10 +345,10 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                         <div class="form-outline">
-                                            <label class="form-label" for="form6Example9">Unggah Lampiran Laporan (.jpg atau .png)</label> 
+                                            <label class="form-label">Unggah Lampiran Laporan (.jpg atau .png)</label> 
                                             <div class="drop-zone">
                                                 <span class="drop-zone__prompt"><i class="fas fa-cloud-upload-alt"></i>Seret file ke sini</span>
-                                                <input type="file" name="myFile" class="drop-zone__input">
+                                                <input type="file" name="dokumentasi" class="drop-zone__input">
                                             </div>
                                         </div>
                                     </div>
@@ -356,20 +357,20 @@
 
                                 <!-- Kebijakan Privasi -->
                                 <div id="policy" class="form-check d-flex justify-content-center mb-4">
-                                  <input class="form-check-input me-2" type="checkbox" value="" id="form6Example10" checked/>
-                                  <label class="form-check-label" for="form6Example10">Dengan mencetang pilihan ini, saya menyatakan bahwa informasi yang saya berikan adalah sebenar-benarnya dan dapat dipertanggungjawabkan kebenarannya</label>
+                                  <label class="form-check-label">Dengan ini, saya menyatakan bahwa informasi yang saya berikan adalah benar dan dapat dipertanggungjawabkan.</label>
                                 </div>
                                 <!-- Akhir Kebijakan Privasi -->
 
                                 <!-- Tombol Kirim -->
-                                <button type="submit" class="btn btn-primary btn-block mb-4">Kirim Laporan</button>
+                                <button name="submit" type="submit" class="btn btn-primary btn-block mb-4">Kirim Laporan</button>
                                 <!-- Tombol Kirim -->
-                            </form>
+                            <?php echo form_close(); ?>
                         </div>
                     </div>
                 </div>
             </div>  
         </div>
+        </section>
         <!-- Akhir Formulir pengaduan -->
 
         <!--  Blok Laporan Terbaru -->
@@ -532,19 +533,19 @@
         <!-- Internal JS -->
         <script>
             $(document).ready(function(){       
-                $("#kabupaten").change(function (){
+                $("#lokasi_kabkota").change(function (){
                     var url = "<?php echo site_url('lapor/add_ajax_kec');?>/"+$(this).val();
-                    $('#kecamatan').load(url);
+                    $('#lokasi_distrik').load(url);
                     return false;
                 });     
-                $("#kab_alamat").change(function (){
+                $("#kab_pelapor").change(function (){
                     var url = "<?php echo site_url('lapor/add_ajax_kec');?>/"+$(this).val();
-                    $('#kec_alamat').load(url);
+                    $('#kec_pelapor').load(url);
                     return false;
                 });    
-                $("#kec_alamat").change(function (){
+                $("#kec_pelapor").change(function (){
                     var url = "<?php echo site_url('lapor/add_ajax_des');?>/"+$(this).val();
-                    $('#des_alamat').load(url);
+                    $('#des_pelapor').load(url);
                     return false;
                 });
             });

@@ -4,7 +4,7 @@
             <div class="box-header with-border">
               	<h3 class="box-title">Laporan Add</h3>
             </div>
-            <?php echo form_open('laporan/add'); ?>
+            <?php echo form_open_multipart('laporan/add'); ?>
           	<div class="box-body">
           		<div class="row clearfix">
 					<div class="col-md-6">
