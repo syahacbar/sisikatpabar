@@ -39,7 +39,7 @@ class Lapor extends CI_Controller{
     function add_ajax_kab($id_prov)
     {
         $query = $this->db->get_where('regencies',array('province_id'=>$id_prov));
-        $data = "<option value=''>- Pilih Kabupaten -</option>";
+        $data = "<option value=''>- Pilih Kabupaten/Kota -</option>";
         foreach ($query->result() as $value) {
             $data .= "<option value='".$value->id."'>".$value->name."</option>";
         }
@@ -49,7 +49,17 @@ class Lapor extends CI_Controller{
     function add_ajax_kec($id_kab)
     {
         $query = $this->db->get_where('districts',array('regency_id'=>$id_kab));
-        $data = "<option value=''> - Pilih Kecamatan - </option>";
+        $data = "<option value=''> - Pilih Kecamatan/Distrik - </option>";
+        foreach ($query->result() as $value) {
+            $data .= "<option value='".$value->id."'>".$value->name."</option>";
+        }
+        echo $data;
+    }
+  
+    function add_ajax_des($id_kec)
+    {
+        $query = $this->db->get_where('villages',array('district_id'=>$id_kec));
+        $data = "<option value=''> - Pilih Kelurahan/Desa - </option>";
         foreach ($query->result() as $value) {
             $data .= "<option value='".$value->id."'>".$value->name."</option>";
         }

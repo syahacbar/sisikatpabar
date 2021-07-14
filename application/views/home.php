@@ -146,7 +146,7 @@
                 <h2 class="display-4 text-center lh-1 mb-4">Form Laporan Pengaduan</h2>
                     <div class="row gx-5 align-items-center">
                     <h3>Identitas Pelapor</h3>
-                    <p>Silakan isi sesuai KTP.</p>
+                    <p>Lengkapi data identitas anda sesuai KTP.</p>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <form>
 
@@ -179,38 +179,12 @@
                                     </div>
                                 </div>
                                 <!-- Akhir Alamat -->   
-                                
-                                <!-- Kel./Desa -->
-                                <div class="row mb-4">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <select >
-                                            <option value="1"><i class="fas fa-chevron-down"></i>- Pilih Kel./Desa -</option>
-                                            <option value="2">Wosi</option>
-                                            <option value="3">Sanggeng</option>
-                                            <option value="3">Amban</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Akhir Kel./Desa -->
-
-                                <!-- Kecamatan -->
-                                <div class="row mb-4">
-                                    <div class="col">
-                                      <div class="form-outline">
-                                        <select name="kec" id="kecamatan">
-                                            <option>- Pilih Kecamatan -</option>
-                                        </select>
-                                      </div>
-                                    </div>
-                                </div>
-                                <!-- Akhir Kecamatan -->
-
                                 <!-- Kabupaten -->
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                      <select >
-                                            <option value="1"><i class="fas fa-chevron-down"></i>- Pilih Kab./Kota -</option>
+                                      <select name="kab_alamat" id="kab_alamat">
+                                            <option><i class="fas fa-chevron-down"></i>- Pilih Kab./Kota -</option>
                                             <?php 
                                                 foreach($kabupaten as $kab)
                                                 {
@@ -221,7 +195,30 @@
                                       </div>
                                     </div>
                                 </div>
-                                <!-- Akhir Kabupaten -->                                           
+                                <!-- Akhir Kabupaten -->     
+
+                                <!-- Kecamatan -->
+                                <div class="row mb-4">
+                                    <div class="col">
+                                      <div class="form-outline">
+                                        <select name="kec_alamat" id="kec_alamat">
+                                            <option>- Pilih Kecamatan -</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                </div>
+                                <!-- Akhir Kecamatan --> 
+                                <!-- Kel./Desa -->
+                                <div class="row mb-4">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <select name="des_alamat" id="des_alamat">
+                                            <option><i class="fas fa-chevron-down"></i>- Pilih Kelurahan/Desa -</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Akhir Kel./Desa -->
+
+                                                                     
 
                                 <!-- Email dan Nomor HP-->
                                 <div class="row mb-4">
@@ -254,7 +251,7 @@
                                 <!-- Jenis Infrastruktur-->
                                 <div class="report">
                                     <h3>Data Laporan</h3>
-                                    <p>Lengkapi data lokasi yang dilaporkan sesuai dengan bidang-bidang di bawah ini.</p>
+                                    <p>Isi formulir laporan pengaduan tentang infrastruktur dibawah ini.</p>
                                 </div>
                                 <div class="row mb-4">
                                     <div class="col">
@@ -361,7 +358,7 @@
                                 <!-- Kebijakan Privasi -->
                                 <div id="policy" class="form-check d-flex justify-content-center mb-4">
                                   <input class="form-check-input me-2" type="checkbox" value="" id="form6Example10" checked/>
-                                  <label class="form-check-label" for="form6Example10">Dengan mencetang pilihan ini, Anda menyetujui persyaratan layanan SI-SIKAT </label>
+                                  <label class="form-check-label" for="form6Example10">Dengan mencetang pilihan ini, saya menyatakan bahwa informasi yang saya berikan adalah sebenar-benarnya dan dapat dipertanggungjawabkan kebenarannya</label>
                                 </div>
                                 <!-- Akhir Kebijakan Privasi -->
 
@@ -540,7 +537,17 @@
                     var url = "<?php echo site_url('lapor/add_ajax_kec');?>/"+$(this).val();
                     $('#kecamatan').load(url);
                     return false;
-                })
+                });     
+                $("#kab_alamat").change(function (){
+                    var url = "<?php echo site_url('lapor/add_ajax_kec');?>/"+$(this).val();
+                    $('#kec_alamat').load(url);
+                    return false;
+                });    
+                $("#kec_alamat").change(function (){
+                    var url = "<?php echo site_url('lapor/add_ajax_des');?>/"+$(this).val();
+                    $('#des_alamat').load(url);
+                    return false;
+                });
             });
         </script>
         <script type="text/javascript">
