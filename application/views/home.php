@@ -169,35 +169,48 @@
                                   </div>
                                 </div>
                                 <!-- Akhir Nama -->
-                              
-                                <!-- RT/RW, Kel./Desa, Kec.Distrik -->
-                                <div class="row mb-4">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                      <input type="text" id="form6Example1" class="form-control" placeholder="Ketik RT/RW"/>
-                                    </div>
 
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <!-- Alamat -->
+                                <div class="row mb-4">
+                                    <div class="col">
+                                      <div class="form-outline">
+                                        <textarea class="form-control" id="form6Example8" rows="4" placeholder="Ketik alamat Anda dengan format: Nama Jalan, No. Rumah/Blok, Nama Kompleks, RT/RW"></textarea>
+                                      </div>
+                                    </div>
+                                </div>
+                                <!-- Akhir Alamat -->   
+                                
+                                <!-- Kel./Desa -->
+                                <div class="row mb-4">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <select >
-                                            <option value="1"><i class="fas fa-chevron-down"></i>Pilih Kel./Desa</option>
+                                            <option value="1"><i class="fas fa-chevron-down"></i>- Pilih Kel./Desa -</option>
                                             <option value="2">Wosi</option>
                                             <option value="3">Sanggeng</option>
                                             <option value="3">Amban</option>
                                         </select>
                                     </div>
                                 </div>
+                                <!-- Akhir Kel./Desa -->
 
+                                <!-- Kecamatan -->
                                 <div class="row mb-4">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                        <select >
-                                            <option value="1"><i class="fas fa-chevron-down"></i>Pilih Kec./Distrik</option>
-                                            <option value="2">Manokwari Barat</option>
-                                            <option value="3">Manokwari Timur</option>
+                                    <div class="col">
+                                      <div class="form-outline">
+                                        <select name="kec" id="kecamatan">
+                                            <option>- Pilih Kecamatan -</option>
                                         </select>
+                                      </div>
                                     </div>
+                                </div>
+                                <!-- Akhir Kecamatan -->
 
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                        <select >
-                                            <option value="1"><i class="fas fa-chevron-down"></i>Pilih Kab./Kota</option>
+                                <!-- Kabupaten -->
+                                <div class="row mb-4">
+                                    <div class="col">
+                                      <div class="form-outline">
+                                      <select >
+                                            <option value="1"><i class="fas fa-chevron-down"></i>- Pilih Kab./Kota -</option>
                                             <?php 
                                                 foreach($kabupaten as $kab)
                                                 {
@@ -205,19 +218,10 @@
                                                 }
                                             ?>
                                         </select>
-                                    </div>
-                                </div>
-                                <!-- Akhir RT/RW, Kel./Desa, Kec.Distrik -->
-
-                                <!-- Alamat -->
-                                <div class="row mb-4">
-                                    <div class="col">
-                                      <div class="form-outline">
-                                        <textarea class="form-control" id="form6Example8" rows="4" placeholder="Ketik alamat Anda dengan format: Nama Jalan, No. Rumah/Blok, Nama Kompleks"></textarea>
                                       </div>
                                     </div>
                                 </div>
-                                <!-- Akhir Alamat -->                                                
+                                <!-- Akhir Kabupaten -->                                           
 
                                 <!-- Email dan Nomor HP-->
                                 <div class="row mb-4">
