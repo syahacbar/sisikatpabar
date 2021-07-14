@@ -51,7 +51,7 @@
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#statistik">Statistik</a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" href="<?php echo base_url('laporan');?>">Lihat Laporan</a></li>
                     </ul>
-                    <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                    <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#loginpage">
                         <span class="d-flex align-items-center">
                             <i class="bi bi-box-arrow-in-right me-2"></i>
                             <span class="small">Masuk</span>
@@ -208,6 +208,7 @@
                                     </div>
                                 </div>
                                 <!-- Akhir Kecamatan --> 
+
                                 <!-- Kel./Desa -->
                                 <div class="row mb-4">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -216,9 +217,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <!-- Akhir Kel./Desa -->
-
-                                                                     
+                                <!-- Akhir Kel./Desa -->                                                                   
 
                                 <!-- Email dan Nomor HP-->
                                 <div class="row mb-4">
@@ -481,7 +480,7 @@
         <!-- Akhir Footer -->
 
         <!-- Modal Login Anggota-->
-        <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal fade" id="loginpage" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header bg-gradient-primary-to-secondary p-4">

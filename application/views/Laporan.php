@@ -137,7 +137,21 @@
         </div>
         </div>
         
-
+        <!-- Footer -->
+        <footer class="bg-black text-center py-5">
+            <div class="container px-5">
+                <div class="text-white-50 small">
+                    <div class="mb-2">SI-SIKAT &copy; 2021. All Rights Reserved.</div>
+                    <a href="#!">Privasi</a>
+                    <span class="mx-1">&middot;</span>
+                    <a href="#!">Istilah</a>
+                    <span class="mx-1">&middot;</span>
+                    <a href="#!">FAQ</a>
+                </div>
+            </div>
+        </footer>
+        <!-- Akhir Footer -->
+        
         <!-- Tambahan JS dari Bootstrap -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
