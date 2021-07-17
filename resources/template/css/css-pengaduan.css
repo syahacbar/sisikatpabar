@@ -128,6 +128,22 @@ header#header a.me-lg-3.mb-4.mb-lg-0:last-child {
     font-size: 28px;
 }
 
+/* Tombol masuk pada modal login */
+div#loginpage .btn-primary {
+    color: #fff;
+    background-color: #2937f0 !important;
+    border: 0 !important;
+    border-radius: 30px !important;
+}
+
+/* Lebar modal login */
+div#loginpage .modal-content {
+    width: 350px !important;
+    max-width: 350px !important;
+    min-width: 350px !important;
+    margin: 0 auto !important;
+}
+
 /* Block Formulir */
 #formulir {
     padding-top: 5rem;
@@ -646,5 +662,26 @@ div#radio {
 .col-lg-6.col-md-6.col-sm-6.col-xs-6 {
     width: 50% !important;
     flex: 0 0 50%;
+}
+
+/* Unggah File Dropzone */
+.upload-file {
+    margin-bottom: 50px;
+}
+
+form#dropzoneFrom {
+    border: 2px dashed #4e2eeb;
+}
+
+.upload-btn {
+    margin-top: 20px;
+}
+
+.upload-btn button#submit-all {
+    background-color: #4e2eeb;
+    padding: 5px 20px;
+    border-radius: 30px;
+    border: 0;
+    color: #fff;
 }
 
