@@ -34,8 +34,7 @@
         <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
         <?php echo $map['js']; ?>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('resources/dropzone-5.7.0/dist/dropzone.css') ?>">
     </head>
 
     <body id="page-top">
@@ -152,7 +151,7 @@
                     <h3>Identitas Pelapor</h3>
                     <p>Lengkapi data identitas anda sesuai KTP.</p>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <?php echo form_open('lapor/add'); ?>
+                            <?php echo form_open_multipart('lapor/add',array('id'=>'formlaporan')); ?>
 
                                 <!-- NIK -->
                                 <div class="row mb-4">
@@ -241,13 +240,10 @@
                                 <!-- Email -->
 
                                 <!-- Unggah Bukti -->
-                                <div class="upload-file">
-                                    <form action="upload.php" class="dropzone" id="dropzoneFrom"></form>   
-                                    <div align="center">
-                                        <button type="button" class="btn btn-info" id="submit-all">Upload</button>
-                                    </div>
-                                    <div id="preview"></div>
-                                </div>
+                                <div class="dropzone ktp">
+                                   <h5 align="center">Foto KTP</h5>
+                                </div>  
+                                <input type="hidden" id="hid_filektp" name="hid_filektp" value="">
                                 <!-- Unggah Bukti -->                          
 
                                 <!-- Jenis Infrastruktur-->
@@ -343,14 +339,9 @@
                                 </div>
                                 <!-- Akhir Isi Laporan -->
 
-                                <!-- Unggah Bukti -->
-                                <div class="upload-file">
-                                    <form action="upload.php" class="dropzone" id="dropzoneFrom"></form>   
-                                    <div class="upload-btn" align="center">
-                                        <button type="button" class="btn btn-info" id="submit-all">Upload</button>
-                                    </div>
-                                    <div id="preview"></div>
-                                </div>
+                                <div class="dropzone dokumentasi">
+                                   <h5 align="center">Foto Dokumentasi</h5>
+                                </div> 
                                 <!-- Unggah Bukti -->
 
                                 <!-- Kebijakan Privasi -->
@@ -360,7 +351,7 @@
                                 <!-- Akhir Kebijakan Privasi -->
 
                                 <!-- Tombol Kirim -->
-                                <button name="submit" type="submit" class="btn btn-primary btn-block mb-4">Kirim Laporan</button>
+                                <button id="btnSubmit" name="submit" type="submit" class="btn btn-primary btn-block mb-4">Kirim Laporan</button>
                                 <!-- Tombol Kirim -->
                             <?php echo form_close(); ?>
                         </div>
@@ -527,8 +518,93 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="<?php echo base_url();?>resources/template/js/js-pengaduan.js"></script>
+        <script type="text/javascript" src="<?php echo base_url('resources/dropzone-5.7.0/dist/dropzone.js') ?>"></script>
 
         <!-- Internal JS -->
+        <script>
+            Dropzone.autoDiscover = false;
+            var ktp_upload= new Dropzone(".ktp",{
+                autoProcessQueue: false,
+                url: "<?php echo site_url('lapor/proses_uploadktp') ?>",
+                maxFilesize: 10,
+                method:"post",
+                acceptedFiles:"image/*",
+                paramName:"filektp",
+                dictInvalidFileType:"Type file ini tidak dizinkan",
+                addRemoveLinks:true,
+            });
+
+
+            //Event ketika Memulai mengupload
+            ktp_upload.on("sending",function(a,b,c){
+                a.token_fotoktp=Math.random();
+                c.append("token_fotoktp",a.token_fotoktp); //Menmpersiapkan token untuk masing masing foto
+                
+            });
+
+            //Event ketika foto dihapus
+            ktp_upload.on("removedfile",function(a){
+                var token_fotoktp=a.token_fotoktp;
+                $.ajax({
+                    type:"post",
+                    data:{token_fotoktp:token_fotoktp},
+                    url:"<?php echo site_url('lapor/remove_fotoktp') ?>",
+                    cache:false,
+                    dataType: 'json',
+                    success: function(){
+                        console.log("Foto terhapus");
+                    },
+                    error: function(){
+                        console.log("Error");
+
+                    }
+                });
+            });
+
+            var dokumentasi_upload= new Dropzone(".dokumentasi",{
+                autoProcessQueue: false,
+                url: "<?php echo site_url('lapor/proses_uploaddokumentasi') ?>",
+                maxFilesize: 10,
+                method:"post",
+                acceptedFiles:"image/*",
+                paramName:"filedokumentasi",
+                dictInvalidFileType:"Type file ini tidak dizinkan",
+                addRemoveLinks:true,
+            });
+
+
+            //Event ketika Memulai mengupload
+            dokumentasi_upload.on("sending",function(a,b,c){
+                a.token_dokumentasi=Math.random();
+                c.append("token_dokumentasi",a.token_dokumentasi); //Menmpersiapkan token untuk masing masing foto
+            });
+
+            //Event ketika foto dihapus
+            dokumentasi_upload.on("removedfile",function(a){
+                var token_dokumentasi=a.token_dokumentasi;
+                $.ajax({
+                    type:"post",
+                    data:{token_dokumentasi:token_dokumentasi},
+                    url:"<?php echo site_url('lapor/remove_dokumentasi') ?>",
+                    cache:false,
+                    dataType: 'json',
+                    success: function(){
+                        console.log("Foto terhapus");
+                    },
+                    error: function(){
+                        console.log("Error");
+
+                    }
+                });
+            });
+
+            
+
+            $('#btnSubmit').click(function(){
+               ktp_upload.processQueue();
+               dokumentasi_upload.processQueue();
+            });
+        </script>
         <script>
             $(document).ready(function(){       
                 $("#lokasi_kabkota").change(function (){
@@ -557,131 +633,7 @@
             }
 
         </script>
+        
 
-        <!-- Drag and Drop Foto -->
-        <script>
-                    document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
-            const dropZoneElement = inputElement.closest(".drop-zone");
-
-            dropZoneElement.addEventListener("click", (e) => {
-                inputElement.click();
-            });
-
-            inputElement.addEventListener("change", (e) => {
-                if (inputElement.files.length) {
-                updateThumbnail(dropZoneElement, inputElement.files[0]);
-                }
-            });
-
-            dropZoneElement.addEventListener("dragover", (e) => {
-                e.preventDefault();
-                dropZoneElement.classList.add("drop-zone--over");
-            });
-
-            ["dragleave", "dragend"].forEach((type) => {
-                dropZoneElement.addEventListener(type, (e) => {
-                dropZoneElement.classList.remove("drop-zone--over");
-                });
-            });
-
-            dropZoneElement.addEventListener("drop", (e) => {
-                e.preventDefault();
-
-                if (e.dataTransfer.files.length) {
-                inputElement.files = e.dataTransfer.files;
-                updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
-                }
-
-                dropZoneElement.classList.remove("drop-zone--over");
-            });
-            });
-
-            /**
-            * Updates the thumbnail on a drop zone element.
-            *
-            * @param {HTMLElement} dropZoneElement
-            * @param {File} file
-            */
-            function updateThumbnail(dropZoneElement, file) {
-            let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
-
-            // First time - remove the prompt
-            if (dropZoneElement.querySelector(".drop-zone__prompt")) {
-                dropZoneElement.querySelector(".drop-zone__prompt").remove();
-            }
-
-            // First time - there is no thumbnail element, so lets create it
-            if (!thumbnailElement) {
-                thumbnailElement = document.createElement("div");
-                thumbnailElement.classList.add("drop-zone__thumb");
-                dropZoneElement.appendChild(thumbnailElement);
-            }
-
-            thumbnailElement.dataset.label = file.name;
-
-            // Show thumbnail for image files
-            if (file.type.startsWith("image/")) {
-                const reader = new FileReader();
-
-                reader.readAsDataURL(file);
-                reader.onload = () => {
-                thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
-                };
-            } else {
-                thumbnailElement.style.backgroundImage = null;
-            }
-            }
-        </script>
-
-        <script>
-$(document).ready(function(){
- 
- Dropzone.options.dropzoneFrom = {
-  autoProcessQueue: false,
-  acceptedFiles:".png,.jpg,.gif,.bmp,.jpeg",
-  init: function(){
-   var submitButton = document.querySelector('#submit-all');
-   myDropzone = this;
-   submitButton.addEventListener("click", function(){
-    myDropzone.processQueue();
-   });
-   this.on("complete", function(){
-    if(this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0)
-    {
-     var _this = this;
-     _this.removeAllFiles();
-    }
-    list_image();
-   });
-  },
- };
-
- list_image();
-
- function list_image()
- {
-  $.ajax({
-   url:"upload.php",
-   success:function(data){
-    $('#preview').html(data);
-   }
-  });
- }
-
- $(document).on('click', '.remove_image', function(){
-  var name = $(this).attr('id');
-  $.ajax({
-   url:"/upload.php",
-   method:"POST",
-   data:{name:name},
-   success:function(data)
-   {
-    list_image();
-   }
-  })
- });
- 
-});
-</script>
     </body>
 </html>

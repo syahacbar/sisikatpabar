@@ -1,41 +1,17 @@
-<?php
-$folder_name = 'upload/';
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+        <title>Tutorial Belajarphp.net</title
+        <!-- Add Dropzone -->
+        <script src="<?php echo base_url() ?>resources/dropzone-5.7.0/dist/dropzone.js"></script>
+        <link rel="stylesheet" href="<?php echo base_url() ?>resources/dropzone-5.7.0/dist/dropzone.css">
+    </head>
+    <body>
+        <h1>Upload Multiple Files Menggunakan DropzoneJS and Codeigniter</h1>
+        <div class="image_upload_div">
+            <?php echo form_open('upload/do_upload', "class='dropzone'"); ?>
 
-if(!empty($_FILES))
-{
- $temp_file = $_FILES['file']['tmp_name'];
- $location = $folder_name . $_FILES['file']['name'];
- move_uploaded_file($temp_file, $location);
-}
-
-if(isset($_POST["name"]))
-{
- $filename = $folder_name.$_POST["name"];
- unlink($filename);
-}
-
-$result = array();
-
-$files = scandir('upload');
-
-$output = '<div class="row">';
-
-if(false !== $files)
-{
- foreach($files as $file)
- {
-  if('.' !=  $file && '..' != $file)
-  {
-   $output .= '
-   <div class="col-md-2">
-    <img src="'.$folder_name.$file.'" class="img-thumbnail" width="175" height="175" style="height:175px;" />
-    <button type="button" class="btn btn-link remove_image" id="'.$file.'">Remove</button>
-   </div>
-   ';
-  }
- }
-}
-$output .= '</div>';
-echo $output;
-
-?>
+            </form>
+        </div>  
+    </body>
+</html>
