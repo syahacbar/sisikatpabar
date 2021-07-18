@@ -60,14 +60,13 @@ a.navbar-brand img.d-inline-block.align-top {
 
 #mainNav .navbar-toggler {
     font-size: 0.875rem;
-    padding: 10px;
+    padding: 0;
     border: 0;
     font-weight: bold;
     font-weight: bold;
-    background-image: url(https://justapp.id/assets/images/toggler_icon_white.svg);
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
+    height: 50px;
+    width: 45px;
+    color: #Fff;
 }
 
 /* Tulisan SISIKAT dan sistem informasi bagian header */
@@ -372,8 +371,14 @@ input#form6Example10 {
 
 /* Modal */
 .modal-dialog {
-    max-width: 90%;
+    max-width: 100%;
     margin: 1.75rem auto;
+}
+
+div#exampleModalScrollable {
+    padding: 0 !important;
+    width: 90% !important;
+    margin: 0 5%;
 }
 
 /* Counter */
