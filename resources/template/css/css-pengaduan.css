@@ -10,7 +10,7 @@ a.navbar-brand img.d-inline-block.align-top {
     background-color: #ecf0f6;
     padding-top: 8rem;
     padding-bottom: 5rem;
-    background-image: url(https://ensiklopediakesaguan.com/wp-content/uploads/2021/07/header_1.png);
+    background-image: url(../assets/img/header_1.png);
     background-position: center bottom !important;
     background-repeat: no-repeat;
     background-size: cover;
@@ -21,7 +21,7 @@ a.navbar-brand img.d-inline-block.align-top {
     padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: #fff;
-    background-image: url(https://justapp.id/assets/images/css-26.svg),linear-gradient(163deg,#cd0c43,#cd0c43 49%,#cd0c43);
+    background-image: url(../assets/img/transparent_bg.svg),linear-gradient(163deg,#cd0c43,#cd0c43 49%,#cd0c43);
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
@@ -145,9 +145,9 @@ div#loginpage .modal-content {
 
 /* Block Formulir */
 #formulir {
-    padding-top: 5rem;
+    padding-top: 2rem;
     background-color: #fff;
-    background-image: url(https://ensiklopediakesaguan.com/wp-content/uploads/2021/06/bg_2.png);
+    background-image: url(../assets/img/bg_2.png);
     background-position: bottom left;
     background-repeat: no-repeat;
     background-size: contain;
@@ -172,7 +172,7 @@ div#loginpage .modal-content {
     justify-content: center;
     align-items: center;
     color: #fff;
-    background-image: url(https://justapp.id/assets/images/css-26.svg),linear-gradient(163deg ,#cd0c43,#cd0c43 49%,#cd0c43);
+    background-image: url(../assets/img/transparent_bg.svg),linear-gradient(163deg ,#cd0c43,#cd0c43 49%,#cd0c43);
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
@@ -346,7 +346,7 @@ footer.bg-black.text-center.py-5 * {
 footer.bg-black {
     margin-top: 4rem;
     background-color: #fff;
-    background-image: url(https://justapp.id/assets/images/css-26.svg),linear-gradient(163deg,#cd0c43,#cd0c43 49%,#cd0c43);
+    background-image: url(../assets/img/transparent_bg.svg),linear-gradient(163deg,#cd0c43,#cd0c43 49%,#cd0c43);
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
@@ -413,6 +413,31 @@ div#exampleModalScrollable {
     align-items: center;
 }
 
+
+@media (max-width: 470px) {
+.counter-count {
+    font-size: 70px;
+    font-weight: 900;
+    position: relative;
+    color: #ffffff;
+    text-align: center;
+    line-height: 92px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+}
+
+/* Statistik untuk small device */
+section#statistik .col-lg-6.col-md-6.col-sm-6.col-xs-6 {
+    width: 40% !important;
+    flex: 0 0 40%;
+    margin: 0 5% !important;
+}
+
 .employee-p,
 .customer-p,
 .order-p,
@@ -442,7 +467,7 @@ p.counter-count {
     outline: 0;
     margin: 0;
     border-radius: 20px !important;
-    background-image: url(https://ensiklopediakesaguan.com/wp-content/uploads/2021/06/bg_1.png);
+    background-image: url(../assets/img/bg_1.png);
     background-position: top left;
     background-repeat: no-repeat;
     background-size: contain;
@@ -545,6 +570,10 @@ div#laporan .btn-primary {
     border-radius: 30px;
 }
 
+div#laporan h2 {
+    margin-top: 0;
+}
+
 @media (max-width: 768px) {
 #img {
     display: none;
@@ -553,7 +582,7 @@ div#laporan .btn-primary {
 
 /* Blok Laporan */
 div#laporan {
-    padding-top: 50px;
+    padding-top: 0;
 }
 
 /* Drag and Drop File */

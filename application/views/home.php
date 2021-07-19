@@ -103,7 +103,7 @@
                             <div class="device-wrapper">
                                 <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
                                     <div class="screen bg-black">
-                                        <img src="<?php echo base_url();?>resources/web-pengaduan/assets/img/form.jpg" style="max-width: 100%; height: 100%"/>
+                                        <img src="<?php echo base_url();?>resources/template/assets/img/form.jpg" style="max-width: 100%; height: 100%"/>
                                     </div>
                                 </div>
                             </div>
@@ -123,14 +123,14 @@
                     <div class="col-lg-12 order-lg-1 mb-5 mb-lg-0">
                         <div class="container-fluid px-5">
                             <div id="jalandrainase" class="row gx-10">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="employees">
                                         <p class="counter-count"><?php echo $jum_lap_jalan;?></p>
                                         <p class="employee-p">Pengaduan Masalah Jalan</p>
                                     </div>
                                 </div>
 
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="customer">
                                         <p class="counter-count"><?php echo $jum_lap_drainase;?></p>
                                         <p class="employee-p">Pengaduan Masalah Drainase</p>
@@ -485,7 +485,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
         
         <!-- JS Inti-->
-        <script src="<?php echo base_url();?>resources/web-pengaduan/js/scripts.js"></script>
+        <script src="<?php echo base_url();?>resources/template/js/scripts.js"></script>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
         <!-- Link ke JS Counter -->
