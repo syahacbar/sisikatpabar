@@ -126,7 +126,7 @@ class Lapor extends CI_Controller{
     function uploaddokumentasi()
     {
             $config['upload_path']   = FCPATH.'/upload/dokumentasi/';
-            //$config['allowed_types'] = 'gif|jpg|png|ico';
+            $config['allowed_types'] = 'gif|jpg|png|ico|jpeg';
             $this->load->library('upload',$config);
 
             if($this->upload->do_upload('filedokumentasi')){
