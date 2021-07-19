@@ -33,8 +33,8 @@
         <!-- Tambahan Link CSS Untuk Counter -->
         <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
         <?php echo $map['js']; ?>
-
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('resources/dropzone-5.7.0/dist/dropzone.css') ?>">
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.css' type='text/css' rel='stylesheet'>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js' type='text/javascript'></script>
     </head>
 
     <body id="page-top">
@@ -125,14 +125,14 @@
                             <div id="jalandrainase" class="row gx-10">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="employees">
-                                        <p class="counter-count">879</p>
+                                        <p class="counter-count"><?php echo $jum_lap_jalan;?></p>
                                         <p class="employee-p">Pengaduan Masalah Jalan</p>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="customer">
-                                        <p class="counter-count">879</p>
+                                        <p class="counter-count"><?php echo $jum_lap_drainase;?></p>
                                         <p class="employee-p">Pengaduan Masalah Drainase</p>
                                     </div>
                                 </div>
@@ -159,7 +159,7 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <input name="nik" type="text" class="form-control" placeholder="Ketik NIK Anda" />
+                                        <input id="nik" name="nik" type="text" class="form-control" placeholder="Ketik NIK Anda" />
                                       </div>
                                     </div>
                                 </div>   
@@ -194,7 +194,7 @@
                                             <?php 
                                                 foreach($kabupaten as $kab)
                                                 {
-                                                    echo '<option value="'.$kab->id.'">'.$kab->name.'</option>';
+                                                    echo '<option value="'.$kab->kode.'">'.$kab->nama.'</option>';
                                                 }
                                             ?>
                                         </select>
@@ -242,12 +242,11 @@
                                 <!-- Email -->
 
                                 <!-- Unggah Bukti -->
-                                <div class="dropzone ktp">
-                                   <h5 align="center">Foto KTP</h5>
-                                </div>  
-                                <input type="hidden" id="hid_filektp" name="hid_filektp" value="">
-                                <!-- Unggah Bukti -->                          
-
+                                <div class="dropzone ktp" id="ktp">
+                                    <div class="dz-message">
+                                        <h3> Klik atau Drop gambar disini</h3>
+                                    </div>
+                                </div>
                                 <!-- Jenis Infrastruktur-->
                                 <div class="report">
                                     <h3>Data Laporan</h3>
@@ -310,7 +309,7 @@
                                             <?php 
                                                 foreach($kabupaten as $kab)
                                                 {
-                                                    echo '<option value="'.$kab->id.'">'.$kab->name.'</option>';
+                                                    echo '<option value="'.$kab->kode.'">'.$kab->nama.'</option>';
                                                 }
                                             ?>
                                         </select>
@@ -341,17 +340,21 @@
                                 </div>
                                 <!-- Akhir Isi Laporan -->
 
-                                <div class="dropzone dokumentasi">
-                                   <h5 align="center">Foto Dokumentasi</h5>
+                                
+                                <div class="dropzone dokumentasi" id="dokumentasi">
+
+                                  <div class="dz-message">
+                                   <h3> Klik atau Drop gambar dokumentasi disini</h3>
+                                  </div>
+
                                 </div> 
-                                <!-- Unggah Bukti -->
 
                                 <!-- Kebijakan Privasi -->
                                 <div id="policy" class="form-check d-flex justify-content-center mb-4">
                                   <label class="form-check-label">Dengan ini, saya menyatakan bahwa informasi yang saya berikan adalah benar dan dapat dipertanggungjawabkan.</label>
                                 </div>
                                 <!-- Akhir Kebijakan Privasi -->
-
+                                <input type="hidden" id="kodelap" name="kodelap" value="<?php echo $kodelap;?>">
                                 <!-- Tombol Kirim -->
                                 <button id="btnSubmit" name="submit" type="submit" class="btn btn-primary btn-block mb-4">Kirim Laporan</button>
                                 <!-- Tombol Kirim -->
@@ -371,63 +374,32 @@
                     <div class="container-fluid px-5">
                         <!-- Laporan Baris Pertama -->
                         <div class="row">
+                            <?php foreach ($laporan1 as $res1) { ?>
                             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                <img src="https://images.unsplash.com/photo-1596785236251-71fa49ac5760?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="">
-                                <h3 class="font-alt">Laporan 1</h3>
-                                <p class="text-muted mb-0">Put an image, video, animation, or anything else in the screen!</p>
+                                <img src="<?php echo base_url('upload/dokumentasi/').$res1['nama_file'];?>" alt="">
+                                <h3 class="font-alt"><?php echo $res1['lokasi_namajalan'];?></h3>
+                                <p class="text-muted mb-0"><?php echo word_limiter($res1['pengaduan'],10); ?></p>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
                                     Detail
                                 </button>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                <img src="https://images.unsplash.com/photo-1596785236251-71fa49ac5760?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="">
-                                <h3 class="font-alt">Laporan 1</h3>
-                                <p class="text-muted mb-0">Put an image, video, animation, or anything else in the screen!</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
-                                    Detail
-                                </button>
-                            </div>
-
-                            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                                <img src="https://images.unsplash.com/photo-1596785236251-71fa49ac5760?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="">
-                                <h3 class="font-alt">Laporan 1</h3>
-                                <p class="text-muted mb-0">Put an image, video, animation, or anything else in the screen!</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
-                                    Detail
-                                </button>
-                            </div>
+                        <?php } ?>
                         </div>
                         <!-- Akhir Laporan Baris Pertama -->
 
                         <!-- Laporan Baris Kedua -->
                         <div class="row">
+                            <?php foreach ($laporan2 as $res2) { ?>
                             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                <img src="https://images.unsplash.com/photo-1596785236251-71fa49ac5760?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="">
-                                <h3 class="font-alt">Laporan 1</h3>
-                                <p class="text-muted mb-0">Put an image, video, animation, or anything else in the screen!</p>
+                                <img src="<?php echo base_url('upload/dokumentasi/').$res2['nama_file'];?>" alt="">
+                                <h3 class="font-alt"><?php echo $res2['lokasi_namajalan'];?></h3>
+                                <p class="text-muted mb-0"><?php echo word_limiter($res2['pengaduan'],10);?></p>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
                                     Detail
                                 </button>
                             </div>
-
-                            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                <img src="https://images.unsplash.com/photo-1596785236251-71fa49ac5760?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="">
-                                <h3 class="font-alt">Laporan 1</h3>
-                                <p class="text-muted mb-0">Put an image, video, animation, or anything else in the screen!</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
-                                    Detail
-                                </button>
-                            </div>
-
-                            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                                <img src="https://images.unsplash.com/photo-1596785236251-71fa49ac5760?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="">
-                                <h3 class="font-alt">Laporan 1</h3>
-                                <p class="text-muted mb-0">Put an image, video, animation, or anything else in the screen!</p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
-                                    Detail
-                                </button>
-                            </div>
+                        <?php } ?>
                         </div>
                         <!-- Laporan Baris Kedua -->
                     </div>
@@ -520,95 +492,18 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="<?php echo base_url();?>resources/template/js/js-pengaduan.js"></script>
-        <script type="text/javascript" src="<?php echo base_url('resources/dropzone-5.7.0/dist/dropzone.js') ?>"></script>
+        
 
-        <!-- Internal JS -->
         <script>
+            function setMapToForm(latitude, longitude) 
+            {
+              $('input[name="latitude"]').val(latitude);
+              $('input[name="longitude"]').val(longitude);
+            }
+
             Dropzone.autoDiscover = false;
-            var ktp_upload= new Dropzone(".ktp",{
-                autoProcessQueue: false,
-                url: "<?php echo site_url('lapor/proses_uploadktp') ?>",
-                maxFilesize: 10,
-                method:"post",
-                acceptedFiles:"image/*",
-                paramName:"filektp",
-                dictInvalidFileType:"Type file ini tidak dizinkan",
-                addRemoveLinks:true,
-            });
+            $(document).ready(function(){      
 
-
-            //Event ketika Memulai mengupload
-            ktp_upload.on("sending",function(a,b,c){
-                a.token_fotoktp=Math.random();
-                c.append("token_fotoktp",a.token_fotoktp); //Menmpersiapkan token untuk masing masing foto
-                
-            });
-
-            //Event ketika foto dihapus
-            ktp_upload.on("removedfile",function(a){
-                var token_fotoktp=a.token_fotoktp;
-                $.ajax({
-                    type:"post",
-                    data:{token_fotoktp:token_fotoktp},
-                    url:"<?php echo site_url('lapor/remove_fotoktp') ?>",
-                    cache:false,
-                    dataType: 'json',
-                    success: function(){
-                        console.log("Foto terhapus");
-                    },
-                    error: function(){
-                        console.log("Error");
-
-                    }
-                });
-            });
-
-            var dokumentasi_upload= new Dropzone(".dokumentasi",{
-                autoProcessQueue: false,
-                url: "<?php echo site_url('lapor/proses_uploaddokumentasi') ?>",
-                maxFilesize: 10,
-                method:"post",
-                acceptedFiles:"image/*",
-                paramName:"filedokumentasi",
-                dictInvalidFileType:"Type file ini tidak dizinkan",
-                addRemoveLinks:true,
-            });
-
-
-            //Event ketika Memulai mengupload
-            dokumentasi_upload.on("sending",function(a,b,c){
-                a.token_dokumentasi=Math.random();
-                c.append("token_dokumentasi",a.token_dokumentasi); //Menmpersiapkan token untuk masing masing foto
-            });
-
-            //Event ketika foto dihapus
-            dokumentasi_upload.on("removedfile",function(a){
-                var token_dokumentasi=a.token_dokumentasi;
-                $.ajax({
-                    type:"post",
-                    data:{token_dokumentasi:token_dokumentasi},
-                    url:"<?php echo site_url('lapor/remove_dokumentasi') ?>",
-                    cache:false,
-                    dataType: 'json',
-                    success: function(){
-                        console.log("Foto terhapus");
-                    },
-                    error: function(){
-                        console.log("Error");
-
-                    }
-                });
-            });
-
-            
-
-            $('#btnSubmit').click(function(){
-               ktp_upload.processQueue();
-               dokumentasi_upload.processQueue();
-            });
-        </script>
-        <script>
-            $(document).ready(function(){       
                 $("#lokasi_kabkota").change(function (){
                     var url = "<?php echo site_url('lapor/add_ajax_kec');?>/"+$(this).val();
                     $('#lokasi_distrik').load(url);
@@ -624,18 +519,83 @@
                     $('#des_pelapor').load(url);
                     return false;
                 });
-            });
-        </script>
-        <script type="text/javascript">
-      
-          function setMapToForm(latitude, longitude) 
-            {
-              $('input[name="latitude"]').val(latitude);
-              $('input[name="longitude"]').val(longitude);
-            }
 
+
+                var ktp_upload= new Dropzone(".ktp",{
+                    autoProcessQueue: false,
+                    url: "<?php echo site_url('lapor/uploadktp') ?>",
+                    maxFilesize: 10,
+                    method:"post",
+                    acceptedFiles:"image/*",
+                    paramName:"filektp",
+                    dictInvalidFileType:"Type file ini tidak dizinkan",
+                    addRemoveLinks:true,
+                });
+
+                ktp_upload.on("sending",function(a,b,c){
+                    a.token=Math.random();
+                    c.append("token_foto",a.token); //Menmpersiapkan token untuk masing masing foto
+                    c.append("kodelap", $('#kodelap').val());
+                });
+
+                var dokumentasi_upload= new Dropzone(".dokumentasi",{
+                    autoProcessQueue: false,
+                    url: "<?php echo site_url('lapor/uploaddokumentasi') ?>",
+                    maxFilesize: 10,
+                    method:"post",
+                    acceptedFiles:"image/*",
+                    paramName:"filedokumentasi",
+                    dictInvalidFileType:"Type file ini tidak dizinkan",
+                    addRemoveLinks:true,
+                });
+
+                dokumentasi_upload.on("sending",function(a,b,c){
+                    a.token=Math.random();
+                    c.append("token_dokumentasi",a.token); //Menmpersiapkan token untuk masing masing foto
+                    c.append("kodelap", $('#kodelap').val());
+                });
+
+                $('form').submit(function(e) {
+                    e.preventDefault();
+                    ktp_upload.processQueue();
+                    dokumentasi_upload.processQueue();
+
+
+                   var nik = $("input[name='nik']").val();
+                   var nama_pelapor = $("input[name='nama_pelapor']").val();                  
+                   var alamat_pelapor = $("textarea[name='alamat_pelapor']").val();                     
+                   var kab_pelapor = $("select[name='kab_pelapor']").val();               
+                   var kec_pelapor = $("select[name='kec_pelapor']").val();             
+                   var des_pelapor = $("select[name='des_pelapor']").val();        
+                   var email = $("input[name='email']").val();        
+                   var no_hp = $("input[name='no_hp']").val();     
+                   var infrastruktur = $("select[name='infrastruktur']").val();  
+                   var latitude = $("input[name='latitude']").val();  
+                   var longitude = $("input[name='longitude']").val();  
+                   var lokasi_namajalan = $("input[name='lokasi_namajalan']").val();                    
+                   var lokasi_kabkota = $("select[name='lokasi_kabkota']").val();               
+                   var lokasi_distrik = $("select[name='lokasi_distrik']").val();           
+                   var pengaduan = $("textarea[name='pengaduan']").val();      
+                   var kodelap = $("input[name='kodelap']").val(); 
+
+
+                    $.ajax({
+                       url: "<?php echo site_url('lapor/add') ?>",
+                       type: "POST",
+                       data: {nik: nik, nama_pelapor: nama_pelapor, kab_pelapor:kab_pelapor, kec_pelapor:kec_pelapor,des_pelapor:des_pelapor,alamat_pelapor:alamat_pelapor,email:email,no_hp:no_hp,infrastruktur:infrastruktur,latitude:latitude,longitude:longitude,lokasi_namajalan:lokasi_namajalan,lokasi_kabkota:lokasi_kabkota,lokasi_distrik:lokasi_distrik,pengaduan:pengaduan,kodelap:kodelap},
+                       error: function() {
+                          alert('Something is wrong');
+                       },
+                       success: function(data) {
+                            alert("Record added successfully");
+                       }
+                    });
+
+
+                });
+            });
+            
         </script>
-        
 
     </body>
 </html>

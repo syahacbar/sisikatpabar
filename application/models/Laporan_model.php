@@ -14,18 +14,32 @@ class Laporan_model extends CI_Model
     /*
      * Get laporan by id
      */
+
+    function get_lastrow()
+    {
+        $last_idlap = $this->db->order_by('id',"desc")
+            ->limit(1)
+            ->get('laporan');
+        return $last_idlap;
+    }
+
     function get_laporan($id)
     {
         return $this->db->get_where('laporan',array('id'=>$id))->row_array();
+    }
+
+    function get_infrastruktur($x)
+    {
+        return $this->db->get_where('laporan',array('infrastruktur'=> $x));
     }
         
     /*
      * Get all laporan
      */
-    function get_all_laporan()
+    function get_all_laporan($kategori=NULL,$limit=NULL,$offset=NULL)
     {
-        $this->db->order_by('id', 'desc');
-        return $this->db->get('laporan')->result_array();
+        $query = $this->db->query("SELECT * FROM laporan l JOIN upload u ON u.kodelap=l.kodelap WHERE u.kategori='$kategori' ORDER BY tgl_laporan DESC LIMIT $limit OFFSET $offset");
+        return $query->result_array();
     }
         
     /*

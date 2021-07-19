@@ -29,47 +29,51 @@ class Lapor extends CI_Controller{
         $map=$this->googlemaps->create_map();
         $data['map'] = $map;
 
-        $get_kab = $this->db->select('*')->from('regencies')->get();
-        $data['laporan'] = $this->Laporan_model->get_all_laporan();
+        $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
+        $data['laporan1'] = $this->Laporan_model->get_all_laporan('dokumentasi',3,0);
+        $data['laporan2'] = $this->Laporan_model->get_all_laporan('dokumentasi',3,3);
         $data['kabupaten'] = $get_kab->result();
-           
+
+        $last_idlap = $this->Laporan_model->get_lastrow();
+        if($last_idlap->num_rows>0)
+        {
+            $idlap = (int)$last_idlap->row()->id+1;            
+        } else {
+            $idlap = 1;
+        }
+        $kodelap = date("YmdHis").$idlap;
+
+        $data['jum_lap_drainase'] = $this->Laporan_model->get_infrastruktur('drainase')->num_rows();
+        $data['jum_lap_jalan'] = $this->Laporan_model->get_infrastruktur('jalan')->num_rows();
+        $data['kodelap'] = $kodelap;
         $data['_view'] = 'home';
         $this->load->view('home',$data);
 
     }
-
-    function add_ajax_kab($id_prov)
-    {
-        $query = $this->db->get_where('regencies',array('province_id'=>$id_prov));
-        $data = "<option value=''>- Pilih Kabupaten/Kota -</option>";
-        foreach ($query->result() as $value) {
-            $data .= "<option value='".$value->id."'>".$value->name."</option>";
-        }
-        echo $data;
-    }
   
-    function add_ajax_kec($id_kab)
+    function add_ajax_kec($id)
     {
-        $query = $this->db->get_where('districts',array('regency_id'=>$id_kab));
+        $query = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 8 AND LEFT(kode,5) = '$id' ORDER BY kode ASC");
         $data = "<option value=''> - Pilih Kecamatan/Distrik - </option>";
         foreach ($query->result() as $value) {
-            $data .= "<option value='".$value->id."'>".$value->name."</option>";
+            $data .= "<option value='".$value->kode."'>".$value->nama."</option>";
         }
         echo $data;
     }
   
-    function add_ajax_des($id_kec)
+    function add_ajax_des($id)
     {
-        $query = $this->db->get_where('villages',array('district_id'=>$id_kec));
+        $query = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 13 AND LEFT(kode,8) = '$id' ORDER BY kode ASC");
         $data = "<option value=''> - Pilih Kelurahan/Desa - </option>";
         foreach ($query->result() as $value) {
-            $data .= "<option value='".$value->id."'>".$value->name."</option>";
+            $data .= "<option value='".$value->kode."'>".$value->nama."</option>";
         }
         echo $data;
     }
 
     function add()
-    {   
+    {          
+
         $this->load->library('form_validation');
         $this->form_validation->set_rules('nik','NIK','required');
         
@@ -85,93 +89,56 @@ class Lapor extends CI_Controller{
                 'des_pelapor' => $this->input->post('des_pelapor'),
                 'no_hp' => $this->input->post('no_hp'),
                 'email' => $this->input->post('email'),
-                'pengaduan' => $this->input->post('pengaduan'),
                 'infrastruktur' => $this->input->post('infrastruktur'),
+                'latitude' => $this->input->post('latitude'),
+                'longitude' => $this->input->post('longitude'),
+                'pengaduan' => $this->input->post('pengaduan'),
                 'lokasi_namajalan' => $this->input->post('lokasi_namajalan'),
                 'lokasi_kabkota' => $this->input->post('lokasi_kabkota'),
                 'lokasi_distrik' => $this->input->post('lokasi_distrik'),
-                'latitude' => $this->input->post('latitude'),
-                'longitude' => $this->input->post('longitude'),
+                'kodelap' => $this->input->post('kodelap'),
             );
             
             $laporan_id = $this->Laporan_model->add_laporan($params);
-            $this->db->where('token', $this->session->userdata('token_fotoktp'));
-            $this->db->or_where('token', $this->session->userdata('token_dokumentasi'));
-            $this->db->update('upload', array('laporan_id'=>$this->db->insert_id()));
 
-            redirect('laporan/index');
-        }
-        else
-        {            
             redirect('lapor');
-        }
+            
+        }        
     }
 
-    function proses_uploadktp() 
+    function uploadktp()
     {
-        $config['upload_path']   = FCPATH.'/upload/ktp/';
-        $config['allowed_types'] = 'gif|jpg|png|ico|jpeg';
-        $this->load->library('upload',$config);
+            $config['upload_path']   = FCPATH.'/upload/ktp/';
+            $config['allowed_types'] = 'gif|jpg|png|ico';
+            $this->load->library('upload',$config);
 
-        if($this->upload->do_upload('filektp')){
-            $token_fotoktp=$this->input->post('token_fotoktp');
-            $filektp=$this->upload->data('file_name');
-            $this->db->insert('upload',array('nama_file'=>$filektp,'token'=>$token_fotoktp,'kategori'=>'ktp','uploaded_on'=> date("Y-m-d H:i:s")));
-            $this->session->set_userdata('token_fotoktp', $token_fotoktp);
-        }
-    }
-
-
-    function remove_fotoktp()
-    {
-        //Ambil token foto
-        $token_fotoktp=$this->input->post('token_fotoktp');
-        $foto=$this->db->get_where('upload',array('token'=>$token_fotoktp));
-
-        if($foto->num_rows()>0){
-            $hasil=$foto->row();
-            $nama_file=$hasil->nama_file;
-            if(file_exists($file=FCPATH.'/upload/ktp/'.$nama_file)){
-                unlink($file);
+            if($this->upload->do_upload('filektp')){
+                $token=$this->input->post('token_foto');
+                $kodelap=$this->input->post('kodelap');
+                $nama=$this->upload->data('file_name');
+                $kategori='ktp';
+                $uploaded_on=date("Y-m-d H:i:s");
+                $this->db->insert('upload',array('nama_file'=>$nama,'token'=>$token,'kategori'=>$kategori,'uploaded_on'=>$uploaded_on,'kodelap'=>$kodelap));
             }
-            $this->db->delete('upload',array('token'=>$token_fotoktp));
-        }
-        echo "{}";
+
     }
 
-     function proses_uploaddokumentasi() {
-        $config['upload_path']   = FCPATH.'/upload/dokumentasi/';
-        $config['allowed_types'] = 'gif|jpg|png|ico|jpeg';
-        $this->load->library('upload',$config);
-
-        if($this->upload->do_upload('filedokumentasi')){
-            $token_dokumentasi=$this->input->post('token_dokumentasi');
-            $filedokumentasi=$this->upload->data('file_name');
-            $this->db->insert('upload',array('nama_file'=>$filedokumentasi,'token'=>$token_dokumentasi,'kategori'=>'dokumentasi','uploaded_on'=> date("Y-m-d H:i:s")));
-
-            $this->session->set_userdata('token_dokumentasi', $token_dokumentasi);
-        }
-    }
-
-    function remove_dokumentasi()
+    function uploaddokumentasi()
     {
-        //Ambil token foto
-        $token_dokumentasi=$this->input->post('token_dokumentasi');
-        $foto=$this->db->get_where('upload',array('token'=>$token_dokumentasi));
+            $config['upload_path']   = FCPATH.'/upload/dokumentasi/';
+            $config['allowed_types'] = 'gif|jpg|png|ico|jpeg';
+            $this->load->library('upload',$config);
 
-        if($foto->num_rows()>0){
-            $hasil=$foto->row();
-            $nama_file=$hasil->nama_file;
-            if(file_exists($file=FCPATH.'/upload/dokumentasi/'.$nama_file)){
-                unlink($file);
+            if($this->upload->do_upload('filedokumentasi')){
+                $token=$this->input->post('token_dokumentasi');
+                $kodelap=$this->input->post('kodelap');
+                $nama=$this->upload->data('file_name');
+                $kategori='dokumentasi';
+                $uploaded_on=date("Y-m-d H:i:s");
+                $this->db->insert('upload',array('nama_file'=>$nama,'token'=>$token,'kategori'=>$kategori,'uploaded_on'=>$uploaded_on,'kodelap'=>$kodelap));
             }
-            $this->db->delete('upload',array('token'=>$token_dokumentasi));
-        }
-        echo "{}";
+
     }
-
-
-
 
 
 }
