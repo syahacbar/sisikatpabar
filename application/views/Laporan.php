@@ -49,7 +49,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                        <li class="nav-item"><a class="nav-link me-lg-3" href="<?php echo base_url('lapor');?>#header">Tentang SI-SIKAT</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="<?php echo base_url();?>">Tentang SI-SIKAT</a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" href="<?php echo base_url('lapor');?>#statistik">Statistik</a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#">Lihat Laporan</a></li>
                     </ul>
