@@ -30,8 +30,8 @@ class Lapor extends CI_Controller{
         $data['map'] = $map;
 
         $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
-        $data['laporan1'] = $this->Laporan_model->get_all_laporan(3,0);
-        $data['laporan2'] = $this->Laporan_model->get_all_laporan(3,3);
+        $data['laporan1'] = $this->Laporan_model->get_all_laporan('dokumentasi',3,0);
+        $data['laporan2'] = $this->Laporan_model->get_all_laporan('dokumentasi',3,3);
         $data['kabupaten'] = $get_kab->result();
 
         $last_idlap = $this->Laporan_model->get_lastrow();

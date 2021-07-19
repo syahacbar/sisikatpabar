@@ -374,7 +374,7 @@
                         <div class="row">
                             <?php foreach ($laporan1 as $res1) { ?>
                             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                <img src="https://images.unsplash.com/photo-1596785236251-71fa49ac5760?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="">
+                                <img src="<?php echo base_url('upload/dokumentasi/').$res1['nama_file'];?>" alt="">
                                 <h3 class="font-alt"><?php echo $res1['lokasi_namajalan'];?></h3>
                                 <p class="text-muted mb-0"><?php echo word_limiter($res1['pengaduan'],10); ?></p>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
@@ -390,7 +390,7 @@
                         <div class="row">
                             <?php foreach ($laporan2 as $res2) { ?>
                             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                <img src="https://images.unsplash.com/photo-1596785236251-71fa49ac5760?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="">
+                                <img src="<?php echo base_url('upload/dokumentasi/').$res2['nama_file'];?>" alt="">
                                 <h3 class="font-alt"><?php echo $res2['lokasi_namajalan'];?></h3>
                                 <p class="text-muted mb-0"><?php echo word_limiter($res2['pengaduan'],10);?></p>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">

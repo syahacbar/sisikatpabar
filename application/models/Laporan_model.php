@@ -36,10 +36,10 @@ class Laporan_model extends CI_Model
     /*
      * Get all laporan
      */
-    function get_all_laporan($limit=NULL,$offset=NULL)
+    function get_all_laporan($kategori=NULL,$limit=NULL,$offset=NULL)
     {
-        $this->db->order_by('tgl_laporan', 'desc');
-        return $this->db->get('laporan',$limit,$offset)->result_array();
+        $query = $this->db->query("SELECT * FROM laporan l JOIN upload u ON u.kodelap=l.kodelap WHERE u.kategori='$kategori' ORDER BY tgl_laporan DESC LIMIT $limit OFFSET $offset");
+        return $query->result_array();
     }
         
     /*
