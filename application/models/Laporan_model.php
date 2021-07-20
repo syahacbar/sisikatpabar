@@ -23,6 +23,11 @@ class Laporan_model extends CI_Model
         return $last_idlap;
     }
 
+    function get_wilayah($kode)
+    {
+        return $this->db->get_where('wilayah_2020',array('kode'=>$kode))->row_array();
+    }
+
     function get_laporan($id)
     {
         return $this->db->get_where('laporan',array('id'=>$id))->row_array();
@@ -38,7 +43,7 @@ class Laporan_model extends CI_Model
      */
     function get_all_laporan($kategori=NULL,$limit=NULL,$offset=NULL)
     {
-        $query = $this->db->query("SELECT * FROM laporan l JOIN upload u ON u.kodelap=l.kodelap WHERE u.kategori='$kategori' ORDER BY tgl_laporan DESC LIMIT $limit OFFSET $offset");
+        $query = $this->db->query("SELECT *, w.nama AS lokasi FROM laporan l JOIN upload u ON u.kodelap=l.kodelap LEFT JOIN wilayah_2020 w on w.kode=l.lokasi_kabkota WHERE u.kategori='$kategori' ORDER BY l.tgl_laporan DESC LIMIT $limit OFFSET $offset");
         return $query->result_array();
     }
         

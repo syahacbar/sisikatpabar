@@ -78,66 +78,34 @@
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
-                    <th scope="col">No.</th>
-                    <th scope="col">Dokumentasi</th>
-                    <!-- <th scope="col">Jenis Infrastruktur</th> -->
-                    <th scope="col-2">Isi Lapaoran</th>
-                    <th scope="col-2">Nama Ruas Jalan</th>
-                    <th scope="col">Lokasi</th>
-                    <th scope="col">Tanggal Dilaporkan</th>
-                    <th scope="col">Status</th>
+                    <th style="width:5%">No.</th>
+                    <th style="width:20%">Dokumentasi</th>
+                    <th style="width:30%">Isi Lapaoran</th>
+                    <th  style="width:15%">Lokasi</th>
+                    <th  style="width:15%">Tanggal Dilaporkan</th>
+                    <th style="width:10%">Status</th>
 
                 </tr>
                 </thead>
                 <tbody>
+                <?php 
+                $no = 1;
+                foreach ($laporan as $l) { ?>
                 <tr>
-                    <th scope="row">1</th>
+                    <th scope="row"><?php echo $no++;?></th>
                     <td>
-                        <img src="https://images.unsplash.com/photo-1568715684971-9ac138754ab9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1045&q=80" alt="">
-                        <p>Jalan</p>
+                        <img src="<?php echo base_url('upload/dokumentasi/').$l['nama_file'];?>" alt="">
+                        <p><?php echo $l['lokasi_namajalan'];?></p>
                     </td>
-                    <!-- <td>Jalan</td> -->
-                    <td>Lorem ipsum, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak.</td>
-                    <td>Jalan Pertanian Wosi Dalam</td>
-                    <td>Manokwari</td>
-                    <td>20/05/2025</td>
+                    <td><?php echo word_limiter($l['pengaduan'],50);?></td>
+                    <td><?php echo $l['lokasi'];?></td>
+                    <td><?php echo $l['tgl_laporan'];?></td>
                     <td>
                         <i class="bi bi-check-square-fill me-2"></i>
                        <p>Selesai</p>
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>
-                        <img src="https://images.unsplash.com/photo-1568715684971-9ac138754ab9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1045&q=80" alt="">
-                        <p>Jalan</p>
-                    </td>
-                    <!-- <td>Jalan</td> -->
-                    <td>Lorem ipsum, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak.</td>
-                    <td>Jalan Pertanian Wosi Dalam</td>
-                    <td>Manokwari</td>
-                    <td>20/05/2025</td>
-                    <td>
-                        <i class="bi bi-exclamation-square-fill me-2"></i>
-                       <p>Proses</p>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>
-                        <img src="https://images.unsplash.com/photo-1568715684971-9ac138754ab9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1045&q=80" alt="">
-                        <p>Jalan</p>
-                    </td>
-                    <!-- <td>Jalan</td> -->
-                    <td>Lorem ipsum, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak.</td>
-                    <td>Jalan Pertanian Wosi Dalam</td>
-                    <td>Manokwari</td>
-                    <td>20/05/2025</td>
-                    <td>
-                        <i class="bi bi-x-square-fill me-2"></i>
-                       <p>Gagal</p>
-                    </td>
-                </tr>
+                <?php } ?>
                 </tbody>
             </table>
         </div>
