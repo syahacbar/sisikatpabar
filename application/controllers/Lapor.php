@@ -101,7 +101,7 @@ class Lapor extends CI_Controller{
             
             $laporan_id = $this->Laporan_model->add_laporan($params);
 
-            redirect('lapor');
+            //redirect('lapor');
             
         }        
     }

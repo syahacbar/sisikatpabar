@@ -16,7 +16,7 @@ class Laporan extends CI_Controller{
      */
     function index()
     {
-        $data['laporan'] = $this->Laporan_model->get_all_laporan();
+        $data['laporan'] = $this->Laporan_model->get_all_laporan('dokumentasi',0,0);
         
         $data['_view'] = 'laporan/index';
         $this->load->view('laporan',$data);
