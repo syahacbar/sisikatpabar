@@ -95,7 +95,7 @@
                 <tr>
                     <th scope="row"><?php echo $no++;?></th>
                     <td>
-                        <img src="<?php echo base_url('upload/dokumentasi/').$l['nama_file'];?>" alt="">
+                        <img style="height:140px;" src="<?php echo base_url('upload/dokumentasi/').$l['nama_file'];?>" alt="">
                         <p><?php echo $l['lokasi_namajalan'];?></p>
                     </td>
                     <td><?php echo word_limiter($l['pengaduan'],50);?></td>
