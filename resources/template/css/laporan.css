@@ -62,3 +62,37 @@
 .table-responsive i.bi.bi-exclamation-square-fill.me-2 {
     color: blue;
 }
+
+
+/* Kolom pencarian  */
+.search.container form {
+    margin: 30px 0;
+    width: 100% !important;
+    min-width: 100% !important;
+}
+
+.search.container form input {
+    height: 45px;
+    border: 2px solid #ecf0f6;
+    border-radius: 10px !important;
+    padding: 0 10px;
+}
+
+.search.container form button {
+    height: 45px;
+    border: 0 !important;
+    border-radius: 5px !important;
+    padding: 0 50px;
+    background-color: #4e2eeb;
+    color: #fff;
+}
+
+
+.search.container button.col-lg-3.col-md-3.col-sm-3.col-xs-3 {
+    width: 20% !important;
+}
+
+.search.container input.col-lg-9.col-md-9.col-sm-9.col-xs-9 {
+    width: 70% !important;
+    min-width: 70%;
+}

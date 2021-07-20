@@ -67,6 +67,12 @@
         <div class="laporan">
         <h2 class="display-4 text-center lh-1 mb-4 ">Laporan Pengaduan</h2>
         </div>
+        <div class="search container">
+            <form action="" method="">
+                <input class="col-lg-9 col-md-9 col-sm-9 col-xs-9" type="text" name="keyword" autofocus placeholder="Ketik kata kunci di sini ..." autocomplete="off">
+                <button class="col-lg-3 col-md-3 col-sm-3 col-xs-3" type="submit" name="cari">Cari</button>
+            </form>
+        </div>
         <div class="table-responsive">
             <div class="container">
             <table class="table">
