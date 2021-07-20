@@ -90,7 +90,8 @@
                 <tbody>
                 <?php 
                 $no = 1;
-                foreach ($laporan as $l) { ?>
+                foreach ($laporan as $l) {
+                ?>
                 <tr>
                     <th scope="row"><?php echo $no++;?></th>
                     <td>
