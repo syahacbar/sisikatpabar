@@ -28,5 +28,5 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-workspace
 *.sublime-project
 resources/web-pengaduan/
-#upload/ktp/*
-#upload/dokumentasi/*
+upload/ktp/*
+upload/dokumentasi/*
