@@ -68,45 +68,83 @@
         <h2 class="display-4 text-center lh-1 mb-4 ">Laporan Pengaduan</h2>
         </div>
         <div class="search container">
-            <form action="" method="">
-                <input class="col-lg-9 col-md-9 col-sm-9 col-xs-9" type="text" name="keyword" autofocus placeholder="Ketik kata kunci di sini ..." autocomplete="off">
-                <button class="col-lg-3 col-md-3 col-sm-3 col-xs-3" type="submit" name="cari">Cari</button>
-            </form>
+            <!-- <select id="mylist" onchange="myFunction()" class='col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                <option>Pilih Kab./Kota</option>
+                <option>b</option>
+                <option>c</option>
+            </select>
+            <select id="mylist" onchange="myFunction()" class='col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                <option>Pilih Jenis Infrastruktur</option>
+                <option>b</option>
+                <option>c</option>
+            </select> -->
+
+
+            <div class="row mb-4">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <select class="filter">
+                        <option value="-1">Pilih Kab./Kota</option>
+                        <option>Manokwari</option>
+                        <option>Sorong</option>
+                    </select>  
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <select class="filter">
+                        <option value="-1">Pilih Infrastruktur</option>
+                        <option>Jalan</option>
+                        <option>Drainase</option>
+                    </select>  
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <form action="" method="">
+                        <input class="" type="text" name="keyword" autofocus placeholder="Ketik kata kunci di sini ..." autocomplete="off">
+                    </form>
+                </div>
+
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <form action="" method="">
+                        <button class="" type="submit" name="cari">Cari</button>
+                    </form>
+                </div>
+            </div>
+
+
         </div>
         <div class="table-responsive">
             <div class="container">
             <table class="table">
                 <thead class="thead-dark">
-                <tr>
-                    <th style="width:5%">No.</th>
-                    <th style="width:20%">Dokumentasi</th>
-                    <th style="width:30%">Isi Lapaoran</th>
-                    <th  style="width:15%">Lokasi</th>
-                    <th  style="width:15%">Tanggal Dilaporkan</th>
-                    <th style="width:10%">Status</th>
-
-                </tr>
+                    <tr>
+                        <th style="width:5%">No.</th>
+                        <th style="width:20%">Dokumentasi</th>
+                        <th style="width:30%">Isi Lapaoran</th>
+                        <th  style="width:15%">Lokasi</th>
+                        <th  style="width:15%">Tanggal Dilaporkan</th>
+                        <th style="width:10%">Status</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <?php 
-                $no = 1;
-                foreach ($laporan as $l) {
-                ?>
-                <tr>
-                    <th scope="row"><?php echo $no++;?></th>
-                    <td>
-                        <img style="height:140px;" src="<?php echo base_url('upload/dokumentasi/').$l['nama_file'];?>" alt="">
-                        <p><?php echo $l['lokasi_namajalan'];?></p>
-                    </td>
-                    <td><?php echo word_limiter($l['pengaduan'],50);?></td>
-                    <td><?php echo $l['lokasi'];?></td>
-                    <td><?php echo $l['tgl_laporan'];?></td>
-                    <td>
-                        <i class="bi bi-check-square-fill me-2"></i>
-                       <p>Selesai</p>
-                    </td>
-                </tr>
-                <?php } ?>
+                    <?php 
+                    $no = 1;
+                    foreach ($laporan as $l) {
+                    ?>
+                    <tr>
+                        <th scope="row"><?php echo $no++;?></th>
+                        <td>
+                            <img style="height:140px;" src="<?php echo base_url('upload/dokumentasi/').$l['nama_file'];?>" alt="">
+                            <p><?php echo $l['lokasi_namajalan'];?></p>
+                        </td>
+                        <td><?php echo word_limiter($l['pengaduan'],50);?></td>
+                        <td><?php echo $l['lokasi'];?></td>
+                        <td><?php echo $l['tgl_laporan'];?></td>
+                        <td>
+                            <i class="bi bi-check-square-fill me-2"></i>
+                        <p>Selesai</p>
+                        </td>
+                    </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
@@ -145,5 +183,35 @@
         <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="<?php echo base_url();?>resources/template/js/js-pengaduan.js"></script>
 
+        <!-- Filter -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                var vals = {};
+                $('tbody tr').each(function(i){
+                    var t = $(this).find('td:first-child').text();
+                    vals[t] = t;
+                });
+                $.each(vals, function() {
+                    $('select').append($('<option value="' + this +'">' + this +'</option>'));
+                });
+                $('select').change(function() {
+                    var val= $(this).val();
+                    if (val != '-') {
+                    $('tbody tr').each(function(i){
+                        if ($(this).find('td:first-child').text() != val) {
+                            $(this).hide();
+                        } else {
+                            $(this).show();
+                        }
+                    });
+                    } else {
+                    $('tbody tr').each(function(i){
+                        $(this).show();
+                    });
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
