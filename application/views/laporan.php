@@ -68,22 +68,10 @@
         <h2 class="display-4 text-center lh-1 mb-4 ">Laporan Pengaduan</h2>
         </div>
         <div class="search container">
-            <!-- <select id="mylist" onchange="myFunction()" class='col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-                <option>Pilih Kab./Kota</option>
-                <option>b</option>
-                <option>c</option>
-            </select>
-            <select id="mylist" onchange="myFunction()" class='col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-                <option>Pilih Jenis Infrastruktur</option>
-                <option>b</option>
-                <option>c</option>
-            </select> -->
-
-
             <div class="row mb-4">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                     <select class="filter">
-                        <option value="-1">Pilih Kab./Kota</option>
+                        <option value="kabupaten">Pilih Kab./Kota</option>
                         <option>Manokwari</option>
                         <option>Sorong</option>
                     </select>  
@@ -91,7 +79,7 @@
 
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                     <select class="filter">
-                        <option value="-1">Pilih Infrastruktur</option>
+                        <option value="infra">Pilih Infrastruktur</option>
                         <option>Jalan</option>
                         <option>Drainase</option>
                     </select>  
@@ -109,9 +97,8 @@
                     </form>
                 </div>
             </div>
-
-
         </div>
+
         <div class="table-responsive">
             <div class="container">
             <table class="table">
@@ -185,33 +172,5 @@
 
         <!-- Filter -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script type="text/javascript">
-            $(function() {
-                var vals = {};
-                $('tbody tr').each(function(i){
-                    var t = $(this).find('td:first-child').text();
-                    vals[t] = t;
-                });
-                $.each(vals, function() {
-                    $('select').append($('<option value="' + this +'">' + this +'</option>'));
-                });
-                $('select').change(function() {
-                    var val= $(this).val();
-                    if (val != '-') {
-                    $('tbody tr').each(function(i){
-                        if ($(this).find('td:first-child').text() != val) {
-                            $(this).hide();
-                        } else {
-                            $(this).show();
-                        }
-                    });
-                    } else {
-                    $('tbody tr').each(function(i){
-                        $(this).show();
-                    });
-                    }
-                });
-            });
-        </script>
     </body>
 </html>
