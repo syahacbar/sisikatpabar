@@ -2,6 +2,11 @@
     padding-top: 7rem;
 }
 
+/* Jarak bagian bawah heading */
+.laporan h2.display-4.text-center.lh-1.mb-4 {
+    margin-bottom: 50px !important;
+}
+
 /* Mengatur Gambar  */
 .table-responsive tbody img {
     width: 90%;
@@ -36,6 +41,7 @@
     box-shadow: none !important;
 }
 
+/* Heading table */
 .laporan h1.display-1.lh-1.mb-3, h2.display-4.text-center.lh-1.mb-4 {
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
@@ -66,18 +72,20 @@
 
 /* Kolom pencarian  */
 .search.container form {
-    margin: 30px 0;
     width: 100% !important;
     min-width: 100% !important;
 }
 
+/* Ketik kata kunci */
 .search.container form input {
     height: 45px;
     border: 2px solid #ecf0f6;
     border-radius: 10px !important;
     padding: 0 10px;
+    width: 100%;
 }
 
+/* Tombol cari */
 .search.container form button {
     height: 45px;
     border: 0 !important;
@@ -85,14 +93,24 @@
     padding: 0 50px;
     background-color: #4e2eeb;
     color: #fff;
+    width: 100%;
 }
 
-
-.search.container button.col-lg-3.col-md-3.col-sm-3.col-xs-3 {
-    width: 20% !important;
+/* Kolom Filter */
+.search.container select.filter {
+    width: 100%;
+    height: 45px;
+    border: 2px solid #ecf0f6;
+    border-radius: 10px;
+    padding: 0 10px;
 }
 
-.search.container input.col-lg-9.col-md-9.col-sm-9.col-xs-9 {
-    width: 70% !important;
-    min-width: 70%;
+/* Kolom filter dan search in small device */
+@media (max-width: 575px) {
+.search.container .col-lg-3.col-md-3.col-sm-3.col-xs-3,
+.search.container .col-lg-4.col-md-4.col-sm-4.col-xs-4,
+.search.container .col-lg-2.col-md-2.col-sm-2.col-xs-2 {
+    width: 50%;
+    margin: 10px 0 !important;
+}
 }
