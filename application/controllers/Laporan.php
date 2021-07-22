@@ -16,12 +16,60 @@ class Laporan extends CI_Controller{
      */
     function index()
     {
+        $infrastruktur = $this->Laporan_model->get_list_infrastruktur();
+        $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
+
+        $optinfrastruktur = array('' => '- Semua Jenis Infrastruktur -');
+        foreach ($infrastruktur as $i) {
+            $optinfrastruktur[$i] = $i;
+        }
+        
+        $data['form_infrastruktur'] = form_dropdown('',$optinfrastruktur,'','id="infrastruktur" class="form-control"');
+        $data['form_kab'] = $get_kab->result();
         $data['laporan'] = $this->Laporan_model->get_all_laporan('dokumentasi',1000,0);
         
         $data['_view'] = 'laporan/index';
         $this->load->view('laporan',$data);
     }
 
+    function add_ajax_kec($id)
+    {
+        $query = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 8 AND LEFT(kode,5) = '$id' ORDER BY kode ASC");
+        $data = "<option value='0'> - Semua Kecamatan/Distrik - </option>";
+        foreach ($query->result() as $value) {
+            $data .= "<option value='".$value->kode."'>".$value->nama."</option>";
+        }
+        echo $data;
+    }
+
+    public function ajax_list()
+    {
+        $list = $this->Laporan_model->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $lap) {
+            $no++;
+            $row = array();
+            $row[] = $no;
+            $row[] = "<img width='300' src='".base_url('upload/dokumentasi/').$lap->nama_file."'>";
+            $row[] = word_limiter($lap->pengaduan,30);
+            $row[] = $lap->lokasikabkota;
+            $row[] = $lap->lokasidistrik;
+            $row[] = $lap->tgl_laporan;
+ 
+            $data[] = $row;
+        }
+ 
+        $output = array(
+                        "draw" => $_POST['draw'],
+                        "recordsTotal" => $this->Laporan_model->count_all(),
+                        "recordsFiltered" => $this->Laporan_model->count_filtered(),
+                        "data" => $data,
+                );
+        //output to json format
+        echo json_encode($output);
+    }
+ 
     /*
      * Adding a new laporan
      */
