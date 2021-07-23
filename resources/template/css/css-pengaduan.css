@@ -16,6 +16,17 @@ a.navbar-brand img.d-inline-block.align-top {
     background-size: cover;
 }
 
+
+div#navbarResponsive {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    float: right !important;
+    left: 0;
+    right: 0;
+    margin-right: 0;
+}
+
 /* Background navigasi topbar */
 #mainNav {
     padding-top: 1rem;
@@ -25,6 +36,7 @@ a.navbar-brand img.d-inline-block.align-top {
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
+    height: 90px;
 }
 
 /* Topbar navigation button ketika active */
