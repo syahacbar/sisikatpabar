@@ -207,6 +207,7 @@ li#table_next {
     background-color: #4e2eeb;
     border: 0;
     border-radius: 5px;
+    margin: 0 10px;
 }
 
 li.paginate_button.active {
@@ -232,4 +233,38 @@ div#table_info {
 /* Show entri */
 .table-responsive .row .col-sm-6 {
     display: flex;
+}
+
+/* Detail - Search */
+div#table_wrapper button.btn.btn-success.fas.fa-file-alt {
+    margin: 0 auto;
+    display: flex;
+}
+
+
+/* Modal Detail Laporan */
+div#report-detail div#newreport {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: brightness(0.5);
+    width: 100%;
+    height: 100%;
+}
+
+
+div#report-detail div#newreport .modal-content {
+    min-width: 80%;
+}
+
+@media (max-width: 990px) {
+div#report-detail div#newreport .modal-content {
+    min-width: 90%;
+    max-width: 90%;
+}  
+}
+
+div#report-detail {
+    padding: 0 !important;
 }
