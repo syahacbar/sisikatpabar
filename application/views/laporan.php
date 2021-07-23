@@ -27,16 +27,15 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         
         <!-- Core theme CSS (includes Bootstrap)-->
+        <!-- <link href="<?php echo base_url('resources/datatables/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet"> -->
         <link href="<?php echo base_url();?>resources/template/css/styles.css" rel="stylesheet" />
         <link href="<?php echo base_url();?>resources/template/css/css-pengaduan.css" rel="stylesheet" />
            
         <!-- Halaman Laporan Pengaduan -->
-        <link href="<?php echo base_url('resources/datatables/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
         <link href="<?php echo base_url('resources/datatables/datatables/css/dataTables.bootstrap.min.css')?>" rel="stylesheet">
-
         <link href="<?php echo base_url('resources/template/css/laporan.css')?>" rel="stylesheet">
     </head>
-    <body>
+    <body id="page-top">
         <!-- Navigasi Topbar-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
             <div class="container px-5">
@@ -70,19 +69,65 @@
         <h2 class="display-4 text-center lh-1 mb-4 ">Laporan Pengaduan</h2>
         </div>
 
-        <div class="panel panel-default container">
-            <div class="panel-heading">
-                <h3 class="panel-title" >Filter Pengaduan Infrastruktur : </h3>
+        <!-- Email dan Nomor HP-->
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                    <label for="country" class="col-sm-2 control-label">Jenis Infrastruktur</label>
+                    <div class="col-sm-12">
+                        <?php echo $form_infrastruktur; ?>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                    <label for="country" class="col-sm-2 control-label">Kabupaten/Kota</label>
+                    <div class="col-sm-12">
+                        <select class="form-control" name="lokasi_kabkota" id="lokasi_kabkota">
+                            <option value="0">- Semua Kabupaten/Kota -</option>
+                            <?php 
+                                foreach($form_kab as $kab)
+                                {
+                                    echo '<option value="'.$kab->kode.'">'.$kab->nama.'</option>';
+                                }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                <label for="country" class="col-sm-2 control-label">Kecamatan/Distrik</label>
+                    <div class="col-sm-12">
+                        <select class="form-control" name="lokasi_distrik" id="lokasi_distrik">
+                            <option value="0">- Semua Kecamatan/Distrik -</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                <label for="LastName" class="filter col-sm-2 control-label">Pilih</label>
+                    <div class="col-sm-12">
+                        <button type="button" id="btn-filter" class="btn btn-primary">Filter</button>
+                        <button type="button" id="btn-reset" class="btn btn-danger">Reset</button>
+                    </div>
+                </div>
             </div>
-            <div class="panel-body">
-                <form id="form-filter" class="form-horizontal">
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-6">
+        </div>
+        <!-- Email -->
+
+
+        <!-- <div class="panel panel-default container"> -->
+            <!-- <div class="panel-heading"> -->
+                <!-- <h3 class="panel-title" >Filter Pengaduan Infrastruktur : </h3> -->
+            <!-- </div> -->
+            <!-- <div class="panel-body"> -->
+                <!-- <form id="form-filter" class="form-horizontal">
+                    <div class="form-group col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <label for="country" class="col-sm-2 control-label">Jenis Infrastruktur</label>
                         <div class="col-sm-4">
                             <?php echo $form_infrastruktur; ?>
                         </div>
                     </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                    <div class="form-group col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <label for="country" class="col-sm-2 control-label">Kabupaten/Kota</label>
                         <div class="col-sm-4">
                             <select class="form-control" name="lokasi_kabkota" id="lokasi_kabkota">
@@ -96,7 +141,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                    <div class="form-group col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <label for="country" class="col-sm-2 control-label">Kecamatan/Distrik</label>
                         <div class="col-sm-4">
                             <select class="form-control" name="lokasi_distrik" id="lokasi_distrik">
@@ -104,16 +149,16 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                    <div class="form-group col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <label for="LastName" class="filter col-sm-2 control-label">Pilih</label>
                         <div class="col-sm-4">
                             <button type="button" id="btn-filter" class="btn btn-primary">Filter</button>
-                            <button type="button" id="btn-reset" class="btn btn-default">Reset</button>
+                            <button type="button" id="btn-reset" class="btn btn-danger">Reset</button>
                         </div>
                     </div>
-                </form>
-            </div>
-        </div>
+                </form> -->
+            <!-- </div> -->
+        <!-- </div> -->
 
 
         <div class="table-responsive" >
@@ -149,7 +194,7 @@
             </div>
         </footer>
         <!-- Akhir Footer -->
-        
+
         <!-- Tambahan JS dari Bootstrap -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

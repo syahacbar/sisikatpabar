@@ -1,5 +1,5 @@
 .laporan {
-    padding-top: 2rem;
+    padding-top: 7rem;
 }
 
 /* Jarak bagian bawah heading */
@@ -117,6 +117,11 @@
 }
 
 /* Halaman laporan 23072021  */
+/* Halaman Filter */
+form#form-filter {
+    display: flex;
+}
+
 .panel.panel-default.container,
 .panel.panel-default.container .panel-heading  {
     border: 0;
@@ -127,34 +132,29 @@
     padding: 0;
 }
 
-.form-group.col-lg-3.col-md-3.col-sm-6.col-xs-6 .col-sm-4 {
-    display: flex;
-    justify-content: space-between;
-}
-.form-group.col-lg-3.col-md-3.col-sm-6.col-xs-6 .col-sm-4 {
-    width: 100%;
-    min-width: 100%;
-}
-
 label.col-sm-2.control-label {
     width: 100%;
     text-align: left;
     min-width: 100%;
-}
-
-.form-group.col-lg-3.col-md-3.col-sm-6.col-xs-6 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 80px;
+    font-weight: bold;
     padding: 0;
-    margin-right: 10px;
 }
 
-button#btn-filter, button#btn-reset {
-    width: 45%;
+.col-lg-3.col-md-3.col-sm-6.col-xs-6 .col-sm-12 {
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
 }
+
+
+/* Button filter and reset */
+.col-lg-3.col-md-3.col-sm-6.col-xs-6 button.btn.btn-danger.col-sm-6,
+.col-lg-3.col-md-3.col-sm-6.col-xs-6 button.btn.btn-primary.col-sm-6 {
+    width: 47% !important;
+    min-width: 47% !important;
+    max-width: 47% !important;
+}
+
 
 label.filter.col-sm-2.control-label {
     visibility: hidden;
@@ -172,34 +172,64 @@ table#table img {
     object-fit: cover;
 }
 
-
-a.navbar-brand {
-    padding-top: 0.3125rem;
-    padding-bottom: 0.3125rem;
-    margin-right: 1rem;
-    font-size: 1.25rem;
-    text-decoration: none;
-    white-space: nowrap;
+select.form-control.input-sm {
+    margin: 0 5px;
 }
 
-#mainNav .navbar-nav .nav-item .nav-link {
-    color: #ffffff;
+table.dataTable thead .sorting:after {
+    display: none;
+}
+
+.table-responsive .table thead th {
     font-weight: bold;
-    font-size: 16px !important;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
-    margin-right: 1rem !important;
 }
 
-#mainNav button.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0 {
-    background-color: #4e2eeb !important;
+
+/* Pagination */
+.table-responsive .row {
+    width: 100%;
+}
+
+.table-responsive .col-sm-5 {
+    width: 50%;
+}
+
+.table-responsive .col-sm-7 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+}
+
+li#table_previous,
+li#table_next {
+    padding: 5px 10px;
+    background-color: #4e2eeb;
     border: 0;
-    margin-bottom: 0 !important;
-    padding-right: 1rem !important;
-    padding-left: 1rem !important;
+    border-radius: 5px;
 }
 
-#mainNav button span.small,
-#mainNav .me-2 {
+li.paginate_button.active {
+    padding: 5px 10px;
+}
+
+li.paginate_button.active a {
+    color: #d01a4e;
     font-size: 16px;
+    font-weight: bold;
+}
+
+ul.pagination a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+div#table_info {
+    font-size: 12px;
+}
+
+/* Show entri */
+.table-responsive .row .col-sm-6 {
+    display: flex;
 }
