@@ -65,7 +65,7 @@
             </div>
         </nav>
         <!-- Akhir Navigasi Topbar-->
-
+        
         <!-- Header Web -->
         <header id="header" class="masthead">
             <div class="container px-5">
@@ -159,7 +159,7 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <input id="nik" name="nik" type="text" class="form-control" placeholder="Ketik NIK Anda" />
+                                        <input id="nik" name="nik" type="text" class="form-control" placeholder="Ketik NIK Anda" required/>
                                       </div>
                                     </div>
                                 </div>   
@@ -169,7 +169,7 @@
                                 <div class="row mb-4">
                                   <div class="col">
                                     <div class="form-outline">
-                                      <input name="nama_pelapor" type="text" class="form-control" placeholder="Ketik Nama Anda"/>
+                                      <input name="nama_pelapor" type="text" class="form-control" placeholder="Ketik Nama Anda" required/>
                                     </div>
                                   </div>
                                 </div>
@@ -179,7 +179,7 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <textarea name="alamat_pelapor" class="form-control" rows="4" placeholder="Ketik alamat Anda dengan format: Nama Jalan, No. Rumah/Blok, Nama Kompleks, RT/RW"></textarea>
+                                        <textarea name="alamat_pelapor" class="form-control" rows="4" placeholder="Ketik alamat Anda dengan format: Nama Jalan, No. Rumah/Blok, Nama Kompleks, RT/RW" required></textarea>
                                       </div>
                                     </div>
                                 </div>
@@ -229,13 +229,13 @@
                                 <div class="row mb-4">
                                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="form-outline">
-                                      <input name="email" type="text" class="form-control" placeholder="Ketik Alamat Email Anda"/>
+                                      <input name="email" type="text" pattern=".+@globex\.com" class="form-control" placeholder="Ketik Alamat Email Anda" required/>
                                     </div>
                                   </div>
 
                                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="form-outline">
-                                      <input name="no_hp" type="text" class="form-control" placeholder="Ketik Nomor HP Anda"/>
+                                      <input name="no_hp" type="text" class="form-control" placeholder="Ketik Nomor HP Anda" required/>
                                     </div>
                                   </div>
                                 </div>
@@ -294,7 +294,7 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <input name="lokasi_namajalan" type="text" class="form-control" placeholder="Ruas Nama Jalan"/>
+                                        <input name="lokasi_namajalan" type="text" class="form-control" placeholder="Ruas Nama Jalan" required/>
                                       </div>
                                     </div>
                                 </div>
@@ -334,7 +334,7 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <textarea name="pengaduan" class="form-control" rows="4" placeholder="Jelaskan laporan Anda di sini"></textarea>
+                                        <textarea name="pengaduan" class="form-control" rows="4" placeholder="Jelaskan laporan Anda di sini" required></textarea>
                                       </div>
                                     </div>
                                 </div>

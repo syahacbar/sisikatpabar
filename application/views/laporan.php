@@ -1,19 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>SI-SIKAT - Beranda</title>
+        <link rel="icon" type="image/x-icon" href="<?php echo base_url();?>resources/template/assets/favicon.png" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+
+        <!-- Tambahan Link Untuk CSS dari Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         
-    <link href="<?php echo base_url('resources/datatables/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
-    <link href="<?php echo base_url('resources/datatables/datatables/css/dataTables.bootstrap.min.css')?>" rel="stylesheet">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title" >Filter Pengaduan Infrastruktur : </h3>
+        <!-- Google fonts-->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
+        
+        <!-- Font Google -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <!-- <link href="<?php echo base_url('resources/datatables/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet"> -->
+        <link href="<?php echo base_url();?>resources/template/css/styles.css" rel="stylesheet" />
+        <link href="<?php echo base_url();?>resources/template/css/css-pengaduan.css" rel="stylesheet" />
+           
+        <!-- Halaman Laporan Pengaduan -->
+        <link href="<?php echo base_url('resources/datatables/datatables/css/dataTables.bootstrap.min.css')?>" rel="stylesheet">
+        <link href="<?php echo base_url('resources/template/css/laporan.css')?>" rel="stylesheet">
+    </head>
+    <body id="page-top">
+        <!-- Navigasi Topbar-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+            <div class="container px-5">
+                <a class="navbar-brand" href="#">
+                <img src="<?php echo base_url();?>resources/template/assets/logo-sisikat.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="<?php echo base_url();?>">Tentang SI-SIKAT</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="#statistik">Statistik</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="<?php echo base_url('laporan');?>">Lihat Laporan</a></li>
+                    </ul>
+                    <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#loginpage">
+                        <span class="d-flex align-items-center">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>
+                            <span class="small">Masuk</span>
+                        </span>
+                    </button>
+                </div>
             </div>
-            <div class="panel-body">
-                <form id="form-filter" class="form-horizontal">
-                    <div class="form-group">
+        </nav>
+        <!-- Akhir Navigasi Topbar-->
+
+        <!-- TABEL LAPORAN -->
+        <div class="laporan">
+        <h2 class="display-4 text-center lh-1 mb-4 ">Laporan Pengaduan</h2>
+        </div>
+
+        <!-- Email dan Nomor HP-->
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                    <label for="country" class="col-sm-2 control-label">Jenis Infrastruktur</label>
+                    <div class="col-sm-12">
+                        <?php echo $form_infrastruktur; ?>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                    <label for="country" class="col-sm-2 control-label">Kabupaten/Kota</label>
+                    <div class="col-sm-12">
+                        <select class="form-control" name="lokasi_kabkota" id="lokasi_kabkota">
+                            <option value="0">- Semua Kabupaten/Kota -</option>
+                            <?php 
+                                foreach($form_kab as $kab)
+                                {
+                                    echo '<option value="'.$kab->kode.'">'.$kab->nama.'</option>';
+                                }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                <label for="country" class="col-sm-2 control-label">Kecamatan/Distrik</label>
+                    <div class="col-sm-12">
+                        <select class="form-control" name="lokasi_distrik" id="lokasi_distrik">
+                            <option value="0">- Semua Kecamatan/Distrik -</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                <label for="LastName" class="filter col-sm-2 control-label">Pilih</label>
+                    <div class="col-sm-12">
+                        <button type="button" id="btn-filter" class="btn btn-primary">Filter</button>
+                        <button type="button" id="btn-reset" class="btn btn-danger">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Email -->
+
+
+        <!-- <div class="panel panel-default container"> -->
+            <!-- <div class="panel-heading"> -->
+                <!-- <h3 class="panel-title" >Filter Pengaduan Infrastruktur : </h3> -->
+            <!-- </div> -->
+            <!-- <div class="panel-body"> -->
+                <!-- <form id="form-filter" class="form-horizontal">
+                    <div class="form-group col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <label for="country" class="col-sm-2 control-label">Jenis Infrastruktur</label>
                         <div class="col-sm-4">
                             <?php echo $form_infrastruktur; ?>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <label for="country" class="col-sm-2 control-label">Kabupaten/Kota</label>
                         <div class="col-sm-4">
                             <select class="form-control" name="lokasi_kabkota" id="lokasi_kabkota">
@@ -27,7 +141,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <label for="country" class="col-sm-2 control-label">Kecamatan/Distrik</label>
                         <div class="col-sm-4">
                             <select class="form-control" name="lokasi_distrik" id="lokasi_distrik">
@@ -35,20 +149,17 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="LastName" class="col-sm-2 control-label"></label>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <label for="LastName" class="filter col-sm-2 control-label">Pilih</label>
                         <div class="col-sm-4">
                             <button type="button" id="btn-filter" class="btn btn-primary">Filter</button>
-                            <button type="button" id="btn-reset" class="btn btn-default">Reset</button>
+                            <button type="button" id="btn-reset" class="btn btn-danger">Reset</button>
                         </div>
                     </div>
-                </form>
-            </div>
-        </div>
-        <!-- TABEL LAPORAN -->
-        <div class="laporan">
-        <h2 class="display-4 text-center lh-1 mb-4 ">Laporan Pengaduan</h2>
-        </div>
+                </form> -->
+            <!-- </div> -->
+        <!-- </div> -->
+
 
         <div class="table-responsive" >
             <div class="container">
@@ -68,8 +179,37 @@
             </table>
         </div>
         </div>
-   
+
+        <!-- Footer -->
+        <footer class="bg-black text-center py-5">
+            <div class="container px-5">
+                <div class="text-white-50 small">
+                    <div class="mb-2">SI-SIKAT &copy; 2021. All Rights Reserved.</div>
+                    <a href="#!">Privasi</a>
+                    <span class="mx-1">&middot;</span>
+                    <a href="#!">Istilah</a>
+                    <span class="mx-1">&middot;</span>
+                    <a href="#!">FAQ</a>
+                </div>
+            </div>
+        </footer>
+        <!-- Akhir Footer -->
+
+        <!-- Tambahan JS dari Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
         
+        <!-- JS Inti-->
+        <script src="<?php echo base_url();?>resources/template/js/scripts.js"></script>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+        <!-- Link ke JS Counter -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="<?php echo base_url();?>resources/template/js/js-pengaduan.js"></script>
+         
         <script src="<?php echo base_url('resources/datatables/jquery/jquery-2.2.3.min.js')?>"></script>
         <script src="<?php echo base_url('resources/datatables/bootstrap/js/bootstrap.min.js')?>"></script>
         <script src="<?php echo base_url('resources/datatables/datatables/js/jquery.dataTables.min.js')?>"></script>
