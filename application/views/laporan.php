@@ -114,53 +114,6 @@
         </div>
         <!-- Email -->
 
-
-        <!-- <div class="panel panel-default container"> -->
-            <!-- <div class="panel-heading"> -->
-                <!-- <h3 class="panel-title" >Filter Pengaduan Infrastruktur : </h3> -->
-            <!-- </div> -->
-            <!-- <div class="panel-body"> -->
-                <!-- <form id="form-filter" class="form-horizontal">
-                    <div class="form-group col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                        <label for="country" class="col-sm-2 control-label">Jenis Infrastruktur</label>
-                        <div class="col-sm-4">
-                            <?php echo $form_infrastruktur; ?>
-                        </div>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                        <label for="country" class="col-sm-2 control-label">Kabupaten/Kota</label>
-                        <div class="col-sm-4">
-                            <select class="form-control" name="lokasi_kabkota" id="lokasi_kabkota">
-                                <option value="0">- Semua Kabupaten/Kota -</option>
-                                <?php 
-                                    foreach($form_kab as $kab)
-                                    {
-                                        echo '<option value="'.$kab->kode.'">'.$kab->nama.'</option>';
-                                    }
-                                ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                        <label for="country" class="col-sm-2 control-label">Kecamatan/Distrik</label>
-                        <div class="col-sm-4">
-                            <select class="form-control" name="lokasi_distrik" id="lokasi_distrik">
-                                <option value="0">- Semua Kecamatan/Distrik -</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                        <label for="LastName" class="filter col-sm-2 control-label">Pilih</label>
-                        <div class="col-sm-4">
-                            <button type="button" id="btn-filter" class="btn btn-primary">Filter</button>
-                            <button type="button" id="btn-reset" class="btn btn-danger">Reset</button>
-                        </div>
-                    </div>
-                </form> -->
-            <!-- </div> -->
-        <!-- </div> -->
-
-
         <div class="table-responsive" >
             <div class="container">
             <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -195,6 +148,63 @@
         </footer>
         <!-- Akhir Footer -->
 
+
+        <!-- Modal Login Anggota-->
+        <div class="modal fade" id="loginpage" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-gradient-primary-to-secondary p-4">
+                        <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">Send feedback</h5>
+                        <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body border-0 p-4">
+                        <form>
+                            <a class="navbar-brand" href="#">
+                                <img src="<?php echo base_url();?>resources/template/assets/logo-sisikat.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                            </a>
+                            <h2 class="display-4 text-center lh-1 mb-4">Login</h2>
+                            <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Email</label>
+                              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
+                              <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <div class="mb-3 form-check">
+                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                              <label class="form-check-label" for="exampleCheck1">Biarkan saya tetap masuk</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">MASUK</button>
+                          </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Akhir Modal Login Anggota-->
+
+        <!-- Modal Detail Laporan Terakhir-->
+        <div class="modal fade" id="report-detail" tabindex="-1" role="dialog" aria-labelledby="report-detailTitle" aria-hidden="true">
+            <div id="newreport" class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div class="modal-header">
+                <h5 class="modal-title" id="report-detailTitle">Laporan 1</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                Detail Laporan di sini
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- Akhir Modal Detail Laporan Terakhir-->
+        
         <!-- Tambahan JS dari Bootstrap -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
