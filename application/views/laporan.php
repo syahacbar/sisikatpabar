@@ -187,20 +187,45 @@
         <!-- Modal Detail Laporan Terakhir-->
         <div class="modal fade" id="report-detail" tabindex="-1" role="dialog" aria-labelledby="report-detailTitle" aria-hidden="true">
             <div id="newreport" class="modal-dialog modal-dialog-scrollable" role="document">
-            <div class="modal-content col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                <div class="modal-header">
-                <h5 class="modal-title" id="report-detailTitle">Laporan 1</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <div class="modal-content col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="report-detailTitle">Drainase Sepanjang Jalan Kenangan</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://1.bp.blogspot.com/-EzByB5vQIps/WYnxel_SovI/AAAAAAAAAQM/wAjNlJcJYR8No8RmLDYItcNXzLtx67mjgCLcBGAs/s1600/tips%2Bberkendara%2Bdi%2Bjalanan%2Brusak.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://1.bp.blogspot.com/-EzByB5vQIps/WYnxel_SovI/AAAAAAAAAQM/wAjNlJcJYR8No8RmLDYItcNXzLtx67mjgCLcBGAs/s1600/tips%2Bberkendara%2Bdi%2Bjalanan%2Brusak.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://1.bp.blogspot.com/-EzByB5vQIps/WYnxel_SovI/AAAAAAAAAQM/wAjNlJcJYR8No8RmLDYItcNXzLtx67mjgCLcBGAs/s1600/tips%2Bberkendara%2Bdi%2Bjalanan%2Brusak.jpg" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Kabupaten:</small></p>
+                            <p class="card-text"><small class="text-muted">Kecamatan:</small></p>
+                            <p class="card-text"><small class="text-muted">Koordinat Lokasi:</small></p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                Detail Laporan di sini
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                </div>
-            </div>
             </div>
         </div>
         <!-- Akhir Modal Detail Laporan Terakhir-->
