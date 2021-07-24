@@ -229,7 +229,7 @@
                                 <div class="row mb-4">
                                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="form-outline">
-                                      <input name="email" type="text" pattern=".+@globex\.com" class="form-control" placeholder="Ketik Alamat Email Anda" required/>
+                                      <input name="email" type="text" pattern=".+@+.com" class="form-control" placeholder="Ketik Alamat Email Anda" required/>
                                     </div>
                                   </div>
 

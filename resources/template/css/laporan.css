@@ -210,6 +210,14 @@ li#table_next {
     margin: 0 10px;
 }
 
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    margin: 2px 0;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 li.paginate_button.active {
     padding: 5px 10px;
 }
@@ -251,20 +259,76 @@ div#report-detail div#newreport {
     backdrop-filter: brightness(0.5);
     width: 100%;
     height: 100%;
+    padding-bottom: 5%;
 }
 
 
 div#report-detail div#newreport .modal-content {
-    min-width: 80%;
+    min-width: 670px;
 }
 
-@media (max-width: 990px) {
+@media (max-width: 1000px) {
 div#report-detail div#newreport .modal-content {
     min-width: 90%;
     max-width: 90%;
 }  
 }
 
+@media (min-width: 700px) {
+div#report-detail div#newreport .modal-content {
+    min-width: 670px !important;
+}
+}
+
 div#report-detail {
     padding: 0 !important;
+}
+
+/* Gambar infrastruktur */
+div#newreport .card.mb-3 {
+    border: 0;
+}
+
+div#newreport .card.mb-3 img {
+    width: 100%;
+    border-radius: 10px;
+    height: 250px;
+    object-fit: cover;
+}
+
+div#newreport .card-body {
+    padding: 1rem 0;
+}
+
+
+/* Footer */
+footer.bg-black.text-center.py-5 {
+    clear: both;
+    position: relative;
+    height: 150px;
+    margin-top: 150px;
+}
+
+/* Border di tabel Laporan Pengaduan */
+.table > :not(:last-child) > :last-child > * {
+    border: 0;
+}
+
+
+
+/* SLIDER */
+div#newreport .carousel-item.active,
+div#newreport .carousel-item {
+    height: 200px;
+}
+
+div#newreport .carousel-item.active img {
+    width: 100% !important;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+div#newreport .modal-footer {
+    border: 0;
 }
