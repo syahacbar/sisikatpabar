@@ -9,6 +9,7 @@ class Lapor extends CI_Controller{
         $this->load->library('session');
     } 
 
+
     /*
      * Listing of laporan
      */
@@ -49,6 +50,11 @@ class Lapor extends CI_Controller{
         $data['_view'] = 'home';
         $this->load->view('home',$data);
 
+    }
+
+    function statistik()
+    {
+        $this->load->view('statistik');
     }
   
     function add_ajax_kec($id)

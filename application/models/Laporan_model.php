@@ -7,7 +7,7 @@
 class Laporan_model extends CI_Model
 {
     var $table = 'v_laporan';
-    var $column_order = array(null, 'tgl_laporan','lokasi_kabkota'); //set column field database for datatable orderable
+    var $column_order = array(null, null,null,'lokasi_kabkota','tgl_laporan'); //set column field database for datatable orderable
     var $column_search = array('pengaduan','lokasi_namajalan','lokasikabkota','lokasidistrik'); //set column field database for datatable searchable 
     var $order = array('id' => 'asc'); // default order
 

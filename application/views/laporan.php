@@ -282,6 +282,12 @@
                         "targets": [ 0 ], //first column / numbering column
                         "orderable": false, //set not orderable
                     },
+                    {   "targets": [ 1 ], //first column / numbering column
+                        "orderable": false, //set not orderable
+                    },
+                    {   "targets": [ 5 ], //first column / numbering column
+                        "orderable": false, //set not orderable
+                    },
                     ],
                     fixedColumns: true,
              
