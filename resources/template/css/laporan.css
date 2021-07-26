@@ -313,7 +313,8 @@ footer.bg-black.text-center.py-5 {
 
 /* Border di tabel Laporan Pengaduan */
 .table > :not(:last-child) > :last-child > * {
-    border: 0;
+    border: 1;
+    border-bottom: 0;
 }
 
 
@@ -333,4 +334,37 @@ div#newreport .carousel-item.active img {
 
 div#newreport .modal-footer {
     border: 0;
+}
+
+/* Mengubah jenis huruf */
+.col-lg-3.col-md-3.col-sm-6.col-xs-6 label.col-sm-2.control-label {
+    font-family: 'Poppins';
+}
+
+/* Kolom pilih kabupaten dkk */
+select#infrastruktur,
+select#lokasi_kabkota,
+select#lokasi_distrik {
+    font-family: 'Poppins' !important;
+    font-size: 14px !important;
+    height: 45px;
+    font-weight: normal !important;
+}
+
+/* mengubah tulisan processing */
+div.dataTables_wrapper div.dataTables_processing {
+    top: 100%;
+    color: red;
+}
+
+/* Tulisan selengkapnya */
+.table-responsive table#table a {
+    text-decoration: none;
+    bottom: 0;
+}
+
+/* button filter blue */
+.col-sm-12 button#btn-filter {
+    width: 70%;
+    height: 45px;
 }
