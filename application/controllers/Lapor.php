@@ -51,11 +51,6 @@ class Lapor extends CI_Controller{
         $this->load->view('home',$data);
 
     }
-
-    function statistik()
-    {
-        $this->load->view('statistik');
-    }
   
     function add_ajax_kec($id)
     {
