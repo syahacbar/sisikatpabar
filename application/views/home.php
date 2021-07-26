@@ -420,7 +420,7 @@
                                 <img src="<?php echo base_url('upload/dokumentasi/').$res1['nama_file'];?>" alt="">
                                 <h3 class="font-alt"><?php echo $res1['lokasi_namajalan'];?></h3>
                                 <p class="text-muted mb-0"><?php echo word_limiter($res1['pengaduan'],10); ?></p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#report-detail" data-lokasi_namajalan="<?php echo $res1['lokasi_namajalan'];?>" data-lokasi_kabkota="<?php echo $res1['lokasikabkota'];?>" data-lokasi_distrik="<?php echo $res1['lokasidistrik'];?>" data-lokasi_koordinat="<?php echo $res1['latitude'].", ".$res1['longitude'];?>" data-pengaduan="<?php echo $res1['pengaduan'];?>">
                                     Detail
                                 </button>
                             </div>
@@ -436,7 +436,7 @@
                                 <img src="<?php echo base_url('upload/dokumentasi/').$res2['nama_file'];?>" alt="">
                                 <h3 class="font-alt"><?php echo $res2['lokasi_namajalan'];?></h3>
                                 <p class="text-muted mb-0"><?php echo word_limiter($res2['pengaduan'],10);?></p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#report-detail" data-lokasi_namajalan="<?php echo $res2['lokasi_namajalan'];?>" data-lokasi_kabkota="<?php echo $res2['lokasikabkota'];?>" data-lokasi_distrik="<?php echo $res2['lokasidistrik'];?>" data-lokasi_koordinat="<?php echo $res2['latitude'].", ".$res2['longitude'];?>" data-pengaduan="<?php echo $res2['pengaduan'];?>">
                                     Detail
                                 </button>
                             </div>
@@ -448,27 +448,7 @@
         </div>
         <!--  Akhir Blok Laporan Terbaru -->
     
-        <!-- Modal Detail Laporan Terakhir-->
-        <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-            <div id="newreport" class="modal-dialog modal-dialog-scrollable" role="document">
-                <div class="modal-content col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalScrollableTitle">Laporan 1</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                    Detail Laporan di sini
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Akhir Modal Detail Laporan Terakhir-->
-
+        
         <!-- Footer -->
         <footer class="bg-black text-center py-5">
             <div class="container px-5">
@@ -538,6 +518,52 @@
             </div>
         </div>
         <!-- Akhir Modal Bantuan -->
+
+        <!-- Modal Detail Laporan-->
+        <div class="modal fade" id="report-detail" tabindex="-1" role="dialog" aria-labelledby="report-detailTitle" aria-hidden="true">
+            <div id="newreport" class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="report-detailTitle"><span id="lokasi_namajalan"></span></h5>
+                    </div>
+                    <div class="modal-body">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://1.bp.blogspot.com/-EzByB5vQIps/WYnxel_SovI/AAAAAAAAAQM/wAjNlJcJYR8No8RmLDYItcNXzLtx67mjgCLcBGAs/s1600/tips%2Bberkendara%2Bdi%2Bjalanan%2Brusak.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://1.bp.blogspot.com/-EzByB5vQIps/WYnxel_SovI/AAAAAAAAAQM/wAjNlJcJYR8No8RmLDYItcNXzLtx67mjgCLcBGAs/s1600/tips%2Bberkendara%2Bdi%2Bjalanan%2Brusak.jpg" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://1.bp.blogspot.com/-EzByB5vQIps/WYnxel_SovI/AAAAAAAAAQM/wAjNlJcJYR8No8RmLDYItcNXzLtx67mjgCLcBGAs/s1600/tips%2Bberkendara%2Bdi%2Bjalanan%2Brusak.jpg" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+
+                        <div class="card-body">
+                            <p class="card-text"><span id="pengaduan"></span></p>
+                            <p class="card-text"><small class="text-muted">Lokasi Ruas Jalan: </small><span id="lokasi_namajalan"></span></p>
+                            <p class="card-text"><small class="text-muted">Kecamatan/Distrik: </small><span id="lokasi_distrik"></span></p>
+                            <p class="card-text"><small class="text-muted">Kabupaten/Kota: </small><span id="lokasi_kabkota"></span></p>
+                            <p class="card-text"><small class="text-muted">Koordinat Lokasi: </small><span id="lokasi_koordinat"></span></p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <!-- Tambahan JS dari Bootstrap -->
@@ -659,7 +685,9 @@
                 $('form').submit(function(e) {
                     e.preventDefault();
                     ktp_upload.processQueue();
-                    dokumentasi_upload.processQueue();
+                    dokumentasi1_upload.processQueue();
+                    dokumentasi2_upload.processQueue();
+                    dokumentasi3_upload.processQueue();
 
 
                    var nik = $("input[name='nik']").val();

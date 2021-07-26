@@ -47,11 +47,17 @@ class Laporan_model extends CI_Model
     
         
     /*
-     * Get all laporan
-     */
+     
+     
     function get_all_laporan($kategori=NULL,$limit=NULL,$offset=NULL)
     {
         $query = $this->db->query("SELECT *, w.nama AS lokasi FROM laporan l JOIN upload u ON u.kodelap=l.kodelap LEFT JOIN wilayah_2020 w on w.kode=l.lokasi_kabkota WHERE u.kategori='$kategori' ORDER BY l.tgl_laporan DESC LIMIT $limit OFFSET $offset");
+        return $query->result_array();
+    }
+*/
+    function get_all_laporan($kategori=NULL,$limit=NULL,$offset=NULL)
+    {
+        $query = $this->db->query("SELECT * FROM v_laporan WHERE kategori='$kategori' ORDER BY tgl_laporan DESC LIMIT $limit OFFSET $offset");
         return $query->result_array();
     }
         

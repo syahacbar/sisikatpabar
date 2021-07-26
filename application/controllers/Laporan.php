@@ -68,7 +68,6 @@ class Laporan extends CI_Controller{
             </div>";
             
             $row[] = $lap->tgl_laporan;
-            $row[] = "<button id='btn_lapdetail' class='btn btn-success fas' data-toggle='modal' data-target='#report-detail' data-lokasi_namajalan='".$lap->lokasi_namajalan."' data-lokasi_kabkota='".$lap->lokasikabkota."' data-lokasi_distrik='".$lap->lokasidistrik."' data-lokasi_koordinat='".$lap->latitude.", ".$lap->longitude."' data-pengaduan='".$lap->pengaduan."'><i class='fa fa-search'></i></button>";
       
  
             $data[] = $row;
