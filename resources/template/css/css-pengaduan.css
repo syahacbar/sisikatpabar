@@ -203,7 +203,7 @@ div#loginpage .modal-content {
 
 /* Button Kirim Laporan */
 #formulir button.btn.btn-primary.btn-block.mb-4 {
-    margin-bottom: 6rem !important;
+    margin-bottom: 4rem !important;
     width: 100%;
     padding: 10px;
     background-color: #4e2eeb;
@@ -853,4 +853,43 @@ div#dokumentasi a.dz-remove {
     text-decoration: none;
     margin-top: 15px;
     font-size: 0 !important;
+}
+
+
+/* Upload KTP Button */
+div#ktp .dz-message:before {
+    content: " ";
+    background-image: url(../assets/img/upload-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 65px !important;
+    display: block;
+}
+
+div#ktp {
+    border: 1px solid #4e2eeb;
+    padding: 0;
+}
+
+div#ktp .dz-preview.dz-image-preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    margin: 10px auto;
+}
+
+div#ktp .dz-preview .dz-remove {
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+div#ktp p,
+div#foto1 p,
+div#foto2 p,
+div#fotoselfi p {
+    color: #4e2eeb;
+    margin-top: 10px;
 }

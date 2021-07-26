@@ -315,6 +315,7 @@ footer.bg-black.text-center.py-5 {
 .table > :not(:last-child) > :last-child > * {
     border: 1;
     border-bottom: 0;
+    padding: 10px;
 }
 
 
@@ -355,16 +356,25 @@ select#lokasi_distrik {
 div.dataTables_wrapper div.dataTables_processing {
     top: 100%;
     color: red;
+    padding-bottom: 0;
+    margin-top: 50px;
+    backdrop-filter: blur(1px);
 }
 
 /* Tulisan selengkapnya */
 .table-responsive table#table a {
     text-decoration: none;
     bottom: 0;
+    display: block;
+    margin-top: 10px;
 }
 
 /* button filter blue */
 .col-sm-12 button#btn-filter {
     width: 70%;
     height: 45px;
+}
+
+.table-responsive .container {
+    min-height: 250px;
 }
