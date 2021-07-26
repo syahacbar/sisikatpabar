@@ -511,6 +511,35 @@ div#newreport.modal-dialog {
     height: 60%;
 }
 
+/* Modal detail lapran terbaru */
+div#newreport.modal-dialog {
+    transform: none;
+    height: auto;
+    width: 66%;
+}
+
+/* Untuk gambar laporan terbaru  */
+div#report-detail .carousel-inner img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+@media (max-width: 580px) {
+div#newreport.modal-dialog {
+    transform: none;
+    height: auto;
+    width: 90%;
+}
+
+div#report-detail .carousel-inner img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+}
 .modal-header.bg-gradient-primary-to-secondary.p-4 {
     display: none;
 }
@@ -789,8 +818,13 @@ div#fotoselfi {
 
 /* Ukuran modal bantuan */
 div#modalBantuan .modal-dialog {
-    max-width: 500px;
-    margin: 1.75rem auto;
+    max-width: 400px;
+}
+@media (max-width: 560px) {
+div#modalBantuan .modal-dialog {
+    width: 90%;
+    min-width: 90%;
+}
 }
 
 /* Tambah gambar di atas tulisan foto pertama dst. di kolom unggah bukti */
