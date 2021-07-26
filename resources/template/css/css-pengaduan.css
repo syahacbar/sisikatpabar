@@ -182,6 +182,7 @@ div#loginpage .modal-content {
 
 #formulir h3 {
     font-family: 'Poppins', sans-serif;
+    font-size: 14px;
 }
 
 /* Bagian Data laporan */
@@ -314,7 +315,6 @@ div#formulir .row.mb-4 select {
 }
 
 #formulir .form-check.d-flex.justify-content-center.mb-4 label.form-check-label {
-    font-size: 13px;
     font-weight: normal;
     display: flex;
     justify-content: center;
@@ -336,11 +336,33 @@ section#statistik h2 {
     margin-bottom: 3rem !important;
 }
 
+/* Untuk tombol lihat selengkapnya di statistik */
+section#statistik .more-btn.col-lg-12.order-lg-1.mb-5.mb-lg-0 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Untuk a tombol lihat selengkapnya di statistik */
+section#statistik .more-btn.col-lg-12.order-lg-1.mb-5.mb-lg-0 a.btn.btn-outline-primary {
+    padding: 10px 30px;
+}
 
 /* FOOTER */
 footer.bg-black.text-center.py-5 .text-white-50.small,
 footer.bg-black.text-center.py-5 * {
     color: #fff !important;
+}
+
+footer.bg-black.text-center.py-5 {
+    padding: 10px 10px 0px 10px;
+    bottom: 0;
+    width: 100%;
+    clear: both;
+    position: relative;
+    height: 150px;
+    margin-top: 150px;
 }
 
 footer.bg-black {
@@ -719,3 +741,81 @@ form#dropzoneFrom {
     color: #fff;
 }
 
+/* Untuk Tooltip Foto Dokumentasi*/
+div#dokumentasi {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+}
+
+/* Mengatur button tanda tanya */
+.row.mb-4 .col button.btn.btn-primary {
+    background-color: #fff;
+    border: 2px solid red;
+    padding: 0;
+    margin: -15px 40% 0 40% !important;
+    width: 35px;
+    height: auto;
+    position: absolute;
+    z-index: 999;
+    display: block;
+}
+
+div#foto1 i.fas.fa-question,
+div#foto2 i.fas.fa-question,
+div#fotoselfi i.fas.fa-question {
+    color: red;
+    font-size: 18px !important;
+}
+
+/* Menghilangkan shadow pada button tanda tanya */
+.row.mb-4 .col .btn-check:focus + .btn,
+.row.mb-4 .col .btn:focus {
+    box-shadow: none !important
+}
+
+/* Mengatur setiap kolom unggah bukti */
+div#foto1,
+div#foto2,
+div#fotoselfi {
+    border: 1px solid #4e2eeb;
+    padding: 0;
+    margin: 0 12px;
+    margin-top: 10px;
+}
+
+/* Ukuran modal bantuan */
+div#modalBantuan .modal-dialog {
+    max-width: 500px;
+    margin: 1.75rem auto;
+}
+
+/* Tambah gambar di atas tulisan foto pertama dst. di kolom unggah bukti */
+div#dokumentasi .dz-message:before {
+    content: " ";
+    background-image: url(../assets/img/upload-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 65px !important;
+    display: block;
+}
+
+/* Kebijakan Privasi */
+div#policy {
+    padding-left: 0;
+    margin: 44px 0;
+}
+
+div#dokumentasi a.dz-remove:after {
+    content: "Hapus Gambar";
+    font-size: 14px;
+}
+
+div#dokumentasi a.dz-remove {
+    text-decoration: none;
+    margin-top: 15px;
+    font-size: 0 !important;
+}

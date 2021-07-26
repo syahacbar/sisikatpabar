@@ -300,9 +300,11 @@ div#newreport .card-body {
     padding: 1rem 0;
 }
 
-
 /* Footer */
 footer.bg-black.text-center.py-5 {
+    padding: 10px 10px 0px 10px;
+    bottom: 0;
+    width: 100%;
     clear: both;
     position: relative;
     height: 150px;
