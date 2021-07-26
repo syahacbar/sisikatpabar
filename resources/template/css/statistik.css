@@ -46,3 +46,7 @@ text.highcharts-subtitle {
 div#reportB {
     margin-top: 5rem;
 }
+
+div#reportstat text {
+    font-family: 'Poppins';
+}

@@ -155,7 +155,7 @@
                 },
                 series: [{
                     name: 'Jalan',
-                color:"#e987cf",
+                color:"#2d0404",
                     data: [
                         <?php 
                             foreach ($grapkabkota AS $gk1) { 
@@ -166,7 +166,7 @@
 
                 }, {
                     name: 'Drainase',
-                color:"#67E863",
+                color:"#4e2eeb",
                     data: [
                         <?php 
                             foreach ($grapkabkota AS $gk2) { 
@@ -230,6 +230,7 @@
                 },
                 series: [{
                     name: 'Jalan',
+                    color:"#2d0404",
                     data: [
                         <?php 
                             foreach ($grapbulan AS $gk1) { 
@@ -239,6 +240,7 @@
                     ]
                 }, {
                     name: 'Drainase',
+                    color:"#4e2eeb",
                     data: [
                         <?php 
                             foreach ($grapbulan AS $gk2) { 
