@@ -418,9 +418,9 @@
                             <?php foreach ($laporan1 as $res1) { ?>
                             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                 <img src="<?php echo base_url('upload/dokumentasi/').$res1['nama_file'];?>" alt="">
-                                <h3 class="font-alt"><?php echo $res1['lokasi_namajalan'];?></h3>
+                                <h3 class="font-alt">1<?php echo $res1['lokasi_namajalan'];?></h3>
                                 <p class="text-muted mb-0"><?php echo word_limiter($res1['pengaduan'],10); ?></p>
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#report-detail" data-lokasi_namajalan="<?php echo $res1['lokasi_namajalan'];?>" data-lokasi_kabkota="<?php echo $res1['lokasikabkota'];?>" data-lokasi_distrik="<?php echo $res1['lokasidistrik'];?>" data-lokasi_koordinat="<?php echo $res1['latitude'].", ".$res1['longitude'];?>" data-pengaduan="<?php echo $res1['pengaduan'];?>">
+                                <button id="lapdetail"class="btn btn-primary" data-toggle="modal" data-target="#report-detail" data-slokasi_namajalan="<?php echo $res1['lokasi_namajalan'];?>" data-slokasi_kabkota="<?php echo $res1['lokasikabkota'];?>" data-slokasi_distrik="<?php echo $res1['lokasidistrik'];?>" data-slokasi_koordinat="<?php echo $res1['latitude'].", ".$res1['longitude'];?>" data-spengaduan="<?php echo $res1['pengaduan'];?>">
                                     Detail
                                 </button>
                             </div>
@@ -436,7 +436,7 @@
                                 <img src="<?php echo base_url('upload/dokumentasi/').$res2['nama_file'];?>" alt="">
                                 <h3 class="font-alt"><?php echo $res2['lokasi_namajalan'];?></h3>
                                 <p class="text-muted mb-0"><?php echo word_limiter($res2['pengaduan'],10);?></p>
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#report-detail" data-lokasi_namajalan="<?php echo $res2['lokasi_namajalan'];?>" data-lokasi_kabkota="<?php echo $res2['lokasikabkota'];?>" data-lokasi_distrik="<?php echo $res2['lokasidistrik'];?>" data-lokasi_koordinat="<?php echo $res2['latitude'].", ".$res2['longitude'];?>" data-pengaduan="<?php echo $res2['pengaduan'];?>">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#report-detail" data-slokasi_namajalan="<?php echo $res2['lokasi_namajalan'];?>" data-slokasi_kabkota="<?php echo $res2['lokasikabkota'];?>" data-slokasi_distrik="<?php echo $res2['lokasidistrik'];?>" data-slokasi_koordinat="<?php echo $res2['latitude'].", ".$res2['longitude'];?>" data-spengaduan="<?php echo $res2['pengaduan'];?>">
                                     Detail
                                 </button>
                             </div>
@@ -524,7 +524,7 @@
             <div id="newreport" class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content col-lg-4 col-md-12 col-sm-12 col-xs-12">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="report-detailTitle"><span id="lokasi_namajalan"></span></h5>
+                        <h5 class="modal-title" id="report-detailTitle"><span id="slokasi_namajalan"></span></h5>
                     </div>
                     <div class="modal-body">
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -550,11 +550,11 @@
                         </div>
 
                         <div class="card-body">
-                            <p class="card-text"><span id="pengaduan"></span></p>
-                            <p class="card-text"><small class="text-muted">Lokasi Ruas Jalan: </small><span id="lokasi_namajalan"></span></p>
-                            <p class="card-text"><small class="text-muted">Kecamatan/Distrik: </small><span id="lokasi_distrik"></span></p>
-                            <p class="card-text"><small class="text-muted">Kabupaten/Kota: </small><span id="lokasi_kabkota"></span></p>
-                            <p class="card-text"><small class="text-muted">Koordinat Lokasi: </small><span id="lokasi_koordinat"></span></p>
+                            <p class="card-text"><span id="spengaduan"></span></p>
+                            <p class="card-text"><small class="text-muted">Lokasi Ruas Jalan: </small><span id="slokasi_namajalan"></span></p>
+                            <p class="card-text"><small class="text-muted">Kecamatan/Distrik: </small><span id="slokasi_distrik"></span></p>
+                            <p class="card-text"><small class="text-muted">Kabupaten/Kota: </small><span id="slokasi_kabkota"></span></p>
+                            <p class="card-text"><small class="text-muted">Koordinat Lokasi: </small><span id="slokasi_koordinat"></span></p>
                         </div>
 
                         <div class="modal-footer">
@@ -591,25 +591,38 @@
 
             Dropzone.autoDiscover = false;
             $(document).ready(function(){     
-                
-                $('#report-detail').on('show.bs.modal', function(e) {
+
+                $(document).on('click','#lapdetail',function(){
+                    var slokasi_namajalan = $(this).data('slokasi_namajalan');
+                    var slokasi_kabkota = $(this).data('slokasi_kabkota');
+                    var slokasi_distrik = $(this).data('slokasi_distrik');
+                    var slokasi_koordinat = $(this).data('slokasi_koordinat');
+                    var spengaduan = $(this).data('spengaduan');
+                    $('#slokasi_namajalan').text(slokasi_namajalan);
+                    $('#slokasi_kabkota').text(slokasi_kabkota);
+                    $('#slokasi_distrik').text(slokasi_distrik);
+                    $('#slokasi_koordinat').text(slokasi_koordinat);
+                    $('#spengaduan').text(spengaduan);
+                })
+/*
+                $('#report-detail').on('show.bs.modal', function(x) {
 
                     //get data-id attribute of the clicked element
-                    var lokasi_namajalan = $(e.relatedTarget).data('lokasi_namajalan');
-                    var lokasi_kabkota = $(e.relatedTarget).data('lokasi_kabkota');
-                    var lokasi_distrik = $(e.relatedTarget).data('lokasi_distrik');
-                    var lokasi_koordinat = $(e.relatedTarget).data('lokasi_koordinat');
-                    //var pengaduan = $(e.relatedTarget).data('pengaduan');
-                    var pengaduan = "tes 123";
+                    var slokasi_namajalan = $(x.relatedTarget).data('slokasi_namajalan');
+                    var slokasi_kabkota = $(x.relatedTarget).data('slokasi_kabkota');
+                    var slokasi_distrik = $(x.relatedTarget).data('slokasi_distrik');
+                    var slokasi_koordinat = $(x.relatedTarget).data('slokasi_koordinat');
+                    var spengaduan = $(x.relatedTarget).data('spengaduan');
 
                     //populate the textbox
-                    $(e.currentTarget).find('span[id="lokasi_namajalan"]').text(lokasi_namajalan);
-                    $(e.currentTarget).find('span[id="lokasi_kabkota"]').text(lokasi_kabkota);
-                    $(e.currentTarget).find('span[id="lokasi_distrik"]').text(lokasi_distrik);
-                    $(e.currentTarget).find('span[id="lokasi_koordinat"]').text(lokasi_koordinat);
-                    $(e.currentTarget).find('span[id="pengaduan"]').text(pengaduan);
+                    $(x.currentTarget).find('span[id="slokasi_namajalan"]').text(slokasi_namajalan);
+                    $(x.currentTarget).find('span[id="slokasi_kabkota"]').text(slokasi_kabkota);
+                    $(x.currentTarget).find('span[id="slokasi_distrik"]').text(slokasi_distrik);
+                    $(x.currentTarget).find('span[id="slokasi_koordinat"]').text(slokasi_koordinat);
+                    $(x.currentTarget).find('span[id="spengaduan"]').text(spengaduan);
+                    alert();
                 }); 
-
+*/
                 $("#lokasi_kabkota").change(function (){
                     var url = "<?php echo site_url('lapor/add_ajax_kec');?>/"+$(this).val();
                     $('#lokasi_distrik').load(url);

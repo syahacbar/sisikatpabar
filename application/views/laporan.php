@@ -261,22 +261,7 @@
                     return false;
                 });
 
-                $('#report-detail').on('show.bs.modal', function(e) {
-
-                    //get data-id attribute of the clicked element
-                    var lokasi_namajalan = $(e.relatedTarget).data('lokasi_namajalan');
-                    var lokasi_kabkota = $(e.relatedTarget).data('lokasi_kabkota');
-                    var lokasi_distrik = $(e.relatedTarget).data('lokasi_distrik');
-                    var lokasi_koordinat = $(e.relatedTarget).data('lokasi_koordinat');
-                    var pengaduan = $(e.relatedTarget).data('pengaduan');
-
-                    //populate the textbox
-                    $(e.currentTarget).find('span[id="lokasi_namajalan"]').text(lokasi_namajalan);
-                    $(e.currentTarget).find('span[id="lokasi_kabkota"]').text(lokasi_kabkota);
-                    $(e.currentTarget).find('span[id="lokasi_distrik"]').text(lokasi_distrik);
-                    $(e.currentTarget).find('span[id="lokasi_koordinat"]').text(lokasi_koordinat);
-                    $(e.currentTarget).find('span[id="pengaduan"]').text(pengaduan);
-                });
+                
              
             });
              
