@@ -125,11 +125,11 @@
                 },
                 xAxis: {
                     categories: [
-                        'Manokwari',
-                        'Bintuni',
-                        'Manokwari Selatan',
-                        'Manokwari',
-                        'Manokwari Selatan'
+                        <?php 
+                            foreach ($kabupaten AS $kab) { 
+                                echo "'".$kab->nama."',";
+                            } 
+                        ?> 
                     ],
                     crosshair: true
                 },
@@ -162,7 +162,25 @@
                     name: 'Drainase',
                 color:"#4e2eeb",
                     data: [30, 40, 50, 60, 70]
+                color:"#e987cf",
+                    data: [
+                        <?php 
+                            foreach ($grapkabkota AS $gk1) { 
+                                echo $gk1->totaljalan.",";
+                            } 
+                        ?> 
+                    ]
 
+                }, {
+                    name: 'Drainase',
+                color:"#67E863",
+                    data: [
+                        <?php 
+                            foreach ($grapkabkota AS $gk2) { 
+                                echo $gk2->totaldrainase.",";
+                            } 
+                        ?> 
+                    ]
                 }]
             });
         </script>
