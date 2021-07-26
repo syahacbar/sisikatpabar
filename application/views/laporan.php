@@ -107,7 +107,6 @@
                 <label for="LastName" class="filter col-sm-2 control-label">Pilih</label>
                     <div class="col-sm-12">
                         <button type="button" id="btn-filter" class="btn btn-primary">Filter</button>
-                        <button type="button" id="btn-reset" class="btn btn-danger">Reset</button>
                     </div>
                 </div>
             </div>
@@ -189,7 +188,7 @@
             <div id="newreport" class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content col-lg-4 col-md-12 col-sm-12 col-xs-12">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="report-detailTitle">Drainase Sepanjang Jalan Kenangan</h5>
+                        <h5 class="modal-title" id="report-detailTitle"><span id="lokasi_namajalan"></span></h5>
                     </div>
                     <div class="modal-body">
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -215,10 +214,11 @@
                         </div>
 
                         <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Kabupaten:</small></p>
-                            <p class="card-text"><small class="text-muted">Kecamatan:</small></p>
-                            <p class="card-text"><small class="text-muted">Koordinat Lokasi:</small></p>
+                            <p class="card-text"><span id="pengaduan"></span></p>
+                            <p class="card-text"><small class="text-muted">Lokasi Ruas Jalan: </small><span id="lokasi_namajalan"></span></p>
+                            <p class="card-text"><small class="text-muted">Koordinat Lokasi: </small><span id="lokasi_koordinat"></span></p>
+                            <p class="card-text"><small class="text-muted">Kecamatan/Distrik: </small><span id="lokasi_distrik"></span></p>
+                            <p class="card-text"><small class="text-muted">Kabupaten/Kota: </small><span id="lokasi_kabkota"></span></p>
                         </div>
 
                         <div class="modal-footer">
@@ -288,16 +288,29 @@
                 $('#btn-filter').click(function(){ //button filter event click
                     table.ajax.reload();  //just reload table
                 });
-                $('#btn-reset').click(function(){ //button reset event click
-                    $('#form-filter')[0].reset();
-                    table.ajax.reload();  //just reload table
-                });
 
                 $("#lokasi_kabkota").change(function (){
                     var url = "<?php echo site_url('laporan/add_ajax_kec');?>/"+$(this).val();
                     $('#lokasi_distrik').load(url);
                     return false;
-                }); 
+                });
+
+                $('#report-detail').on('show.bs.modal', function(e) {
+
+                    //get data-id attribute of the clicked element
+                    var lokasi_namajalan = $(e.relatedTarget).data('lokasi_namajalan');
+                    var lokasi_kabkota = $(e.relatedTarget).data('lokasi_kabkota');
+                    var lokasi_distrik = $(e.relatedTarget).data('lokasi_distrik');
+                    var lokasi_koordinat = $(e.relatedTarget).data('lokasi_koordinat');
+                    var pengaduan = $(e.relatedTarget).data('pengaduan');
+
+                    //populate the textbox
+                    $(e.currentTarget).find('span[id="lokasi_namajalan"]').text(lokasi_namajalan);
+                    $(e.currentTarget).find('span[id="lokasi_kabkota"]').text(lokasi_kabkota);
+                    $(e.currentTarget).find('span[id="lokasi_distrik"]').text(lokasi_distrik);
+                    $(e.currentTarget).find('span[id="lokasi_koordinat"]').text(lokasi_koordinat);
+                    $(e.currentTarget).find('span[id="pengaduan"]').text(pengaduan);
+                });
              
             });
              

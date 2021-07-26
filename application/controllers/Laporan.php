@@ -53,10 +53,9 @@ class Laporan extends CI_Controller{
             $row[] = $no;
             $row[] = "<img width='300' src='".base_url('upload/dokumentasi/').$lap->nama_file."'>";
             $row[] = word_limiter($lap->pengaduan,30);
-            $row[] = $lap->lokasikabkota;
+            $row[] = $lap->lokasi_namajalan."<br>".$lap->lokasidistrik."<br>".$lap->lokasikabkota;
             $row[] = $lap->tgl_laporan;
-            // $row[] = $lap->lokasidistrik;
-            $row[] = "<button class='btn btn-success fas fa-file-alt' data-toggle='modal' data-target='#report-detail'></button>";
+            $row[] = "<button id='btn_lapdetail' class='btn btn-success fas fa-file-alt' data-toggle='modal' data-target='#report-detail' data-lokasi_namajalan='".$lap->lokasi_namajalan."' data-lokasi_kabkota='".$lap->lokasikabkota."' data-lokasi_distrik='".$lap->lokasidistrik."' data-lokasi_koordinat='".$lap->latitude.", ".$lap->longitude."' data-pengaduan='".$lap->pengaduan."'></button>";
       
  
             $data[] = $row;
