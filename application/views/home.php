@@ -420,7 +420,7 @@
                                 <img src="<?php echo base_url('upload/dokumentasi/').$res1['nama_file'];?>" alt="">
                                 <h3 class="font-alt"><?php echo $res1['lokasi_namajalan'];?></h3>
                                 <p class="text-muted mb-0"><?php echo word_limiter($res1['pengaduan'],10); ?></p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#report-detail" data-lokasi_namajalan="<?php echo $res1['lokasi_namajalan'];?>" data-lokasi_kabkota="<?php echo $res1['lokasikabkota'];?>" data-lokasi_distrik="<?php echo $res1['lokasidistrik'];?>" data-lokasi_koordinat="<?php echo $res1['latitude'].", ".$res1['longitude'];?>" data-pengaduan="<?php echo $res1['pengaduan'];?>">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#report-detail" data-lokasi_namajalan="<?php echo $res1['lokasi_namajalan'];?>" data-lokasi_kabkota="<?php echo $res1['lokasikabkota'];?>" data-lokasi_distrik="<?php echo $res1['lokasidistrik'];?>" data-lokasi_koordinat="<?php echo $res1['latitude'].", ".$res1['longitude'];?>" data-pengaduan="<?php echo $res1['pengaduan'];?>">
                                     Detail
                                 </button>
                             </div>
@@ -436,7 +436,7 @@
                                 <img src="<?php echo base_url('upload/dokumentasi/').$res2['nama_file'];?>" alt="">
                                 <h3 class="font-alt"><?php echo $res2['lokasi_namajalan'];?></h3>
                                 <p class="text-muted mb-0"><?php echo word_limiter($res2['pengaduan'],10);?></p>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#report-detail" data-lokasi_namajalan="<?php echo $res2['lokasi_namajalan'];?>" data-lokasi_kabkota="<?php echo $res2['lokasikabkota'];?>" data-lokasi_distrik="<?php echo $res2['lokasidistrik'];?>" data-lokasi_koordinat="<?php echo $res2['latitude'].", ".$res2['longitude'];?>" data-pengaduan="<?php echo $res2['pengaduan'];?>">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#report-detail" data-lokasi_namajalan="<?php echo $res2['lokasi_namajalan'];?>" data-lokasi_kabkota="<?php echo $res2['lokasikabkota'];?>" data-lokasi_distrik="<?php echo $res2['lokasidistrik'];?>" data-lokasi_koordinat="<?php echo $res2['latitude'].", ".$res2['longitude'];?>" data-pengaduan="<?php echo $res2['pengaduan'];?>">
                                     Detail
                                 </button>
                             </div>
@@ -590,7 +590,25 @@
             }
 
             Dropzone.autoDiscover = false;
-            $(document).ready(function(){      
+            $(document).ready(function(){     
+                
+                $('#report-detail').on('show.bs.modal', function(e) {
+
+                    //get data-id attribute of the clicked element
+                    var lokasi_namajalan = $(e.relatedTarget).data('lokasi_namajalan');
+                    var lokasi_kabkota = $(e.relatedTarget).data('lokasi_kabkota');
+                    var lokasi_distrik = $(e.relatedTarget).data('lokasi_distrik');
+                    var lokasi_koordinat = $(e.relatedTarget).data('lokasi_koordinat');
+                    //var pengaduan = $(e.relatedTarget).data('pengaduan');
+                    var pengaduan = "tes 123";
+
+                    //populate the textbox
+                    $(e.currentTarget).find('span[id="lokasi_namajalan"]').text(lokasi_namajalan);
+                    $(e.currentTarget).find('span[id="lokasi_kabkota"]').text(lokasi_kabkota);
+                    $(e.currentTarget).find('span[id="lokasi_distrik"]').text(lokasi_distrik);
+                    $(e.currentTarget).find('span[id="lokasi_koordinat"]').text(lokasi_koordinat);
+                    $(e.currentTarget).find('span[id="pengaduan"]').text(pengaduan);
+                }); 
 
                 $("#lokasi_kabkota").change(function (){
                     var url = "<?php echo site_url('lapor/add_ajax_kec');?>/"+$(this).val();
@@ -723,22 +741,7 @@
 
                 });
 
-                $('#report-detail').on('show.bs.modal', function(e) {
 
-                    //get data-id attribute of the clicked element
-                    var lokasi_namajalan = $(e.relatedTarget).data('lokasi_namajalan');
-                    var lokasi_kabkota = $(e.relatedTarget).data('lokasi_kabkota');
-                    var lokasi_distrik = $(e.relatedTarget).data('lokasi_distrik');
-                    var lokasi_koordinat = $(e.relatedTarget).data('lokasi_koordinat');
-                    var pengaduan = $(e.relatedTarget).data('pengaduan');
-
-                    //populate the textbox
-                    $(e.currentTarget).find('span[id="lokasi_namajalan"]').text(lokasi_namajalan);
-                    $(e.currentTarget).find('span[id="lokasi_kabkota"]').text(lokasi_kabkota);
-                    $(e.currentTarget).find('span[id="lokasi_distrik"]').text(lokasi_distrik);
-                    $(e.currentTarget).find('span[id="lokasi_koordinat"]').text(lokasi_koordinat);
-                    $(e.currentTarget).find('span[id="pengaduan"]').text(pengaduan);
-                });
             });
             
         </script>
