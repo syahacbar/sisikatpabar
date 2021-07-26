@@ -122,8 +122,8 @@
                     <tr>
                         <th style="width:5%">No.</th>
                         <th style="width:35%">Dokumentasi</th>
-                        <th style="width:30%">Isi Laporan</th>
-                        <th style="width:15%">Lokasi | Kec/Distrik | Kab/Kota</th>
+                        <th style="width:30%">Isi Laporan/Pengaduan</th>
+                        <th style="width:15%">Lokasi<br>Kec/Distrik<br>Kab/Kota</th>
                         <th style="width:10%">Tanggal Dilaporkan</th>
                         <th style="width:5%">Detail</th>
                     </tr>
