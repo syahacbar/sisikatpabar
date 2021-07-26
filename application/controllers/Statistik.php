@@ -23,7 +23,15 @@ class Statistik extends CI_Controller{
         (SELECT COUNT(l.id) FROM laporan l JOIN wilayah_2020 y ON y.kode=l.lokasi_kabkota WHERE l.lokasi_kabkota=w.kode AND infrastruktur='jalan') AS totaljalan,
         (SELECT COUNT(l.id) FROM laporan l JOIN wilayah_2020 y ON y.kode=l.lokasi_kabkota WHERE l.lokasi_kabkota=w.kode AND infrastruktur='drainase') AS totaldrainase
         FROM wilayah_2020 w WHERE LENGTH(w.kode) = 5 AND w.kode LIKE '92%' ORDER BY w.kode ASC");
+        
+        $grapbulan = $this->db->query("SELECT DISTINCT MONTHNAME(x.tgl_laporan) AS bulan,
+          (SELECT COUNT(l.id) FROM laporan l JOIN wilayah_2020 y ON y.kode=l.lokasi_kabkota WHERE MONTHNAME(l.tgl_laporan)=bulan AND infrastruktur='jalan') AS totaljalan,
+                (SELECT COUNT(l.id) FROM laporan l JOIN wilayah_2020 y ON y.kode=l.lokasi_kabkota WHERE MONTHNAME(l.tgl_laporan)=bulan AND infrastruktur='drainase') AS totaldrainase
+        FROM laporan x ORDER BY bulan DESC");
+
+
         $data['grapkabkota'] = $grapkabkota->result();
+        $data['grapbulan'] = $grapbulan->result();
         $this->load->view('statistik',$data);
     }
 }

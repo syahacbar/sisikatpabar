@@ -247,7 +247,7 @@
                                 <!-- Unggah Bukti -->
                                 <div class="dropzone ktp" id="ktp">
                                     <div class="dz-message">
-                                        <p> Klik atau seret gambar ke sini</p>
+                                        <h3> Klik atau Drop gambar disini</h3>
                                     </div>
                                 </div>
                                 <!-- Jenis Infrastruktur-->

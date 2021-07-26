@@ -194,7 +194,13 @@
                     text: 'Source: Wikipedia.org'
                 },
                 xAxis: {
-                    categories: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+                    categories: [
+                    <?php 
+                            foreach ($grapbulan AS $bulan) { 
+                                echo "'".$bulan->bulan."',";
+                            } 
+                        ?> 
+                    ],
                     tickmarkPlacement: 'on',
                     title: {
                         enabled: false
@@ -224,23 +230,23 @@
                 },
                 series: [{
                     name: 'Jalan',
-                    data: [502, 635, 809, 947, 1402, 3634, 5268]
+                    data: [
+                        <?php 
+                            foreach ($grapbulan AS $gk1) { 
+                                echo $gk1->totaljalan.",";
+                            } 
+                        ?> 
+                    ]
                 }, {
                     name: 'Drainase',
-                    data: [106, 107, 111, 133, 221, 767, 1766]
-                // }, {
-                //     name: 'Maret',
-                //     data: [163, 203, 276, 408, 547, 729, 628]
-                // }, {
-                //     name: 'April',
-                //     data: [18, 31, 54, 156, 339, 818, 1201]
-                // }, {
-                //     name: 'Mei',
-                //     data: [200, 2000, 200, 600, 130, 300, 406]
-                // }, {
-                //     name: 'Juni',
-                //     data: [18, 31, 54, 156, 339, 818, 1201]
-
+                    data: [
+                        <?php 
+                            foreach ($grapbulan AS $gk2) { 
+                                echo $gk2->totaldrainase.",";
+                            } 
+                        ?> 
+                    ]
+               
                 }]
             });
 
