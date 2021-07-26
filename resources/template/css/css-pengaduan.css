@@ -180,9 +180,9 @@ div#loginpage .modal-content {
     margin: 0;
 }
 
-#formulir h3 {
+#formulir h3,
+#formulir h6 {
     font-family: 'Poppins', sans-serif;
-    font-size: 14px;
 }
 
 /* Bagian Data laporan */
@@ -763,6 +763,7 @@ div#dokumentasi {
     display: block;
 }
 
+/* Icon tanya tanya font-awesome */
 div#foto1 i.fas.fa-question,
 div#foto2 i.fas.fa-question,
 div#fotoselfi i.fas.fa-question {

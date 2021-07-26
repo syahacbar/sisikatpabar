@@ -346,7 +346,7 @@
 
                                 <!-- Doc. Laporan -->
                                 <div class="row mb-4">
-                                <h3>Unggah Bukti Laporan</h3>
+                                <h6>Unggah Bukti Laporan</h6>
                                     <p>Sesuaikan gambar yang diunggah dengan instruksi. Klik ikon tanda tanya untuk melihat instruksi.</p>
                                     <div id="foto1" class="col">
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBantuan">
@@ -354,7 +354,7 @@
                                         </button>
                                     <div class="dropzone dokumentasi dokumentasi1" id="dokumentasi">
                                             <div class="dz-message">
-                                                <h3>Foto Pertama</h3>
+                                                <p>Foto Pertama</p>
                                             </div>
                                         </div> 
                                     </div>
@@ -365,7 +365,7 @@
                                         </button>
                                     <div class="dropzone dokumentasi dokumentasi2" id="dokumentasi">
                                             <div class="dz-message">
-                                                <h3>Foto Kedua</h3>
+                                                <p>Foto Kedua</p>
                                             </div>
                                         </div> 
                                     </div>
@@ -376,7 +376,7 @@
                                         </button>
                                         <div class="dropzone dokumentasi dokumentasi3" id="dokumentasi">
                                             <div class="dz-message">
-                                                <h3>Foto Selfi</h3>
+                                                <p>Foto Selfi</p>
                                             </div>
                                         </div> 
                                     </div>
