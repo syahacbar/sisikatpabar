@@ -604,25 +604,7 @@
                     $('#slokasi_koordinat').text(slokasi_koordinat);
                     $('#spengaduan').text(spengaduan);
                 })
-/*
-                $('#report-detail').on('show.bs.modal', function(x) {
 
-                    //get data-id attribute of the clicked element
-                    var slokasi_namajalan = $(x.relatedTarget).data('slokasi_namajalan');
-                    var slokasi_kabkota = $(x.relatedTarget).data('slokasi_kabkota');
-                    var slokasi_distrik = $(x.relatedTarget).data('slokasi_distrik');
-                    var slokasi_koordinat = $(x.relatedTarget).data('slokasi_koordinat');
-                    var spengaduan = $(x.relatedTarget).data('spengaduan');
-
-                    //populate the textbox
-                    $(x.currentTarget).find('span[id="slokasi_namajalan"]').text(slokasi_namajalan);
-                    $(x.currentTarget).find('span[id="slokasi_kabkota"]').text(slokasi_kabkota);
-                    $(x.currentTarget).find('span[id="slokasi_distrik"]').text(slokasi_distrik);
-                    $(x.currentTarget).find('span[id="slokasi_koordinat"]').text(slokasi_koordinat);
-                    $(x.currentTarget).find('span[id="spengaduan"]').text(spengaduan);
-                    alert();
-                }); 
-*/
                 $("#lokasi_kabkota").change(function (){
                     var url = "<?php echo site_url('lapor/add_ajax_kec');?>/"+$(this).val();
                     $('#lokasi_distrik').load(url);
