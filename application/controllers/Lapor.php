@@ -139,7 +139,7 @@ class Lapor extends CI_Controller{
                 $token=$this->input->post('token_dokumentasi');
                 $kodelap=$this->input->post('kodelap');
                 $nama=$this->upload->data('file_name');
-                $kategori='dokumentasi';
+                $kategori=$this->input->post('kategori');
                 $uploaded_on=date("Y-m-d H:i:s");
                 $this->db->insert('upload',array('nama_file'=>$nama,'token'=>$token,'kategori'=>$kategori,'uploaded_on'=>$uploaded_on,'kodelap'=>$kodelap));
             }
