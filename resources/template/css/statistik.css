@@ -1,0 +1,48 @@
+/* CSS untuk footer */
+footer.bg-black.text-center.py-5 {
+    padding: 10px 10px 0px 10px;
+    bottom: 0;
+    width: 100%;
+    clear: both;
+    position: relative;
+    height: 150px;
+    margin-top: 150px;
+}
+
+/* Jarak bagian atas judul grafik */
+#reportstat {
+    padding-top: 10rem;
+}
+
+/* Judul Grafik */
+#reportstat label.col-sm-2.control-label {
+    min-width: 100%;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: 900;
+}
+
+/* Sembunyikan tabel grafik */
+figure.highcharts-figure table#datatable {
+    display: none;
+}
+
+text.highcharts-title {
+    display: none;
+}
+
+text.highcharts-credits {
+    display: none;
+}
+
+text.highcharts-subtitle {
+    display: none;
+}
+
+div#reportB {
+    margin-top: 5rem;
+}

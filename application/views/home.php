@@ -139,6 +139,9 @@
                                
                         </div>
                     </div>
+                    <div class="more-btn col-lg-12 order-lg-1 mb-5 mb-lg-0">
+                        <a href="<?php echo base_url('lapor/statistik');?>" class="btn btn-outline-primary">Lihat Selengkapnya</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -229,7 +232,7 @@
                                 <div class="row mb-4">
                                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="form-outline">
-                                      <input name="email" type="text" pattern=".+@+.com" class="form-control" placeholder="Ketik Alamat Email Anda" required/>
+                                      <input name="email" type="email" class="form-control" placeholder="Ketik Alamat Email Anda" required/>
                                     </div>
                                   </div>
 
@@ -340,14 +343,52 @@
                                 </div>
                                 <!-- Akhir Isi Laporan -->
 
+
+                                <!-- Doc. Laporan -->
+                                <div class="row mb-4">
+                                <h3>Unggah Bukti Laporan</h3>
+                                    <p>Sesuaikan gambar yang diunggah dengan instruksi. Klik ikon tanda tanya untuk melihat instruksi.</p>
+                                    <div id="foto1" class="col">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBantuan">
+                                            <i class="fas fa-question" style="font-size: 48px;"></i>
+                                        </button>
+                                    <div class="dropzone dokumentasi" id="dokumentasi">
+                                            <div class="dz-message">
+                                                <h3>Foto Pertama</h3>
+                                            </div>
+                                        </div> 
+                                    </div>
+
+                                    <div id="foto2" class="col">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBantuan">
+                                            <i class="fas fa-question" style="font-size: 48px;"></i>
+                                        </button>
+                                    <div class="dropzone dokumentasi" id="dokumentasi">
+                                            <div class="dz-message">
+                                                <h3>Foto Kedua</h3>
+                                            </div>
+                                        </div> 
+                                    </div>
+
+                                    <div id="fotoselfi" class="col">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBantuan">
+                                            <i class="fas fa-question" style="font-size: 48px;"></i>
+                                        </button>
+                                        <div class="dropzone dokumentasi" id="dokumentasi">
+                                            <div class="dz-message">
+                                                <h3>Foto Selfi</h3>
+                                            </div>
+                                        </div> 
+                                    </div>
+
+                                </div>
+                                <!-- Akhir Doc. Laporan -->                                
                                 
-                                <div class="dropzone dokumentasi" id="dokumentasi">
-
+                                <!-- <div class="dropzone dokumentasi" id="dokumentasi">
                                   <div class="dz-message">
-                                   <h3> Klik atau Drop gambar dokumentasi disini</h3>
+                                    <h3> Klik atau Drop gambar dokumentasi disini</h3>
                                   </div>
-
-                                </div> 
+                                </div>  -->
 
                                 <!-- Kebijakan Privasi -->
                                 <div id="policy" class="form-check d-flex justify-content-center mb-4">
@@ -410,20 +451,20 @@
         <!-- Modal Detail Laporan Terakhir-->
         <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
             <div id="newreport" class="modal-dialog modal-dialog-scrollable" role="document">
-            <div class="modal-content col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalScrollableTitle">Laporan 1</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <div class="modal-content col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Laporan 1</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    Detail Laporan di sini
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    </div>
                 </div>
-                <div class="modal-body">
-                Detail Laporan di sini
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                </div>
-            </div>
             </div>
         </div>
         <!-- Akhir Modal Detail Laporan Terakhir-->
@@ -477,6 +518,27 @@
             </div>
         </div>
         <!-- Akhir Modal Login Anggota-->
+
+        <!-- Modal Bantuan -->
+        <div class="modal fade" id="modalBantuan" tabindex="-1" role="dialog" aria-labelledby="modalBantuanLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalBantuanLabel">Info!</h5>
+                        <!-- <span aria-hidden="true">&times;</span> -->
+                        </button>
+                    </div>
+                <div class="modal-body">
+                    Silakan Unggah bukti laporan pengaduan Anda dalam bantuk gambar.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- Akhir Modal Bantuan -->
+
 
         <!-- Tambahan JS dari Bootstrap -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
