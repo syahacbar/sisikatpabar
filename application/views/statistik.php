@@ -118,7 +118,7 @@
                     zoomType: 'y'
                 },
                 title: {
-                    text: 'Grafik Jumlah Laporan Per Kabupaten/Kota'
+                    text: 'Jumlah Laporan/Pengaduan Per Kabupaten/Kota'
                 },
                 subtitle: {
                     text: 'Source: <a href="https://www.statista.com/statistics/611318/population-of-europe-by-country-and-gender/">statista.com</a>'
@@ -188,7 +188,7 @@
                     type: 'line'
                 },
                 title: {
-                    text: 'Grafik Jumlah Laporan Per 2021'
+                    text: 'Jumlah Laporan/Pengaduan Per Bulan'
                 },
                 subtitle: {
                     text: 'Source: Wikipedia.org'
