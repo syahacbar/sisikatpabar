@@ -36,6 +36,12 @@
         <link href="<?php echo base_url('resources/template/css/laporan.css')?>" rel="stylesheet">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <style type="text/css">
+            table.dataTable tbody td {
+              vertical-align: top;
+            }
+        </style>
+
     </head>
     <body id="page-top">
         <!-- Navigasi Topbar-->
@@ -287,6 +293,7 @@
                     },
                     {   "targets": [ 5 ], //first column / numbering column
                         "orderable": false, //set not orderable
+                        "className": 'dt-body-right',
                     },
                     ],
                     fixedColumns: true,

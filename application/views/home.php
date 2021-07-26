@@ -352,7 +352,7 @@
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBantuan">
                                             <i class="fas fa-question" style="font-size: 48px;"></i>
                                         </button>
-                                    <div class="dropzone dokumentasi" id="dokumentasi">
+                                    <div class="dropzone dokumentasi dokumentasi1" id="dokumentasi">
                                             <div class="dz-message">
                                                 <h3>Foto Pertama</h3>
                                             </div>
@@ -363,7 +363,7 @@
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBantuan">
                                             <i class="fas fa-question" style="font-size: 48px;"></i>
                                         </button>
-                                    <div class="dropzone dokumentasi" id="dokumentasi">
+                                    <div class="dropzone dokumentasi dokumentasi2" id="dokumentasi">
                                             <div class="dz-message">
                                                 <h3>Foto Kedua</h3>
                                             </div>
@@ -374,7 +374,7 @@
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBantuan">
                                             <i class="fas fa-question" style="font-size: 48px;"></i>
                                         </button>
-                                        <div class="dropzone dokumentasi" id="dokumentasi">
+                                        <div class="dropzone dokumentasi dokumentasi3" id="dokumentasi">
                                             <div class="dz-message">
                                                 <h3>Foto Selfi</h3>
                                             </div>
@@ -587,6 +587,7 @@
                     autoProcessQueue: false,
                     url: "<?php echo site_url('lapor/uploadktp') ?>",
                     maxFilesize: 10,
+                    maxFiles: 1,
                     method:"post",
                     acceptedFiles:"image/*",
                     paramName:"filektp",
@@ -600,21 +601,59 @@
                     c.append("kodelap", $('#kodelap').val());
                 });
 
-                var dokumentasi_upload= new Dropzone(".dokumentasi",{
+                var dokumentasi1_upload= new Dropzone(".dokumentasi1",{
                     autoProcessQueue: false,
                     url: "<?php echo site_url('lapor/uploaddokumentasi') ?>",
                     maxFilesize: 10,
+                    maxFiles: 1,
                     method:"post",
                     acceptedFiles:"image/*",
-                    paramName:"filedokumentasi",
+                    paramName:"filedokumentasi1",
                     dictInvalidFileType:"Type file ini tidak dizinkan",
                     addRemoveLinks:true,
                 });
 
-                dokumentasi_upload.on("sending",function(a,b,c){
+                dokumentasi1_upload.on("sending",function(a,b,c){
                     a.token=Math.random();
                     c.append("token_dokumentasi",a.token); //Menmpersiapkan token untuk masing masing foto
                     c.append("kodelap", $('#kodelap').val());
+                    c.append("kategori","dokumentasi1");
+                });
+                var dokumentasi2_upload= new Dropzone(".dokumentasi2",{
+                    autoProcessQueue: false,
+                    url: "<?php echo site_url('lapor/uploaddokumentasi') ?>",
+                    maxFilesize: 10,
+                    maxFiles: 1,
+                    method:"post",
+                    acceptedFiles:"image/*",
+                    paramName:"filedokumentasi2",
+                    dictInvalidFileType:"Type file ini tidak dizinkan",
+                    addRemoveLinks:true,
+                });
+
+                dokumentasi2_upload.on("sending",function(a,b,c){
+                    a.token=Math.random();
+                    c.append("token_dokumentasi",a.token); //Menmpersiapkan token untuk masing masing foto
+                    c.append("kodelap", $('#kodelap').val());
+                    c.append("kategori","dokumentasi2");
+                });
+                var dokumentasi3_upload= new Dropzone(".dokumentasi3",{
+                    autoProcessQueue: false,
+                    url: "<?php echo site_url('lapor/uploaddokumentasi') ?>",
+                    maxFilesize: 10,
+                    maxFiles: 1,
+                    method:"post",
+                    acceptedFiles:"image/*",
+                    paramName:"filedokumentasi3",
+                    dictInvalidFileType:"Type file ini tidak dizinkan",
+                    addRemoveLinks:true,
+                });
+
+                dokumentasi3_upload.on("sending",function(a,b,c){
+                    a.token=Math.random();
+                    c.append("token_dokumentasi",a.token); //Menmpersiapkan token untuk masing masing foto
+                    c.append("kodelap", $('#kodelap').val());
+                    c.append("kategori","dokumentasi3");
                 });
 
                 $('form').submit(function(e) {

@@ -52,8 +52,21 @@ class Laporan extends CI_Controller{
             $row = array();
             $row[] = $no;
             $row[] = "<img width='300' src='".base_url('upload/dokumentasi/').$lap->nama_file."'>";
-            $row[] = word_limiter($lap->pengaduan,30);
-            $row[] = $lap->lokasi_namajalan."<br>".$lap->lokasidistrik."<br>".$lap->lokasikabkota;
+            $row[] = word_limiter($lap->pengaduan,30)."<a data-toggle='collapse' href='#pengaduan".$lap->id."' role='button' aria-expanded='false' aria-controls='pengaduan'>selengkapnya</a>
+
+            <div class='collapse' id='pengaduan".$lap->id."'>
+                ".$lap->pengaduan."
+              
+            </div>";
+
+            $row[] = $lap->lokasi_namajalan."<br>".$lap->lokasidistrik."<br>".$lap->lokasikabkota."<br>
+            <a data-toggle='collapse' href='#koordinat".$lap->id."' role='button' aria-expanded='false' aria-controls='koordinat'>Koordinat</a>
+
+            <div class='collapse' id='koordinat".$lap->id."'>
+                <a target='BLANK' href='http://www.google.com/maps/place/".$lap->latitude.",".$lap->longitude."'>".$lap->latitude.", ".$lap->longitude."</a>
+              
+            </div>";
+            
             $row[] = $lap->tgl_laporan;
             $row[] = "<button id='btn_lapdetail' class='btn btn-success fas' data-toggle='modal' data-target='#report-detail' data-lokasi_namajalan='".$lap->lokasi_namajalan."' data-lokasi_kabkota='".$lap->lokasikabkota."' data-lokasi_distrik='".$lap->lokasidistrik."' data-lokasi_koordinat='".$lap->latitude.", ".$lap->longitude."' data-pengaduan='".$lap->pengaduan."'><i class='fa fa-search'></i></button>";
       
