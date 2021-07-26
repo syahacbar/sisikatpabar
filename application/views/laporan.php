@@ -34,6 +34,8 @@
         <!-- Halaman Laporan Pengaduan -->
         <link href="<?php echo base_url('resources/datatables/datatables/css/dataTables.bootstrap.min.css')?>" rel="stylesheet">
         <link href="<?php echo base_url('resources/template/css/laporan.css')?>" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     </head>
     <body id="page-top">
         <!-- Navigasi Topbar-->
