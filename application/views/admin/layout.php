@@ -51,7 +51,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
                                 Jalan
                             </a>
-                            <a class="nav-link" href="<?php echo site_url('admin/drainase');?>">
+                            <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
                                 Drainase
                             </a>                            
@@ -64,13 +64,13 @@
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                 <?php foreach ($kabupaten as $kab) { ?>    
-                                    <a class="nav-link" href="layout-static.html"><?php echo ucwords(strtolower($kab->nama));?></a>
+                                    <a class="nav-link" href="#"><?php echo ucwords(strtolower($kab->nama));?></a>
                                 <?php } ?>
                                 </nav>
                             </div>
                            
                             <div class="sb-sidenav-menu-heading">User Management</div>
-                            <a class="nav-link" href="charts.html">
+                            <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Users
                             </a>
