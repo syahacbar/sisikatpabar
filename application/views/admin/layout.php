@@ -51,7 +51,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
                                 Jalan
                             </a>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="<?php echo site_url('admin/drainase');?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
                                 Drainase
                             </a>                            
