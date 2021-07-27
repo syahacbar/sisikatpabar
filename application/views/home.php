@@ -245,11 +245,15 @@
                                 <!-- Email -->
 
                                 <!-- Unggah Bukti -->
-                                <div class="dropzone ktp" id="ktp">
-                                    <div class="dz-message">
-                                        <h3> Klik atau Drop gambar disini</h3>
+                                <div id="identity" class="row mb-4">
+                                    <h6>Unggah Foto KTP</h6>
+                                    <div class="dropzone ktp" id="ktp">
+                                        <div class="dz-message">
+                                            <h3> Klik atau Drop gambar disini</h3>
+                                        </div>
                                     </div>
                                 </div>
+                                
                                 <!-- Jenis Infrastruktur-->
                                 <div class="report">
                                     <h3>Data Laporan</h3>
@@ -350,7 +354,7 @@
                                     <p>Sesuaikan gambar yang diunggah dengan instruksi. Klik ikon tanda tanya untuk melihat instruksi.</p>
                                     <div id="foto1" class="col">
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBantuan">
-                                            <i class="fas fa-question" style="font-size: 48px;"></i>
+                                            <i class="bi bi-question-octagon-fill"></i>
                                         </button>
                                     <div class="dropzone dokumentasi dokumentasi1" id="dokumentasi">
                                             <div class="dz-message">
@@ -360,8 +364,8 @@
                                     </div>
 
                                     <div id="foto2" class="col">
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBantuan">
-                                            <i class="fas fa-question" style="font-size: 48px;"></i>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBantuan1">
+                                            <i class="bi bi-question-octagon-fill"></i>
                                         </button>
                                     <div class="dropzone dokumentasi dokumentasi2" id="dokumentasi">
                                             <div class="dz-message">
@@ -371,8 +375,8 @@
                                     </div>
 
                                     <div id="fotoselfi" class="col">
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBantuan">
-                                            <i class="fas fa-question" style="font-size: 48px;"></i>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBantuan2">
+                                            <i class="bi bi-question-octagon-fill"></i>
                                         </button>
                                         <div class="dropzone dokumentasi dokumentasi3" id="dokumentasi">
                                             <div class="dz-message">
@@ -499,7 +503,7 @@
         </div>
         <!-- Akhir Modal Login Anggota-->
 
-        <!-- Modal Bantuan -->
+        <!-- Modal Bantuan 1 -->
         <div class="modal fade" id="modalBantuan" tabindex="-1" role="dialog" aria-labelledby="modalBantuanLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -509,7 +513,50 @@
                         </button>
                     </div>
                 <div class="modal-body">
+                    Untuk gambar pertama, foto tampak depan jalan atau drainase. Lihat gambar di bawah ini sebagai contoh.
+                    <img src="https://cdn-radar.jawapos.com/uploads/radarjombang/news/2019/04/10/perbaikan-jalan-rusak-di-jombang-terkendala-aspal-yang-belum-datang_m_130925.jpg" alt="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- Akhir Modal Bantuan -->
+
+        <!-- Modal Bantuan 2 -->
+        <div class="modal fade" id="modalBantuan1" tabindex="-1" role="dialog" aria-labelledby="modalBantuan1Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalBantuan1Label">Info!</h5>
+                        <!-- <span aria-hidden="true">&times;</span> -->
+                        </button>
+                    </div>
+                <div class="modal-body">
                     Silakan Unggah bukti laporan pengaduan Anda dalam bantuk gambar.
+                    <img src="https://cdn-radar.jawapos.com/uploads/radarjombang/news/2019/04/10/perbaikan-jalan-rusak-di-jombang-terkendala-aspal-yang-belum-datang_m_130925.jpg" alt="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- Akhir Modal Bantuan -->
+
+        <!-- Modal Bantuan 3 -->
+        <div class="modal fade" id="modalBantuan2" tabindex="-1" role="dialog" aria-labelledby="modalBantuan2Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalBantuan2Label">Info!</h5>
+                        <!-- <span aria-hidden="true">&times;</span> -->
+                        </button>
+                    </div>
+                <div class="modal-body">
+                    Silakan buat pose selfi dengan membelakangi jalan rusak.
+                    <img src="https://www.harapanrakyat.com/wp-content/uploads/2019/03/Protes-Jalan-Rusak.jpg" alt="">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
