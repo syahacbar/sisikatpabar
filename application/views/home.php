@@ -55,12 +55,13 @@
                         <li class="nav-item"><a class="nav-link me-lg-3" href="<?php echo base_url('statistik');?>">Statistik</a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" href="<?php echo base_url('laporan');?>">Lihat Laporan</a></li>
                     </ul>
-                    <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#loginpage">
+                    <li class="nav-item"><a class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" href="<?php echo base_url('auth/login');?>">Masuk</a></li>
+                    <!-- <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" typ href="<?php echo base_url('auth/login');?>">
                         <span class="d-flex align-items-center">
                             <i class="bi bi-box-arrow-in-right me-2"></i>
                             <span class="small">Masuk</span>
                         </span>
-                    </button>
+                    </button> -->
                 </div>
             </div>
         </nav>
