@@ -1,0 +1,14 @@
+/* Untuk button login di halaman login dan lupa password */
+div#loginbutton button {
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* Untuk tombol login di halaman forgot password */
+div#login.justify-content-between {
+    justify-content: flex-start !important;
+}
+
+div#login a {
+    margin-left: 10px;
+}
