@@ -28,8 +28,9 @@ class Laporan extends CI_Controller{
         $data['form_kab'] = $get_kab->result();
         $data['laporan'] = $this->Laporan_model->get_all_laporan('dokumentasi',1000,0);
         
-        $data['_view'] = 'laporan/index';
-        $this->load->view('laporan',$data);
+        $data['_view'] = 'public/laporan';
+        $data['title'] = 'SI-SIKAT | Laporan Pengaduan';
+        $this->load->view('public/layout',$data);
     }
 
     function add_ajax_kec($id)
@@ -51,7 +52,7 @@ class Laporan extends CI_Controller{
             $no++;
             $row = array();
             $row[] = $no;
-            $row[] = "<img width='300' src='".base_url('upload/dokumentasi/').$lap->nama_file."'>";
+            $row[] = "<img width='300' src='".base_url('upload/dokumentasi/').$lap->dokumentasi1."'>";
             $row[] = word_limiter($lap->pengaduan,30)."<a data-toggle='collapse' href='#pengaduan".$lap->id."' role='button' aria-expanded='false' aria-controls='pengaduan'>selengkapnya</a>
 
             <div class='collapse' id='pengaduan".$lap->id."'>

@@ -46,21 +46,50 @@ class Laporan_model extends CI_Model
 
     
         
-    /*
+    
      
      
-    function get_all_laporan($kategori=NULL,$limit=NULL,$offset=NULL)
+    function get_all_laporan($infrastruktur=NULL,$limit=NULL,$offset=NULL)
     {
-        $query = $this->db->query("SELECT *, w.nama AS lokasi FROM laporan l JOIN upload u ON u.kodelap=l.kodelap LEFT JOIN wilayah_2020 w on w.kode=l.lokasi_kabkota WHERE u.kategori='$kategori' ORDER BY l.tgl_laporan DESC LIMIT $limit OFFSET $offset");
-        return $query->result_array();
-    }
-*/
-    function get_all_laporan($kategori=NULL,$limit=NULL,$offset=NULL)
-    {
-        $query = $this->db->query("SELECT * FROM v_laporan WHERE kategori='$kategori' ORDER BY tgl_laporan DESC LIMIT $limit OFFSET $offset");
-        return $query->result_array();
-    }
+        $this->db->select('l.*');
+        $this->db->select('(SELECT x.nama FROM wilayah_2020 x WHERE x.kode=l.lokasi_kabkota) AS lokasikabkota');
+        $this->db->select('(SELECT y.nama FROM wilayah_2020 y WHERE y.kode=l.lokasi_distrik) AS lokasidistrik');
+        $this->db->select('(SELECT u.nama_file FROM upload u WHERE u.kodelap=l.kodelap AND u.kategori="dokumentasi1") AS dokumentasi1');
+        $this->db->select('(SELECT u.nama_file FROM upload u WHERE u.kodelap=l.kodelap AND u.kategori="dokumentasi2") AS dokumentasi2');
+        $this->db->select('(SELECT u.nama_file FROM upload u WHERE u.kodelap=l.kodelap AND u.kategori="dokumentasi3") AS dokumentasi3');
+        $this->db->select('(SELECT u.nama_file FROM upload u WHERE u.kodelap=l.kodelap AND u.kategori="ktp") AS ktp');
+
+        if($infrastruktur!=NULL)
+        {
+            $this->db->where('l.infrastruktur',$infrastruktur);
+        }
+        $this->db->from('laporan l');
+
+        if ($limit!=NULL)
+        {
+            $this->db->limit($limit);
+        }
+        if ($offset!=NULL)
+        {
+            $this->db->limit($limit,$offset);
+        }
         
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+  /*  function get_all_laporan($kategori=NULL,$limit=NULL,$offset=NULL)
+    {
+        
+        $query = $this->db->select('*')
+        ->from('v_laporan')
+        //->where('kategori', $kategori)
+        ->order_by('tgl_laporan')
+        ->limit($limit, $offset)
+        ->get();
+        return $query->result_array();
+    }
+       */ 
     /*
      * function to add new laporan
      */
@@ -92,6 +121,13 @@ class Laporan_model extends CI_Model
     //datatables block
     private function _get_datatables_query()
     {
+        $this->db->select('l.*');
+        $this->db->select('(SELECT x.nama FROM wilayah_2020 x WHERE x.kode=l.lokasi_kabkota) AS lokasikabkota');
+        $this->db->select('(SELECT y.nama FROM wilayah_2020 y WHERE y.kode=l.lokasi_distrik) AS lokasidistrik');
+        $this->db->select('(SELECT u.nama_file FROM upload u WHERE u.kodelap=l.kodelap AND u.kategori="dokumentasi1") AS dokumentasi1');
+        $this->db->select('(SELECT u.nama_file FROM upload u WHERE u.kodelap=l.kodelap AND u.kategori="dokumentasi2") AS dokumentasi2');
+        $this->db->select('(SELECT u.nama_file FROM upload u WHERE u.kodelap=l.kodelap AND u.kategori="dokumentasi3") AS dokumentasi3');
+        $this->db->select('(SELECT u.nama_file FROM upload u WHERE u.kodelap=l.kodelap AND u.kategori="ktp") AS ktp');
          
         //add custom filter here
         if($this->input->post('infrastruktur'))
@@ -107,7 +143,7 @@ class Laporan_model extends CI_Model
             $this->db->where('lokasi_distrik', $this->input->post('lokasi_distrik'));
         }
  
-        $this->db->from($this->table);
+        $this->db->from('laporan l');
         $i = 0;
      
         foreach ($this->column_search as $item) // loop column 

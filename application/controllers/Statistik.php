@@ -32,6 +32,8 @@ class Statistik extends CI_Controller{
 
         $data['grapkabkota'] = $grapkabkota->result();
         $data['grapbulan'] = $grapbulan->result();
-        $this->load->view('statistik',$data);
+        $data['_view'] = 'public/statistik';
+        $data['title'] = 'SI-SIKAT | Statistik Laporan';
+        $this->load->view('public/layout',$data);
     }
 }

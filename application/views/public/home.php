@@ -1,73 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>SI-SIKAT - Beranda</title>
-        <link rel="icon" type="image/x-icon" href="<?php echo base_url();?>resources/template/assets/favicon.png" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+<?php echo $map['js']; ?>
 
-        <!-- Tambahan Link Untuk CSS dari Bootstrap -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        
-        <!-- Google fonts-->
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
-        
-        <!-- Font Google -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-        
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="<?php echo base_url();?>resources/template/css/styles.css" rel="stylesheet" />
-        <link href="<?php echo base_url();?>resources/template/css/css-pengaduan.css" rel="stylesheet" />
-
-        <!-- Tambahan Link CSS Untuk Counter -->
-        <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
-        <?php echo $map['js']; ?>
-        <link href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.css' type='text/css' rel='stylesheet'>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js' type='text/javascript'></script>
-    </head>
-
-    <body id="page-top">
-        <!-- Navigasi Topbar-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
-            <div class="container px-5">
-                <a class="navbar-brand" href="#">
-                <img src="<?php echo base_url();?>resources/template/assets/logo-sisikat.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                        <li class="nav-item"><a class="nav-link me-lg-3" href="<?php echo base_url();?>">Tentang SI-SIKAT</a></li>
-                        <li class="nav-item"><a class="nav-link me-lg-3" href="<?php echo base_url('statistik');?>">Statistik</a></li>
-                        <li class="nav-item"><a class="nav-link me-lg-3" href="<?php echo base_url('laporan');?>">Lihat Laporan</a></li>
-                    </ul>
-                    <li class="nav-item"><a class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" href="<?php echo base_url('auth/login');?>">Masuk</a></li>
-                    <!-- <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" typ href="<?php echo base_url('auth/login');?>">
-                        <span class="d-flex align-items-center">
-                            <i class="bi bi-box-arrow-in-right me-2"></i>
-                            <span class="small">Masuk</span>
-                        </span>
-                    </button> -->
-                </div>
-            </div>
-        </nav>
-        <!-- Akhir Navigasi Topbar-->
-        
-        <!-- Header Web -->
+    <!-- Header Web -->
         <header id="header" class="masthead">
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
@@ -422,10 +355,10 @@
                         <div class="row">
                             <?php foreach ($laporan1 as $res1) { ?>
                             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                <img src="<?php echo base_url('upload/dokumentasi/').$res1['nama_file'];?>" alt="">
-                                <h3 class="font-alt">1<?php echo $res1['lokasi_namajalan'];?></h3>
+                                <img src="<?php echo base_url('upload/dokumentasi/').$res1['dokumentasi1'];?>" alt="">
+                                <h3 class="font-alt"><?php echo $res1['lokasi_namajalan'];?></h3>
                                 <p class="text-muted mb-0"><?php echo word_limiter($res1['pengaduan'],10); ?></p>
-                                <button id="lapdetail"class="btn btn-primary" data-toggle="modal" data-target="#report-detail" data-slokasi_namajalan="<?php echo $res1['lokasi_namajalan'];?>" data-slokasi_kabkota="<?php echo $res1['lokasikabkota'];?>" data-slokasi_distrik="<?php echo $res1['lokasidistrik'];?>" data-slokasi_koordinat="<?php echo $res1['latitude'].", ".$res1['longitude'];?>" data-spengaduan="<?php echo $res1['pengaduan'];?>">
+                                <button id="lapdetail"class="btn btn-primary" data-toggle="modal" data-target="#report-detail" data-slokasi_namajalan="<?php echo $res1['lokasi_namajalan'];?>" data-slokasi_kabkota="<?php echo $res1['lokasikabkota'];?>" data-slokasi_distrik="<?php echo $res1['lokasidistrik'];?>" data-slokasi_koordinat="<?php echo $res1['latitude'].", ".$res1['longitude'];?>" data-spengaduan="<?php echo $res1['pengaduan'];?>" data-sdokumentasi1="<?php echo base_url('upload/dokumentasi/').$res1['dokumentasi1'];?>" data-sdokumentasi2="<?php echo base_url('upload/dokumentasi/').$res1['dokumentasi2'];?>">
                                     Detail
                                 </button>
                             </div>
@@ -438,10 +371,10 @@
                         <div class="row">
                             <?php foreach ($laporan2 as $res2) { ?>
                             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                <img src="<?php echo base_url('upload/dokumentasi/').$res2['nama_file'];?>" alt="">
+                                <img src="<?php echo base_url('upload/dokumentasi/').$res2['dokumentasi1'];?>" alt="">
                                 <h3 class="font-alt"><?php echo $res2['lokasi_namajalan'];?></h3>
                                 <p class="text-muted mb-0"><?php echo word_limiter($res2['pengaduan'],10);?></p>
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#report-detail" data-slokasi_namajalan="<?php echo $res2['lokasi_namajalan'];?>" data-slokasi_kabkota="<?php echo $res2['lokasikabkota'];?>" data-slokasi_distrik="<?php echo $res2['lokasidistrik'];?>" data-slokasi_koordinat="<?php echo $res2['latitude'].", ".$res2['longitude'];?>" data-spengaduan="<?php echo $res2['pengaduan'];?>">
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#report-detail" data-slokasi_namajalan="<?php echo $res2['lokasi_namajalan'];?>" data-slokasi_kabkota="<?php echo $res2['lokasikabkota'];?>" data-slokasi_distrik="<?php echo $res2['lokasidistrik'];?>" data-slokasi_koordinat="<?php echo $res2['latitude'].", ".$res2['longitude'];?>" data-spengaduan="<?php echo $res2['pengaduan'];?>" data-sdokumentasi1="<?php echo base_url('upload/dokumentasi/').$res2['dokumentasi1'];?>" data-sdokumentasi2="<?php echo base_url('upload/dokumentasi/').$res2['dokumentasi2'];?>">
                                     Detail
                                 </button>
                             </div>
@@ -454,182 +387,6 @@
         <!--  Akhir Blok Laporan Terbaru -->
     
         
-        <!-- Footer -->
-        <footer class="bg-black text-center py-5">
-            <div class="container px-5">
-                <div class="text-white-50 small">
-                    <div class="mb-2">SI-SIKAT &copy; 2021. All Rights Reserved.</div>
-                    <a href="#!">Privasi</a>
-                    <span class="mx-1">&middot;</span>
-                    <a href="#!">Istilah</a>
-                    <span class="mx-1">&middot;</span>
-                    <a href="#!">FAQ</a>
-                </div>
-            </div>
-        </footer>
-        <!-- Akhir Footer -->
-
-        <!-- Modal Login Anggota-->
-        <div class="modal fade" id="loginpage" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header bg-gradient-primary-to-secondary p-4">
-                        <h5 class="modal-title font-alt text-white" id="feedbackModalLabel">Send feedback</h5>
-                        <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body border-0 p-4">
-                        <form>
-                            <a class="navbar-brand" href="#">
-                                <img src="<?php echo base_url();?>resources/template/assets/logo-sisikat.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                            </a>
-                            <h2 class="display-4 text-center lh-1 mb-4">Login</h2>
-                            <div class="mb-3">
-                              <label for="exampleInputEmail1" class="form-label">Email</label>
-                              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div>
-                            <div class="mb-3">
-                              <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
-                              <input type="password" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="mb-3 form-check">
-                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                              <label class="form-check-label" for="exampleCheck1">Biarkan saya tetap masuk</label>
-                            </div>
-                            <button type="submit" class="btn btn-primary">MASUK</button>
-                          </form>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Akhir Modal Login Anggota-->
-
-        <!-- Modal Bantuan 1 -->
-        <div class="modal fade" id="modalBantuan" tabindex="-1" role="dialog" aria-labelledby="modalBantuanLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalBantuanLabel">Info!</h5>
-                        <!-- <span aria-hidden="true">&times;</span> -->
-                        </button>
-                    </div>
-                <div class="modal-body">
-                    Untuk gambar pertama, foto tampak depan jalan atau drainase. Lihat gambar di bawah ini sebagai contoh.
-                    <img src="https://cdn-radar.jawapos.com/uploads/radarjombang/news/2019/04/10/perbaikan-jalan-rusak-di-jombang-terkendala-aspal-yang-belum-datang_m_130925.jpg" alt="">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-                </div>
-            </div>
-        </div>
-        <!-- Akhir Modal Bantuan -->
-
-        <!-- Modal Bantuan 2 -->
-        <div class="modal fade" id="modalBantuan1" tabindex="-1" role="dialog" aria-labelledby="modalBantuan1Label" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalBantuan1Label">Info!</h5>
-                        <!-- <span aria-hidden="true">&times;</span> -->
-                        </button>
-                    </div>
-                <div class="modal-body">
-                    Silakan Unggah bukti laporan pengaduan Anda dalam bantuk gambar.
-                    <img src="https://cdn-radar.jawapos.com/uploads/radarjombang/news/2019/04/10/perbaikan-jalan-rusak-di-jombang-terkendala-aspal-yang-belum-datang_m_130925.jpg" alt="">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-                </div>
-            </div>
-        </div>
-        <!-- Akhir Modal Bantuan -->
-
-        <!-- Modal Bantuan 3 -->
-        <div class="modal fade" id="modalBantuan2" tabindex="-1" role="dialog" aria-labelledby="modalBantuan2Label" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalBantuan2Label">Info!</h5>
-                        <!-- <span aria-hidden="true">&times;</span> -->
-                        </button>
-                    </div>
-                <div class="modal-body">
-                    Silakan buat pose selfi dengan membelakangi jalan rusak.
-                    <img src="https://www.harapanrakyat.com/wp-content/uploads/2019/03/Protes-Jalan-Rusak.jpg" alt="">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-                </div>
-            </div>
-        </div>
-        <!-- Akhir Modal Bantuan -->
-
-        <!-- Modal Detail Laporan-->
-        <div class="modal fade" id="report-detail" tabindex="-1" role="dialog" aria-labelledby="report-detailTitle" aria-hidden="true">
-            <div id="newreport" class="modal-dialog modal-dialog-scrollable" role="document">
-                <div class="modal-content col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="report-detailTitle"><span id="slokasi_namajalan"></span></h5>
-                    </div>
-                    <div class="modal-body">
-                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="https://1.bp.blogspot.com/-EzByB5vQIps/WYnxel_SovI/AAAAAAAAAQM/wAjNlJcJYR8No8RmLDYItcNXzLtx67mjgCLcBGAs/s1600/tips%2Bberkendara%2Bdi%2Bjalanan%2Brusak.jpg" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="https://1.bp.blogspot.com/-EzByB5vQIps/WYnxel_SovI/AAAAAAAAAQM/wAjNlJcJYR8No8RmLDYItcNXzLtx67mjgCLcBGAs/s1600/tips%2Bberkendara%2Bdi%2Bjalanan%2Brusak.jpg" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="https://1.bp.blogspot.com/-EzByB5vQIps/WYnxel_SovI/AAAAAAAAAQM/wAjNlJcJYR8No8RmLDYItcNXzLtx67mjgCLcBGAs/s1600/tips%2Bberkendara%2Bdi%2Bjalanan%2Brusak.jpg" class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-
-                        <div class="card-body">
-                            <p class="card-text"><span id="spengaduan"></span></p>
-                            <p class="card-text"><small class="text-muted">Lokasi Ruas Jalan: </small><span id="slokasi_namajalan"></span></p>
-                            <p class="card-text"><small class="text-muted">Kecamatan/Distrik: </small><span id="slokasi_distrik"></span></p>
-                            <p class="card-text"><small class="text-muted">Kabupaten/Kota: </small><span id="slokasi_kabkota"></span></p>
-                            <p class="card-text"><small class="text-muted">Koordinat Lokasi: </small><span id="slokasi_koordinat"></span></p>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Tambahan JS dari Bootstrap -->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-        
-        <!-- JS Inti-->
-        <script src="<?php echo base_url();?>resources/template/js/scripts.js"></script>
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-
-        <!-- Link ke JS Counter -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="<?php echo base_url();?>resources/template/js/js-pengaduan.js"></script>
-        
-
         <script>
             function setMapToForm(latitude, longitude) 
             {
@@ -646,11 +403,17 @@
                     var slokasi_distrik = $(this).data('slokasi_distrik');
                     var slokasi_koordinat = $(this).data('slokasi_koordinat');
                     var spengaduan = $(this).data('spengaduan');
+                    var sdokumentasi1 = $(this).data('sdokumentasi1');
+                    var sdokumentasi2 = $(this).data('sdokumentasi2');
+                    $('#slokasi_namajalant').text(slokasi_namajalan);
                     $('#slokasi_namajalan').text(slokasi_namajalan);
                     $('#slokasi_kabkota').text(slokasi_kabkota);
                     $('#slokasi_distrik').text(slokasi_distrik);
                     $('#slokasi_koordinat').text(slokasi_koordinat);
                     $('#spengaduan').text(spengaduan);
+                    $("#sdokumentasi1").attr("src", sdokumentasi1);
+                    $("#sdokumentasi2").attr("src", sdokumentasi2);
+                   
                 })
 
                 $("#lokasi_kabkota").change(function (){
@@ -690,7 +453,7 @@
 
                 var dokumentasi1_upload= new Dropzone(".dokumentasi1",{
                     autoProcessQueue: false,
-                    url: "<?php echo site_url('lapor/uploaddokumentasi') ?>",
+                    url: "<?php echo site_url('lapor/uploaddokumentasi1') ?>",
                     maxFilesize: 10,
                     maxFiles: 1,
                     method:"post",
@@ -708,7 +471,7 @@
                 });
                 var dokumentasi2_upload= new Dropzone(".dokumentasi2",{
                     autoProcessQueue: false,
-                    url: "<?php echo site_url('lapor/uploaddokumentasi') ?>",
+                    url: "<?php echo site_url('lapor/uploaddokumentasi2') ?>",
                     maxFilesize: 10,
                     maxFiles: 1,
                     method:"post",
@@ -726,7 +489,7 @@
                 });
                 var dokumentasi3_upload= new Dropzone(".dokumentasi3",{
                     autoProcessQueue: false,
-                    url: "<?php echo site_url('lapor/uploaddokumentasi') ?>",
+                    url: "<?php echo site_url('lapor/uploaddokumentasi3') ?>",
                     maxFilesize: 10,
                     maxFiles: 1,
                     method:"post",
@@ -743,7 +506,7 @@
                     c.append("kategori","dokumentasi3");
                 });
 
-                $('form').submit(function(e) {
+                $('#formlaporan').submit(function(e) {
                     e.preventDefault();
                     ktp_upload.processQueue();
                     dokumentasi1_upload.processQueue();
@@ -778,6 +541,7 @@
                        },
                        success: function(data) {
                             alert("Record added successfully");
+                            location.reload();
                        }
                     });
 
@@ -788,6 +552,3 @@
             });
             
         </script>
-
-    </body>
-</html>

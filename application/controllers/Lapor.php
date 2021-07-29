@@ -31,8 +31,8 @@ class Lapor extends CI_Controller{
         $data['map'] = $map;
 
         $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
-        $data['laporan1'] = $this->Laporan_model->get_all_laporan('dokumentasi1',3,0);
-        $data['laporan2'] = $this->Laporan_model->get_all_laporan('dokumentasi1',3,3);
+        $data['laporan1'] = $this->Laporan_model->get_all_laporan(NULL,3,0);
+        $data['laporan2'] = $this->Laporan_model->get_all_laporan(NULL,3,3);
         $data['kabupaten'] = $get_kab->result();
 
         $last_idlap = $this->Laporan_model->get_lastrow();
@@ -47,8 +47,9 @@ class Lapor extends CI_Controller{
         $data['jum_lap_drainase'] = $this->Laporan_model->get_infrastruktur('drainase')->num_rows();
         $data['jum_lap_jalan'] = $this->Laporan_model->get_infrastruktur('jalan')->num_rows();
         $data['kodelap'] = $kodelap;
-        $data['_view'] = 'home';
-        $this->load->view('home',$data);
+        $data['_view'] = 'public/home';
+        $data['title'] = 'SI-SIKAT | Beranda';
+        $this->load->view('public/layout',$data);
 
     }
   
@@ -124,17 +125,51 @@ class Lapor extends CI_Controller{
 
     }
 
-    function uploaddokumentasi()
+    function uploaddokumentasi1()
     {
             $config['upload_path']   = FCPATH.'/upload/dokumentasi/';
             $config['allowed_types'] = 'gif|jpg|png|ico|jpeg';
             $this->load->library('upload',$config);
 
-            if($this->upload->do_upload('filedokumentasi')){
+            if($this->upload->do_upload('filedokumentasi1')){
                 $token=$this->input->post('token_dokumentasi');
                 $kodelap=$this->input->post('kodelap');
                 $nama=$this->upload->data('file_name');
-                $kategori=$this->input->post('kategori');
+                $kategori='dokumentasi1';
+                $uploaded_on=date("Y-m-d H:i:s");
+                $this->db->insert('upload',array('nama_file'=>$nama,'token'=>$token,'kategori'=>$kategori,'uploaded_on'=>$uploaded_on,'kodelap'=>$kodelap));
+            }
+
+    }
+
+    function uploaddokumentasi2()
+    {
+            $config['upload_path']   = FCPATH.'/upload/dokumentasi/';
+            $config['allowed_types'] = 'gif|jpg|png|ico|jpeg';
+            $this->load->library('upload',$config);
+
+            if($this->upload->do_upload('filedokumentasi2')){
+                $token=$this->input->post('token_dokumentasi');
+                $kodelap=$this->input->post('kodelap');
+                $nama=$this->upload->data('file_name');
+                $kategori='dokumentasi2';
+                $uploaded_on=date("Y-m-d H:i:s");
+                $this->db->insert('upload',array('nama_file'=>$nama,'token'=>$token,'kategori'=>$kategori,'uploaded_on'=>$uploaded_on,'kodelap'=>$kodelap));
+            }
+
+    }
+
+    function uploaddokumentasi3()
+    {
+            $config['upload_path']   = FCPATH.'/upload/dokumentasi/';
+            $config['allowed_types'] = 'gif|jpg|png|ico|jpeg';
+            $this->load->library('upload',$config);
+
+            if($this->upload->do_upload('filedokumentasi3')){
+                $token=$this->input->post('token_dokumentasi');
+                $kodelap=$this->input->post('kodelap');
+                $nama=$this->upload->data('file_name');
+                $kategori='dokumentasi3';
                 $uploaded_on=date("Y-m-d H:i:s");
                 $this->db->insert('upload',array('nama_file'=>$nama,'token'=>$token,'kategori'=>$kategori,'uploaded_on'=>$uploaded_on,'kodelap'=>$kodelap));
             }
