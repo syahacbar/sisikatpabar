@@ -57,11 +57,11 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link <?php if($this->uri->segment(2)=='infrastruktur' && $this->uri->segment(3)==NULL){ echo'active'; }?>" href="<?php echo base_url('admin/infrastruktur')?>">Semua Infrastruktur</a>
                                     <a class="nav-link <?php if($this->uri->segment(2)=='infrastruktur' && $this->uri->segment(3)=='jalan'){ echo'active'; }?>" href="<?php echo site_url('admin/infrastruktur/jalan');?>">
-                                        <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
+                                        <div class="sb-nav-link-icon"></div>
                                         Jalan
                                     </a>
                                     <a class="nav-link <?php if($this->uri->segment(2)=='infrastruktur' && $this->uri->segment(3)=='drainase'){ echo'active'; }?>" href="<?php echo site_url('admin/infrastruktur/drainase');?>">
-                                        <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
+                                        <div class="sb-nav-link-icon"></i></div>
                                         Drainase
                                     </a>  
                                 </nav>
