@@ -47,11 +47,11 @@
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Laporan Pengaduan</div>
-                            <a class="nav-link" href="<?php echo site_url('admin/jalan');?>">
+                            <a class="nav-link <?php if($this->uri->segment(2)=='jalan'){ echo'active'; }?>" href="<?php echo site_url('admin/jalan');?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
                                 Jalan
                             </a>
-                            <a class="nav-link" href="<?php echo site_url('admin/drainase');?>">
+                            <a class="nav-link <?php if($this->uri->segment(2)=='drainase'){ echo'active'; }?>" href="<?php echo site_url('admin/drainase');?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
                                 Drainase
                             </a>                            
@@ -64,7 +64,7 @@
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                 <?php foreach ($kabupaten as $kab) { ?>    
-                                    <a class="nav-link" href="#"><?php echo ucwords(strtolower($kab->nama));?></a>
+                                    <a class="nav-link <?php if($this->uri->segment(2)=='kabkota' && $this->uri->segment(3)==$kab->kode){ echo'active'; }?>" href="<?php echo base_url('admin/kabkota/').$kab->kode?>"><?php echo ucwords(strtolower($kab->nama));?></a>
                                 <?php } ?>
                                 </nav>
                             </div>
@@ -78,7 +78,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        <?php echo ucfirst($this->ion_auth->user()->row()->username);?>
                     </div>
                 </nav>
             </div>

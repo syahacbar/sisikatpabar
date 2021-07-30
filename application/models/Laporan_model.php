@@ -16,10 +16,6 @@ class Laporan_model extends CI_Model
         parent::__construct();
 
     }
-    
-    /*
-     * Get laporan by id
-     */
 
     function get_lastrow()
     {
@@ -44,10 +40,39 @@ class Laporan_model extends CI_Model
         return $this->db->get_where('laporan',array('infrastruktur'=> $x));
     }
 
-    
+    function get_kabkota($kab)
+    {
+        return $this->db->get_where('wilayah_2020', array('kode' => $kab))->row_array();
+    }
         
-    
-     
+    function get_all_laporan_bykabkota($kab=NULL,$limit=NULL,$offset=NULL)
+    {
+        $this->db->select('l.*');
+        $this->db->select('(SELECT x.nama FROM wilayah_2020 x WHERE x.kode=l.lokasi_kabkota) AS lokasikabkota');
+        $this->db->select('(SELECT y.nama FROM wilayah_2020 y WHERE y.kode=l.lokasi_distrik) AS lokasidistrik');
+        $this->db->select('(SELECT u.nama_file FROM upload u WHERE u.kodelap=l.kodelap AND u.kategori="dokumentasi1") AS dokumentasi1');
+        $this->db->select('(SELECT u.nama_file FROM upload u WHERE u.kodelap=l.kodelap AND u.kategori="dokumentasi2") AS dokumentasi2');
+        $this->db->select('(SELECT u.nama_file FROM upload u WHERE u.kodelap=l.kodelap AND u.kategori="dokumentasi3") AS dokumentasi3');
+        $this->db->select('(SELECT u.nama_file FROM upload u WHERE u.kodelap=l.kodelap AND u.kategori="ktp") AS ktp');
+
+        if($kab!=NULL)
+        {
+            $this->db->where('l.lokasi_kabkota',$kab);
+        }
+        $this->db->from('laporan l');
+
+        if ($limit!=NULL)
+        {
+            $this->db->limit($limit);
+        }
+        if ($offset!=NULL)
+        {
+            $this->db->limit($limit,$offset);
+        }
+        
+        $query = $this->db->get();
+        return $query->result_array();
+    }
      
     function get_all_laporan($infrastruktur=NULL,$limit=NULL,$offset=NULL)
     {
