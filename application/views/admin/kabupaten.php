@@ -1,5 +1,5 @@
 <div class="container-fluid px-4">
-    <h2 class="mt-4">Laporan Pengaduan <?php echo ucwords(strtolower($kabkota['nama']));?></h2>
+    <h2 class="mt-4">Laporan Pengaduan <?php echo ucwords(strtolower($kabkota));?></h2>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active"></li>
     </ol>

@@ -42,7 +42,7 @@ class Laporan_model extends CI_Model
 
     function get_kabkota($kab)
     {
-        return $this->db->get_where('wilayah_2020', array('kode' => $kab))->row_array();
+        return $this->db->get_where('wilayah_2020', array('kode' => $kab))->row();
     }
         
     function get_all_laporan_bykabkota($kab=NULL,$limit=NULL,$offset=NULL)

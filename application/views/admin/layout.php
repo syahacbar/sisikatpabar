@@ -47,22 +47,34 @@
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Laporan Pengaduan</div>
-                            <a class="nav-link <?php if($this->uri->segment(2)=='jalan'){ echo'active'; }?>" href="<?php echo site_url('admin/jalan');?>">
-                                <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
-                                Jalan
-                            </a>
-                            <a class="nav-link <?php if($this->uri->segment(2)=='drainase'){ echo'active'; }?>" href="<?php echo site_url('admin/drainase');?>">
-                                <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
-                                Drainase
-                            </a>                            
-                            
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Kabupaten/Kota
+
+                            <a class="nav-link collapsed <?php if($this->uri->segment(2)=='infrastruktur'){ echo'active'; }?>" href="<?php echo site_url('admin/infrastruktur');?>" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-road"></i></div>
+                               By-Infrastruktur
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="<?php echo $this->uri->segment(2)=='infrastruktur' ? 'collapse.show' : 'collapse';?>" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link <?php if($this->uri->segment(2)=='infrastruktur' && $this->uri->segment(3)==NULL){ echo'active'; }?>" href="<?php echo base_url('admin/infrastruktur')?>">Semua Infrastruktur</a>
+                                    <a class="nav-link <?php if($this->uri->segment(2)=='infrastruktur' && $this->uri->segment(3)=='jalan'){ echo'active'; }?>" href="<?php echo site_url('admin/infrastruktur/jalan');?>">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
+                                        Jalan
+                                    </a>
+                                    <a class="nav-link <?php if($this->uri->segment(2)=='infrastruktur' && $this->uri->segment(3)=='drainase'){ echo'active'; }?>" href="<?php echo site_url('admin/infrastruktur/drainase');?>">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
+                                        Drainase
+                                    </a>  
+                                </nav>
+                            </div>                        
+                            
+                            <a class="nav-link collapsed <?php if($this->uri->segment(2)=='kabkota'){ echo'active'; }?>" href="<?php echo site_url('admin/kabkota');?>" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                By-Kabupaten/Kota
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="<?php echo $this->uri->segment(2)=='kabkota' ? 'collapse.show' : 'collapse';?>" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link <?php if($this->uri->segment(2)=='kabkota' && $this->uri->segment(3)==NULL){ echo'active'; }?>" href="<?php echo base_url('admin/kabkota')?>">Semua Kab/Kota</a>
                                 <?php foreach ($kabupaten as $kab) { ?>    
                                     <a class="nav-link <?php if($this->uri->segment(2)=='kabkota' && $this->uri->segment(3)==$kab->kode){ echo'active'; }?>" href="<?php echo base_url('admin/kabkota/').$kab->kode?>"><?php echo ucwords(strtolower($kab->nama));?></a>
                                 <?php } ?>
