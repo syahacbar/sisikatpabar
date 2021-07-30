@@ -15,6 +15,23 @@ class Admin extends MY_Controller{
         $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
         $data['kabupaten'] = $get_kab->result();
 
+        $lapharian = $this->db->query("SELECT COUNT(*) total, 
+                                        DAYOFMONTH(r.tgl_laporan) tanggal,
+                                        MONTH(r.tgl_laporan) bulan,
+                                        DATE_FORMAT(r.tgl_laporan, '%a') hari
+                                        FROM laporan r
+                                        WHERE YEARWEEK(r.tgl_laporan, 1) = YEARWEEK(NOW(), 1)
+                                        GROUP BY DATE(r.tgl_laporan)
+                                        ORDER BY DATE(r.tgl_laporan) ASC");
+        $maxmingguan = $this->db->query("SELECT COUNT(*) total, 
+                                        DAYOFMONTH(r.tgl_laporan) tanggal,
+                                        MONTH(r.tgl_laporan) bulan,
+                                        DATE_FORMAT(r.tgl_laporan, '%a') hari
+                                        FROM laporan r
+                                        WHERE YEARWEEK(r.tgl_laporan, 1) = YEARWEEK(NOW(), 1)");
+        $data['maxmingguan'] = $maxmingguan->row();
+        $data['lapharian'] = $lapharian->result();
+
         $data['_view'] = 'admin/dashboard';
         $this->load->view('admin/layout',$data);
     }
