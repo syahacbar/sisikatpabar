@@ -16,12 +16,17 @@ class Admin extends MY_Controller{
         $data['kabupaten'] = $get_kab->result();
 
         $lapharian = $this->db->query("SELECT COUNT(*) total, 
-                                        DAYOFMONTH(r.tgl_laporan) tanggal,
+                                        DATE_FORMAT(r.tgl_laporan, '%d %b') tanggal,
                                         MONTH(r.tgl_laporan) bulan,
                                         DATE_FORMAT(r.tgl_laporan, '%a') hari
                                         FROM laporan r
                                         WHERE YEARWEEK(r.tgl_laporan, 1) = YEARWEEK(NOW(), 1)
                                         GROUP BY DATE(r.tgl_laporan)
+                                        ORDER BY DATE(r.tgl_laporan) ASC");
+        $lapbulanan = $this->db->query("SELECT COUNT(*) total,
+                                        MONTHNAME(r.tgl_laporan) bulan
+                                        FROM laporan r
+                                        GROUP BY MONTH(r.tgl_laporan)
                                         ORDER BY DATE(r.tgl_laporan) ASC");
         $maxmingguan = $this->db->query("SELECT COUNT(*) total, 
                                         DAYOFMONTH(r.tgl_laporan) tanggal,
@@ -29,8 +34,11 @@ class Admin extends MY_Controller{
                                         DATE_FORMAT(r.tgl_laporan, '%a') hari
                                         FROM laporan r
                                         WHERE YEARWEEK(r.tgl_laporan, 1) = YEARWEEK(NOW(), 1)");
+        
+
         $data['maxmingguan'] = $maxmingguan->row();
         $data['lapharian'] = $lapharian->result();
+        $data['lapbulanan'] = $lapbulanan->result();
 
         $data['_view'] = 'admin/dashboard';
         $this->load->view('admin/layout',$data);

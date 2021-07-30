@@ -57,7 +57,7 @@
                                         <i class="fas fa-chart-bar me-1"></i>
                                         Statistik Laporan Bulanan
                                     </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                                    <div class="card-body"><canvas id="laporanbulanan" width="100%" height="40"></canvas></div>
                                 </div>
                             </div>
                         </div>
@@ -564,7 +564,7 @@ var myLineChart = new Chart(ctx, {
   data: {
     labels: [<?php foreach ($lapharian as $lap) { echo "'".$lap->tanggal."',"; }?>],
     datasets: [{
-      label: "Sessions",
+      label: "Jumlah Laporan/Pengaduan",
       lineTension: 0.3,
       backgroundColor: "rgba(2,117,216,0.2)",
       borderColor: "rgba(2,117,216,1)",
@@ -607,4 +607,54 @@ var myLineChart = new Chart(ctx, {
     }
   }
 });
+</script>
+
+<script>
+    // Set new default font family and font color to mimic Bootstrap's default styling
+Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#292b2c';
+
+// Bar Chart Example
+var ctx = document.getElementById("laporanbulanan");
+var myLineChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: [<?php foreach ($lapbulanan as $lap) { echo "'".$lap->bulan."',"; }?>],
+    datasets: [{
+      label: "Jumlah Laporan/Pengaduan",
+      backgroundColor: "rgba(2,117,216,1)",
+      borderColor: "rgba(2,117,216,1)",
+      data: [<?php foreach ($lapbulanan as $val) { echo "'".$val->total."',"; }?>],
+    }],
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'month'
+        },
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 10
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: 100,
+          maxTicksLimit: 10
+        },
+        gridLines: {
+          display: true
+        }
+      }],
+    },
+    legend: {
+      display: false
+    }
+  }
+});
+
 </script>
