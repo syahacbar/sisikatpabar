@@ -29,8 +29,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><a class="dropdown-item" href="<?php echo site_url('auth/change_password');?>">Change Password</a></li>
+                        <li><a class="dropdown-item" href="<?php echo site_url('auth/login_history');?>">Login History</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="<?php echo site_url('auth/logout');?>">Logout</a></li>
                     </ul>
@@ -68,12 +68,6 @@
                                 <?php } ?>
                                 </nav>
                             </div>
-                           
-                            <div class="sb-sidenav-menu-heading">User Management</div>
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Users
-                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -92,7 +86,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; sisikat.com 2021</div>
+                            <div class="text-muted">Copyright &copy; 2021 | Sistem Informasi Infrastruktur Berbasis Parisipasi Masyarakat</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;

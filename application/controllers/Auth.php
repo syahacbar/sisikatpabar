@@ -24,6 +24,15 @@ class Auth extends CI_Controller
 	/**
 	 * Redirect if needed, otherwise display the user list
 	 */
+	public function login_history()
+	{
+		$this->db->order_by('logintime', 'DESC');
+		$log = $this->db->get('login_history')->result_array();
+		$this->data['loginhistory'] = $log;
+		$this->data['_view'] = 'auth/login_history';
+		$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'login_history', $this->data);
+	}
+
 	public function index()
 	{
 
@@ -43,7 +52,7 @@ class Auth extends CI_Controller
 			
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-
+ 
 			//list the users
 			$this->data['users'] = $this->ion_auth->users()->result();
 			
@@ -80,6 +89,9 @@ class Auth extends CI_Controller
 			{
 				//if the login is successful
 				//redirect them back to the home page
+				$user = $this->ion_auth->user()->row();
+				$params = array('username' => $user->username, 'logintime' => date('Y-m-d H:i:s'), 'ipaddress'=>$_SERVER['REMOTE_ADDR']);
+				$this->db->insert('login_history',$params);
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
 				redirect('Admin', 'refresh');
 			}
@@ -155,17 +167,20 @@ class Auth extends CI_Controller
 				'name' => 'old',
 				'id' => 'old',
 				'type' => 'password',
+				'class' => 'form-control',
 			];
 			$this->data['new_password'] = [
 				'name' => 'new',
 				'id' => 'new',
 				'type' => 'password',
+				'class' => 'form-control',
 				'pattern' => '^.{' . $this->data['min_password_length'] . '}.*$',
 			];
 			$this->data['new_password_confirm'] = [
 				'name' => 'new_confirm',
 				'id' => 'new_confirm',
 				'type' => 'password',
+				'class' => 'form-control',
 				'pattern' => '^.{' . $this->data['min_password_length'] . '}.*$',
 			];
 			$this->data['user_id'] = [
@@ -174,6 +189,7 @@ class Auth extends CI_Controller
 				'type' => 'hidden',
 				'value' => $user->id,
 			];
+			$this->data['_view'] = 'auth/change_password';
 
 			// render
 			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'change_password', $this->data);
@@ -881,7 +897,7 @@ class Auth extends CI_Controller
 
 		$viewdata = (empty($data)) ? $this->data : $data;
 
-		$view_html = $this->load->view($view, $viewdata, $returnhtml);
+		$view_html = $this->load->view('admin/layout', $viewdata, $returnhtml);
 
 		// This will return html on 3rd argument being true
 		if ($returnhtml)
