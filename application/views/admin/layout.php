@@ -82,7 +82,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        <?php echo ucfirst($this->ion_auth->user()->row()->username);?>
+                        <?php echo ($this->ion_auth->logged_in()) ? ucfirst($this->ion_auth->user()->row()->username) : 'Please Login';?>
                     </div>
                 </nav>
             </div>
