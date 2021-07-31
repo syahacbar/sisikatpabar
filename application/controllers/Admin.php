@@ -35,7 +35,7 @@ class Admin extends MY_Controller{
                                         FROM laporan r
                                         WHERE YEARWEEK(r.tgl_laporan, 1) = YEARWEEK(NOW(), 1)");
         
-        $data['updatelaporan'] = $this->Laporan_model->get_all_laporan(NULL,5,NULL,NULL,'tgl_Laporan','DESC');
+        $data['updatelaporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_Laporan','DESC');
         $data['maxmingguan'] = $maxmingguan->row();
         $data['lapharian'] = $lapharian->result();
         $data['lapbulanan'] = $lapbulanan->result();
