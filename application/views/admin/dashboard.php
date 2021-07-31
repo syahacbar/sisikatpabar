@@ -221,3 +221,8 @@ var myLineChart = new Chart(ctx, {
 });
 
 </script>
+<script>
+    $('#datatablesSimple').dataTable( {
+      "pageLength": 5
+    } );
+</script>
