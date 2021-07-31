@@ -1,5 +1,5 @@
 <div class="container-fluid px-4">
-    <h2 class="mt-4">Laporan Pengaduan Jalan</h2>
+    <h2 class="mt-4">Laporan Pengaduan <?php echo $infrastruktur;?></h2>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active"></li>
     </ol>
@@ -30,16 +30,6 @@
                     </tr>
                 <?php } ?>
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <th>No.</th>
-                        <th>Tanggal Dilaporkan</th>
-                        <th>Lokasi</th>
-                        <th>Kec./Distrik</th>
-                        <th>Kab./Kota</th>
-                        <th>Aksi</th>
-                    </tr>
-                </tfoot>
             </table>
         </div>
     </div>

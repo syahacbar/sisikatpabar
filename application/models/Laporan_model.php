@@ -74,7 +74,7 @@ class Laporan_model extends CI_Model
         return $query->result_array();
     }
      
-    function get_all_laporan($infrastruktur=NULL,$limit=NULL,$offset=NULL)
+    function get_all_laporan($infrastruktur=NULL,$limit=NULL,$offset=NULL,$group=NULL,$order=NULL,$asdesc=NULL)
     {
         $this->db->select('l.*');
         $this->db->select('(SELECT x.nama FROM wilayah_2020 x WHERE x.kode=l.lokasi_kabkota) AS lokasikabkota');
@@ -84,7 +84,7 @@ class Laporan_model extends CI_Model
         $this->db->select('(SELECT u.nama_file FROM upload u WHERE u.kodelap=l.kodelap AND u.kategori="dokumentasi3") AS dokumentasi3');
         $this->db->select('(SELECT u.nama_file FROM upload u WHERE u.kodelap=l.kodelap AND u.kategori="ktp") AS ktp');
 
-        if($infrastruktur!=NULL)
+        if ($infrastruktur!=NULL)
         {
             $this->db->where('l.infrastruktur',$infrastruktur);
         }
@@ -98,6 +98,15 @@ class Laporan_model extends CI_Model
         {
             $this->db->limit($limit,$offset);
         }
+        if ($group!=NULL)
+        {
+            $this->db->group_by($group);
+        }
+        if ($order!=NULL && $asdesc!=NULL)
+        {
+            $this->db->order_by($order, $asdesc);
+        }
+
         
         $query = $this->db->get();
         return $query->result_array();

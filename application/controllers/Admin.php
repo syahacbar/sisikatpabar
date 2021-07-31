@@ -35,7 +35,7 @@ class Admin extends MY_Controller{
                                         FROM laporan r
                                         WHERE YEARWEEK(r.tgl_laporan, 1) = YEARWEEK(NOW(), 1)");
         
-
+        $data['updatelaporan'] = $this->Laporan_model->get_all_laporan(NULL,5,NULL,NULL,'tgl_Laporan','DESC');
         $data['maxmingguan'] = $maxmingguan->row();
         $data['lapharian'] = $lapharian->result();
         $data['lapbulanan'] = $lapbulanan->result();
@@ -52,38 +52,24 @@ class Admin extends MY_Controller{
         if($q=='jalan')
         {
             $data['laporan'] = $this->Laporan_model->get_all_laporan('jalan');
+            $data['infrastruktur'] = 'Jalan';
         } 
         elseif($q=='drainase')
         {
             $data['laporan'] = $this->Laporan_model->get_all_laporan('drainase');
+            $data['infrastruktur'] = 'Drainase';
         }
         else
         {
             $data['laporan'] = $this->Laporan_model->get_all_laporan(NULL);
+            $data['infrastruktur'] = 'Semua Infrastruktur';
         }
 
-        $data['_view'] = 'admin/jalan';
+        $data['_view'] = 'admin/infrastruktur';
         $this->load->view('admin/layout',$data);
     }
 
-    function jalan()
-    {
-        $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
-        $data['kabupaten'] = $get_kab->result();
-        $data['laporan'] = $this->Laporan_model->get_all_laporan('jalan');
-        $data['_view'] = 'admin/jalan';
-        $this->load->view('admin/layout',$data);
-    }
-
-    function drainase()
-    {
-        $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
-        $data['kabupaten'] = $get_kab->result();
-        $data['laporan'] = $this->Laporan_model->get_all_laporan('drainase');
-        $data['_view'] = 'admin/drainase';
-        $this->load->view('admin/layout',$data);
-    }
-
+    
     function kabkota($kabkota=NULL)
     {
         $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
