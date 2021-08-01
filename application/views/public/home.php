@@ -8,7 +8,9 @@
                     <div class="col-lg-6">
                         <div class="mb-5 mb-lg-0 text-center text-lg-start">
                             <h1 class="display-1 lh-1 mb-3">SI-SIKAT</h1>
-                            <p class="lead fw-normal text-muted mb-5">Sistem Informasi <br>Infrastruktur Berbasis Partisipasi Masyarakat</p>
+                            <p class="lead fw-normal text-muted mb-5">
+                                Adalah akronim dari Sistem Partisipasi Masyarakat. Tujuan utama dari sistem ini adalah peningkatan kinerja dalam penyiapan bahan dan perumusan konsep kebijakan teknis yang berkenaan dengan kebinamargaan khususnya dalam perencanaan infrastruktur jalan. Diharapkan masyarakat dapat melakukan pengaduan layanan terhadap infrastruktur jalan pada SI SIKAT. Data pengaduan ini akan diverifikasi kembali oleh Bidang Bina Marga Dinas PUPR Provinsi Papua Barat.
+                            </p>
                             <div class="d-flex flex-column flex-lg-row align-items-center">
                                 <!-- <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="assets/img/google-play-badge.svg" alt="..." />Lapor Sekarang</a>
                                 <a href="#!"><img class="app-badge" src="assets/img/app-store-badge.svg" alt="..." /></a> -->

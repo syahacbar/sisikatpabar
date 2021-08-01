@@ -85,4 +85,10 @@ class Admin extends MY_Controller{
         $data['_view'] = 'admin/kabupaten';
         $this->load->view('admin/layout',$data);
     }
+
+    function download($format)
+    {
+        $data['_view'] = 'admin/download';
+        $this->load->view('admin/layout',$data);
+    }
 }

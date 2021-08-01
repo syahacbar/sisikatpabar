@@ -42,7 +42,7 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <a class="nav-link" href="<?php echo site_url('admin');?>">
+                            <a class="nav-link <?php if($this->uri->segment(2)==NULL){ echo'active'; }?>" href="<?php echo site_url('admin');?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-laptop"></i></div>
                                 Dashboard
                             </a>
@@ -78,6 +78,16 @@
                                 <?php } ?>
                                 </nav>
                             </div>
+
+                            <div class="sb-sidenav-menu-heading">Unduh Laporan</div>
+                            <a class="nav-link <?php if($this->uri->segment(2)=='download' && $this->uri->segment(3)=='pdf'){ echo'active'; }?>" href="<?php echo site_url('admin/download/pdf');?>">
+                                <div class="sb-nav-link-icon"><i class="fas fa-file-pdf"></i></div>
+                                Format PDF
+                            </a>
+                            <a class="nav-link <?php if($this->uri->segment(2)=='download' && $this->uri->segment(3)=='excel'){ echo'active'; }?>" href="<?php echo site_url('admin/download/excel');?>">
+                                <div class="sb-nav-link-icon"><i class="fas fa-file-excel"></i></div>
+                                Format Excel
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
