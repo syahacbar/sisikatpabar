@@ -120,7 +120,7 @@
 <body>
     <div class="table-responsive-sm">
     <h2 class="mt-4">DATA LAPORAN PENGADUAN SISIKAT</h2>
-    <h3><?php echo $laporan;?></h3>
+    <h3></h3>
     <table class="table">
       <!-- <caption>List of users</caption> -->
       <thead>
