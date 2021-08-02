@@ -5,11 +5,17 @@
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     <!-- Header - Bagian tulisan SISIKAT dan tagline-->
-                    <div class="col-lg-6">
+                    <div class="col-lg-9">
                         <div class="mb-5 mb-lg-0 text-center text-lg-start">
                             <h1 class="display-1 lh-1 mb-3">SI-SIKAT</h1>
                             <p class="lead fw-normal text-muted mb-5">
-                                Adalah akronim dari Sistem Partisipasi Masyarakat. Tujuan utama dari sistem ini adalah peningkatan kinerja dalam penyiapan bahan dan perumusan konsep kebijakan teknis yang berkenaan dengan kebinamargaan khususnya dalam perencanaan infrastruktur jalan. Diharapkan masyarakat dapat melakukan pengaduan layanan terhadap infrastruktur jalan pada SI SIKAT. Data pengaduan ini akan diverifikasi kembali oleh Bidang Bina Marga Dinas PUPR Provinsi Papua Barat.
+                                Adalah akronim dari Sistem Partisipasi Masyarakat.<br> 
+                                Dengan tujuan utama dari sistem ini adalah untuk meningkatan kinerja Bidang Bina Marga Dinas PUPR Provinsi Papua Barat dalam melakukan penyiapan bahan dan perumusan konsep kebijakan teknis yang berkenaan dengan kebinamargaan khususnya dalam perencanaan infrastruktur jalan.
+                            </p>
+                            <p class="lead fw-normal text-muted mb-5">     
+                                Laporan langsung dari masyarakat melalui media ini diharapkan dapat menjadi masukan terhadap perkembangan infrastruktur jalan di Provinsi Papua Barat.
+                            <p class="lead fw-normal text-muted mb-5">
+                                Selanjutnya data Laporan Pengaduan yang telah diterima nantinya akan diverifikasi kembali oleh Bidang Bina Marga OPD Dinas PUPR Provinsi Papua Barat sebelum dirumuskan menjadi konsep kebijakan teknis dalam perencanaan infrastruktur jalan di Provinsi Papua Barat.
                             </p>
                             <div class="d-flex flex-column flex-lg-row align-items-center">
                                 <!-- <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="assets/img/google-play-badge.svg" alt="..." />Lapor Sekarang</a>
@@ -22,7 +28,7 @@
                     <!-- Header - Akhir Bagian tulisan SISIKAT dan tagline-->
 
                     <!-- Header - Gambar Mockup HP -->
-                    <div class="col-lg-6">
+                    <div class="col-lg-3">
                         <div class="masthead-device-mockup">
                             <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
