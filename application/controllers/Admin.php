@@ -85,4 +85,14 @@ class Admin extends MY_Controller{
         $data['_view'] = 'admin/kabupaten';
         $this->load->view('admin/layout',$data);
     }
+
+    function print()
+    {
+        $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
+        $data['kabupaten'] = $get_kab->result();
+        $data['laporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_Laporan','DESC');
+                      
+        $data['_view'] = 'admin/print';
+        $this->load->view('admin/print',$data);
+    }
 }
