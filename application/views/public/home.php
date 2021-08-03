@@ -444,7 +444,7 @@
                 var ktp_upload= new Dropzone(".ktp",{
                     autoProcessQueue: false,
                     url: "<?php echo site_url('lapor/uploadktp') ?>",
-                    maxFilesize: 10,
+                    maxFilesize: 50,
                     maxFiles: 1,
                     method:"post",
                     acceptedFiles:"image/*",
@@ -462,7 +462,7 @@
                 var dokumentasi1_upload= new Dropzone(".dokumentasi1",{
                     autoProcessQueue: false,
                     url: "<?php echo site_url('lapor/uploaddokumentasi1') ?>",
-                    maxFilesize: 10,
+                    maxFilesize: 50,
                     maxFiles: 1,
                     method:"post",
                     acceptedFiles:"image/*",
@@ -480,7 +480,7 @@
                 var dokumentasi2_upload= new Dropzone(".dokumentasi2",{
                     autoProcessQueue: false,
                     url: "<?php echo site_url('lapor/uploaddokumentasi2') ?>",
-                    maxFilesize: 10,
+                    maxFilesize: 50,
                     maxFiles: 1,
                     method:"post",
                     acceptedFiles:"image/*",
@@ -498,7 +498,7 @@
                 var dokumentasi3_upload= new Dropzone(".dokumentasi3",{
                     autoProcessQueue: false,
                     url: "<?php echo site_url('lapor/uploaddokumentasi3') ?>",
-                    maxFilesize: 10,
+                    maxFilesize: 50,
                     maxFiles: 1,
                     method:"post",
                     acceptedFiles:"image/*",
