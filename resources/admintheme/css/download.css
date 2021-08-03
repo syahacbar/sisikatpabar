@@ -1,0 +1,88 @@
+
+    .card-header {
+        height: 45px;
+        vertical-align: middle;
+        display: flex;
+        align-items: center;
+    }
+    .card-header.preview {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Dropdown */
+    button.btn.btn-secondary.show,
+    button.btn.btn-secondary {
+        color: #000;
+        background-color: transparent;
+        border: 0;
+        box-shadow: none;
+        font-size: 18px;
+        padding: 0;
+    }
+
+    ul.dropdown-menu.show li a {
+        color: #000;
+        padding: 0 10px;
+    }
+    /* Akhir Dropdown */
+
+    /* Pilih Jenis infra & Kabkota */
+    label.col-sm-2.control-label {
+        width: 100%;
+        padding: 0;
+    }
+
+    .row.mb-4 .col-sm-12 {
+        padding: 0;
+    }
+
+    .form-check-input:checked {
+        background-color: #000000;
+        border-color: #000000;
+        color: #fff;
+    }
+    /*Akhir Pilih Jenis infra & Kabkota */
+
+    /* Date-Time picker */
+    [type="date"] {
+        background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+        width: 100%;
+        box-shadow: none;
+        border: 0 !important;
+        background-color: transparent !important;
+        outline: none;
+    }
+
+    [type="date"]::-webkit-inner-spin-button {
+        display: none !important;
+    }
+    [type="date"]::-webkit-calendar-picker-indicator {
+        opacity: 0 !important;
+    }
+
+    [type="date"]:-webkit-inner-spin-button {
+        display: none !important;
+    }
+    [type="date"]:-webkit-calendar-picker-indicator {
+        opacity: 0 !important;
+    }
+
+    div#datetimepicker1,
+    div#datetimepicker2 {
+        width: 100%;
+        padding: 5px 2px;
+        border: 1px solid #bababa;
+        border-radius: 5px;
+    }
+
+    input {
+        border: 1px solid #c4c4c4;
+        border-radius: 5px;
+        background-color: #fff;
+        padding: 3px 5px;
+        box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+        width: 190px;
+    }
+    /* Date-Time picker */
