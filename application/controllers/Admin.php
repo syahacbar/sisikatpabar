@@ -106,17 +106,44 @@ class Admin extends MY_Controller{
 
     function pratinjau()
     {
+        $this->load->library('Pdf');
         $infrastruktur = $this->input->post('RBInfrastruktur', TRUE);
         $kabupaten = $this->input->post('kabupaten', TRUE);
         $startdate = $this->input->post('startdate', TRUE);
         $todate = $this->input->post('todate', TRUE);
 
-        //$data['kabupaten'] = $get_kab->result();
+        if ($startdate != NULL && $todate != NULL)
+        {
+            $range = strtoupper(date_indo($startdate))." S.D. ".strtoupper(date_indo($todate));
+        } else {
+            $range = "TAHUN 2021";
+        }
+        
+
         $data['laporan'] = $this->Laporan_model->get_cetak_laporan($infrastruktur,$kabupaten,$startdate,$todate,NULL,NULL,NULL,'tgl_laporan','DESC');
+        if($infrastruktur != NULL && $kabupaten != NULL)
+        {
+            if ($infrastruktur == 'semua' && $kabupaten == 'semua')
+            {
+                $data['range'] = $range;
+                $this->load->view('admin/cetakpdfsemuainfsemuakab',$data);
+            } elseif ($infrastruktur == 'semua' && $kabupaten != 'semua') {
+                $data['kabupaten'] = $this->Laporan_model->get_kabkota($kabupaten)->nama;
+                $data['range'] = $range;
+                $this->load->view('admin/cetakpdfsemuainfkab',$data);
+            } elseif ($infrastruktur != 'semua' && $kabupaten == 'semua') {
+                $data['infrastruktur'] = $infrastruktur;
+                $data['range'] = $range;
+                $this->load->view('admin/cetakpdfinfsemuakab',$data);
+            } elseif ($infrastruktur != 'semua' && $kabupaten != 'semua') {
+                $data['infrastruktur'] = $infrastruktur;
+                $data['kabupaten'] = $this->Laporan_model->get_kabkota($kabupaten)->nama;
+                $data['range'] = $range;
+                $this->load->view('admin/cetakpdfinfkab',$data);
+            } 
+        }
+
+        
                       
-        $data['_view'] = 'admin/print';
-        $this->load->view('admin/print',$data);
-        //print_r($this->db->last_query()); 
-        //print_r($data);
     }
 }

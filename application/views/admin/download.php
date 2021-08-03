@@ -59,7 +59,7 @@
                                 <label for="country" class="control-label">Kabupaten/Kota</label>
                                 <div class="col">
                                     <select class="form-control" name="kabupaten" id="kabupaten">
-                                        <option value="0">- Semua Kabupaten/Kota -</option>
+                                        <option value="semua">- Semua Kabupaten/Kota -</option>
                                         <?php 
                                             foreach($kabupaten as $kab)
                                             {
@@ -98,6 +98,7 @@
                         <?php echo form_close(); ?>
                     </div>
                 </div>
+                <!--
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <div class="card mb-4">
                         <div class="card-header preview">
@@ -106,7 +107,6 @@
                                 Pratinjau Laporan
                             </div>
                             <div class="right">
-                                <!-- Default dropstart button -->
                                 <div class="btn-group dropstart">
                                 <button type="button" class="btn btn-secondary" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-bars"></i>
@@ -119,11 +119,10 @@
                             </div>
                         </div>
                         <div class="card-body">
-                        <iframe src="<?php echo site_url('admin/cetak');?>" width="600" height="300"></iframe>
                         </div>
                     </div>
                 </div>
+            -->
             </div>
-            <!-- Filter dan Picker -->
         </div>
 

@@ -114,7 +114,7 @@ class Laporan_model extends CI_Model
 
     function get_cetak_laporan($infrastruktur=NULL,$kabupaten=NULL,$startdate=NULL,$todate=NULL,$limit=NULL,$offset=NULL,$group=NULL,$order=NULL,$asdesc=NULL)
     {
-        $this->db->select('l.*');
+        $this->db->select('l.*, date(tgl_laporan) AS tgllaporan');
         $this->db->select('(SELECT x.nama FROM wilayah_2020 x WHERE x.kode=l.lokasi_kabkota) AS lokasikabkota');
         $this->db->select('(SELECT y.nama FROM wilayah_2020 y WHERE y.kode=l.lokasi_distrik) AS lokasidistrik');
         $this->db->select('(SELECT u.nama_file FROM upload u WHERE u.kodelap=l.kodelap AND u.kategori="dokumentasi1") AS dokumentasi1');
@@ -127,7 +127,7 @@ class Laporan_model extends CI_Model
             $this->db->where('l.infrastruktur',$infrastruktur);
         }
 
-        if ($kabupaten!=NULL)
+        if ($kabupaten!=NULL && $kabupaten!='semua')
         {
             $this->db->where('l.lokasi_kabkota',$kabupaten);
         }
