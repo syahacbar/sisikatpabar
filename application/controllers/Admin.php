@@ -86,7 +86,7 @@ class Admin extends MY_Controller{
         $this->load->view('admin/layout',$data);
     }
 
-    function download($format=NULL)
+    function download()
     {
         $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
         $data['kabupaten'] = $get_kab->result();
@@ -98,9 +98,25 @@ class Admin extends MY_Controller{
     {
         $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
         $data['kabupaten'] = $get_kab->result();
-        $data['laporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_Laporan','DESC');
+        $data['laporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_laporan','DESC');
                       
         $data['_view'] = 'admin/print';
         $this->load->view('admin/print',$data);
+    }
+
+    function pratinjau()
+    {
+        $infrastruktur = $this->input->post('RBInfrastruktur', TRUE);
+        $kabupaten = $this->input->post('kabupaten', TRUE);
+        $startdate = $this->input->post('startdate', TRUE);
+        $todate = $this->input->post('todate', TRUE);
+
+        //$data['kabupaten'] = $get_kab->result();
+        $data['laporan'] = $this->Laporan_model->get_cetak_laporan($infrastruktur,$kabupaten,$startdate,$todate,NULL,NULL,NULL,'tgl_laporan','DESC');
+                      
+        $data['_view'] = 'admin/print';
+        $this->load->view('admin/print',$data);
+        //print_r($this->db->last_query()); 
+        //print_r($data);
     }
 }

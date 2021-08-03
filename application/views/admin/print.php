@@ -21,7 +21,7 @@
         <tr class="align-middle">
             <th scope="col">No.</th>
             <th scope="col">Tgl. <br>Pengaduan</th>
-            <th scope="col">isi Pengaduan/<br>Laporan</th>
+            <th scope="col">Isi Laporan/<br>Pengaduan</th>
             <th scope="col">Nama/<br>Ruas Jalan</th>
             <th scope="col">Distrik</th>
             <th scope="col">Kab./Kota</th>
@@ -68,8 +68,8 @@
                 <img src="https://sisikat.com/resources/template/assets/logo-sisikat.png">
             </div>
             <div class="date col">
-                <p>Copyright SISIKAT 2021</p>
-                <p>Print Date: <?php echo date("d-m-Y H:i:s");?></p>
+                <p>Copyright SISIKAT 2021<br>
+                Print Date: <?php echo date("d-m-Y H:i:s");?></p>
             </div>
         </div>
     </footer>

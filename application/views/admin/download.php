@@ -27,27 +27,28 @@
                             Filter Data Laporan/Pengaduan Yang Akan Diunduh
                         </div>
                         <div class="card-body">
+                            <?php echo form_open('admin/pratinjau',array('id'=>'formfiltercetak')); ?>
                            <div class="row">
                                 <label for="country" class="control-label">Jenis Infrastruktur</label>
                                 <div class="col">
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-                                                <label class="form-check-label" for="flexRadioDefault1">Semua Infrastruktur</label>
+                                                <input class="form-check-input" type="radio" name="RBInfrastruktur" id="RBInfrastruktur" value="semua" checked>
+                                                <label class="form-check-label">Semua Infrastruktur</label>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                <label class="form-check-label" for="flexRadioDefault1">Jalan</label>
+                                                <input class="form-check-input" type="radio" name="RBInfrastruktur" id="RBInfrastruktur" value="jalan">
+                                                <label class="form-check-label">Jalan</label>
                                             </div>
                                         </div>
 
                                         <div class="col">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                                <label class="form-check-label" for="flexRadioDefault2">Drainase</label>
+                                                <input class="form-check-input" type="radio" name="RBInfrastruktur" id="RBInfrastruktur" value="drainase">
+                                                <label class="form-check-label">Drainase</label>
                                             </div> 
                                         </div>
                                     </div>
@@ -57,7 +58,7 @@
                             <div class="row">
                                 <label for="country" class="control-label">Kabupaten/Kota</label>
                                 <div class="col">
-                                    <select class="form-control" name="lokasi_kabkota" id="lokasi_kabkota">
+                                    <select class="form-control" name="kabupaten" id="kabupaten">
                                         <option value="0">- Semua Kabupaten/Kota -</option>
                                         <?php 
                                             foreach($kabupaten as $kab)
@@ -74,14 +75,14 @@
                                 <div class='col'>
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker1'>
-                                        <input type="date" name="datetimepick" id="datetimepick">
+                                        <input type="date" name="startdate" id="datetimepick">
                                         </div>
                                     </div>
                                 </div>
                                 <div class='col'>
                                     <div class="form-group">
                                         <div class='input-group date' id='datetimepicker2'>
-                                        <input type="date" name="datetimepick" id="datetimepick">
+                                        <input type="date" name="todate" id="datetimepick">
                                         </div>
                                     </div>
                                 </div>
@@ -92,8 +93,9 @@
                                     <button class="btn btn-sm btn-primary" type="submit">Pratinjau</button>
                                 </div>
                             </div>
-
+                        
                         </div>
+                        <?php echo form_close(); ?>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -116,7 +118,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body"><canvas id="laporanbulanan" width="100%" height="40"></canvas></div>
+                        <div class="card-body">
+                        <iframe src="<?php echo site_url('admin/cetak');?>" width="600" height="300"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
