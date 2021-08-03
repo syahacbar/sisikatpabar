@@ -80,14 +80,10 @@
                                 </nav>
                             </div>
 
-                            <div class="sb-sidenav-menu-heading">Unduh Laporan</div>
-                            <a class="nav-link <?php if($this->uri->segment(2)=='download' && $this->uri->segment(3)=='pdf'){ echo'active'; }?>" href="<?php echo site_url('admin/download/pdf');?>">
-                                <div class="sb-nav-link-icon"><i class="fas fa-file-pdf"></i></div>
-                                Format PDF
-                            </a>
-                            <a class="nav-link <?php if($this->uri->segment(2)=='download' && $this->uri->segment(3)=='excel'){ echo'active'; }?>" href="<?php echo site_url('admin/download/excel');?>">
-                                <div class="sb-nav-link-icon"><i class="fas fa-file-excel"></i></div>
-                                Format Excel
+                            <div class="sb-sidenav-menu-heading"></div>
+                            <a class="nav-link <?php if($this->uri->segment(2)=='download'){ echo'active'; }?>" href="<?php echo site_url('admin/download');?>">
+                                <div class="sb-nav-link-icon"><i class="fas fa-download"></i></div>
+                                Unduh Laporan
                             </a>
                         </div>
                     </div>
