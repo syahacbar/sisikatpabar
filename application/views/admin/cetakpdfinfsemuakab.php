@@ -1,6 +1,6 @@
 <?php
 $pdf = new Pdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-$pdf->SetTitle('My Title');
+$pdf->SetTitle('DATA LAPORAN PENGADUAN SISIKAT '.strtoupper($infrastruktur).' '.$range);
 $pdf->SetHeaderMargin(10);
 $pdf->SetTopMargin(10);
 $pdf->setFooterMargin(10);
