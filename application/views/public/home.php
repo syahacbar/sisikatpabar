@@ -563,15 +563,7 @@
 
 
                 });
-
-
-            });
-            
-        </script>
-
-        <script>
-        $(document).ready(function() {
-            $('form').submit(function() {
+                $('#formlaporan').submit(function() {
                 var incomplete = $('form :input').filter(function() {
                                     return $(this).val() == '';
                                 });
@@ -582,5 +574,10 @@
                     return false;
                 }
             });
-        });
+
+
+            });
+            
         </script>
+
+      
