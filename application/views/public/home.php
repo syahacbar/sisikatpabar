@@ -451,6 +451,8 @@
                     paramName:"filektp",
                     dictInvalidFileType:"Type file ini tidak dizinkan",
                     addRemoveLinks:true,
+                    uploadMultiple: true,
+                    parallelUploads: 1,
                 });
 
                 ktp_upload.on("sending",function(a,b,c){
@@ -469,6 +471,8 @@
                     paramName:"filedokumentasi1",
                     dictInvalidFileType:"Type file ini tidak dizinkan",
                     addRemoveLinks:true,
+                    uploadMultiple: true,
+                    parallelUploads: 1,
                 });
 
                 dokumentasi1_upload.on("sending",function(a,b,c){
@@ -487,6 +491,8 @@
                     paramName:"filedokumentasi2",
                     dictInvalidFileType:"Type file ini tidak dizinkan",
                     addRemoveLinks:true,
+                    uploadMultiple: true,
+                    parallelUploads: 1,
                 });
 
                 dokumentasi2_upload.on("sending",function(a,b,c){
@@ -505,6 +511,8 @@
                     paramName:"filedokumentasi3",
                     dictInvalidFileType:"Type file ini tidak dizinkan",
                     addRemoveLinks:true,
+                    uploadMultiple: true,
+                    parallelUploads: 1,
                 });
 
                 dokumentasi3_upload.on("sending",function(a,b,c){
@@ -559,4 +567,20 @@
 
             });
             
+        </script>
+
+        <script>
+        $(document).ready(function() {
+            $('form').submit(function() {
+                var incomplete = $('form :input').filter(function() {
+                                    return $(this).val() == '';
+                                });
+                //if incomplete contains any elements, the form has not been filled 
+                if(incomplete.length) {
+                    alert('Masih ada bidang yang belum diisi, silakan dilengkapi!');
+                    //to prevent submission of the form
+                    return false;
+                }
+            });
+        });
         </script>
