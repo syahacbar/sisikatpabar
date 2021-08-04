@@ -27,7 +27,7 @@
                             Filter Data Laporan/Pengaduan Yang Akan Diunduh
                         </div>
                         <div class="card-body">
-                            <?php echo form_open('admin/cetak',array('id'=>'formfiltercetak')); ?>
+                            <?php echo form_open('admin/cetak',array('id'=>'formfiltercetak','target'=>'_blank')); ?>
                            <div class="row">
                                 <label for="country" class="control-label">Jenis Infrastruktur</label>
                                 <div class="col">
