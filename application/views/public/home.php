@@ -563,7 +563,7 @@
 
 
                 });
-                $('#formlaporan').submit(function() {
+                $('#laporan').submit(function() {
                 var incomplete = $('form :input').filter(function() {
                                     return $(this).val() == '';
                                 });

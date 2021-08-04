@@ -132,7 +132,15 @@ class Admin extends CI_Controller{
             } 
         }
 
-        
-                      
+                    
     }
+
+    function cetakword()
+    {
+        $data['laporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_Laporan','DESC');
+                      
+        $data['_view'] = 'admin/cetakword';
+        $this->load->view('admin/cetakword',$data);
+    }
+
 }
