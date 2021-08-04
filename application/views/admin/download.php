@@ -27,7 +27,7 @@
                             Filter Data Laporan/Pengaduan Yang Akan Diunduh
                         </div>
                         <div class="card-body">
-                            <?php echo form_open('admin/pratinjau',array('id'=>'formfiltercetak')); ?>
+                            <?php echo form_open('admin/cetak',array('id'=>'formfiltercetak')); ?>
                            <div class="row">
                                 <label for="country" class="control-label">Jenis Infrastruktur</label>
                                 <div class="col">
@@ -90,7 +90,7 @@
                             <br>
                             <div class="row">
                                 <div class="input-group">
-                                    <button class="btn btn-sm btn-primary" type="submit">Pratinjau</button>
+                                    <button class="btn btn-sm btn-primary" type="submit">Download</button>
                                 </div>
                             </div>
                         

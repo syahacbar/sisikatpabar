@@ -30,7 +30,8 @@ class Auth extends CI_Controller
 		$log = $this->db->get('login_history')->result_array();
 		$this->data['loginhistory'] = $log;
 		$this->data['_view'] = 'auth/login_history';
-		$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'login_history', $this->data);
+		$this->load->view('admin/layout',$this->data);
+		//$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'login_history', $this->data);
 	}
 
 	public function index()
@@ -93,14 +94,14 @@ class Auth extends CI_Controller
 				$params = array('username' => $user->username, 'logintime' => date('Y-m-d H:i:s'), 'ipaddress'=>$_SERVER['REMOTE_ADDR']);
 				$this->db->insert('login_history',$params);
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect('Admin', 'refresh');
+				redirect('admin', 'refresh');
 			}
 			else
 			{
 				// if the login was un-successful
 				// redirect them back to the login page
 				$this->session->set_flashdata('message', $this->ion_auth->errors());
-				redirect('/', 'refresh'); // use redirects instead of loading views for compatibility with MY_Controller libraries
+				redirect('auth/login', 'refresh'); // use redirects instead of loading views for compatibility with MY_Controller libraries
 			}
 		}
 		else
@@ -192,7 +193,8 @@ class Auth extends CI_Controller
 			$this->data['_view'] = 'auth/change_password';
 
 			// render
-			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'change_password', $this->data);
+			//$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'change_password', $this->data);
+			$this->load->view('admin/layout',$this->data);
 		}
 		else
 		{
@@ -897,7 +899,7 @@ class Auth extends CI_Controller
 
 		$viewdata = (empty($data)) ? $this->data : $data;
 
-		$view_html = $this->load->view('admin/layout', $viewdata, $returnhtml);
+		$view_html = $this->load->view($view, $viewdata, $returnhtml);
 
 		// This will return html on 3rd argument being true
 		if ($returnhtml)

@@ -1,10 +1,9 @@
 <?php
  
-class Admin extends MY_Controller{
+class Admin extends CI_Controller{
     function __construct()
     {
         parent::__construct(); 
-
         $this->load->model('Laporan_model');
         
     }
@@ -95,16 +94,6 @@ class Admin extends MY_Controller{
     }
 
     function cetak()
-    {
-        $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
-        $data['kabupaten'] = $get_kab->result();
-        $data['laporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_laporan','DESC');
-                      
-        $data['_view'] = 'admin/print';
-        $this->load->view('admin/print',$data);
-    }
-
-    function pratinjau()
     {
         $this->load->library('Pdf');
         $infrastruktur = $this->input->post('RBInfrastruktur', TRUE);

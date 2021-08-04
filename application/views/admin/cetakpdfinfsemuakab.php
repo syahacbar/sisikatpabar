@@ -1,13 +1,14 @@
 <?php
 $pdf = new Pdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 $pdf->SetTitle('DATA LAPORAN PENGADUAN SISIKAT '.strtoupper($infrastruktur).' '.$range);
-$pdf->SetHeaderMargin(10);
+$pdf->SetHeaderMargin(20);
 $pdf->SetTopMargin(10);
-$pdf->setFooterMargin(10);
-$pdf->SetAutoPageBreak(true);
+$pdf->setFooterMargin(15);
+$pdf->SetAutoPageBreak(true,20);
 $pdf->SetAuthor('Author');
 $pdf->SetDisplayMode('real', 'default');
 $pdf->setPrintHeader(false);
+//$pdf->setPrintFooter(false);
 $pdf->SetMargins(5, 10, 5, true);
 $pdf->AddPage('L','A4');
 $html = '
@@ -67,6 +68,6 @@ $html .='
 }
 $html .='</table>';
 $pdf->writeHTML($html, true, false, true, false, '');
-$pdf->Output('My-File-Name.pdf', 'I');
+$pdf->Output('DATA LAPORAN PENGADUAN SISIKAT '.strtoupper($infrastruktur).' '.$range.'.pdf', 'I');
 
 ?>
