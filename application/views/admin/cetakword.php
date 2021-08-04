@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Tambahan Link Untuk CSS dari Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo base_url();?>resources/admintheme/css/print.css">
@@ -66,13 +66,7 @@
     <footer>
         <div class="row">
             <div class="province col">
-                <img src="https://d23ndc1l41hue8.cloudfront.net/wp-content/uploads/2020/09/LOGO_9100_PAPUA-BARAT-407x540.png">
-            </div>
-            <div class="sisikat col">
-                <img src="https://sisikat.com/resources/template/assets/logo-sisikat.png">
-            </div>
-            <div class="spacer col">
-                <img src="https://sisikat.com/resources/template/assets/logo-sisikat.png">
+                <img src="<?php echo base_url('resources/admintheme/assets/img/logo-footer-cetak.png');?>">
             </div>
             <div class="date col">
                 <p>Copyright SISIKAT 2021<br>

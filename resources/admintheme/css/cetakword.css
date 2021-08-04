@@ -76,3 +76,33 @@ h2 {
     align-items: center;
     margin: 0 auto;
 }
+
+
+/* Set Footer */
+footer {
+  height: 50px;
+
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid black;
+}
+
+@page {
+  margin: 20mm;
+}
+
+@media print {
+   footer {
+     display: table-footer-group;
+    }
+     
+   body {margin: 0;}
+}
+
+footer {
+  display: table-footer-group;
+ }

@@ -3,10 +3,6 @@
     filter: invert(1);
 }
 
-.province img {
-    width: 50px;
-}
-
 h2 {
     text-align: center;
     padding-top: 7rem;
@@ -43,46 +39,32 @@ footer {
     margin: 0 2%;
 }
 
-.sisikat {
-    display: flex;
-    justify-content: center;
-    width: 40%;
-    padding: 0;
-    min-width: 10% !important;
-}
-
-.sisikat img {
-    height: auto;
-    object-fit: contain;
-    padding: 0 !important;
-    width: 100%;
-}
-
 .province {
-    width: 100px;
+    width: 48%;
     display: flex;
-    max-width: 100px;
-    min-width: 10%;
-    justify-content: center;
+    max-width: 48%;
+    min-width: 48%;
+    justify-content: end;
 }
 
-.province img {
+.province.col img {
     object-fit: contain;
-    width: 40%;
-}
-
+    width: 160px;
+    max-width: 160px;
+    height: auto;
+  }
 
 .date.col {
-    width: 100px;
+    width: 48%;
     display: flex;
-    max-width: 100px;
-    min-width: 20%;
-    justify-content: center;
-    flex-direction: column;
+    max-width: 48%;
+    min-width: 48%;
+    justify-content: start;
+    flex-direction: row;
 }
 
 .date.col p {
-    text-align: left;
+    text-align: right;
     width: 100%;
     padding: 0;
     font-weight: bold;
