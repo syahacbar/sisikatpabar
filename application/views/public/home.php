@@ -561,18 +561,7 @@
                        }
                     });
 
-
                 });
-                $('#laporan').submit(function() {
-                var incomplete = $('form :input').filter(function() {
-                                    return $(this).val() == '';
-                                });
-                //if incomplete contains any elements, the form has not been filled 
-                if(incomplete.length) {
-                    alert('Masih ada bidang yang belum diisi, silakan dilengkapi!');
-                    //to prevent submission of the form
-                    return false;
-                }
             });
 
 
