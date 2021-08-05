@@ -451,8 +451,6 @@
                     paramName:"filektp",
                     dictInvalidFileType:"Type file ini tidak dizinkan",
                     addRemoveLinks:true,
-                    uploadMultiple: true,
-                    parallelUploads: 1,
                 });
 
                 ktp_upload.on("sending",function(a,b,c){
@@ -471,8 +469,6 @@
                     paramName:"filedokumentasi1",
                     dictInvalidFileType:"Type file ini tidak dizinkan",
                     addRemoveLinks:true,
-                    uploadMultiple: true,
-                    parallelUploads: 1,
                 });
 
                 dokumentasi1_upload.on("sending",function(a,b,c){
@@ -491,8 +487,6 @@
                     paramName:"filedokumentasi2",
                     dictInvalidFileType:"Type file ini tidak dizinkan",
                     addRemoveLinks:true,
-                    uploadMultiple: true,
-                    parallelUploads: 1,
                 });
 
                 dokumentasi2_upload.on("sending",function(a,b,c){
@@ -511,8 +505,6 @@
                     paramName:"filedokumentasi3",
                     dictInvalidFileType:"Type file ini tidak dizinkan",
                     addRemoveLinks:true,
-                    uploadMultiple: true,
-                    parallelUploads: 1,
                 });
 
                 dokumentasi3_upload.on("sending",function(a,b,c){
@@ -562,7 +554,6 @@
                     });
 
                 });
-            });
 
 
             });
