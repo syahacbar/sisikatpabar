@@ -1,3 +1,10 @@
+<?php
+ header("Content-Type: application/vnd.ms-word");
+        header("Expires: 0");
+        header("Cache-Control:  must-revalidate, post-check=0, pre-check=0");
+        header("Content-disposition: attachment; filename=export.doc");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +16,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo base_url();?>resources/admintheme/css/print.css">
     <title>Laporan</title>
-
+<style>
+@page Section1 {size:595.45pt 841.7pt; margin:1.0in 1.25in 1.0in 1.25in;mso-header-margin:.5in;mso-footer-margin:.5in;mso-paper-source:0;}
+div.Section1 {page:Section1;}
+@page Section2 {size:841.7pt 595.45pt;mso-page-orientation:landscape;margin:1.25in 1.0in 1.25in 1.0in;mso-header-margin:.5in;mso-footer-margin:.5in;mso-paper-source:0;}
+div.Section2 {page:Section2;}
+</style>
 </head>
 <body>
+    <div class=Section2>
     <div class="table-responsive-sm">
     <h2 class="mt-4">DATA LAPORAN PENGADUAN SISIKAT</h2>
     <h3></h3>
@@ -73,5 +86,6 @@
             </div>
         </div>
     </footer>
+</div>
 </body>
 </html>
