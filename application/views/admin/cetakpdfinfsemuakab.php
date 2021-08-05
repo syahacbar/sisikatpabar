@@ -47,6 +47,21 @@ $html = '
 $no = 1;
 foreach ($laporan AS $lap)
 {
+	if($lap['dokumentasi1']!=NULL) {
+		$dokumentasi1 = base_url('upload/dokumentasi/').$lap['dokumentasi1'];
+	} else {
+		$dokumentasi1 = base_url('resources/admintheme/assets/img/noimage.jpg');
+	}
+	if($lap['dokumentasi2']!=NULL) {
+		$dokumentasi2 = base_url('upload/dokumentasi/').$lap['dokumentasi2'];
+	} else {
+		$dokumentasi2 = base_url('resources/admintheme/assets/img/noimage.jpg');
+	}
+	if($lap['dokumentasi3']!=NULL) {
+		$dokumentasi3 = base_url('upload/dokumentasi/').$lap['dokumentasi3'];
+	} else {
+		$dokumentasi3 = base_url('resources/admintheme/assets/img/noimage.jpg');
+	}
 $html .='
 <tr>
 	<td align="center">'.$no++.'</td>
@@ -60,9 +75,9 @@ $html .='
 	<td>'.$lap['no_hp'].'<br>'.$lap['email'].'</td>
 	<td>'.$lap['alamat_pelapor'].'</td>
 	<td>
-		<img src="'.base_url('upload/dokumentasi/').$lap['dokumentasi1'].'"><br>
-		<img src="'.base_url('upload/dokumentasi/').$lap['dokumentasi2'].'"><br>
-		<img src="'.base_url('upload/dokumentasi/').$lap['dokumentasi3'].'">
+		<img src="'.$dokumentasi1.'"><br>
+		<img src="'.$dokumentasi2.'"><br>
+		<img src="'.$dokumentasi3.'">
 	</td>
 </tr>';
 }
