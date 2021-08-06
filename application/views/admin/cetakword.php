@@ -1,8 +1,10 @@
 <?php 
+
   header("Content-Type: application/force-download");
   header("Cache-Control: no-cache, must-revalidate");
   header("Expires: Sat, 26 Jul 2010 05:00:00 GMT");
-  header("content-disposition: attachment;filename=Sisikat.doc");
+  header("content-disposition: attachment;filename=".$filename.".doc");
+  
 ?>
 
 <!DOCTYPE html>
@@ -26,24 +28,43 @@
       <!-- <caption>List of users</caption> -->
       <thead>
         <tr class="align-middle">
-            <th scope="col">No.</th>
-            <th scope="col">Tgl. <br>Pengaduan</th>
-            <th scope="col">Isi Laporan/<br>Pengaduan</th>
-            <th scope="col">Nama/<br>Ruas Jalan</th>
-            <th scope="col">Distrik</th>
-            <th scope="col">Kab./Kota</th>
-            <th scope="col">Titik Lokasi <br>(Koordinat)</th>
-            <th scope="col">Nama/NIK</th>
-            <th scope="col">No. HP/<br>Email</th>
-            <th scope="col">Alamat <br>(Sesuai KTP)</th>
-            <th scope="col">Dokumentasi</th>
+            <th width="30">No.</th>
+            <th width="60">Tanggal <br>Pengaduan</th>
+            <th width="60">Jenis <br>Infrastruktur</th>
+            <th width="90">Isi Laporan/<br>Pengaduan</th>
+            <th width="70">Nama/<br>Ruas Jalan</th>
+            <th width="60">Kec./Distrik</th>
+            <th width="60">Kab./Kota</th>
+            <th width="70">Titik Lokasi<br>(Koordinat)</th>
+            <th width="70">Nama Pelapor/<br>NIK</th>
+            <th width="70">No. HP/<br>Email</th>
+            <th width="80">Alamat Lengkap<br>(Sesuai KTP)</th>
+            <th width="100">Dokumentasi</th>
         </tr>
       </thead>
       <tbody>
-        <?php $no=1; foreach($laporan as $lap) { ?>
+        <?php $no=1; foreach($laporan as $lap) 
+        { 
+          if($lap['dokumentasi1']!=NULL) {
+            $dokumentasi1 = base_url('upload/dokumentasi/').$lap['dokumentasi1'];
+          } else {
+            $dokumentasi1 = base_url('resources/admintheme/assets/img/noimage.jpg');
+          }
+          if($lap['dokumentasi2']!=NULL) {
+            $dokumentasi2 = base_url('upload/dokumentasi/').$lap['dokumentasi2'];
+          } else {
+            $dokumentasi2 = base_url('resources/admintheme/assets/img/noimage.jpg');
+          }
+          if($lap['dokumentasi3']!=NULL) {
+            $dokumentasi3 = base_url('upload/dokumentasi/').$lap['dokumentasi3'];
+          } else {
+            $dokumentasi3 = base_url('resources/admintheme/assets/img/noimage.jpg');
+          } 
+        ?>
         <tr>
           <td><?php echo $no++;?></td>
           <td><?php echo $lap['tgl_laporan'];?></td>
+          <td><?php echo $lap['infrastruktur'];?></td>
           <td><?php echo $lap['pengaduan'];?></td>
           <td><?php echo $lap['lokasi_namajalan'];?></td>
           <td><?php echo $lap['lokasidistrik'];?></td>
@@ -53,9 +74,9 @@
           <td><?php echo $lap['no_hp'];?></td>
           <td><?php echo $lap['alamat_pelapor'];?></td>
           <td>
-            <img src="<?php echo base_url('upload/dokumentasi/').$lap['dokumentasi1'];?>"><br>
-            <img src="<?php echo base_url('upload/dokumentasi/').$lap['dokumentasi2'];?>"><br>
-            <img src="<?php echo base_url('upload/dokumentasi/').$lap['dokumentasi3'];?>">
+            <img width="150" height="80" src="<?php echo $dokumentasi1;?>"><br>
+            <img width="150" height="80" src="<?php echo $dokumentasi2;?>"><br>
+            <img width="150" height="80" src="<?php echo $dokumentasi3;?>">
           </td>
         </tr>
         <?php } ?>

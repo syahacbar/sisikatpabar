@@ -89,6 +89,27 @@
                             </div>
                             <br>
                             <div class="row">
+                                <label for="country" class="control-label">Pilih Format Laporan</label>
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="RBFormatCetak" id="RBInfrastruktur" value="cetakpdf" required>
+                                                <label class="form-check-label">PDF</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="RBFormatCetak" id="RBInfrastruktur" value="cetakword" required>
+                                                <label class="form-check-label">WORD</label>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
                                 <div class="input-group">
                                     <button class="btn btn-sm btn-primary" type="submit">Download</button>
                                 </div>
