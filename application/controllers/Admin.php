@@ -155,6 +155,7 @@ class Admin extends MY_Controller{
         $data['_view'] = 'admin/cetakword';
         $this->load->view('admin/cetakword',$data);
     }
+<<<<<<< Updated upstream
 
     function docx() {
         
@@ -242,4 +243,7 @@ class Admin extends MY_Controller{
         $objWriter->save('php://output');
     }
 
+=======
+    
+>>>>>>> Stashed changes
 }
