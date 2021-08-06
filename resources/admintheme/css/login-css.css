@@ -2,6 +2,10 @@
 div#loginbutton button {
     width: 100%;
     margin-top: 30px;
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: .3rem;
 }
 
 /* Untuk tombol login di halaman forgot password */
@@ -11,4 +15,74 @@ div#login.justify-content-between {
 
 div#login a {
     margin-left: 10px;
+}
+
+
+
+
+/* Modifikasi login page */
+.bg-primary {
+    background-color: #f5f5f5 !important;
+}
+
+img.mb-4 {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: 37px 15%;
+    align-items: center;
+    vertical-align: middle;
+    border-style: none;
+    filter: invert(1);
+    height: auto;
+    right: 0;
+}
+
+h3.text-center.font-weight-light.my-4 {
+    display: none;
+}
+
+
+.card-header {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 0;
+}
+
+@media (min-width: 992px) {
+.col-lg-5 {
+    flex: 0 0 auto;
+    width: 450px;
+    box-shadow: none !important;
+}
+}
+
+.shadow-lg {
+    box-shadow: none !important;
+}
+
+.card-footer.text-center.py-3 {
+    border: 0;
+}
+
+input#identity,
+input#password {
+    border-radius: 10px;
+    border: 2px solid #ced4da;
+}
+
+
+footer.py-4.bg-light.mt-auto .align-items-center {
+    align-items: center !important;
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+}
+
+
+#layoutAuthentication #layoutAuthentication_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

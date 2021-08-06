@@ -1,64 +1,64 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>404 Page Not Found</title>
-<style type="text/css">
+<title>404 Laman Tidak Ditemukan</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+	body {
+		background: #f5f5f5;
+	}
 
-::selection { background-color: #E13300; color: white; }
-::-moz-selection { background-color: #E13300; color: white; }
+	.page-wrap {
+		min-height: 100vh;
+	}
 
-body {
-	background-color: #fff;
-	margin: 40px;
-	font: 13px/20px normal Helvetica, Arial, sans-serif;
-	color: #4F5155;
-}
+	.col-md-12.text-center img {
+		width: 60%;
+		height: auto;
+		margin-bottom: 4rem;
+	}
 
-a {
-	color: #003399;
-	background-color: transparent;
-	font-weight: normal;
-}
+	a.btn.btn-link {
+		border-radius: 30px;
+		background-color: #4e2eeb;
+		color: #fff;
+		padding: 10px 20px;
+	}
 
-h1 {
-	color: #444;
-	background-color: transparent;
-	border-bottom: 1px solid #D0D0D0;
-	font-size: 19px;
-	font-weight: normal;
-	margin: 0 0 14px 0;
-	padding: 14px 15px 10px 15px;
-}
+	.mb-4.lead {
+		font-weight: bold;
+		font-size: 20px;
+	}
+	
+	a:hover {
+		text-decoration: none;
+	}
 
-code {
-	font-family: Consolas, Monaco, Courier New, Courier, monospace;
-	font-size: 12px;
-	background-color: #f9f9f9;
-	border: 1px solid #D0D0D0;
-	color: #002166;
-	display: block;
-	margin: 14px 0 14px 0;
-	padding: 12px 10px 12px 10px;
-}
+	.btn:not(:disabled):not(.disabled) {
+		cursor: pointer;
+		text-decoration: none;
+	}
 
-#container {
-	margin: 10px;
-	border: 1px solid #D0D0D0;
-	box-shadow: 0 0 8px #D0D0D0;
-}
-
-p {
-	margin: 12px 15px 12px 15px;
-}
 </style>
 </head>
 <body>
-	<div id="container">
-		<h1><?php echo $heading; ?></h1>
-		<?php echo $message; ?>
-	</div>
+<div class="page-wrap d-flex flex-row align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <img src="<?php echo base_url('resources/admintheme/assets/img/error_page_sisikat.png');?>" alt="error-image">
+                <div class="mb-4 lead">Maaf, laman yang Anda cari tidak tersedia.</div>
+                <a href="<?php echo base_url(); ?>" class="btn btn-link">Kembali ke Beranda</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
