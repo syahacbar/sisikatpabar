@@ -126,7 +126,7 @@ $config['site_title']                 = "sisikat.com";       // Site Title, exam
 $config['admin_email']                = "admin@sisikat.com"; // Admin Email, admin@example.com
 $config['default_group']              = 'adminkab';           // Default group, use name
 $config['admin_group']                = 'admin';             // Default administrators group, use name
-$config['identity']                   = 'email';             /* You can use any unique column in your table as identity column.
+$config['identity']                   = 'username';             /* You can use any unique column in your table as identity column.
 															    The values in this column, alongside password, will be used for login purposes
 															    IMPORTANT: If you are changing it from the default (email),
 															    		   update the UNIQUE constraint in your DB */

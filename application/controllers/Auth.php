@@ -97,8 +97,7 @@ class Auth extends CI_Controller
 				if ($user_groups->name == 'admin')
 				{
 					redirect('admin', 'refresh');
-				} elseif ($user_groups->name == 'adminkab')
-				{
+				} else {
 					redirect('Adminkab', 'refresh');
 				}
 			}
@@ -419,7 +418,7 @@ class Auth extends CI_Controller
 		{
 			// redirect them to the auth page
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("auth", 'refresh');
+			redirect("admin/users", 'refresh');
 		}
 		else
 		{
@@ -455,7 +454,9 @@ class Auth extends CI_Controller
 			$this->data['user'] = $this->ion_auth->user($id)->row();
 			$this->data['identity'] = $this->config->item('identity', 'ion_auth');
 
-			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'deactivate_user', $this->data);
+			$this->data['_view'] = 'auth/deactivate_user';
+			$this->load->view('admin/layout',$this->data);
+			//$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'deactivate_user', $this->data);
 		}
 		else
 		{
@@ -476,7 +477,7 @@ class Auth extends CI_Controller
 			}
 
 			// redirect them back to the auth page
-			redirect('auth', 'refresh');
+			redirect('admin/users', 'refresh');
 		}
 	}
 
@@ -531,7 +532,7 @@ class Auth extends CI_Controller
 			// check to see if we are creating the user
 			// redirect them back to the admin page
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("auth", 'refresh');
+			redirect("admin/users", 'refresh');
 		}
 		else
 		{
@@ -607,7 +608,7 @@ class Auth extends CI_Controller
 	*/
 	public function redirectUser(){
 		if ($this->ion_auth->is_admin()){
-			redirect('auth', 'refresh');
+			redirect('admin/users', 'refresh');
 		}
 		redirect('/', 'refresh');
 	}
@@ -722,37 +723,46 @@ class Auth extends CI_Controller
 			'id'    => 'first_name',
 			'type'  => 'text',
 			'value' => $this->form_validation->set_value('first_name', $user->first_name),
+			'class' => 'form-control',
 		];
 		$this->data['last_name'] = [
 			'name'  => 'last_name',
 			'id'    => 'last_name',
 			'type'  => 'text',
 			'value' => $this->form_validation->set_value('last_name', $user->last_name),
+			'class' => 'form-control',
 		];
 		$this->data['company'] = [
 			'name'  => 'company',
 			'id'    => 'company',
 			'type'  => 'text',
 			'value' => $this->form_validation->set_value('company', $user->company),
+			'class' => 'form-control',
 		];
 		$this->data['phone'] = [
 			'name'  => 'phone',
 			'id'    => 'phone',
 			'type'  => 'text',
 			'value' => $this->form_validation->set_value('phone', $user->phone),
+			'class' => 'form-control',
 		];
 		$this->data['password'] = [
 			'name' => 'password',
 			'id'   => 'password',
-			'type' => 'password'
+			'type' => 'password',
+			'class' => 'form-control',
 		];
 		$this->data['password_confirm'] = [
 			'name' => 'password_confirm',
 			'id'   => 'password_confirm',
-			'type' => 'password'
+			'type' => 'password',
+			'class' => 'form-control',
 		];
 
-		$this->_render_page('auth/edit_user', $this->data);
+
+		$this->data['_view'] = 'auth/edit_user';
+		$this->load->view('admin/layout',$this->data);
+		//$this->_render_page('auth/edit_user', $this->data);
 	}
 
 	/**
@@ -778,7 +788,7 @@ class Auth extends CI_Controller
 				// check to see if we are creating the group
 				// redirect them back to the admin page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect("auth", 'refresh');
+				redirect("admin/users", 'refresh');
 			}
 			else
             		{
@@ -847,7 +857,7 @@ class Auth extends CI_Controller
 				if ($group_update)
 				{
 					$this->session->set_flashdata('message', $this->lang->line('edit_group_saved'));
-					redirect("auth", 'refresh');
+					redirect("admin/users", 'refresh');
 				}
 				else
 				{
@@ -881,7 +891,10 @@ class Auth extends CI_Controller
 			'class' => 'form-control',
 		];
 
-		$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'edit_group', $this->data);
+		$this->data['_view'] = 'auth/edit_group';
+		$this->load->view('admin/layout',$this->data);
+
+		//$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'edit_group', $this->data);
 	}
 
 	/**

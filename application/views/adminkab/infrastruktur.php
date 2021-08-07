@@ -14,7 +14,8 @@
                         <th>Lokasi</th>
                         <th>Kec./Distrik</th>
                         <th>Kab./Kota</th>
-                        <th>Aksi</th>
+                        <th>Status</th>
+                        <th>Detail</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,7 @@
                         <td><?php echo $lap['lokasi_namajalan'];?></td>
                         <td><?php echo $lap['lokasidistrik'];?></td>
                         <td><?php echo $lap['lokasikabkota'];?></td>
+                        <td>Menunggu | Diterima | Ditolak</td>
                         <td>Detail</td>
                     </tr>
                 <?php } ?>

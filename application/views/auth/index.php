@@ -29,10 +29,15 @@
 								<?php echo anchor("auth/edit_group/".$group->id, htmlspecialchars($group->name,ENT_QUOTES,'UTF-8')) ;?><br />
 			                <?php endforeach?>
 						</td>
-						<td><?php echo ($user->active) ? anchor("auth/deactivate/".$user->id, lang('index_active_link')) : anchor("auth/activate/". $user->id, lang('index_inactive_link'));?></td>
-						<td><?php echo anchor("auth/edit_user/".$user->id, 'Edit') ;?></td>
+						<td><?php echo ($user->active) ? anchor("auth/deactivate/".$user->id, 'Deactivate',array('class'=>'btn btn-sm btn-danger')) : anchor("auth/activate/". $user->id, 'Activate' ,array('class'=>'btn btn-sm btn-success'));?></td>
+						<td><?php echo anchor("auth/edit_user/".$user->id, 'Edit',array('class'=>'btn btn-sm btn-primary')) ;?></td>
 					</tr>
 				<?php endforeach;?>
+			</tbody>
 			</table>
 
-<p><?php echo anchor('auth/create_user', lang('index_create_user_link'))?> | <?php echo anchor('auth/create_group', lang('index_create_group_link'))?></p>
+<p><?php echo anchor('auth/create_user', 'Create User',array('class'=>'btn btn-xs btn-primary'))?> &nbsp; &nbsp; <?php echo anchor('auth/create_group', 'Create Group',array('class'=>'btn btn-xs btn-primary'))?></p>
+		<a href="">
+		</div>
+	</div>
+</div>

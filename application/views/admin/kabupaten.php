@@ -9,7 +9,7 @@
             <table id="datatablesSimple">
                 <thead>
                     <tr>
-                        <th>No.</th>
+                        <th width="10">No.</th>
                         <th>Tanggal Dilaporkan</th>
                         <th>Infrastruktur</th>
                         <th>Pengaduan</th>
