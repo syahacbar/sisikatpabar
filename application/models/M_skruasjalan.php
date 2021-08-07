@@ -8,4 +8,6 @@ class M_skruasjalan extends CI_Model {
 		$query = $this->db->get('skruasjalan');  
 		return $query->result_array();
 	}
+    
 }
+
