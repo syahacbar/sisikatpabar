@@ -45,7 +45,7 @@ class Laporan_model extends CI_Model
         return $this->db->get_where('wilayah_2020', array('kode' => $kab))->row();
     }
         
-    function get_all_laporan_bykabkota($kab=NULL,$limit=NULL,$offset=NULL)
+    function get_all_laporan_bykabkota($kab=NULL,$limit=NULL,$offset=NULL,$infrastruktur=NULL)
     {
         $this->db->select('l.*');
         $this->db->select('(SELECT x.nama FROM wilayah_2020 x WHERE x.kode=l.lokasi_kabkota) AS lokasikabkota');
@@ -59,6 +59,11 @@ class Laporan_model extends CI_Model
         {
             $this->db->where('l.lokasi_kabkota',$kab);
         }
+        if($infrastruktur!=NULL)
+        {
+            $this->db->where('l.infrastruktur',$infrastruktur);
+        }
+
         $this->db->from('laporan l');
 
         if ($limit!=NULL)

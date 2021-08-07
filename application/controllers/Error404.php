@@ -11,9 +11,11 @@ class Error404 extends CI_Controller {
     $this->load->helper('url');
   }
 
-  public function index(){
- 
-    $this->load->view('errors/html/error_404');
+  public function index()
+  {
+    $data['heading'] = 'tes';
+    $data['message'] = 'error';
+    $this->load->view('errors/cli/error_404',$data);
  
   }
 

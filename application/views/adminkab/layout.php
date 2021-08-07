@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>SI-SIKAT | ADMIN PROVINSI</title>
+        <title>SI-SIKAT | ADMIN KAB/KOTA</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="<?php echo base_url();?>resources/admintheme/css/styles.css" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="<?php echo base_url();?>resources/template/assets/favicon.png" />
@@ -43,59 +43,35 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <a class="nav-link <?php if($this->uri->segment(2)==NULL){ echo'active'; }?>" href="<?php echo site_url('admin');?>">
+                            <a class="nav-link <?php if($this->uri->segment(2)==NULL){ echo'active'; }?>" href="<?php echo site_url('adminkab');?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-laptop"></i></div>
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Laporan Pengaduan</div>
 
-                            <a class="nav-link collapsed <?php if($this->uri->segment(2)=='infrastruktur'){ echo'active'; }?>" href="<?php echo site_url('admin/infrastruktur');?>" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed <?php if($this->uri->segment(2)=='infrastruktur'){ echo'active'; }?>" href="<?php echo site_url('adminkab/infrastruktur');?>" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-road"></i></div>
                                By-Infrastruktur
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="<?php echo $this->uri->segment(2)=='infrastruktur' ? 'collapse.show' : 'collapse';?>" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link <?php if($this->uri->segment(2)=='infrastruktur' && $this->uri->segment(3)==NULL){ echo'active'; }?>" href="<?php echo base_url('admin/infrastruktur')?>">Semua Infrastruktur</a>
-                                    <a class="nav-link <?php if($this->uri->segment(2)=='infrastruktur' && $this->uri->segment(3)=='jalan'){ echo'active'; }?>" href="<?php echo site_url('admin/infrastruktur/jalan');?>">
+                                    <a class="nav-link <?php if($this->uri->segment(2)=='infrastruktur' && $this->uri->segment(3)==NULL){ echo'active'; }?>" href="<?php echo base_url('adminkab/infrastruktur')?>">Semua Infrastruktur</a>
+                                    <a class="nav-link <?php if($this->uri->segment(2)=='infrastruktur' && $this->uri->segment(3)=='jalan'){ echo'active'; }?>" href="<?php echo site_url('adminkab/infrastruktur/jalan');?>">
                                         Jalan
                                     </a>
-                                    <a class="nav-link <?php if($this->uri->segment(2)=='infrastruktur' && $this->uri->segment(3)=='drainase'){ echo'active'; }?>" href="<?php echo site_url('admin/infrastruktur/drainase');?>">
+                                    <a class="nav-link <?php if($this->uri->segment(2)=='infrastruktur' && $this->uri->segment(3)=='drainase'){ echo'active'; }?>" href="<?php echo site_url('adminkab/infrastruktur/drainase');?>">
                                         Drainase
                                     </a>  
                                 </nav>
                             </div>                        
                             
-                            <a class="nav-link collapsed <?php if($this->uri->segment(2)=='kabkota'){ echo'active'; }?>" href="<?php echo site_url('admin/kabkota');?>" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                By-Kabupaten/Kota
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="<?php echo $this->uri->segment(2)=='kabkota' ? 'collapse.show' : 'collapse';?>" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link <?php if($this->uri->segment(2)=='kabkota' && $this->uri->segment(3)==NULL){ echo'active'; }?>" href="<?php echo base_url('admin/kabkota')?>">Semua Kab/Kota</a>
-                                <?php foreach ($kabupaten as $kab) { ?>    
-                                    <a class="nav-link <?php if($this->uri->segment(2)=='kabkota' && $this->uri->segment(3)==$kab->kode){ echo'active'; }?>" href="<?php echo base_url('admin/kabkota/').$kab->kode?>"><?php echo ucwords(strtolower($kab->nama));?></a>
-                                <?php } ?>
-                                </nav>
-                            </div>
-
-                            <div class="sb-sidenav-menu-heading">Pelaporan</div>
-                            <a class="nav-link <?php if($this->uri->segment(2)=='download'){ echo'active'; }?>" href="<?php echo site_url('admin/download');?>">
-                                <div class="sb-nav-link-icon"><i class="fas fa-download"></i></div>
-                                Unduh Laporan
-                            </a>
-
-                             <div class="sb-sidenav-menu-heading">Manajemen Pengguna</div>
-                            <a class="nav-link <?php if($this->uri->segment(2)=='users'){ echo'active'; }?>" href="<?php echo site_url('admin/users');?>">
-                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                                Admin Kab/Kota
-                            </a>
+                            
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        <?php echo ($this->ion_auth->logged_in()) ? ucfirst($this->ion_auth->user()->row()->first_name.' '.$this->ion_auth->user()->row()->last_name) : 'Please Login';?>
+                        <?php echo ($this->ion_auth->logged_in()) ? ucfirst($this->ion_auth->user()->row()->first_name.' '.$this->ion_auth->user()->row()->last_name)  : 'Please Login';?>
                     </div>
                 </nav>
             </div>

@@ -354,45 +354,7 @@
         </section>
         <!-- Akhir Formulir pengaduan -->
 
-        <!--  Blok Laporan Terbaru -->
-        <div id="laporan" class="container">
-            <div id="newwst" class="col-lg-12">
-                <h2 class="display-4 text-center lh-1 mb-4">Laporan Terbaru</h2>
-                    <div class="container-fluid px-5">
-                        <!-- Laporan Baris Pertama -->
-                        <div class="row">
-                            <?php foreach ($laporan1 as $res1) { ?>
-                            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                <img src="<?php echo base_url('upload/dokumentasi/').$res1['dokumentasi1'];?>" alt="">
-                                <h3 class="font-alt"><?php echo $res1['lokasi_namajalan'];?></h3>
-                                <p class="text-muted mb-0"><?php echo word_limiter($res1['pengaduan'],10); ?></p>
-                                <button id="lapdetail"class="btn btn-primary" data-toggle="modal" data-target="#report-detail" data-slokasi_namajalan="<?php echo $res1['lokasi_namajalan'];?>" data-slokasi_kabkota="<?php echo $res1['lokasikabkota'];?>" data-slokasi_distrik="<?php echo $res1['lokasidistrik'];?>" data-slokasi_koordinat="<?php echo $res1['latitude'].", ".$res1['longitude'];?>" data-spengaduan="<?php echo $res1['pengaduan'];?>" data-sdokumentasi1="<?php echo base_url('upload/dokumentasi/').$res1['dokumentasi1'];?>" data-sdokumentasi2="<?php echo base_url('upload/dokumentasi/').$res1['dokumentasi2'];?>">
-                                    Detail
-                                </button>
-                            </div>
-
-                        <?php } ?>
-                        </div>
-                        <!-- Akhir Laporan Baris Pertama -->
-
-                        <!-- Laporan Baris Kedua -->
-                        <div class="row">
-                            <?php foreach ($laporan2 as $res2) { ?>
-                            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                <img src="<?php echo base_url('upload/dokumentasi/').$res2['dokumentasi1'];?>" alt="">
-                                <h3 class="font-alt"><?php echo $res2['lokasi_namajalan'];?></h3>
-                                <p class="text-muted mb-0"><?php echo word_limiter($res2['pengaduan'],10);?></p>
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#report-detail" data-slokasi_namajalan="<?php echo $res2['lokasi_namajalan'];?>" data-slokasi_kabkota="<?php echo $res2['lokasikabkota'];?>" data-slokasi_distrik="<?php echo $res2['lokasidistrik'];?>" data-slokasi_koordinat="<?php echo $res2['latitude'].", ".$res2['longitude'];?>" data-spengaduan="<?php echo $res2['pengaduan'];?>" data-sdokumentasi1="<?php echo base_url('upload/dokumentasi/').$res2['dokumentasi1'];?>" data-sdokumentasi2="<?php echo base_url('upload/dokumentasi/').$res2['dokumentasi2'];?>">
-                                    Detail
-                                </button>
-                            </div>
-                        <?php } ?>
-                        </div>
-                        <!-- Laporan Baris Kedua -->
-                    </div>
-            </div>
-        </div>
-        <!--  Akhir Blok Laporan Terbaru -->
+        
     
         
         <script>

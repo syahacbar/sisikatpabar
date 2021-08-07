@@ -88,13 +88,19 @@ class Auth extends CI_Controller
 
 			if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
 			{
-				//if the login is successful
-				//redirect them back to the home page
 				$user = $this->ion_auth->user()->row();
 				$params = array('username' => $user->username, 'logintime' => date('Y-m-d H:i:s'), 'ipaddress'=>$_SERVER['REMOTE_ADDR']);
 				$this->db->insert('login_history',$params);
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect('admin', 'refresh');
+				
+				$user_groups  = $this->ion_auth->get_users_groups($user->id)->row();
+				if ($user_groups->name == 'admin')
+				{
+					redirect('admin', 'refresh');
+				} elseif ($user_groups->name == 'adminkab')
+				{
+					redirect('Adminkab', 'refresh');
+				}
 			}
 			else
 			{
@@ -538,51 +544,62 @@ class Auth extends CI_Controller
 				'id' => 'first_name',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('first_name'),
+				'class' => 'form-control',
 			];
 			$this->data['last_name'] = [
 				'name' => 'last_name',
 				'id' => 'last_name',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('last_name'),
+				'class' => 'form-control',
 			];
 			$this->data['identity'] = [
 				'name' => 'identity',
 				'id' => 'identity',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('identity'),
+				'class' => 'form-control',
 			];
 			$this->data['email'] = [
 				'name' => 'email',
 				'id' => 'email',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('email'),
+				'class' => 'form-control',
 			];
 			$this->data['company'] = [
 				'name' => 'company',
 				'id' => 'company',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('company'),
+				'class' => 'form-control',
 			];
 			$this->data['phone'] = [
 				'name' => 'phone',
 				'id' => 'phone',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('phone'),
+				'class' => 'form-control',
 			];
 			$this->data['password'] = [
 				'name' => 'password',
 				'id' => 'password',
 				'type' => 'password',
 				'value' => $this->form_validation->set_value('password'),
+				'class' => 'form-control',
 			];
 			$this->data['password_confirm'] = [
 				'name' => 'password_confirm',
 				'id' => 'password_confirm',
 				'type' => 'password',
 				'value' => $this->form_validation->set_value('password_confirm'),
+				'class' => 'form-control',
 			];
 
-			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'create_user', $this->data);
+			$this->data['_view'] = 'auth/create_user';
+			$this->load->view('admin/layout',$this->data);
+
+			//$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'create_user', $this->data);
 		}
 	}
 	/**
@@ -778,15 +795,19 @@ class Auth extends CI_Controller
 			'id'    => 'group_name',
 			'type'  => 'text',
 			'value' => $this->form_validation->set_value('group_name'),
+			'class' => 'form-control',
 		];
 		$this->data['description'] = [
 			'name'  => 'description',
 			'id'    => 'description',
 			'type'  => 'text',
 			'value' => $this->form_validation->set_value('description'),
+			'class' => 'form-control',
 		];
 
-		$this->_render_page('auth/create_group', $this->data);
+		$this->data['_view'] = 'auth/create_group';
+		$this->load->view('admin/layout', $this->data);
+		//$this->_render_page('auth/create_group', $this->data);
 		
 	}
 
@@ -846,6 +867,7 @@ class Auth extends CI_Controller
 			'id'      => 'group_name',
 			'type'    => 'text',
 			'value'   => $this->form_validation->set_value('group_name', $group->name),
+			'class' => 'form-control',
 		];
 		if ($this->config->item('admin_group', 'ion_auth') === $group->name) {
 			$this->data['group_name']['readonly'] = 'readonly';
@@ -856,6 +878,7 @@ class Auth extends CI_Controller
 			'id'    => 'group_description',
 			'type'  => 'text',
 			'value' => $this->form_validation->set_value('group_description', $group->description),
+			'class' => 'form-control',
 		];
 
 		$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'edit_group', $this->data);

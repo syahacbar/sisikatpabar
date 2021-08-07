@@ -119,31 +119,6 @@
                         <?php echo form_close(); ?>
                     </div>
                 </div>
-                <!--
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                    <div class="card mb-4">
-                        <div class="card-header preview">
-                            <div class="left">
-                                <i class="fas fa-eye me-1"></i>
-                                Pratinjau Laporan
-                            </div>
-                            <div class="right">
-                                <div class="btn-group dropstart">
-                                <button type="button" class="btn btn-secondary" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-bars"></i>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="fas fa-file-pdf"></i> Save As PDF</a></li>
-                                    <li><a href="#"><i class="fas fa-file-word"></i> Save As Word</a></li>
-                                </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                        </div>
-                    </div>
-                </div>
-            -->
             </div>
         </div>
 

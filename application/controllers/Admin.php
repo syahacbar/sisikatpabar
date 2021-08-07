@@ -100,6 +100,20 @@ class Admin extends MY_Controller{
         $this->load->view('admin/layout',$data);
     }
 
+    function users()
+    {
+        $data['title'] = $this->lang->line('index_heading');    
+        $data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+        $data['users'] = $this->ion_auth->users()->result();
+        foreach ($data['users'] as $k => $user)
+            {
+                $data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
+            }
+        $data['_view'] = 'auth/index';
+        $this->load->view('admin/layout',$data);
+
+    }
+
     function cetak()
     {
         $this->load->library('Pdf');
@@ -216,14 +230,15 @@ class Admin extends MY_Controller{
         $TfontStyle = array('bold'=>true, 'italic'=> true, 'size'=>11, 'name' => 'Times New Roman', 'afterSpacing' => 0, 'Spacing'=> 0, 'cellMargin'=>0);
         $cfontStyle = array('allCaps'=>true,'italic'=> true, 'size'=>11, 'name' => 'Times New Roman','afterSpacing' => 0, 'Spacing'=> 0, 'cellMargin'=>0);
         $noSpace = array('textBottomSpacing' => -1);
+        
         $table = $section->addTable('myOwnTableStyle',array('borderSize' => 1, 'borderColor' => '999999', 'afterSpacing' => 0, 'Spacing'=> 0, 'cellMargin'=>0  ));
         $table2 = $section->addTable('myOwnTableStyle');
         $table->addRow(-0.5, array('exactHeight' => -5));
         $countrystate = 'tes colom';
         $table->addCell(500,$styleCell)->addText('No.',$TfontStyle);
         $table->addCell(2000,$styleCell)->addText('Tanggal<br>Pengaduan',$fontStyle);
-        $table->addCell(2000,$styleCell)->addText('Jenis<br>Infrastruktur',$TfontStyle);
-        $table->addCell(2000,$styleCell)->addText('Isi Laporan/<br>Pengaduan',$fontStyle);
+        $table->addCell(2000,$styleCell)->addText('Jenis<br>Infrastruktur',$fontStyle);
+       /* $table->addCell(2000,$styleCell)->addText('Isi Laporan/<br>Pengaduan',$fontStyle);
         $table->addCell(2000,$styleCell)->addText('Nama/<br>Ruas Jalan',$fontStyle);
         $table->addCell(2000,$styleCell)->addText('Kec./<br>Distrik',$fontStyle);
         $table->addCell(2000,$styleCell)->addText('Kab./Kota',$fontStyle);
@@ -233,7 +248,7 @@ class Admin extends MY_Controller{
         $table->addCell(2000,$styleCell)->addText('Alamat Lengkap<br>(Sesuai KTP)',$fontStyle);
         $table->addCell(2000,$styleCell)->addText('Dokumentasi',$fontStyle);
         
-
+        */
         $section->addTextBreak(-1);
         header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document'); //mime type
         header('Content-Disposition: attachment;filename="'.$filename.'"'); //tell browser what's the file name
