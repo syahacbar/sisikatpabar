@@ -49,20 +49,21 @@ class Adminkab extends CI_Controller{
         $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
         $data['kabupaten'] = $get_kab->result();
         $user = $this->ion_auth->user()->row();
+        $user_groups = $this->ion_auth->get_users_groups($user->id)->row();
 
         if($q=='jalan')
         {
-            $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user->kode_kab,NULL,NULL,'jalan');
+            $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user_groups->kode_kab,NULL,NULL,'jalan');
             $data['infrastruktur'] = 'Jalan';
         } 
         elseif($q=='drainase')
         {
-            $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user->kode_kab,NULL,NULL,'drainase');
+            $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user_groups->kode_kab,NULL,NULL,'drainase');
             $data['infrastruktur'] = 'Drainase';
         }
         else
         {
-            $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user->kode_kab,NULL,NULL,NULL);
+            $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user_groups->kode_kab,NULL,NULL,NULL);
             $data['infrastruktur'] = 'Semua Infrastruktur';
         }
 

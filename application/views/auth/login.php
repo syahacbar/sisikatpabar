@@ -52,18 +52,19 @@
                                 <img class="mb-4" src="https://sisikat.com/resources/template/assets/logo-sisikat.png" alt="" width="72" height="72">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
+                                        <div id="infoMessage"><?php echo $message;?></div>
                                         <?php echo form_open("auth/login");?>
                                         <form>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="identity" type="identity" name="identity" placeholder="name@example.com" />
-                                                <label for="identity">Email</label>
+                                                <label for="identity">Nama Akun Pengguna</label>
                                             </div>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="password" type="password" name="password" placeholder="Password" />
                                                 <label for="password">Kata sandi</label>
                                             </div>
                                             <div class="form-check mb-3">
-                                                <input class="form-check-input" id="remember" type="checkbox" value="" />
+                                                <input class="form-check-input" id="remember" type="checkbox" value="1" />
                                                 <label class="form-check-label" for="remember">Ingat kata sandi</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
