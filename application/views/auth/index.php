@@ -36,7 +36,7 @@
 			</tbody>
 			</table>
 
-<p><?php echo anchor('auth/create_user', 'Create User',array('class'=>'btn btn-xs btn-primary'))?> &nbsp; &nbsp; <?php echo anchor('auth/create_group', 'Create Group',array('class'=>'btn btn-xs btn-primary'))?></p>
+<p><?php echo anchor('auth/create_user', 'Create User',array('class'=>'btn btn-xs btn-primary'))?> </p>
 		<a href="">
 		</div>
 	</div>
