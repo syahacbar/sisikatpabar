@@ -50,3 +50,19 @@ div#reportB {
 div#reportstat text {
     font-family: 'Poppins';
 }
+
+div#reportA,
+div#reportB {
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 20px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 2rem 10px;
+}
+
+div#reportA label.col-sm-2.control-label,
+div#reportB label.col-sm-2.control-label {
+    margin-bottom: 2rem;
+}
