@@ -1,0 +1,140 @@
+@media (max-width: 449px) {
+    div#identity {
+        padding-top: 0;
+    }
+    }
+
+    .col-sm-12 {
+        margin: 10px 0;
+        padding: 5px;
+        padding-top: 3rem;
+    }
+
+    @media (min-width: 450px) {
+    #identity .card img {
+        width: 40%;
+        height: auto;
+        position: fixed;
+        top: 80px;
+        right: 30px;
+        border-radius: 10px;
+    }
+    }
+
+    @media (max-width: 449px) {
+    #identity .card img {
+        width: 96%;
+        height: auto;
+        border-radius: 10px;
+        margin: 0 2%;
+    }
+    }
+
+    #identity .card {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(0,0,0,.125);
+        padding: 8px;
+    }
+
+    @media (max-width: 449px) {
+    #identity .card .card-body {
+        padding-top: 2rem !important;
+        padding: 0;
+        border: 0 !important;
+    }
+    }
+
+    @media (min-width: 450px) {
+    #identity .card .card-body {
+        padding-top: 3rem !important;
+        padding: 0;
+        border: 0 !important;
+    }
+    }
+
+    @media (max-width: 449px) {
+    #identity .card h5.card-title {
+        position: fixed;
+        top: 65px;
+        left: 30px !important;
+        font-size: 28px;
+        font-weight: bold;
+        background-color: #fff;
+        padding: 10px;
+    }
+    }
+
+    @media (min-width: 450px) {
+    #identity .card h5.card-title {
+        position: fixed;
+        top: 110px;
+        left: 18px;
+        font-size: 28px;
+        font-weight: bold;
+        background-color: #fff;
+        padding: 10px 5px;
+    }
+    }
+
+    /* Table */
+    .table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1rem;
+        background-color: transparent;
+        margin-top: 20px;
+    }
+
+    .table td, .table th {
+        padding: .2rem .5rem;
+        vertical-align: top;
+        border-top: 0;
+    }
+
+    /*.table tr>td:last-child {
+        font-weight: bold;
+    }*/
+
+    /* Laporan */
+    #report img {
+        width: 96%;
+        height: auto;
+        border-radius: 5px;
+        margin: 10px 2%;
+    }
+
+    #report h4.card-title {
+        font-size: 28px;
+        font-weight: bold;
+        padding: 0 5px;
+        margin-top: -26px;
+        background-color: #fff;
+        width: auto;
+        position: fixed;
+        left: 16px;
+    }
+
+    #report .card .card-body {
+        padding: 5px;
+    }
+
+    #report .card h5 {
+        padding: 0 7px;
+        font-weight: bold;
+        margin-top: 30px;
+    }
+
+    #report .card p {
+        padding: 0 7px;
+    }

@@ -1,20 +1,3 @@
-<!-- <style>
-a.btn {
-    margin: 5px;
-}
-
-svg.svg-inline--fa.fa-external-link-alt.fa-w-16 {
-    color: #fff;
-}
-
-.btn-info {
-    color: #000;
-    background-color: #17a2b8;
-    border: 0;
-}
-
-</style> -->
-
 <div class="container-fluid px-4">
     <h2 class="mt-4">Laporan Pengaduan <?php echo $infrastruktur;?></h2>
     <ol class="breadcrumb mb-4">
@@ -51,9 +34,9 @@ svg.svg-inline--fa.fa-external-link-alt.fa-w-16 {
                         </td>
 
                         <td>
-                            <a href="" class="btn btn-info">
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="<?php echo site_url('admin/adminkab');?>#exampleModalLong">
                                 <i class="fas fa-external-link-alt"></i>
-                            </a>
+                            </button>
                         </td>
                     </tr>
                 <?php } ?>

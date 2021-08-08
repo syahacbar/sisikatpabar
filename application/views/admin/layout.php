@@ -10,6 +10,7 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="<?php echo base_url();?>resources/admintheme/css/styles.css" rel="stylesheet" />
         <link href="<?php echo base_url();?>resources/admintheme/css/icon-css.css" rel="stylesheet" />
+        <link href="<?php echo base_url();?>resources/admintheme/css/css-modal.css" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="<?php echo base_url();?>resources/template/assets/favicon.png" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
@@ -121,6 +122,107 @@
                 </footer>
             </div>
         </div>
+
+
+        <!-- Modal Detail Setiap Infrastruktur -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Laporan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <div class="row">
+                <div id="identity" class="col-sm-12">
+                    <div class="card">
+                    <div class="card-body">
+                        <img src="http://1.bp.blogspot.com/-cKbR2Cw8BLU/VrLaPvhz9pI/AAAAAAAAAcE/Pe9LhaTN1sY/s1600/Scan%2BKTP.JPG" alt="id-card" >
+                        <h5 class="card-title">Data Pelapor</h5>
+                        <table class="table">
+                        <tbody>
+                            <tr>
+                            <td width="30%">NIK</td>
+                            <td>:</td>
+                            <td>1904502455xxx</td>
+                            </tr>
+                            <tr>
+                            <td width="30%">Nama Lengkap</td>
+                            <td>:</td>
+                            <td>Gajah Mada Bin Gajah Duduk</td>
+                            </tr>
+                            <tr>
+                            <td width="30%">Alamat Lengkap</td>
+                            <td>:</td>
+                            <td>(Alamat Rumah, RT/RW, Kab./Kota, Kec./Distrik, dan Kel./Desa)</td>
+                            </tr>
+                            <tr>
+                            <td width="30%">Email</td>
+                            <td>:</td>
+                            <td>myemail@email.com</td>
+                            </tr>
+                            <tr>
+                            <td width="30%">Nomor HP</td>
+                            <td>:</td>
+                            <td>0812474147444</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+                <div id="report" class="col-sm-12">
+                    <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Detail Laporan</h4>
+                        <table class="table">
+                        <tbody>
+                            <tr>
+                            <td width="35%">Jenis Infrastruktur:</td>
+                            <td>:</td>
+                            <td>Jalan</td>
+                            </tr>
+                            <tr>
+                            <td width="35%">Koordinat Lokasi:</td>
+                            <td>:</td>
+                            <td>Latitude: | Longitude: </td>
+                            </tr>
+                            <tr>
+                            <td width="35%">Nama Ruas Jalan:</td>
+                            <td>:</td>
+                            <td>Jalan Pertanian Kebuk Jeruk Kebun Anggur</td>
+                            </tr>
+                            <tr>
+                            <td width="35%">Alamat Lengkap:</td>
+                            <td>:</td>
+                            <td>(Kab./Kota, Kec./Distrik, dan Kel./Desa)</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        <h5>Isi Laporan:</h5>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<p>
+                        <h5>Dokumentasi:</h5>
+                        <img src="https://images.pexels.com/photos/325288/pexels-photo-325288.jpeg" alt="jalan1">
+                        <img src="https://images.pexels.com/photos/2902747/pexels-photo-2902747.jpeg" alt="jalan2">
+                        <img src="https://images.pexels.com/photos/614484/pexels-photo-614484.jpeg" alt="jalan3">
+
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
+            </div>
+        </div>
+        </div>
+        <!-- Akgier Modal Detail Setiap Infrastruktur -->
+
+
+        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="<?php echo base_url();?>resources/admintheme/js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
@@ -128,5 +230,46 @@
         <script src="<?php echo base_url();?>resources/admintheme/assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="<?php echo base_url();?>resources/admintheme/js/datatables-simple-demo.js"></script>
+
+        <script type='text/javascript'>
+            (function() {
+                'use strict';
+                function remoteModal(idModal){
+                    var vm = this;
+                    vm.modal = $(idModal);
+
+                    if( vm.modal.length == 0 ) {
+                        return false;
+                    }
+
+                    if( window.location.hash == idModal ){
+                        openModal();
+                    }
+
+                    var services = {
+                        open: openModal,
+                        close: closeModal
+                    };
+
+                    return services;
+                    ///////////////
+
+                    // method to open modal
+                    function openModal(){
+                        vm.modal.modal('show');
+                    }
+
+                    // method to close modal
+                    function closeModal(){
+                        vm.modal.modal('hide');
+                    }
+                }
+                Window.prototype.remoteModal = remoteModal;
+            })();
+
+            $(function(){
+                window.remoteModal('#exampleModalLong');
+            });
+        </script>
     </body>
 </html>
