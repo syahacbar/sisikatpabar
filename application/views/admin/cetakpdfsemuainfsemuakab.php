@@ -30,7 +30,7 @@ $html = '
 		font-size:10;
 	}
 </style>
-<div class="heading">DATA LAPORAN PENGADUAN SISIKAT<br>'.$range.'</div><br>
+<div class="heading">DATA PELAPORAN SISIKAT<br>'.$range.'</div><br>
 <table width="100%" border="1" cellpadding="5">
 	<tr class="center">
 		<th width="30">No.</th>

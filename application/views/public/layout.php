@@ -48,7 +48,7 @@
         <script src="<?php echo base_url();?>resources/template/js/js-pengaduan.js"></script>
         
         
-         <script src="<?php echo base_url('resources/datatables/jquery/jquery-2.2.3.min.js')?>"></script>
+        <script src="<?php echo base_url('resources/datatables/jquery/jquery-2.2.3.min.js')?>"></script>
         <script src="<?php echo base_url('resources/datatables/bootstrap/js/bootstrap.min.js')?>"></script>
         <script src="<?php echo base_url('resources/datatables/datatables/js/jquery.dataTables.min.js')?>"></script>
         <script src="<?php echo base_url('resources/datatables/datatables/js/dataTables.bootstrap.min.js')?>"></script>
