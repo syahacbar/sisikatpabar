@@ -112,7 +112,7 @@ class Lapor extends CI_Controller{
     function uploadktp()
     {
             $config['upload_path']   = FCPATH.'/upload/ktp/';
-           # $config['allowed_types'] = 'gif|jpg|png|ico';
+            $config['allowed_types'] = '*';
             $this->load->library('upload',$config);
 
             if($this->upload->do_upload('filektp')){
@@ -129,7 +129,7 @@ class Lapor extends CI_Controller{
     function uploaddokumentasi1()
     {
             $config['upload_path']   = FCPATH.'/upload/dokumentasi/';
-            #$config['allowed_types'] = 'gif|jpg|png|ico|jpeg';
+            $config['allowed_types'] = '*';
             $this->load->library('upload',$config);
 
             if($this->upload->do_upload('filedokumentasi1')){
@@ -146,7 +146,7 @@ class Lapor extends CI_Controller{
     function uploaddokumentasi2()
     {
             $config['upload_path']   = FCPATH.'/upload/dokumentasi/';
-            #$config['allowed_types'] = 'gif|jpg|png|ico|jpeg';
+            $config['allowed_types'] = '*';
             $this->load->library('upload',$config);
 
             if($this->upload->do_upload('filedokumentasi2')){
@@ -163,7 +163,7 @@ class Lapor extends CI_Controller{
     function uploaddokumentasi3()
     {
             $config['upload_path']   = FCPATH.'/upload/dokumentasi/';
-           # $config['allowed_types'] = 'gif|jpg|png|ico|jpeg';
+            $config['allowed_types'] = '*';
             $this->load->library('upload',$config);
 
             if($this->upload->do_upload('filedokumentasi3')){
