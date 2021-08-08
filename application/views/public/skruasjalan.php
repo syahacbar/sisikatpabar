@@ -37,9 +37,9 @@
   </head>
   <body>
     <div id='skruasjalan'>
+        <h2 class="display-4 text-center lh-1 mb-4 ">SK Ruas Jalan</h2>
     </div>
     <div id="sk-content" class="container">
-        <h2 class="display-4 text-center lh-1 mb-4 ">SK Ruas Jalan</h2>
         <div class="accordion accordion-flush" id="accordionFlushExample">
         <?php foreach($skruasjalan as $sk) { ?>
           <div class="accordion-item">

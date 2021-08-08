@@ -86,3 +86,8 @@ footer.py-4.bg-light.mt-auto .align-items-center {
     justify-content: center;
     align-items: center;
 }
+
+div#infoMessage p {
+    color: red;
+    text-align: center;
+}

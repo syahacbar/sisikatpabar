@@ -1,0 +1,24 @@
+svg.svg-inline--fa.fa-external-link-alt.fa-w-16 {
+    color: #fff;
+    font-size: 14px;
+}
+
+.btn-info {
+    color: #000;
+    background-color: #17a2b8;
+    border: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto !important;
+}
+
+a.btn {
+    margin: 5px;
+}
+
+tbody td:nth-last-child(1) {
+    vertical-align: middle !important;
+}
