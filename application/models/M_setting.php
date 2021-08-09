@@ -20,6 +20,12 @@ class M_setting extends CI_Model {
     	$query = $this->db->get_where('wilayah_2020', array('kode' => $kode));
     	return $query->row();
     }
+
+    public function get_image($kodelap)
+    {
+    	$query = $this->db->get_where('upload', array('kodelap' => $kode, 'kategori' => 'dokumentasi1'));
+    	return $query->row();
+    }
 	
 
 }
