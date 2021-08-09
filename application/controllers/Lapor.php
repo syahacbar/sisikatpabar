@@ -215,7 +215,7 @@ class Lapor extends CI_Controller{
         $userkey = $setting->userkey;
         $passkey = $setting->passkey;
         $telepon = $nowakabid;
-        $message = 'Yth. Kabid Bina Marga .'.$kabupaten.'<br>Anda mendapatkan 1 laporan (Kode Laporan: *'.$kodelap.'*) tentang infrastruktur *'.$infrastruktur.'* pada Sistem Informasi SISIKAT dari Distrik *'.$distrik.'*. <br>Silahkan masuk ke Sistem Informasi SISIKAT untuk melihat detail laporan. <br>Terima Kasih. | Sisikat.com';
+        $message = 'Yth. Kabid. Bina Marga *'.$kabupaten.'* <br>Anda mendapatkan 1 laporan (Kode Laporan: *'.$kodelap.'*) tentang infrastruktur *'.$infrastruktur.'* pada Sistem Informasi SISIKAT dari Distrik *'.$distrik.'*. <br>Silahkan masuk ke Sistem Informasi SISIKAT untuk melihat detail laporan. <br>Terima Kasih. | Sisikat.com';
         $url = 'https://console.zenziva.net/wareguler/api/sendWA/';
         $curlHandle = curl_init();
         curl_setopt($curlHandle, CURLOPT_URL, $url);
