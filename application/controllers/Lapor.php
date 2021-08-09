@@ -248,7 +248,7 @@ class Lapor extends CI_Controller{
         $userkey = $setting->userkey;
         $passkey = $setting->passkey;
         $telepon = $nowakabid;
-        $image_link = '$imageurl';
+        $image_link = 'https://sisikat.com/upload/dokumentasi/018224700_1565016184-papua.jpeg';
         $caption  = 'Yth. Kabid. Bina Marga *'.$kabupaten.'* '.PHP_EOL.'Anda mendapatkan 1 laporan (Kode: *'.$kodelap.'*) tentang Infrastruktur *'.strtoupper($infrastruktur).'* dari Distrik *'.strtoupper($distrik).'*.'.PHP_EOL.'Silahkan masuk ke Sistem Informasi SISIKAT untuk melihat detail laporan.'.PHP_EOL.' '.PHP_EOL.'Terima Kasih. | Sisikat.com';
         $url = 'https://console.zenziva.net/wareguler/api/sendWAFile/';
         $curlHandle = curl_init();
