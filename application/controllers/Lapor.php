@@ -5,7 +5,7 @@ class Lapor extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Laporan_model');
-        $this->load->model('m_setting');
+        $this->load->model('M_setting');
         $this->load->library('session');
     } 
 
@@ -15,7 +15,7 @@ class Lapor extends CI_Controller{
      */
     function index()
     {
-        $setting=$this->m_setting->list_setting();
+        $setting=$this->M_setting->list_setting();
         $this->load->library('googlemaps');
         $config['center'] = "$setting->latitude, $setting->longitude";
         $config['zoom'] = "$setting->zoom";
@@ -103,7 +103,11 @@ class Lapor extends CI_Controller{
             );
             
             $laporan_id = $this->Laporan_model->add_laporan($params);
+
+            $distrik = $this->M_setting->get_wilayah($this->input->post('lokasi_distrik'));
+            $kabupaten = $this->M_setting->get_wilayah($this->input->post('lokasi_kabkota'));
             $this->wasendpelapor($this->input->post('no_hp'),$this->input->post('nama_pelapor'));
+            $this->wasendkabid('085244146207',$this->input->post('kodelap'),$this->input->post('infrastruktur'),$kabupaten->nama,$distrik->nama);
 
             //redirect('lapor');
             
@@ -178,12 +182,12 @@ class Lapor extends CI_Controller{
 
     }
 
-    function wasendpelapor($telepon,$nama)
+    function wasendpelapor($nowapelapor,$nama)
     {
         $setting=$this->M_setting->list_setting();
         $userkey = $setting->userkey;
         $passkey = $setting->passkey;
-        $telepon = $telepon;
+        $telepon = $nowapelapor;
         $message = 'Hai '.$nama.', Laporan anda telah kami terima dan akan diverifikasi oleh Kabid. Bina Marga Kab/Kota setempat. Terima Kasih. | Sisikat.com';
         $url = 'https://console.zenziva.net/wareguler/api/sendWA/';
         $curlHandle = curl_init();
@@ -205,13 +209,16 @@ class Lapor extends CI_Controller{
                          
     }
 
-    function wasendkabid($telepon,$nama)
+    function wasendkabid($nowakabid,$kodelap,$infrastruktur,$kabupaten,$distrik)
     {
         $setting=$this->M_setting->list_setting();
         $userkey = $setting->userkey;
         $passkey = $setting->passkey;
-        $telepon = $telepon;
-        $message = 'Hai '.$nama.', Laporan anda telah kami terima dan akan diverifikasi oleh Kabid. Bina Marga Kab/Kota setempat. Terima Kasih. | Sisikat.com';
+        $telepon = $nowakabid;
+        $message = 'Yth. Kabid Bina Marga .'.$kabupaten.' %0a
+                    Anda mendapatkan 1 laporan (Kode Laporan: *'.$kodelap.'*) tentang infrastruktur *'.$infrastruktur.'* pada Sistem Informasi SISIKAT dari Distrik '.$distrik.'. %0a 
+                    Silahkan masuk ke Sistem Informasi SISIKAT untuk melihat detail laporan. %0a %0a
+                    Terima Kasih. | Sisikat.com';
         $url = 'https://console.zenziva.net/wareguler/api/sendWA/';
         $curlHandle = curl_init();
         curl_setopt($curlHandle, CURLOPT_URL, $url);

@@ -14,6 +14,12 @@ class M_setting extends CI_Model {
        $this->db->where('id_setting',$data['id_setting']);
        $this->db->update('tbl_setting',$data);
     }
+
+    public function get_wilayah($kode)
+    {
+    	$query = $this->db->get_where('wilayah_2020', array('kode' => $kode));
+    	return $query->row();
+    }
 	
 
 }
