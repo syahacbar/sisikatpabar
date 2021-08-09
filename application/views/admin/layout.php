@@ -124,6 +124,7 @@
         </div>
 
 
+
         <!-- Modal Detail Setiap Infrastruktur -->
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -135,12 +136,19 @@
                 </button>
             </div>
             <div class="modal-body">
+                <h5 class="card-title">Data Pelapor</h5>
             <div class="row">
-                <div id="identity" class="col-sm-12">
+                <div id="idcard" class="col-sm-5">
                     <div class="card">
                     <div class="card-body">
                         <img src="http://1.bp.blogspot.com/-cKbR2Cw8BLU/VrLaPvhz9pI/AAAAAAAAAcE/Pe9LhaTN1sY/s1600/Scan%2BKTP.JPG" alt="id-card" >
-                        <h5 class="card-title">Data Pelapor</h5>
+                    </div>
+                    </div>
+                </div>
+                
+                <div id="identity" class="col-sm-7">
+                    <div class="card">
+                    <div class="card-body">
                         <table class="table">
                         <tbody>
                             <tr>
@@ -174,28 +182,28 @@
                     </div>
                 </div>
                 <div id="report" class="col-sm-12">
+                    <h4 class="card-title">Detail Laporan</h4>
                     <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Detail Laporan</h4>
                         <table class="table">
                         <tbody>
                             <tr>
-                            <td width="35%">Jenis Infrastruktur:</td>
+                            <td width="35%">Jenis Infrastruktur</td>
                             <td>:</td>
                             <td>Jalan</td>
                             </tr>
                             <tr>
-                            <td width="35%">Koordinat Lokasi:</td>
+                            <td width="35%">Koordinat Lokasi</td>
                             <td>:</td>
                             <td>Latitude: | Longitude: </td>
                             </tr>
                             <tr>
-                            <td width="35%">Nama Ruas Jalan:</td>
+                            <td width="35%">Nama Ruas Jalan</td>
                             <td>:</td>
                             <td>Jalan Pertanian Kebuk Jeruk Kebun Anggur</td>
                             </tr>
                             <tr>
-                            <td width="35%">Alamat Lengkap:</td>
+                            <td width="35%">Alamat Lengkap</td>
                             <td>:</td>
                             <td>(Kab./Kota, Kec./Distrik, dan Kel./Desa)</td>
                             </tr>
@@ -203,14 +211,24 @@
                         </table>
                         <h5>Isi Laporan:</h5>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<p>
+                        
                         <h5>Dokumentasi:</h5>
-                        <img src="https://images.pexels.com/photos/325288/pexels-photo-325288.jpeg" alt="jalan1">
-                        <img src="https://images.pexels.com/photos/2902747/pexels-photo-2902747.jpeg" alt="jalan2">
-                        <img src="https://images.pexels.com/photos/614484/pexels-photo-614484.jpeg" alt="jalan3">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img src="https://images.pexels.com/photos/325288/pexels-photo-325288.jpeg" alt="jalan1">
+                            </div>
+                            <div class="col-sm-4">
+                                <img src="https://images.pexels.com/photos/2902747/pexels-photo-2902747.jpeg" alt="jalan2">   
+                            </div>
+                            <div class="col-sm-4">    
+                                <img src="https://images.pexels.com/photos/614484/pexels-photo-614484.jpeg" alt="jalan3">
+                            </div>
+                        </div>
+                        
+
 
                     </div>
                     </div>
-                </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -220,6 +238,8 @@
         </div>
         </div>
         <!-- Akgier Modal Detail Setiap Infrastruktur -->
+
+
 
 
         

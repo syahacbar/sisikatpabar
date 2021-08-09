@@ -6,7 +6,7 @@
 
     .col-sm-12 {
         margin: 10px 0;
-        padding: 5px;
+        padding: 15px;
         padding-top: 3rem;
     }
 
@@ -57,33 +57,9 @@
 
     @media (min-width: 450px) {
     #identity .card .card-body {
-        padding-top: 3rem !important;
+        padding-top: 0 !important;
         padding: 0;
         border: 0 !important;
-    }
-    }
-
-    @media (max-width: 449px) {
-    #identity .card h5.card-title {
-        position: fixed;
-        top: 65px;
-        left: 30px !important;
-        font-size: 28px;
-        font-weight: bold;
-        background-color: #fff;
-        padding: 10px;
-    }
-    }
-
-    @media (min-width: 450px) {
-    #identity .card h5.card-title {
-        position: fixed;
-        top: 110px;
-        left: 18px;
-        font-size: 28px;
-        font-weight: bold;
-        background-color: #fff;
-        padding: 10px 5px;
     }
     }
 
@@ -93,7 +69,7 @@
         max-width: 100%;
         margin-bottom: 1rem;
         background-color: transparent;
-        margin-top: 20px;
+        margin-top: 0;
     }
 
     .table td, .table th {
@@ -102,27 +78,18 @@
         border-top: 0;
     }
 
-    /*.table tr>td:last-child {
-        font-weight: bold;
-    }*/
-
     /* Laporan */
     #report img {
-        width: 96%;
-        height: auto;
+        width: 100%;
         border-radius: 5px;
-        margin: 10px 2%;
+        margin: 0;
+        height: 200px;
+        object-fit: cover;
     }
 
     #report h4.card-title {
         font-size: 28px;
         font-weight: bold;
-        padding: 0 5px;
-        margin-top: -26px;
-        background-color: #fff;
-        width: auto;
-        position: fixed;
-        left: 16px;
     }
 
     #report .card .card-body {
@@ -137,4 +104,34 @@
 
     #report .card p {
         padding: 0 7px;
+    }
+
+    /* Perbesar modal */
+    @media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 860px !important;
+        margin: 2% auto;
+    }
+    }
+
+
+    /* KTP */
+    #idcard img {
+        width: 100%;
+        object-fit: contain;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    h5.card-title {
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    div#idcard .card-body {
+        padding: 5px;
+    }
+
+    div#idcard {
+        margin-bottom: 15px;
     }

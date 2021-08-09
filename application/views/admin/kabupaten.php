@@ -1,15 +1,3 @@
-<!-- <style>
-svg.svg-inline--fa.fa-external-link-alt.fa-w-16 {
-    color: #fff;
-}
-
-.btn-info {
-    color: #000;
-    background-color: #17a2b8;
-    border: 0;
-}
-</style> -->
-
 <div class="container-fluid px-4">
     <h2 class="mt-4">Laporan Pengaduan <?php echo ucwords(strtolower($kabkota));?></h2>
     <ol class="breadcrumb mb-4">

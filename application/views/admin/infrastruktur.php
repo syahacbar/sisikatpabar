@@ -27,7 +27,7 @@
                         <td><?php echo $lap['lokasidistrik'];?></td>
                         <td><?php echo $lap['lokasikabkota'];?></td>
                         <td>
-                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="<?php echo site_url('admin/layout');?>#exampleModalLong">
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalLong">
                                 <i class="fas fa-external-link-alt"></i>
                             </button>
                         </td>

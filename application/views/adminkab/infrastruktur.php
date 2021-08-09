@@ -34,7 +34,7 @@
                         </td>
 
                         <td>
-                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="<?php echo site_url('admin/adminkab');?>#exampleModalLong">
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalLong">
                                 <i class="fas fa-external-link-alt"></i>
                             </button>
                         </td>
