@@ -103,6 +103,7 @@ class Lapor extends CI_Controller{
             );
             
             $laporan_id = $this->Laporan_model->add_laporan($params);
+            $this->kirimwapelapor($this->input->post('no_hp'),$this->input->post('nama_pelapor'));
 
             //redirect('lapor');
             
@@ -175,6 +176,32 @@ class Lapor extends CI_Controller{
                 $this->db->insert('upload',array('nama_file'=>$nama,'token'=>$token,'kategori'=>$kategori,'uploaded_on'=>$uploaded_on,'kodelap'=>$kodelap));
             }
 
+    }
+
+    function kirimwapelapor($telepon,$nama)
+    {
+        $userkey = 'a39a7fbff392';
+        $passkey = '7eb931d25b0fa3ee6d55980b';
+        $telepon = '085254518545';
+        $message = 'Hai '.$nama.', Laporan anda telah kami terima dan akan diverifikasi oleh Kabid. Bina Marga Kab/Kota setempat. Terima Kasih. | Sisikat.com';
+        $url = 'https://console.zenziva.net/wareguler/api/sendWA/';
+        $curlHandle = curl_init();
+        curl_setopt($curlHandle, CURLOPT_URL, $url);
+        curl_setopt($curlHandle, CURLOPT_HEADER, 0);
+        curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curlHandle, CURLOPT_SSL_VERIFYHOST, 2);
+        curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($curlHandle, CURLOPT_TIMEOUT,30);
+        curl_setopt($curlHandle, CURLOPT_POST, 1);
+        curl_setopt($curlHandle, CURLOPT_POSTFIELDS, array(
+            'userkey' => $userkey,
+            'passkey' => $passkey,
+            'to' => $telepon,
+            'message' => $message
+        ));
+        $results = json_decode(curl_exec($curlHandle), true);
+        curl_close($curlHandle);
+                         
     }
 
 
