@@ -112,8 +112,9 @@ class Lapor extends CI_Controller{
             $kabupaten = $this->M_setting->get_wilayah($this->input->post('lokasi_kabkota'));
             $image = $this->M_setting->get_image($this->input->post('kodelap'));
             $imageurl = base_url().'upload/dokumentasi/'.$image;
+            $infrastruktur = $this->input->post('infrastruktur');
 
-            $this->wasendpelapor($nowapelapor,$namapelapor,$infrastruktur,$distrik,$kabupaten);
+            #$this->wasendpelapor($nowapelapor,$namapelapor,$infrastruktur,$distrik,$kabupaten);
             $this->wasendkabid($nowakabid,$kodelap,$infrastruktur,$kabupaten,$distrik,$imageurl);
 
             //redirect('lapor');
@@ -195,7 +196,7 @@ class Lapor extends CI_Controller{
         $userkey = $setting->userkey;
         $passkey = $setting->passkey;
         $telepon = $nowapelapor;
-        $message = 'Hai *'.$nama.'*, '.PHP_EOL.' Laporan Anda Tentang Infrastruktur *'.strtoupper($infrastruktur).'* di Distrik *'.strtoupper($distrik).'* *'.$kabupaten.'* telah kami terima dan akan diverifikasi lebih lanjut. '.PHP_EOL.' Terima Kasih. | Sisikat.com';
+        $message = 'Hai *'.$nama.'*, '.PHP_EOL.'Laporan Anda Tentang Infrastruktur *'.strtoupper($infrastruktur).'* di Distrik *'.strtoupper($distrik).' '.$kabupaten.'* telah kami terima dan akan diverifikasi lebih lanjut. '.PHP_EOL.' '.PHP_EOL.'Terima Kasih. | Sisikat.com';
         $url = 'https://console.zenziva.net/wareguler/api/sendWA/';
         $curlHandle = curl_init();
         curl_setopt($curlHandle, CURLOPT_URL, $url);
@@ -246,7 +247,7 @@ class Lapor extends CI_Controller{
         $userkey = $setting->userkey;
         $passkey = $setting->passkey;
         $telepon = $nowakabid;
-        $image_link = $imageurl;
+        $image_link = 'https://www.harapanrakyat.com/wp-content/uploads/2019/03/Protes-Jalan-Rusak.jpg';
         $caption  = 'Yth. Kabid. Bina Marga *'.$kabupaten.'* \n Anda mendapatkan 1 laporan (Kode: *'.$kodelap.'*) tentang Infrastruktur *'.strtoupper($infrastruktur).'* dari Distrik *'.strtoupper($distrik).'*. \n Silahkan masuk ke Sistem Informasi SISIKAT untuk melihat detail laporan. \n Terima Kasih. | Sisikat.com';
         $url = 'https://console.zenziva.net/wareguler/api/sendWAFile/';
         $curlHandle = curl_init();
