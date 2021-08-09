@@ -109,8 +109,8 @@ class Lapor extends CI_Controller{
             $image = $this->M_setting->get_image($this->input->post('kodelap'));
             $imageurl = base_url().'upload/dokumentasi/'.$image->nama_file;
 
-            //$this->wasendpelapor($this->input->post('no_hp'),$this->input->post('nama_pelapor'));
-            $this->wasendkabid('085244146207',$this->input->post('kodelap'),$this->input->post('infrastruktur'),$kabupaten->nama,$distrik->nama, $imageurl);
+            $this->wasendpelapor($this->input->post('no_hp'),$this->input->post('nama_pelapor'));
+            $this->wasendkabid('085244146207',$this->input->post('kodelap'),$this->input->post('infrastruktur'),$kabupaten->nama,$distrik->nama);
 
             //redirect('lapor');
             
@@ -191,7 +191,7 @@ class Lapor extends CI_Controller{
         $userkey = $setting->userkey;
         $passkey = $setting->passkey;
         $telepon = $nowapelapor;
-        $message = 'Hai '.$nama.', Laporan anda telah kami terima dan akan diverifikasi oleh Kabid. Bina Marga Kab/Kota setempat. Terima Kasih. | Sisikat.com';
+        $message = 'Hai *'.$nama.'*, \n  Laporan anda telah kami terima dan akan diverifikasi oleh Kabid. Bina Marga Kab/Kota setempat. \n \n  Terima Kasih. | Sisikat.com';
         $url = 'https://console.zenziva.net/wareguler/api/sendWA/';
         $curlHandle = curl_init();
         curl_setopt($curlHandle, CURLOPT_URL, $url);
@@ -212,9 +212,9 @@ class Lapor extends CI_Controller{
                          
     }
 
-    function wasendkabid($nowakabid,$kodelap,$infrastruktur,$kabupaten,$distrik,$imageurl)
+    function wasendkabid($nowakabid,$kodelap,$infrastruktur,$kabupaten,$distrik)
     {
-       /*
+       
         $setting=$this->M_setting->list_setting();
         $userkey = $setting->userkey;
         $passkey = $setting->passkey;
@@ -237,7 +237,7 @@ class Lapor extends CI_Controller{
         ));
         $results = json_decode(curl_exec($curlHandle), true);
         curl_close($curlHandle);
-        */
+        /*
         $setting=$this->M_setting->list_setting();
         $userkey = $setting->userkey;
         $passkey = $setting->passkey;
@@ -262,7 +262,7 @@ class Lapor extends CI_Controller{
         ));
         $results = json_decode(curl_exec($curlHandle), true);
         curl_close($curlHandle);
-                                   
+                                */   
                          
     }
 
