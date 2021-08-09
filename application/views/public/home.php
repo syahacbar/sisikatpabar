@@ -422,7 +422,7 @@
                 });
 
                 var dokumentasi1_upload= new Dropzone(".dokumentasi1",{
-                    autoProcessQueue: false,
+                    autoProcessQueue: true,
                     url: "<?php echo site_url('lapor/uploaddokumentasi1') ?>",
                     maxFilesize: 50,
                     maxFiles: 1,
@@ -479,7 +479,7 @@
                 $('#formlaporan').submit(function(e) {
                     e.preventDefault();
                     ktp_upload.processQueue();
-                    dokumentasi1_upload.processQueue();
+                    //dokumentasi1_upload.processQueue();
                     dokumentasi2_upload.processQueue();
                     dokumentasi3_upload.processQueue();
 
