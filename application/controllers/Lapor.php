@@ -106,7 +106,7 @@ class Lapor extends CI_Controller{
 
             $distrik = $this->M_setting->get_wilayah($this->input->post('lokasi_distrik'));
             $kabupaten = $this->M_setting->get_wilayah($this->input->post('lokasi_kabkota'));
-            $this->wasendpelapor($this->input->post('no_hp'),$this->input->post('nama_pelapor'));
+            //$this->wasendpelapor($this->input->post('no_hp'),$this->input->post('nama_pelapor'));
             $this->wasendkabid('085244146207',$this->input->post('kodelap'),$this->input->post('infrastruktur'),$kabupaten->nama,$distrik->nama);
 
             //redirect('lapor');
