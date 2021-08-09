@@ -34,9 +34,9 @@
                         </td>
 
                         <td>
-                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalLong">
+                            <a id="ISBN-001122" data-nik="<?php echo $lap['nik']; ?>" data-bs-target="#ISBN-001122" data-bs-toggle="modal" class="btn btn-info" >
                                 <i class="fas fa-external-link-alt"></i>
-                            </button>
+                            </a>
                         </td>
                     </tr>
                 <?php } ?>
@@ -45,3 +45,19 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $("#ISBN-001122").click(function(){
+            $("#ISBN-001122").modal('show');
+        });
+    });
+</script>
+
+<script>
+    $(function() {
+        $('#closeBtn').click(function() {
+            $('#exampleModalLong').modal('hide');
+        });
+    });
+</script>

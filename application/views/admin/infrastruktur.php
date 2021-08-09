@@ -27,9 +27,9 @@
                         <td><?php echo $lap['lokasidistrik'];?></td>
                         <td><?php echo $lap['lokasikabkota'];?></td>
                         <td>
-                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalLong">
+                            <a id="#ISBN-001123" data-bs-target="#ISBN-001123" data-bs-toggle="modal" class="btn btn-info" >
                                 <i class="fas fa-external-link-alt"></i>
-                            </button>
+                            </a>
                         </td>
                     </tr>
                 <?php } ?>
@@ -38,3 +38,19 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $("#ISBN-001123").click(function(){
+            $("#ISBN-001123").modal('show');
+        });
+    });
+</script>
+
+<script>
+$(function() {
+    $('#closeBtn').click(function() {
+        $('#ISBN-001123').modal('hide');
+    });
+});
+</script>
