@@ -50,6 +50,10 @@ class Lapor extends CI_Controller{
         $data['kodelap'] = $kodelap;
         $data['_view'] = 'public/home';
         $data['title'] = 'SI-SIKAT | Beranda';
+            $image = $this->M_setting->get_image('202107300054501');
+            $imageurl = base_url().'upload/dokumentasi/'.$image;
+
+            $data['tes'] = "$imageurl";
         $this->load->view('public/layout',$data);
 
     }
@@ -112,10 +116,11 @@ class Lapor extends CI_Controller{
             $kabupaten = $this->M_setting->get_wilayah($this->input->post('lokasi_kabkota'));
             $image = $this->M_setting->get_image($this->input->post('kodelap'));
             $imageurl = base_url().'upload/dokumentasi/'.$image;
+            $imagelink = "$imageurl";
             $infrastruktur = $this->input->post('infrastruktur');
 
             #$this->wasendpelapor($nowapelapor,$namapelapor,$infrastruktur,$distrik,$kabupaten);
-            $this->wasendkabid($nowakabid,$kodelap,$infrastruktur,$kabupaten,$distrik,$imageurl);
+            $this->wasendkabid($nowakabid,$kodelap,$infrastruktur,$kabupaten,$distrik,$imagelink);
 
             //redirect('lapor');
             
@@ -217,7 +222,7 @@ class Lapor extends CI_Controller{
                          
     }
 
-    function wasendkabid($nowakabid,$kodelap,$infrastruktur,$kabupaten,$distrik,$imageurl)
+    function wasendkabid($nowakabid,$kodelap,$infrastruktur,$kabupaten,$distrik,$imagelink)
     {
        /*
         $setting=$this->M_setting->list_setting();
@@ -247,8 +252,8 @@ class Lapor extends CI_Controller{
         $userkey = $setting->userkey;
         $passkey = $setting->passkey;
         $telepon = $nowakabid;
-        $image_link = 'https://www.harapanrakyat.com/wp-content/uploads/2019/03/Protes-Jalan-Rusak.jpg';
-        $caption  = 'Yth. Kabid. Bina Marga *'.$kabupaten.'* \n Anda mendapatkan 1 laporan (Kode: *'.$kodelap.'*) tentang Infrastruktur *'.strtoupper($infrastruktur).'* dari Distrik *'.strtoupper($distrik).'*. \n Silahkan masuk ke Sistem Informasi SISIKAT untuk melihat detail laporan. \n Terima Kasih. | Sisikat.com';
+        $image_link = $imagelink;
+        $caption  = 'Yth. Kabid. Bina Marga *'.$kabupaten.'* '.PHP_EOL.'Anda mendapatkan 1 laporan (Kode: *'.$kodelap.'*) tentang Infrastruktur *'.strtoupper($infrastruktur).'* dari Distrik *'.strtoupper($distrik).'*.'.PHP_EOL.'Silahkan masuk ke Sistem Informasi SISIKAT untuk melihat detail laporan.'.PHP_EOL.' '.PHP_EOL.'Terima Kasih. | Sisikat.com';
         $url = 'https://console.zenziva.net/wareguler/api/sendWAFile/';
         $curlHandle = curl_init();
         curl_setopt($curlHandle, CURLOPT_URL, $url);

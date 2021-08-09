@@ -15,7 +15,7 @@
                             <p class="lead fw-normal text-muted mb-5">     
                                 Laporan langsung dari masyarakat melalui media ini diharapkan dapat menjadi masukan terhadap perkembangan infrastruktur jalan di Provinsi Papua Barat.
                             <p class="lead fw-normal text-muted mb-5">
-                                Selanjutnya data Laporan Pengaduan yang telah diterima nantinya akan diverifikasi kembali oleh Bidang Bina Marga OPD Dinas PUPR Provinsi Papua Barat sebelum dirumuskan menjadi konsep kebijakan teknis dalam perencanaan infrastruktur jalan di Provinsi Papua Barat. 
+                                Selanjutnya data Laporan Pengaduan yang telah diterima nantinya akan diverifikasi kembali oleh Bidang Bina Marga OPD Dinas PUPR Provinsi Papua Barat sebelum dirumuskan menjadi konsep kebijakan teknis dalam perencanaan infrastruktur jalan di Provinsi Papua Barat. <?php echo $tes;?>
                             </p>
                             <div class="d-flex flex-column flex-lg-row align-items-center">
                                 <!-- <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="assets/img/google-play-badge.svg" alt="..." />Lapor Sekarang</a>
