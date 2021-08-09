@@ -180,8 +180,9 @@ class Lapor extends CI_Controller{
 
     function wasendpelapor($telepon,$nama)
     {
-        $userkey = 'a39a7fbff392';
-        $passkey = '7eb931d25b0fa3ee6d55980b';
+        $setting=$this->M_setting->list_setting();
+        $userkey = $setting->userkey;
+        $passkey = $setting->passkey;
         $telepon = $telepon;
         $message = 'Hai '.$nama.', Laporan anda telah kami terima dan akan diverifikasi oleh Kabid. Bina Marga Kab/Kota setempat. Terima Kasih. | Sisikat.com';
         $url = 'https://console.zenziva.net/wareguler/api/sendWA/';
@@ -206,8 +207,9 @@ class Lapor extends CI_Controller{
 
     function wasendkabid($telepon,$nama)
     {
-        $userkey = 'a39a7fbff392';
-        $passkey = '7eb931d25b0fa3ee6d55980b';
+        $setting=$this->M_setting->list_setting();
+        $userkey = $setting->userkey;
+        $passkey = $setting->passkey;
         $telepon = $telepon;
         $message = 'Hai '.$nama.', Laporan anda telah kami terima dan akan diverifikasi oleh Kabid. Bina Marga Kab/Kota setempat. Terima Kasih. | Sisikat.com';
         $url = 'https://console.zenziva.net/wareguler/api/sendWA/';
