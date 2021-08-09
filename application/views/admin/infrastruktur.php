@@ -27,7 +27,7 @@
                         <td><?php echo $lap['lokasidistrik'];?></td>
                         <td><?php echo $lap['lokasikabkota'];?></td>
                         <td>
-                            <a id="#ISBN-001123" data-bs-target="#ISBN-001123" data-bs-toggle="modal" class="btn btn-info" >
+                            <a id="#modalDetail" data-nik="<?php echo $lap['nik'] ?>" data-ktp="<?php echo $lap['ktp'] ?>" data-bs-target="#modalDetail" data-bs-toggle="modal" class="modalDetail btn btn-info" >
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </td>
@@ -41,16 +41,18 @@
 
 <script>
     $(document).ready(function(){
-        $("#ISBN-001123").click(function(){
-            $("#ISBN-001123").modal('show');
+        $("#modalDetail").click(function(){
+            $("#modalDetail").modal('show');
+        });
+        $('#closeBtn').click(function() {
+            $('#modalDetail').modal('hide');
+        });
+        $(document).on("click", ".modalDetail", function () {
+             var nik = $(this).data('nik');
+             $(".modal-body #nikModal").text(nik);
+             var ktp = $(this).data('ktp');
+             const img = document.getElementById("imgModal");
+            img.src = "<?php echo base_url('upload/ktp/');?>"+ktp;
         });
     });
-</script>
-
-<script>
-$(function() {
-    $('#closeBtn').click(function() {
-        $('#ISBN-001123').modal('hide');
-    });
-});
 </script>

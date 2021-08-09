@@ -138,11 +138,11 @@
 
 
         <!-- Modal Detail Setiap Infrastruktur -->
-        <div class="modal fade" id="ISBN-001123" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal fade" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="modalDetailTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Laporan</h5>
+                <h5 class="modal-title" id="modalDetailTitle">Laporan</h5>
                 <button id="closeBtn" type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -153,7 +153,7 @@
                 <div id="idcard" class="col-sm-5">
                     <div class="card">
                     <div class="card-body">
-                        <img src="http://1.bp.blogspot.com/-cKbR2Cw8BLU/VrLaPvhz9pI/AAAAAAAAAcE/Pe9LhaTN1sY/s1600/Scan%2BKTP.JPG" alt="id-card" >
+                        <img src="xxx" id="imgModal" alt="id-card" >
                     </div>
                     </div>
                 </div>
@@ -166,7 +166,7 @@
                             <tr>
                             <td width="30%">NIK</td>
                             <td>:</td>
-                            <td>1904502455xxx</td>
+                            <td><span id="nikModal"></span></td>
                             </tr>
                             <tr>
                             <td width="30%">Nama Lengkap</td>
