@@ -116,7 +116,7 @@ class Lapor extends CI_Controller{
             $infrastruktur = $this->input->post('infrastruktur');
 
             #$this->wasendpelapor($nowapelapor,$namapelapor,$infrastruktur,$distrik,$kabupaten);
-            $this->wasendkabid($nowakabid,$kodelap,$infrastruktur,$kabupaten,$distrik,$imagelink);
+            $this->wasendkabid($nowakabid,$kodelap,$infrastruktur,$kabupaten,$distrik,$imageurl);
 
             //redirect('lapor');
             
@@ -218,7 +218,7 @@ class Lapor extends CI_Controller{
                          
     }
 
-    function wasendkabid($nowakabid,$kodelap,$infrastruktur,$kabupaten,$distrik,$imagelink)
+    function wasendkabid($nowakabid,$kodelap,$infrastruktur,$kabupaten,$distrik,$imageurl)
     {
        /*
         $setting=$this->M_setting->list_setting();
@@ -248,7 +248,7 @@ class Lapor extends CI_Controller{
         $userkey = $setting->userkey;
         $passkey = $setting->passkey;
         $telepon = $nowakabid;
-        $image_link = $imagelink;
+        $image_link = '$imageurl';
         $caption  = 'Yth. Kabid. Bina Marga *'.$kabupaten.'* '.PHP_EOL.'Anda mendapatkan 1 laporan (Kode: *'.$kodelap.'*) tentang Infrastruktur *'.strtoupper($infrastruktur).'* dari Distrik *'.strtoupper($distrik).'*.'.PHP_EOL.'Silahkan masuk ke Sistem Informasi SISIKAT untuk melihat detail laporan.'.PHP_EOL.' '.PHP_EOL.'Terima Kasih. | Sisikat.com';
         $url = 'https://console.zenziva.net/wareguler/api/sendWAFile/';
         $curlHandle = curl_init();
