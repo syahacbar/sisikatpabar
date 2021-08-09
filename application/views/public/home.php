@@ -15,7 +15,7 @@
                             <p class="lead fw-normal text-muted mb-5">     
                                 Laporan langsung dari masyarakat melalui media ini diharapkan dapat menjadi masukan terhadap perkembangan infrastruktur jalan di Provinsi Papua Barat.
                             <p class="lead fw-normal text-muted mb-5">
-                                Selanjutnya data Laporan Pengaduan yang telah diterima nantinya akan diverifikasi kembali oleh Bidang Bina Marga OPD Dinas PUPR Provinsi Papua Barat sebelum dirumuskan menjadi konsep kebijakan teknis dalam perencanaan infrastruktur jalan di Provinsi Papua Barat. <?php echo $tes;?>
+                                Selanjutnya data Laporan Pengaduan yang telah diterima nantinya akan diverifikasi kembali oleh Bidang Bina Marga OPD Dinas PUPR Provinsi Papua Barat sebelum dirumuskan menjadi konsep kebijakan teknis dalam perencanaan infrastruktur jalan di Provinsi Papua Barat. 
                             </p>
                             <div class="d-flex flex-column flex-lg-row align-items-center">
                                 <!-- <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="assets/img/google-play-badge.svg" alt="..." />Lapor Sekarang</a>
@@ -134,7 +134,7 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                      <select name="kab_pelapor" id="kab_pelapor">
+                                      <select name="kab_pelapor" id="kab_pelapor" required>
                                             <option><i class="fas fa-chevron-down"></i>- Pilih Kabupaten/Kota -</option>
                                             <?php 
                                                 foreach($kabupaten as $kab)
@@ -152,7 +152,7 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <select name="kec_pelapor" id="kec_pelapor">
+                                        <select name="kec_pelapor" id="kec_pelapor" required>
                                             <option>- Pilih Kecamatan/Distrik -</option>
                                         </select>
                                       </div>
@@ -163,7 +163,7 @@
                                 <!-- Kel./Desa -->
                                 <div class="row mb-4">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <select name="des_pelapor" id="des_pelapor">
+                                        <select name="des_pelapor" id="des_pelapor" required>
                                             <option><i class="fas fa-chevron-down"></i>- Pilih Kelurahan/Desa -</option>
                                         </select>
                                     </div>
@@ -203,7 +203,7 @@
                                 </div>
                                 <div class="row mb-4">
                                     <div class="col">
-                                        <select name="infrastruktur">
+                                        <select name="infrastruktur" required>
                                             <option><i class="fas fa-chevron-down"></i>Pilih Jenis Infrastruktur</option>
                                             <option value="Jalan">Jalan</option>
                                             <option value="Drainase">Drainase</option>
@@ -253,7 +253,7 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <select name="lokasi_kabkota" id="lokasi_kabkota">
+                                        <select name="lokasi_kabkota" id="lokasi_kabkota" required>
                                             <option>- Pilih Kabupaten/Kota -</option>
                                             <?php 
                                                 foreach($kabupaten as $kab)
@@ -271,7 +271,7 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <select name="lokasi_distrik" id="lokasi_distrik">
+                                        <select name="lokasi_distrik" id="lokasi_distrik" required>
                                             <option>- Pilih Kecamatan/Distrik -</option>
                                         </select>
                                       </div>

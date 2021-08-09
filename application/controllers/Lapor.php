@@ -50,10 +50,6 @@ class Lapor extends CI_Controller{
         $data['kodelap'] = $kodelap;
         $data['_view'] = 'public/home';
         $data['title'] = 'SI-SIKAT | Beranda';
-            $image = $this->M_setting->get_image('202107300054501');
-            $imageurl = base_url().'upload/dokumentasi/'.$image;
-
-            $data['tes'] = "$imageurl";
         $this->load->view('public/layout',$data);
 
     }
