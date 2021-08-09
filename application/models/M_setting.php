@@ -18,13 +18,13 @@ class M_setting extends CI_Model {
     public function get_wilayah($kode)
     {
     	$query = $this->db->get_where('wilayah_2020', array('kode' => $kode));
-    	return $query->row();
+    	return $query->row()->nama;
     }
 
     public function get_image($kodelap)
     {
-    	$query = $this->db->get_where('upload', array('kodelap' => $kode, 'kategori' => 'dokumentasi1'));
-    	return $query->row();
+    	$query = $this->db->get_where('upload', array('kodelap' => $kodelap, 'kategori' => 'dokumentasi1'));
+    	return $query->row()->nama_file;
     }
 	
 
