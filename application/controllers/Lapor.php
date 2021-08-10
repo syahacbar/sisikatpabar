@@ -106,7 +106,7 @@ class Lapor extends CI_Controller{
 
             $namapelapor = $this->input->post('nama_pelapor');
             $nowapelapor = $this->input->post('no_hp');
-            $nowakabid = '085244146207';
+            $nowakabid = $this->M_setting->get_nowa_kabid($this->input->post('lokasi_kabkota'))->phone;
             $kodelap = $this->input->post('kodelap');
             $distrik = $this->M_setting->get_wilayah($this->input->post('lokasi_distrik'));
             $kabupaten = $this->M_setting->get_wilayah($this->input->post('lokasi_kabkota'));

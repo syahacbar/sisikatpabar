@@ -76,7 +76,13 @@
 
              var ktp = $(this).data('ktp');
              const img = document.getElementById("imgModal");
-            img.src = "<?php echo base_url('upload/ktp/');?>"+ktp;
+             if(ktp=='')
+             {
+                img.src = "<?php echo base_url('resources/admintheme/assets/img/noimage.jpg');?>";
+             } else {
+                img.src = "<?php echo base_url('upload/ktp/');?>"+ktp;
+             }
+            
 
             var nama = $(this).data('nama');
             $(".modal-body #namaModal").text( nama );

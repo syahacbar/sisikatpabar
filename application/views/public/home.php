@@ -404,7 +404,7 @@
 
 
                 var ktp_upload= new Dropzone(".ktp",{
-                    autoProcessQueue: false,
+                    autoProcessQueue: true,
                     url: "<?php echo site_url('lapor/uploadktp') ?>",
                     maxFilesize: 50,
                     maxFiles: 1,
@@ -440,7 +440,7 @@
                     c.append("kategori","dokumentasi1");
                 });
                 var dokumentasi2_upload= new Dropzone(".dokumentasi2",{
-                    autoProcessQueue: false,
+                    autoProcessQueue: true,
                     url: "<?php echo site_url('lapor/uploaddokumentasi2') ?>",
                     maxFilesize: 50,
                     maxFiles: 1,
@@ -458,7 +458,7 @@
                     c.append("kategori","dokumentasi2");
                 });
                 var dokumentasi3_upload= new Dropzone(".dokumentasi3",{
-                    autoProcessQueue: false,
+                    autoProcessQueue: true,
                     url: "<?php echo site_url('lapor/uploaddokumentasi3') ?>",
                     maxFilesize: 50,
                     maxFiles: 1,
@@ -478,10 +478,10 @@
 
                 $('#formlaporan').submit(function(e) {
                     e.preventDefault();
-                    ktp_upload.processQueue();
+                    //ktp_upload.processQueue();
                     //dokumentasi1_upload.processQueue();
-                    dokumentasi2_upload.processQueue();
-                    dokumentasi3_upload.processQueue();
+                    //dokumentasi2_upload.processQueue();
+                    //dokumentasi3_upload.processQueue();
 
 
                    var nik = $("input[name='nik']").val();

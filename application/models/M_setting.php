@@ -26,6 +26,12 @@ class M_setting extends CI_Model {
     	$query = $this->db->get_where('upload', array('kodelap' => $kodelap, 'kategori' => 'dokumentasi1'));
     	return $query->row()->nama_file;
     }
+
+    public function get_nowa_kabid($kodekab)
+    {
+      $query = $this->db->query("SELECT u.* FROM users u, users_groups ug, groups s WHERE u.id=ug.user_id AND g.id=ug.group_id AND g.kode_kab='$kodekab'")
+      return $query->row();
+    }
 	
 
 }
