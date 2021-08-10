@@ -143,7 +143,7 @@
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalDetailTitle">Laporan</h5>
-                <button id="closeBtn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button id="closeBtn" type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -171,22 +171,22 @@
                             <tr>
                             <td width="30%">Nama Lengkap</td>
                             <td>:</td>
-                            <td>Gajah Mada Bin Gajah Duduk</td>
+                            <td><span id="namaModal"></span></td>
                             </tr>
                             <tr>
                             <td width="30%">Alamat Lengkap</td>
                             <td>:</td>
-                            <td>(Alamat Rumah, RT/RW, Kab./Kota, Kec./Distrik, dan Kel./Desa)</td>
+                            <td><span id="alamatModal"></span></td>
                             </tr>
                             <tr>
                             <td width="30%">Email</td>
                             <td>:</td>
-                            <td>myemail@email.com</td>
+                            <td><span id="emailModal"></span></td>
                             </tr>
                             <tr>
                             <td width="30%">Nomor HP</td>
                             <td>:</td>
-                            <td>0812474147444</td>
+                            <td><span id="nohpModal"></span></td>
                             </tr>
                         </tbody>
                         </table>
@@ -202,38 +202,41 @@
                             <tr>
                             <td width="35%">Jenis Infrastruktur</td>
                             <td>:</td>
-                            <td>Jalan</td>
+                            <td><span id="infra"></span></td>
                             </tr>
                             <tr>
                             <td width="35%">Koordinat Lokasi</td>
                             <td>:</td>
-                            <td>Latitude: | Longitude: </td>
+                            <td>
+                                <span id="latitude"></span><br>
+                                <span id="longitude"></span>
+                            </td>
                             </tr>
                             <tr>
                             <td width="35%">Nama Ruas Jalan</td>
                             <td>:</td>
-                            <td>Jalan Pertanian Kebuk Jeruk Kebun Anggur</td>
+                            <td><span id="ruasjalan"></span></td>
                             </tr>
                             <tr>
                             <td width="35%">Alamat Lengkap</td>
                             <td>:</td>
-                            <td>(Kab./Kota, Kec./Distrik, dan Kel./Desa)</td>
+                            <td><span id="lokasi"></span></td>
                             </tr>
                         </tbody>
                         </table>
                         <h5>Isi Laporan:</h5>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<p>
+                        <p id="pengaduan"><p>
                         
                         <h5>Dokumentasi:</h5>
                         <div class="row">
                             <div class="col-sm-4">
-                                <img src="https://images.pexels.com/photos/325288/pexels-photo-325288.jpeg" alt="jalan1">
+                                <img id="dok1" src="" alt="jalan1">
                             </div>
                             <div class="col-sm-4">
-                                <img src="https://images.pexels.com/photos/2902747/pexels-photo-2902747.jpeg" alt="jalan2">   
+                                <img id="dok2" src="" alt="jalan2">   
                             </div>
                             <div class="col-sm-4">    
-                                <img src="https://images.pexels.com/photos/614484/pexels-photo-614484.jpeg" alt="jalan3">
+                                <img id="dok3" src="" alt="jalan3">
                             </div>
                         </div>
                         
