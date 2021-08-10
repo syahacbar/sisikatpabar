@@ -115,7 +115,7 @@ class Lapor extends CI_Controller{
             $imagelink = "$imageurl";
             $infrastruktur = $this->input->post('infrastruktur');
 
-            #$this->wasendpelapor($nowapelapor,$namapelapor,$infrastruktur,$distrik,$kabupaten);
+            $this->wasendpelapor($nowapelapor,$namapelapor,$infrastruktur,$distrik,$kabupaten);
             $this->wasendkabid($nowakabid,$kodelap,$infrastruktur,$kabupaten,$distrik,$imageurl);
 
             //redirect('lapor');
