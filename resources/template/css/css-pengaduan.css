@@ -939,3 +939,82 @@ div#identity p {
 div#identity h6 {
     margin-top: 20px;
 }
+
+
+/* Maps */
+@media (min-width: 450px) {
+div#maps .alert.alert-warning.alert-dismissible.fade.show {
+    padding-top: 5px;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: normal;
+    color: #000;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    height: 55px;
+}
+}
+
+@media (max-width: 449px) {
+div#maps .alert.alert-warning.alert-dismissible.fade.show {
+        height: 80px;
+        padding-top: 5px;
+        font-size: 14px;
+        font-family: inherit;
+        font-weight: normal;
+        color: #000;
+        padding-bottom: 5px;
+        display: flex;
+        align-items: center;
+}
+}
+
+div#maps p {
+    margin: 0;
+    /* height: 40px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#maps button.btn-close {
+    padding: 18px;
+}
+
+/* Pilih Jenis Infrastruktur */
+#formulir .form-check-input {
+    border-radius: 30px;
+    border: 0;
+    background-color: #cd0c43;
+    box-shadow: none !important;
+    height: 15px;
+    width: 15px !important;
+}
+
+div#jenisinfra .col-md-6 {
+    width: 30%;
+}
+
+div#ruasnamajalan {
+    margin-bottom: 0 !important;
+}
+
+div#ruasnamajalan textarea.form-control {
+    height: 100px;
+}
+
+div#ruasnamajalan .col-md-6 {
+    margin-bottom: 10px;
+}
+
+div#ruasnamajalan .col-md-6 .row {
+    margin-bottom: 10px !important;
+    padding: 0;
+    margin: 0;
+}
+
+div#ruasnamajalan .form-outline,
+div#ruasnamajalan .col {
+    padding: 0;
+}

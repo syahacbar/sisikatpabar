@@ -201,27 +201,21 @@
                                     <h3>Data Laporan</h3>
                                     <p>Isi formulir laporan pengaduan tentang infrastruktur dibawah ini.</p>
                                 </div>
-                                <div class="row mb-4">
-                                    <div class="col">
-                                        <select name="infrastruktur" required>
-                                            <option><i class="fas fa-chevron-down"></i>Pilih Jenis Infrastruktur</option>
-                                            <option value="Jalan">Jalan</option>
-                                            <option value="Drainase">Drainase</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Akhir Jenis Infrastruktur-->
 
                                 <!-- Maps -->
-                                <div class="row mb-4">
+                                <div id="maps" class="row mb-4">
                                     <div class="col">
+                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                            <p>Tandai lokasi yang dilaporkan dengan menggeser penanda merah pada peta berikut ini.</p>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
                                       <div class="form-outline">
-                                        <label class="form-label">Tandai Lokasi Yang Dilaporkan Dengan Menggeser Penanda Merah Pada Peta Berikut Ini</label>
                                         <?php echo $map['html']; ?>
                                       </div>
                                     </div>
                                 </div>
                                 <!-- Akhir Maps -->
+
 
                                 <!-- Latitude & Longitude -->
                                 <div class="row mb-4">
@@ -239,18 +233,62 @@
                                 </div>
                                 <!-- Akhir Latitude & Longitude -->
 
+                                <div id="jenisinfra" class="row mb-4">
+                                    <label class="form-label">Pilih Jenis Infrastruktur</label>
+                                    <div class="col-md-6">
+                                        <div class="form-check" name="infrastruktur" requred>
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                                <label class="form-check-label" value="jalan" for="flexRadioDefault1">Jalan</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                                <label class="form-check-label" value="drainase" for="flexRadioDefault2">Drainase</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Akhir Jenis Infrastruktur-->
+
                                 <!-- Ruas Jalan -->
-                                <div class="row mb-4">
-                                    <div class="col">
+                                <div id="ruasnamajalan" class="row mb-4">
+                                    <div class="col-md-6">
                                       <div class="form-outline">
-                                        <input name="lokasi_namajalan" type="text" class="form-control" placeholder="Ruas Nama Jalan" required/>
+                                        <textarea name="ruasjalan" class="form-control" rows="4" placeholder="Ketik ruas nama jalan di sini" required></textarea>
                                       </div>
                                     </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="form-outline">
+                                                <select name="lokasi_kabkota" id="lokasi_kabkota" required>
+                                                    <option>- Pilih Kabupaten/Kota -</option>
+                                                    <?php 
+                                                        foreach($kabupaten as $kab)
+                                                        {
+                                                            echo '<option value="'.$kab->kode.'">'.$kab->nama.'</option>';
+                                                        }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-outline">
+                                                    <select name="lokasi_distrik" id="lokasi_distrik" required>
+                                                        <option>- Pilih Kecamatan/Distrik -</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <!-- Akhir Ruas Jalan -->
 
                                 <!-- Kabupaten -->
-                                <div class="row mb-4">
+                                <!-- <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
                                         <select name="lokasi_kabkota" id="lokasi_kabkota" required>
@@ -264,11 +302,11 @@
                                         </select>
                                       </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- Akhir Kabupaten -->
 
                                 <!-- Kecamatan -->
-                                <div class="row mb-4">
+                                <!-- <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
                                         <select name="lokasi_distrik" id="lokasi_distrik" required>
@@ -276,7 +314,7 @@
                                         </select>
                                       </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- Akhir Kecamatan -->
 
                                 <!-- Isi Laporan -->
