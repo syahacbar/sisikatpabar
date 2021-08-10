@@ -169,7 +169,7 @@
                         </div>
                     </div>
                     <div id="report" class="col-sm-12">
-                        <h4 class="card-title">Detail Laporan</h4>
+                        <h4 class="card-title">Detail Laporan <span id="kodelap"></span></h4>
                         <div class="card">
                         <div class="card-body">
                             <table class="table">
@@ -183,8 +183,7 @@
                                 <td width="35%">Koordinat Lokasi</td>
                                 <td>:</td>
                                 <td>
-                                    <span id="latitude"></span><br>
-                                    <span id="longitude"></span>
+                                    <span id="koordinat"></span>
                                 </td>
                                 </tr>
                                 <tr>
@@ -193,9 +192,14 @@
                                 <td><span id="ruasjalan"></span></td>
                                 </tr>
                                 <tr>
-                                <td width="35%">Alamat Lengkap</td>
+                                <td width="35%">Kec/Distrik</td>
                                 <td>:</td>
-                                <td><span id="lokasi"></span></td>
+                                <td><span id="lokasidistrik"></span></td>
+                                </tr>
+                                <tr>
+                                <td width="35%">Kab/Kota</td>
+                                <td>:</td>
+                                <td><span id="lokasikabkota"></span></td>
                                 </tr>
                             </tbody>
                             </table>
@@ -218,9 +222,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="modal-footer">
-                <button id="closeBtn" type="button" class="btn btn-secondary closemodalBtn" data-dismiss="modal">Tutup</button>
-            </div> -->
             </div>
         </div>
         </div>
