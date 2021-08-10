@@ -197,7 +197,7 @@ class Lapor extends CI_Controller{
         $userkey = $setting->userkey;
         $passkey = $setting->passkey;
         $telepon = $nowapelapor;
-        $message = 'Hai *'.$nama.'*, '.PHP_EOL.'Laporan Anda Tentang Infrastruktur *'.strtoupper($infrastruktur).'* di Distrik *'.strtoupper($distrik).' '.$kabupaten.'* telah kami terima dan akan diverifikasi lebih lanjut. '.PHP_EOL.' '.PHP_EOL.'Terima Kasih. | Sisikat.com'.PHP_EOL.' '.PHP_EOL.'-*Don\'t Reply!*-';;
+        $message = 'Hai *'.$nama.'*, '.PHP_EOL.'Laporan Anda Tentang Infrastruktur *'.strtoupper($infrastruktur).'* di Distrik *'.strtoupper($distrik).' '.$kabupaten.'* telah kami terima dan akan diverifikasi lebih lanjut. '.PHP_EOL.' '.PHP_EOL.'Terima Kasih. | Sisikat.com'.PHP_EOL.' '.PHP_EOL.'*-Don\'t Reply!-*';;
         $url = 'https://console.zenziva.net/wareguler/api/sendWA/';
         $curlHandle = curl_init();
         curl_setopt($curlHandle, CURLOPT_URL, $url);
@@ -225,7 +225,7 @@ class Lapor extends CI_Controller{
         $passkey = $setting->passkey;
         $telepon = $nowakabid;
         $image_link =  $imageurl;
-        $caption  = 'Yth. Kabid. Bina Marga *'.$kabupaten.'* '.PHP_EOL.' '.PHP_EOL.'Anda mendapatkan 1 laporan tentang Infrastruktur *'.strtoupper($infrastruktur).'* dari Distrik *'.strtoupper($distrik).'*.'.PHP_EOL.'Silahkan masuk ke Sistem Informasi SISIKAT untuk melihat detail laporan.'.PHP_EOL.'Kode: *'.$kodelap.'* '.PHP_EOL.' '.PHP_EOL.'Terima Kasih. | Sisikat.com'.PHP_EOL.' '.PHP_EOL.'-*Don\'t Reply!*-';
+        $caption  = 'Yth. Kabid. Bina Marga *'.$kabupaten.'* '.PHP_EOL.' '.PHP_EOL.'Anda mendapatkan 1 laporan tentang Infrastruktur *'.strtoupper($infrastruktur).'* dari Distrik *'.strtoupper($distrik).'*.'.PHP_EOL.'Silahkan masuk ke Sistem Informasi SISIKAT untuk melihat detail laporan.'.PHP_EOL.'Kode: *'.$kodelap.'* '.PHP_EOL.' '.PHP_EOL.'Terima Kasih. | Sisikat.com'.PHP_EOL.' '.PHP_EOL.'*-Don\'t Reply!-*';
         $url = 'https://console.zenziva.net/wareguler/api/sendWAFile/';
         $curlHandle = curl_init();
         curl_setopt($curlHandle, CURLOPT_URL, $url);
