@@ -112,10 +112,10 @@ class Lapor extends CI_Controller{
             $kabupaten = $this->M_setting->get_wilayah($this->input->post('lokasi_kabkota'));
             $image = $this->M_setting->get_image($kodelap);
             $imageurl = base_url().'upload/dokumentasi/'.$image;
-            $infrastruktur = $this->input->post('infrastruktur');
+            $ruasjalan = $this->input->post('lokasi_namajalan');
 
-            $this->wasendpelapor($nowapelapor,$namapelapor,$infrastruktur,$distrik,$kabupaten);
-            $this->wasendkabid($nowakabid,$kodelap,$infrastruktur,$kabupaten,$distrik,$imageurl);
+            $this->wasendpelapor($nowapelapor,$namapelapor,$ruasjalan,$distrik,$kabupaten);
+            $this->wasendkabid($nowakabid,$kodelap,$ruasjalan,$kabupaten,$distrik,$imageurl);
             
         }        
     }
@@ -188,13 +188,13 @@ class Lapor extends CI_Controller{
 
     }
 
-    function wasendpelapor($nowapelapor,$nama,$infrastruktur,$distrik,$kabupaten)
+    function wasendpelapor($nowapelapor,$nama,$ruasjalan,$distrik,$kabupaten)
     {
         $setting=$this->M_setting->list_setting();
         $userkey = $setting->userkey;
         $passkey = $setting->passkey;
         $telepon = $nowapelapor;
-        $message = 'Hai *'.$nama.'*, '.PHP_EOL.'Laporan Anda Tentang Infrastruktur *'.strtoupper($infrastruktur).'* di Distrik *'.strtoupper($distrik).' '.$kabupaten.'* telah kami terima dan akan diverifikasi lebih lanjut. '.PHP_EOL.' '.PHP_EOL.'Terima Kasih. | Sisikat.com'.PHP_EOL.' '.PHP_EOL.'*-Don\'t Reply!-*';;
+        $message = 'Hai *'.$nama.'*, '.PHP_EOL.'Laporan Anda Tentang Ruas Jalan *'.strtoupper($ruasjalan).'* di Distrik *'.strtoupper($distrik).' '.$kabupaten.'* telah kami terima dan akan diverifikasi lebih lanjut. '.PHP_EOL.' '.PHP_EOL.'Terima Kasih. | Sisikat.com'.PHP_EOL.' '.PHP_EOL.'*-Don\'t Reply!-*';;
         $url = 'https://console.zenziva.net/wareguler/api/sendWA/';
         $curlHandle = curl_init();
         curl_setopt($curlHandle, CURLOPT_URL, $url);
@@ -215,14 +215,14 @@ class Lapor extends CI_Controller{
                          
     }
 
-    function wasendkabid($nowakabid,$kodelap,$infrastruktur,$kabupaten,$distrik,$imageurl)
+    function wasendkabid($nowakabid,$kodelap,$ruasjalan,$kabupaten,$distrik,$imageurl)
     {
         $setting=$this->M_setting->list_setting();
         $userkey = $setting->userkey;
         $passkey = $setting->passkey;
         $telepon = $nowakabid;
         $image_link =  $imageurl;
-        $caption  = 'Yth. Kabid. Bina Marga *'.$kabupaten.'* '.PHP_EOL.' '.PHP_EOL.'Anda mendapatkan 1 laporan tentang Infrastruktur *'.strtoupper($infrastruktur).'* dari Distrik *'.strtoupper($distrik).'*.'.PHP_EOL.'Silahkan masuk ke Sistem Informasi SISIKAT untuk melihat detail laporan.'.PHP_EOL.'Kode: *'.$kodelap.'* '.PHP_EOL.' '.PHP_EOL.'Terima Kasih. | Sisikat.com'.PHP_EOL.' '.PHP_EOL.'*-Don\'t Reply!-*';
+        $caption  = 'Yth. Kabid. Bina Marga *'.$kabupaten.'* '.PHP_EOL.' '.PHP_EOL.'Anda mendapatkan 1 laporan tentang Ruas Jalan *'.strtoupper($ruasjalan).'* di Distrik *'.strtoupper($distrik).'*.'.PHP_EOL.'Silahkan masuk ke Sistem Informasi SISIKAT untuk melihat detail laporan.'.PHP_EOL.'Kode: *'.$kodelap.'* '.PHP_EOL.' '.PHP_EOL.'Terima Kasih. | Sisikat.com'.PHP_EOL.' '.PHP_EOL.'*-Don\'t Reply!-*';
         $url = 'https://console.zenziva.net/wareguler/api/sendWAFile/';
         $curlHandle = curl_init();
         curl_setopt($curlHandle, CURLOPT_URL, $url);
