@@ -159,3 +159,7 @@
         border-radius: 5px;
         width: 35px;
     }
+
+    tbody span {
+        font-weight: 500;
+    }
