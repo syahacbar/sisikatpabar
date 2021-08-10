@@ -112,7 +112,6 @@ class Lapor extends CI_Controller{
             $kabupaten = $this->M_setting->get_wilayah($this->input->post('lokasi_kabkota'));
             $image = $this->M_setting->get_image($kodelap);
             $imageurl = base_url().'upload/dokumentasi/'.$image;
-            $imagelink = "$imageurl";
             $infrastruktur = $this->input->post('infrastruktur');
 
             $this->wasendpelapor($nowapelapor,$namapelapor,$infrastruktur,$distrik,$kabupaten);
