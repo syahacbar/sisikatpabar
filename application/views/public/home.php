@@ -374,25 +374,7 @@
             Dropzone.autoDiscover = false;
             $(document).ready(function(){     
 
-                $(document).on('click','#lapdetail',function(){
-                    var slokasi_namajalan = $(this).data('slokasi_namajalan');
-                    var slokasi_kabkota = $(this).data('slokasi_kabkota');
-                    var slokasi_distrik = $(this).data('slokasi_distrik');
-                    var slokasi_koordinat = $(this).data('slokasi_koordinat');
-                    var spengaduan = $(this).data('spengaduan');
-                    var sdokumentasi1 = $(this).data('sdokumentasi1');
-                    var sdokumentasi2 = $(this).data('sdokumentasi2');
-                    $('#slokasi_namajalant').text(slokasi_namajalan);
-                    $('#slokasi_namajalan').text(slokasi_namajalan);
-                    $('#slokasi_kabkota').text(slokasi_kabkota);
-                    $('#slokasi_distrik').text(slokasi_distrik);
-                    $('#slokasi_koordinat').text(slokasi_koordinat);
-                    $('#spengaduan').text(spengaduan);
-                    $("#sdokumentasi1").attr("src", sdokumentasi1);
-                    $("#sdokumentasi2").attr("src", sdokumentasi2);
-                   
-                })
-
+               
                 $("#lokasi_kabkota").change(function (){
                     var url = "<?php echo site_url('lapor/add_ajax_kec');?>/"+$(this).val();
                     $('#lokasi_distrik').load(url);
