@@ -1009,10 +1009,15 @@ div#maps button.btn-close {
 #formulir .form-check-input {
     border-radius: 30px;
     border: 0;
-    background-color: #cd0c43;
     box-shadow: none !important;
     height: 15px;
     width: 15px !important;
+}
+
+/* radio button jenis infra */
+.form-check-input:checked[type=radio] {
+    background-image: none !important;
+    background-color: red !important;
 }
 
 div#jenisinfra .col-md-6 {
@@ -1043,62 +1048,3 @@ div#ruasnamajalan .col {
 }
 
 
-/* Admin panel form */
-#adminprov tbody td:nth-last-child(1) a.btn.btn-info,
-#adminprov tbody td:nth-last-child(1) a.btn.btn-danger,
-#adminprov tbody td:nth-last-child(1) a.btn.btn-primary {
-    width: 60px;
-    padding: 0px;
-    font-size: 12px;
-    margin: 0 2px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-#adminprov th:last-child {
-    width: 200px !important;
-    min-width: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 0;
-}
-
-#adminprov tbody td:nth-last-child(1) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 0;
-}
-
-#adminprov th a.dataTable-sorter {
-    bottom: 0 !important;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-}
-
-#adminprov .table-bordered > :not(caption) > *,
-#adminprov .dataTable-table > :not(caption) > * {
-    border-width: 1px;
-}
-
-#adminprov .dataTable-table > thead > tr > th {
-    vertical-align: bottom;
-    text-align: left;
-    border-bottom: none;
-    height: 58px;
-    /* border: 1px solid #e8e8e8 !important; */
-}
-
-#adminprov .dataTable-table > thead > tr {
-    border: 1px solid #e8e8e8 !important;
-}
-
-#adminprov .table-bordered > :not(caption) > * > *,
-#adminprov .dataTable-table > :not(caption) > * > * {
-    border-width: 1px !important;
-}
