@@ -1,5 +1,5 @@
 <div id="admin" class="container-fluid px-4">
-    <h2 class="mt-4">Laporan Pengaduan <?php echo $infrastruktur;?></h2>
+    <h2 class="mt-4">Data Pelaporan SI-SIKAT <?php echo $infrastruktur;?></h2>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active"></li>
     </ol>

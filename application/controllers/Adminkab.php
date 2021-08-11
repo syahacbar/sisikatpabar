@@ -6,6 +6,7 @@ class Adminkab extends CI_Controller{
     {
         parent::__construct();  
         $this->load->model('Laporan_model');
+        $this->load->model('M_setting');
         if (!$this->ion_auth->logged_in())
           {
              // redirect them to the login page
@@ -54,17 +55,17 @@ class Adminkab extends CI_Controller{
         if($q=='jalan')
         {
             $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user_groups->kode_kab,NULL,NULL,'jalan');
-            $data['infrastruktur'] = 'Jalan';
+            $data['infrastruktur'] = 'Infrastruktur Jalan '.ucwords(strtolower($this->M_setting->get_wilayah($user_groups->kode_kab)));
         } 
         elseif($q=='drainase')
         {
             $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user_groups->kode_kab,NULL,NULL,'drainase');
-            $data['infrastruktur'] = 'Drainase';
+            $data['infrastruktur'] = 'Infrastruktur Drainase '.ucwords(strtolower($this->M_setting->get_wilayah($user_groups->kode_kab)));
         }
         else
         {
             $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user_groups->kode_kab,NULL,NULL,NULL);
-            $data['infrastruktur'] = 'Semua Infrastruktur';
+            $data['infrastruktur'] = 'Semua Infrastruktur '.ucwords(strtolower($this->M_setting->get_wilayah($user_groups->kode_kab)));
         }
 
         $data['_view'] = 'adminkab/infrastruktur';

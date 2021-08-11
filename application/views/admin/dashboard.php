@@ -33,13 +33,15 @@
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Tanggal Dilaporkan</th>
+                                            <th>Kode Laporan</th>
+                                            <th>Tanggal Laporan</th>
                                             <th>Infrastruktur</th>
                                             <th>Pengaduan</th>
                                             <th>Lokasi</th>
                                             <th>Kec./Distrik</th>
                                             <th>Kab./Kota</th>
                                             <th>Pelapor</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -49,6 +51,7 @@
                                         ?>
                                         <tr>
                                             <td><?php echo $no++;?></td>
+                                            <td><?php echo $res['kodelap'];?></td>
                                             <td><?php echo $res['tgl_laporan'];?></td>
                                             <td><?php echo $res['infrastruktur'];?></td>
                                             <td><?php echo $res['pengaduan'];?></td>
@@ -56,6 +59,7 @@
                                             <td><?php echo $res['lokasidistrik'];?></td>
                                             <td><?php echo $res['lokasikabkota'];?></td>
                                             <td><?php echo $res['nama_pelapor']."<br>".$res['nik'];?></td>
+                                            <td><?php switch ($res['status']) {  case 0: echo "Menunggu"; break; case 1: echo "Diterima"; break; case 2: echo "Ditolak"; break; } ?></td>
                                         </tr>
                                     <?php } ?>
                                     </tbody>
