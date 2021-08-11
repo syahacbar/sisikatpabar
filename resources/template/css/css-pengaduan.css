@@ -197,6 +197,11 @@ div#loginpage .modal-content {
     background-color: #ecf0f6;
 }
 
+/* textarea alamat */
+#formulir textarea.form-control {
+    height: 165px;
+}
+
 #formulir .align-items-center {
     align-items: end !important;
 }
@@ -319,6 +324,24 @@ div#formulir .row.mb-4 select {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Field input nik */
+@media (max-width: 768px) {
+input#nik {
+    margin-bottom: 15px;
+}
+}
+
+@media (max-width: 768px) {
+select#kab_pelapor {
+    margin-top: 15px;
+}
+}
+
+/* Margin di bawah kolom kabupaten dan kecamatan */
+select#kab_pelapor, select#kec_pelapor {
+    margin-bottom: 15px;
 }
 
 /* Statistik */
@@ -1017,4 +1040,65 @@ div#ruasnamajalan .col-md-6 .row {
 div#ruasnamajalan .form-outline,
 div#ruasnamajalan .col {
     padding: 0;
+}
+
+
+/* Admin panel form */
+#adminprov tbody td:nth-last-child(1) a.btn.btn-info,
+#adminprov tbody td:nth-last-child(1) a.btn.btn-danger,
+#adminprov tbody td:nth-last-child(1) a.btn.btn-primary {
+    width: 60px;
+    padding: 0px;
+    font-size: 12px;
+    margin: 0 2px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#adminprov th:last-child {
+    width: 200px !important;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+}
+
+#adminprov tbody td:nth-last-child(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+}
+
+#adminprov th a.dataTable-sorter {
+    bottom: 0 !important;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+#adminprov .table-bordered > :not(caption) > *,
+#adminprov .dataTable-table > :not(caption) > * {
+    border-width: 1px;
+}
+
+#adminprov .dataTable-table > thead > tr > th {
+    vertical-align: bottom;
+    text-align: left;
+    border-bottom: none;
+    height: 58px;
+    /* border: 1px solid #e8e8e8 !important; */
+}
+
+#adminprov .dataTable-table > thead > tr {
+    border: 1px solid #e8e8e8 !important;
+}
+
+#adminprov .table-bordered > :not(caption) > * > *,
+#adminprov .dataTable-table > :not(caption) > * > * {
+    border-width: 1px !important;
 }

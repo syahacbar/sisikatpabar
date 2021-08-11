@@ -100,41 +100,82 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <?php echo form_open_multipart('lapor/add',array('id'=>'formlaporan')); ?>
 
-                                <!-- NIK -->
+
+                                <!-- NIK dan Nama -->
                                 <div class="row mb-4">
-                                    <div class="col">
+                                    <div class="col-md-6">
                                       <div class="form-outline">
-                                        <input id="nik" name="nik" type="text" class="form-control" placeholder="Ketik NIK Anda" required/>
+                                            <input id="nik" name="nik" type="text" class="form-control" placeholder="Ketik NIK Anda" required/>
                                       </div>
                                     </div>
-                                </div>   
-                                <!-- Akhir NIK -->
 
-                                <!-- Nama -->
-                                <div class="row mb-4">
-                                  <div class="col">
-                                    <div class="form-outline">
-                                      <input name="nama_pelapor" type="text" class="form-control" placeholder="Ketik Nama Anda" required/>
-                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-outline">
+                                            <input name="nama_pelapor" type="text" class="form-control" placeholder="Ketik Nama Anda" required/>
+                                        </div>
                                   </div>
                                 </div>
-                                <!-- Akhir Nama -->
+                                <!-- Akhir NIK dan Nama -->
+
+
+                                <div id="alamatuser" class="row mb-4">
+                                    <div class="col-md-6">
+                                      <div class="form-outline">
+                                            <textarea name="alamat_pelapor" class="form-control" rows="6" placeholder="Ketik alamat Anda dengan format: Nama Jalan, No. Rumah/Blok, Nama Kompleks, RT/RW" required></textarea>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="form-outline">
+                                                <select name="kab_pelapor" id="kab_pelapor" required>
+                                                    <option><i class="fas fa-chevron-down"></i>- Pilih Kabupaten/Kota -</option>
+                                                    <?php 
+                                                        foreach($kabupaten as $kab)
+                                                        {
+                                                            echo '<option value="'.$kab->kode.'">'.$kab->nama.'</option>';
+                                                        }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-outline">
+                                                    <select name="kec_pelapor" id="kec_pelapor" required>
+                                                        <option>- Pilih Kecamatan/Distrik -</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <select name="des_pelapor" id="des_pelapor" required>
+                                                    <option><i class="fas fa-chevron-down"></i>- Pilih Kelurahan/Desa -</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
 
                                 <!-- Alamat -->
-                                <div class="row mb-4">
+                                <!-- <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
                                         <textarea name="alamat_pelapor" class="form-control" rows="4" placeholder="Ketik alamat Anda dengan format: Nama Jalan, No. Rumah/Blok, Nama Kompleks, RT/RW" required></textarea>
                                       </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- Akhir Alamat --> 
 
                                 <!-- Kabupaten -->
-                                <div class="row mb-4">
+                                <!-- <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                      <select name="kab_pelapor" id="kab_pelapor" required>
+                                        <select name="kab_pelapor" id="kab_pelapor" required>
                                             <option><i class="fas fa-chevron-down"></i>- Pilih Kabupaten/Kota -</option>
                                             <?php 
                                                 foreach($kabupaten as $kab)
@@ -145,11 +186,11 @@
                                         </select>
                                       </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- Akhir Kabupaten -->     
 
                                 <!-- Kecamatan -->
-                                <div class="row mb-4">
+                                <!-- <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
                                         <select name="kec_pelapor" id="kec_pelapor" required>
@@ -157,17 +198,17 @@
                                         </select>
                                       </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- Akhir Kecamatan --> 
 
                                 <!-- Kel./Desa -->
-                                <div class="row mb-4">
+                                <!-- <div class="row mb-4">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <select name="des_pelapor" id="des_pelapor" required>
                                             <option><i class="fas fa-chevron-down"></i>- Pilih Kelurahan/Desa -</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- Akhir Kel./Desa -->                                                                   
 
                                 <!-- Email dan Nomor HP-->
