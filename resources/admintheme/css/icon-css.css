@@ -1,24 +1,68 @@
 svg.svg-inline--fa.fa-external-link-alt.fa-w-16 {
     color: #fff;
-    font-size: 14px;
+    font-size: 12px;
 }
-/*
-.btn-info {
-    color: #000;
-    background-color: #17a2b8;
-    border: 0;
-    width: 30px;
-    height: 30px;
+
+tbody td:nth-last-child(1) {
+    vertical-align: middle !important;
+}
+
+/* Admin panel form */
+#adminprov tbody td:nth-last-child(1) a.btn.btn-info,
+#adminprov tbody td:nth-last-child(1) a.btn.btn-danger,
+#adminprov tbody td:nth-last-child(1) a.btn.btn-primary {
+    width: 60px;
+    padding: 0px;
+    font-size: 12px;
+    margin: 0 2px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto !important;
+    flex-direction: column;
 }
 
-a.btn {
-    margin: 5px;
+#adminprov th:last-child {
+    width: 200px !important;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
 }
-*/
-tbody td:nth-last-child(1) {
-    vertical-align: middle !important;
+
+#adminprov tbody td:nth-last-child(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+}
+
+#adminprov th a.dataTable-sorter {
+    bottom: 0 !important;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+#adminprov .table-bordered > :not(caption) > *,
+#adminprov .dataTable-table > :not(caption) > * {
+    border-width: 1px;
+}
+
+#adminprov .dataTable-table > thead > tr > th {
+    vertical-align: bottom;
+    text-align: left;
+    border-bottom: none;
+    height: 58px;
+    /* border: 1px solid #e8e8e8 !important; */
+}
+
+#adminprov .dataTable-table > thead > tr {
+    border: 1px solid #e8e8e8 !important;
+}
+
+#adminprov .table-bordered > :not(caption) > * > *,
+#adminprov .dataTable-table > :not(caption) > * > * {
+    border-width: 1px !important;
 }

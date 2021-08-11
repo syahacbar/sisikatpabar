@@ -1,4 +1,67 @@
-<div class="container-fluid px-4">
+<style>
+
+/* Admin panel form */
+#adminprov tbody td:nth-last-child(1) a.btn.btn-info,
+#adminprov tbody td:nth-last-child(1) a.btn.btn-danger,
+#adminprov tbody td:nth-last-child(1) a.btn.btn-primary {
+    width: 60px;
+    padding: 0px;
+    font-size: 12px;
+    margin: 0 2px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#adminprov th:last-child {
+    width: 200px !important;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+}
+
+#adminprov tbody td:nth-last-child(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+}
+
+#adminprov th a.dataTable-sorter {
+    bottom: 0 !important;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+#adminprov .table-bordered > :not(caption) > *,
+#adminprov .dataTable-table > :not(caption) > * {
+    border-width: 1px;
+}
+
+#adminprov .dataTable-table > thead > tr > th {
+    vertical-align: bottom;
+    text-align: left;
+    border-bottom: none;
+    height: 58px;
+    /* border: 1px solid #e8e8e8 !important; */
+}
+
+#adminprov .dataTable-table > thead > tr {
+    border: 1px solid #e8e8e8 !important;
+}
+
+#adminprov .table-bordered > :not(caption) > * > *,
+#adminprov .dataTable-table > :not(caption) > * > * {
+    border-width: 1px !important;
+}
+</style>
+
+<div id="adminprov" class="container-fluid px-4">
     <h2 class="mt-4">Laporan Pengaduan <?php echo $infrastruktur;?></h2>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active"></li>
@@ -14,6 +77,7 @@
                         <th>Lokasi</th>
                         <th>Kec./Distrik</th>
                         <th>Kab./Kota</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -28,6 +92,7 @@
                         <td><?php echo $lap['lokasi_namajalan'];?></td>
                         <td><?php echo $lap['lokasidistrik'];?></td>
                         <td><?php echo $lap['lokasikabkota'];?></td>
+                        <td><?php if ($lap['status']=='1') { echo 'Diterima';} elseif ($lap['status']=='2') { echo 'Ditolak'; } else { echo 'Menunggu'; } ?></td>
                         <td>
                             <a
                                 id="#modalDetail"
@@ -49,9 +114,13 @@
                                 data-dokumentasi3="<?php echo $lap['dokumentasi3'] ?>"
 
 
-                                data-bs-target="#modalDetail" data-bs-toggle="modal" class="modalDetail btn btn-info" >
-                                <i class="fas fa-external-link-alt"></i>
+                                data-bs-target="#modalDetail" data-bs-toggle="modal" class="modalDetail btn btn-primary" >
+                                <i class="fas fa-external-link-alt"></i> Detail
                             </a>
+                            <a class="btn btn-info <?php echo ($lap['status']=='1') ? 'disabled' : ''; ?>"><i class="fas fa-check"></i> Terima</a>
+
+                            <a class="btn btn-danger <?php echo ($lap['status']=='2') ? 'disabled' : ''; ?>"><i class="fas fa-ban"></i> Tolak</a>
+
                         </td>
                     </tr>
                 <?php } ?>
