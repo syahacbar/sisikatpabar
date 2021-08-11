@@ -502,7 +502,7 @@
                    var infrastruktur = $("select[name='infrastruktur']").val();  
                    var latitude = $("input[name='latitude']").val();  
                    var longitude = $("input[name='longitude']").val();  
-                   var lokasi_namajalan = $("input[name='lokasi_namajalan']").val();                    
+                   var lokasi_namajalan = $("textarea[name='lokasi_namajalan']").val();                    
                    var lokasi_kabkota = $("select[name='lokasi_kabkota']").val();               
                    var lokasi_distrik = $("select[name='lokasi_distrik']").val();           
                    var pengaduan = $("textarea[name='pengaduan']").val();      
