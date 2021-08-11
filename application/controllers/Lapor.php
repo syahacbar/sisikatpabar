@@ -194,7 +194,7 @@ class Lapor extends CI_Controller{
         $userkey = $setting->userkey;
         $passkey = $setting->passkey;
         $telepon = $nowapelapor;
-        $message = 'Hai *'.$nama.'*, '.PHP_EOL.'Laporan Anda Tentang Ruas Jalan *'.strtoupper($ruasjalan).'* di Distrik *'.strtoupper($distrik).' '.$kabupaten.'* telah kami terima dan akan diverifikasi lebih lanjut. '.PHP_EOL.' '.PHP_EOL.'Terima Kasih. | Sisikat.com'.PHP_EOL.' '.PHP_EOL.'*-Don\'t Reply!-*';;
+        $message = 'Hai *'.$nama.'*, '.PHP_EOL.'Laporan Anda Tentang Ruas Jalan *'.$ruasjalan.'* di Distrik *'.strtoupper($distrik).' '.$kabupaten.'* telah kami terima dan akan diverifikasi lebih lanjut. '.PHP_EOL.' '.PHP_EOL.'Terima Kasih. | Sisikat.com'.PHP_EOL.' '.PHP_EOL.'*-Don\'t Reply!-*';;
         $url = 'https://console.zenziva.net/wareguler/api/sendWA/';
         $curlHandle = curl_init();
         curl_setopt($curlHandle, CURLOPT_URL, $url);
