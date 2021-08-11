@@ -9,6 +9,7 @@
                 <thead>
                     <tr>
                         <th>No.</th>
+                        <th>Kode Laporan</th>
                         <th>Tanggal Dilaporkan</th>
                         <th>Pengaduan</th>
                         <th>Lokasi</th>
@@ -23,6 +24,7 @@
                     
                     <tr>
                         <td><?php echo $no++;?></td>
+                        <td><?php echo $lap['kodelap'];?></td>
                         <td><?php echo $lap['tgl_laporan'];?></td>
                         <td><?php echo $lap['pengaduan'];?></td>
                         <td><?php echo $lap['lokasi_namajalan'];?></td>
