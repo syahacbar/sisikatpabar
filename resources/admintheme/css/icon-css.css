@@ -8,9 +8,9 @@ tbody td:nth-last-child(1) {
 }
 
 /* Admin panel form */
-#adminprov tbody td:nth-last-child(1) a.btn.btn-info,
-#adminprov tbody td:nth-last-child(1) a.btn.btn-danger,
-#adminprov tbody td:nth-last-child(1) a.btn.btn-primary {
+#admin tbody td:nth-last-child(1) a.btn.btn-info,
+#admin tbody td:nth-last-child(1) a.btn.btn-danger,
+#admin tbody td:nth-last-child(1) a.btn.btn-primary {
     width: 60px;
     padding: 0px;
     font-size: 12px;
@@ -22,7 +22,7 @@ tbody td:nth-last-child(1) {
     flex-direction: column;
 }
 
-#adminprov th:last-child {
+#admin th:last-child {
     width: 200px !important;
     min-width: 200px;
     display: flex;
@@ -31,26 +31,26 @@ tbody td:nth-last-child(1) {
     border: 0;
 }
 
-#adminprov tbody td:nth-last-child(1) {
+#admin tbody td:nth-last-child(1) {
     display: flex;
     justify-content: center;
     align-items: center;
     border: 0;
 }
 
-#adminprov th a.dataTable-sorter {
+#admin th a.dataTable-sorter {
     bottom: 0 !important;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
 }
 
-#adminprov .table-bordered > :not(caption) > *,
-#adminprov .dataTable-table > :not(caption) > * {
+#admin .table-bordered > :not(caption) > *,
+#admin .dataTable-table > :not(caption) > * {
     border-width: 1px;
 }
 
-#adminprov .dataTable-table > thead > tr > th {
+#admin .dataTable-table > thead > tr > th {
     vertical-align: bottom;
     text-align: left;
     border-bottom: none;
@@ -58,11 +58,11 @@ tbody td:nth-last-child(1) {
     /* border: 1px solid #e8e8e8 !important; */
 }
 
-#adminprov .dataTable-table > thead > tr {
+#admin .dataTable-table > thead > tr {
     border: 1px solid #e8e8e8 !important;
 }
 
-#adminprov .table-bordered > :not(caption) > * > *,
-#adminprov .dataTable-table > :not(caption) > * > * {
+#admin .table-bordered > :not(caption) > * > *,
+#admin .dataTable-table > :not(caption) > * > * {
     border-width: 1px !important;
 }

@@ -295,7 +295,7 @@
                                 <div id="ruasnamajalan" class="row mb-4">
                                     <div class="col-md-6">
                                       <div class="form-outline">
-                                        <textarea name="ruasjalan" class="form-control" rows="4" placeholder="Ketik ruas nama jalan di sini" required></textarea>
+                                        <textarea name="lokasi_namajalan" type="text" class="form-control" rows="4" placeholder="Ketik ruas nama jalan di sini" required></textarea>
                                       </div>
                                     </div>
 
@@ -327,36 +327,6 @@
 
                                 </div>
                                 <!-- Akhir Ruas Jalan -->
-
-                                <!-- Kabupaten -->
-                                <!-- <div class="row mb-4">
-                                    <div class="col">
-                                      <div class="form-outline">
-                                        <select name="lokasi_kabkota" id="lokasi_kabkota" required>
-                                            <option>- Pilih Kabupaten/Kota -</option>
-                                            <?php 
-                                                foreach($kabupaten as $kab)
-                                                {
-                                                    echo '<option value="'.$kab->kode.'">'.$kab->nama.'</option>';
-                                                }
-                                            ?>
-                                        </select>
-                                      </div>
-                                    </div>
-                                </div> -->
-                                <!-- Akhir Kabupaten -->
-
-                                <!-- Kecamatan -->
-                                <!-- <div class="row mb-4">
-                                    <div class="col">
-                                      <div class="form-outline">
-                                        <select name="lokasi_distrik" id="lokasi_distrik" required>
-                                            <option>- Pilih Kecamatan/Distrik -</option>
-                                        </select>
-                                      </div>
-                                    </div>
-                                </div> -->
-                                <!-- Akhir Kecamatan -->
 
                                 <!-- Isi Laporan -->
                                 <div class="row mb-4">
