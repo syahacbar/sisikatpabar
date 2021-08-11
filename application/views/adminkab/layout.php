@@ -224,7 +224,7 @@
             </div>
             </div>
         </div>
-        </div>
-        <!-- Akhir Modal Detail Setiap Infrastruktur -->
+    </div>
+    <!-- Akhir Modal Detail Setiap Infrastruktur -->
     </body>
 </html>

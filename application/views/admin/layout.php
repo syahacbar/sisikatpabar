@@ -137,121 +137,119 @@
 
 
 
-        <!-- Modal Detail Setiap Infrastruktur -->
-        <div class="modal fade" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="modalDetailTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalDetailTitle">Laporan</h5>
-                    <button id="closeBtn" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h5 class="card-title">Data Pelapor</h5>
-            <div class="row">
-                <div id="idcard" class="col-sm-5">
-                    <div class="card">
-                    <div class="card-body">
-                        <img src="xxx" id="imgModal" alt="id-card" >
-                    </div>
-                    </div>
+    <!-- Modal Detail Setiap Infrastruktur -->
+    <div class="modal fade" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="modalDetailTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalDetailTitle">Laporan</h5>
+                        <button id="closeBtn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                
-                <div id="identity" class="col-sm-7">
-                    <div class="card">
-                    <div class="card-body">
-                        <table class="table">
-                        <tbody>
-                            <tr>
-                            <td width="30%">NIK</td>
-                            <td>:</td>
-                            <td><span id="nikModal"></span></td>
-                            </tr>
-                            <tr>
-                            <td width="30%">Nama Lengkap</td>
-                            <td>:</td>
-                            <td><span id="namaModal"></span></td>
-                            </tr>
-                            <tr>
-                            <td width="30%">Alamat Lengkap</td>
-                            <td>:</td>
-                            <td><span id="alamatModal"></span></td>
-                            </tr>
-                            <tr>
-                            <td width="30%">Email</td>
-                            <td>:</td>
-                            <td><span id="emailModal"></span></td>
-                            </tr>
-                            <tr>
-                            <td width="30%">Nomor HP</td>
-                            <td>:</td>
-                            <td><span id="nohpModal"></span></td>
-                            </tr>
-                        </tbody>
-                        </table>
+                <div class="modal-body">
+                    <h5 class="card-title">Data Pelapor</h5>
+                <div class="row">
+                    <div id="idcard" class="col-sm-5">
+                        <div class="card">
+                        <div class="card-body">
+                            <img src="xxx" id="imgModal" alt="id-card" >
+                        </div>
+                        </div>
                     </div>
+                    
+                    <div id="identity" class="col-sm-7">
+                        <div class="card">
+                        <div class="card-body">
+                            <table class="table">
+                            <tbody>
+                                <tr>
+                                <td width="30%">NIK</td>
+                                <td>:</td>
+                                <td><span id="nikModal"></span></td>
+                                </tr>
+                                <tr>
+                                <td width="30%">Nama Lengkap</td>
+                                <td>:</td>
+                                <td><span id="namaModal"></span></td>
+                                </tr>
+                                <tr>
+                                <td width="30%">Alamat Lengkap</td>
+                                <td>:</td>
+                                <td><span id="alamatModal"></span></td>
+                                </tr>
+                                <tr>
+                                <td width="30%">Email</td>
+                                <td>:</td>
+                                <td><span id="emailModal"></span></td>
+                                </tr>
+                                <tr>
+                                <td width="30%">Nomor HP</td>
+                                <td>:</td>
+                                <td><span id="nohpModal"></span></td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                        </div>
                     </div>
-                </div>
-                <div id="report" class="col-sm-12">
-                    <h4 class="card-title">Detail Laporan</h4>
-                    <div class="card">
-                    <div class="card-body">
-                        <table class="table">
-                        <tbody>
-                            <tr>
-                            <td width="35%">Jenis Infrastruktur</td>
-                            <td>:</td>
-                            <td><span id="infra"></span></td>
-                            </tr>
-                            <tr>
-                            <td width="35%">Koordinat Lokasi</td>
-                            <td>:</td>
-                            <td>
-                                <span id="latitude"></span><br>
-                                <span id="longitude"></span>
-                            </td>
-                            </tr>
-                            <tr>
-                            <td width="35%">Nama Ruas Jalan</td>
-                            <td>:</td>
-                            <td><span id="ruasjalan"></span></td>
-                            </tr>
-                            <tr>
-                            <td width="35%">Alamat Lengkap</td>
-                            <td>:</td>
-                            <td><span id="lokasi"></span></td>
-                            </tr>
-                        </tbody>
-                        </table>
-                        <h5>Isi Laporan:</h5>
-                        <p id="pengaduan"><p>
-                        
-                        <h5>Dokumentasi:</h5>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <img id="dok1" src="" alt="jalan1">
-                            </div>
-                            <div class="col-sm-4">
-                                <img id="dok2" src="" alt="jalan2">   
-                            </div>
-                            <div class="col-sm-4">    
-                                <img id="dok3" src="" alt="jalan3">
+                    <div id="report" class="col-sm-12">
+                        <h4 class="card-title">Detail Laporan <span id="kodelap"></span></h4>
+                        <div class="card">
+                        <div class="card-body">
+                            <table class="table">
+                            <tbody>
+                                <tr>
+                                <td width="35%">Jenis Infrastruktur</td>
+                                <td>:</td>
+                                <td><span id="infra"></span></td>
+                                </tr>
+                                <tr>
+                                <td width="35%">Koordinat Lokasi</td>
+                                <td>:</td>
+                                <td>
+                                    <span id="koordinat"></span>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td width="35%">Nama Ruas Jalan</td>
+                                <td>:</td>
+                                <td><span id="ruasjalan"></span></td>
+                                </tr>
+                                <tr>
+                                <td width="35%">Kec/Distrik</td>
+                                <td>:</td>
+                                <td><span id="lokasidistrik"></span></td>
+                                </tr>
+                                <tr>
+                                <td width="35%">Kab/Kota</td>
+                                <td>:</td>
+                                <td><span id="lokasikabkota"></span></td>
+                                </tr>
+                            </tbody>
+                            </table>
+                            <h5>Isi Laporan:</h5>
+                            <p id="pengaduan"><p>
+                            
+                            <h5>Dokumentasi:</h5>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <img id="dok1" src="" alt="jalan1">
+                                </div>
+                                <div class="col-sm-4">
+                                    <img id="dok2" src="" alt="jalan2">   
+                                </div>
+                                <div class="col-sm-4">    
+                                    <img id="dok3" src="" alt="jalan3">
+                                </div>
                             </div>
                         </div>
-                        
-
-
-                    </div>
                     </div>
                 </div>
             </div>
-            <!-- <div class="modal-footer">
-                <button id="closeBtn" type="button" class="btn btn-secondary closemodalBtn" data-dismiss="modal">Tutup</button>
-            </div> -->
             </div>
         </div>
-        </div>
-        <!-- Akgier Modal Detail Setiap Infrastruktur -->
+    </div>
+    <!-- Akhir Modal Detail Setiap Infrastruktur -->
     </body>
 </html>

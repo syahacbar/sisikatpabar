@@ -85,6 +85,9 @@ class Laporan_model extends CI_Model
     function get_all_laporan($infrastruktur=NULL,$limit=NULL,$offset=NULL,$group=NULL,$order=NULL,$asdesc=NULL)
     {
         $this->db->select('l.*');
+        $this->db->select('(SELECT a.nama FROM wilayah_2020 a WHERE a.kode=l.kab_pelapor) AS kabpelapor');
+        $this->db->select('(SELECT b.nama FROM wilayah_2020 b WHERE b.kode=l.kec_pelapor) AS kecpelapor');
+        $this->db->select('(SELECT c.nama FROM wilayah_2020 c WHERE c.kode=l.des_pelapor) AS despelapor');
         $this->db->select('(SELECT x.nama FROM wilayah_2020 x WHERE x.kode=l.lokasi_kabkota) AS lokasikabkota');
         $this->db->select('(SELECT y.nama FROM wilayah_2020 y WHERE y.kode=l.lokasi_distrik) AS lokasidistrik');
         $this->db->select('(SELECT u.nama_file FROM upload u WHERE u.kodelap=l.kodelap AND u.kategori="dokumentasi1") AS dokumentasi1');

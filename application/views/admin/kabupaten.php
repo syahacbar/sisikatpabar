@@ -28,28 +28,32 @@
                         <td><?php echo $lap['lokasidistrik'];?></td>
                         <td><?php echo $lap['lokasikabkota'];?></td>
                         <td>
-                            <a
+                        <a
                                 id="#modalDetail"
                                 data-nik="<?php echo $lap['nik'] ?>"
                                 data-ktp="<?php echo $lap['ktp'] ?>"
                                 data-nama="<?php echo $lap['nama_pelapor'] ?>"
-                                data-alamat="<?php echo $lap['alamat_pelapor']." ".$lap['des_pelapor']." ".$lap['kec_pelapor']." ".$lap['kab_pelapor'] ?>"
+                                data-alamatpelapor="<?php echo $lap['alamat_pelapor'] ?>"
+                                data-despelapor="<?php echo $lap['despelapor'] ?>"
+                                data-kecpelapor="<?php echo $lap['kecpelapor']?>"
+                                data-kabpelapor="<?php echo ucwords(strtolower($lap['kabpelapor']))?>"
                                 data-email="<?php echo $lap['email'] ?>"
                                 data-nohp="<?php echo $lap['no_hp'] ?>"
 
                                 data-infra="<?php echo $lap['infrastruktur'] ?>"
-                                data-latitude="<?php echo "Latitude:" ." " .$lap['latitude'] ?>"
-                                data-longitude="<?php echo "Longitude:"." ".$lap['longitude'] ?>"
+                                data-latitude="<?php echo $lap['latitude'] ?>"
+                                data-longitude="<?php echo $lap['longitude'] ?>"
                                 data-ruasjalan="<?php echo $lap['lokasi_namajalan'] ?>"
-                                data-lokasi="<?php echo $lap['lokasi_kabkota']." ".$lap['lokasi_distrik'] ?>"
+                                data-lokasikabkota="<?php echo $lap['lokasikabkota']?>"
+                                data-lokasidistrik="<?php echo $lap['lokasidistrik']?>"
                                 data-pengaduan="<?php echo $lap['pengaduan'] ?>"
                                 data-dokumentasi1="<?php echo $lap['dokumentasi1'] ?>"
                                 data-dokumentasi2="<?php echo $lap['dokumentasi2'] ?>"
                                 data-dokumentasi3="<?php echo $lap['dokumentasi3'] ?>"
+                                data-kodelap="<?php echo $lap['kodelap'] ?>"
 
-
-                                data-bs-target="#modalDetail" data-bs-toggle="modal" class="modalDetail btn btn-info" >
-                                <i class="fas fa-external-link-alt"></i>
+                                data-bs-target="#modalDetail" data-bs-toggle="modal" class="modalDetail btn btn-primary" >
+                                <i class="fas fa-external-link-alt"></i> Detail
                             </a>
                         </td>
                     </tr>
@@ -80,8 +84,11 @@
             var nama = $(this).data('nama');
             $(".modal-body #namaModal").text( nama );
 
-            var alamat = $(this).data('alamat');
-            $(".modal-body #alamatModal").text( alamat );
+            var alamatpelapor = $(this).data('alamatpelapor');
+            var despelapor = $(this).data('despelapor');
+            var kecpelapor = $(this).data('kecpelapor');
+            var kabpelapor = $(this).data('kabpelapor');
+            $(".modal-body #alamatModal").html(alamatpelapor+"<br>"+despelapor+"<br>"+kecpelapor+"<br>"+kabpelapor);
 
             var email = $(this).data('email');
             $(".modal-body #emailModal").text( email );
@@ -95,17 +102,23 @@
 
             var latitude = $(this).data('latitude');
             var longitude = $(this).data('longitude');
-            $(".modal-body #latitude").text(latitude );
-            $(".modal-body #longitude").text(longitude );
+            $(".modal-body #koordinat").html(latitude+", "+longitude);
+            
 
             var ruasjalan = $(this).data('ruasjalan');
             $(".modal-body #ruasjalan").text(ruasjalan);
 
-            var lokasi = $(this).data('lokasi');
-            $(".modal-body #lokasi").text(lokasi);
+            var lokasikabkota = $(this).data('lokasikabkota');
+            $(".modal-body #lokasikabkota").html(lokasikabkota);
+
+            var lokasidistrik = $(this).data('lokasidistrik');
+            $(".modal-body #lokasidistrik").html(lokasidistrik);
 
             var pengaduan= $(this).data('pengaduan');
             $(".modal-body #pengaduan").text(pengaduan);
+
+            var kodelap= $(this).data('kodelap');
+            $(".modal-body #kodelap").text(kodelap);
 
             var dokumentasi1 = $(this).data('dokumentasi1');
             var dokumentasi2 = $(this).data('dokumentasi2');
