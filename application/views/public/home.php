@@ -104,9 +104,13 @@
                                 <!-- NIK dan Nama -->
                                 <div class="row mb-4">
                                     <div class="col-md-6">
-                                      <div class="form-outline">
-                                            <input id="nik" name="nik" type="text" class="form-control" placeholder="Ketik NIK Anda" required/>
-                                      </div>
+                                      <!-- <div id="only-number" class="form-outline">
+                                            <input id="nik" id="number" name="nik" type="text" class="form-control" placeholder="Ketik NIK Anda" required/>
+                                      </div> -->
+
+                                      <div class="form-group form-outline only-number">
+                                        <input type="text" name="nik" class="form-control number" placeholder="Ketik NIK Anda" required>
+                                    </div>
                                     </div>
 
                                     <div class="col-md-6">
@@ -129,7 +133,7 @@
                                         <div class="row">
                                             <div class="form-outline">
                                                 <select name="kab_pelapor" id="kab_pelapor" required>
-                                                    <option><i class="fas fa-chevron-down"></i>- Pilih Kabupaten/Kota -</option>
+                                                    <option value=""><i class="fas fa-chevron-down"></i>- Pilih Kabupaten/Kota -</option>
                                                     <?php 
                                                         foreach($kabupaten as $kab)
                                                         {
@@ -144,7 +148,7 @@
                                             <div class="col">
                                                 <div class="form-outline">
                                                     <select name="kec_pelapor" id="kec_pelapor" required>
-                                                        <option>- Pilih Kecamatan/Distrik -</option>
+                                                        <option value="">- Pilih Kecamatan/Distrik -</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -153,63 +157,12 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                 <select name="des_pelapor" id="des_pelapor" required>
-                                                    <option><i class="fas fa-chevron-down"></i>- Pilih Kelurahan/Desa -</option>
+                                                    <option value=""><i class="fas fa-chevron-down"></i>- Pilih Kelurahan/Desa -</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-
-                                <!-- Alamat -->
-                                <!-- <div class="row mb-4">
-                                    <div class="col">
-                                      <div class="form-outline">
-                                        <textarea name="alamat_pelapor" class="form-control" rows="4" placeholder="Ketik alamat Anda dengan format: Nama Jalan, No. Rumah/Blok, Nama Kompleks, RT/RW" required></textarea>
-                                      </div>
-                                    </div>
-                                </div> -->
-                                <!-- Akhir Alamat --> 
-
-                                <!-- Kabupaten -->
-                                <!-- <div class="row mb-4">
-                                    <div class="col">
-                                      <div class="form-outline">
-                                        <select name="kab_pelapor" id="kab_pelapor" required>
-                                            <option><i class="fas fa-chevron-down"></i>- Pilih Kabupaten/Kota -</option>
-                                            <?php 
-                                                foreach($kabupaten as $kab)
-                                                {
-                                                    echo '<option value="'.$kab->kode.'">'.$kab->nama.'</option>';
-                                                }
-                                            ?>
-                                        </select>
-                                      </div>
-                                    </div>
-                                </div> -->
-                                <!-- Akhir Kabupaten -->     
-
-                                <!-- Kecamatan -->
-                                <!-- <div class="row mb-4">
-                                    <div class="col">
-                                      <div class="form-outline">
-                                        <select name="kec_pelapor" id="kec_pelapor" required>
-                                            <option>- Pilih Kecamatan/Distrik -</option>
-                                        </select>
-                                      </div>
-                                    </div>
-                                </div> -->
-                                <!-- Akhir Kecamatan --> 
-
-                                <!-- Kel./Desa -->
-                                <!-- <div class="row mb-4">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <select name="des_pelapor" id="des_pelapor" required>
-                                            <option><i class="fas fa-chevron-down"></i>- Pilih Kelurahan/Desa -</option>
-                                        </select>
-                                    </div>
-                                </div> -->
-                                <!-- Akhir Kel./Desa -->                                                                   
+                                </div>                                                                 
 
                                 <!-- Email dan Nomor HP-->
                                 <div class="row mb-4">
@@ -219,10 +172,15 @@
                                     </div>
                                   </div>
 
+
                                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                    <div class="form-outline">
-                                      <input name="no_hp" type="text" class="form-control" placeholder="Ketik Nomor HP Anda" required/>
+                                    <div class="form-group form-outline only-number">
+                                        <input type="text" name="no_hp" class="form-control number" placeholder="Ketik Nomor WhatsApp Anda" required>
                                     </div>
+
+                                    <!-- <div id="only-number" class="form-outline">
+                                      <input id="number" name="no_hp" type="text" class="form-control" placeholder="Ketik Nomor WhatsApp Anda" required/>
+                                    </div> -->
                                   </div>
                                 </div>
                                 <!-- Email -->
@@ -262,13 +220,13 @@
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <input name="latitude" type="text" id="latitude" class="form-control" placeholder="Latitude" value="<?php echo set_value('latitude'); ?>" readonly/>
+                                        <input name="latitude" type="text" id="latitude" class="form-control" placeholder="Latitude" value="<?php echo set_value('latitude'); ?>" readonly required/>
                                       </div>
                                     </div>
 
                                     <div class="col">
                                       <div class="form-outline">
-                                        <input name="longitude" type="text" id="longitude" class="form-control" placeholder="Longitude" value="<?php echo set_value('longitude'); ?>" readonly/>
+                                        <input name="longitude" type="text" id="longitude" class="form-control" placeholder="Longitude" value="<?php echo set_value('longitude'); ?>" readonly required/>
                                       </div>
                                     </div>
                                 </div>
@@ -277,14 +235,14 @@
                                 <div id="jenisinfra" class="row mb-4">
                                     <label class="form-label">Pilih Jenis Infrastruktur</label>
                                     <div class="col-md-6">
-                                        <div class="form-check" name="infrastruktur" requred>
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                        <div class="form-check" name="infrastruktur">
+                                            <input class="form-check-input" value="jalan" type="radio" name="flexRadioDefault" id="flexRadioDefault1" required>
                                                 <label class="form-check-label" value="jalan" for="flexRadioDefault1">Jalan</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                            <input class="form-check-input" value="jalan" type="radio" name="flexRadioDefault" id="flexRadioDefault2" required>
                                                 <label class="form-check-label" value="drainase" for="flexRadioDefault2">Drainase</label>
                                         </div>
                                     </div>
@@ -303,7 +261,7 @@
                                         <div class="row">
                                             <div class="form-outline">
                                                 <select name="lokasi_kabkota" id="lokasi_kabkota" required>
-                                                    <option>- Pilih Kabupaten/Kota -</option>
+                                                    <option value="">- Pilih Kabupaten/Kota -</option>
                                                     <?php 
                                                         foreach($kabupaten as $kab)
                                                         {
@@ -318,7 +276,7 @@
                                             <div class="col">
                                                 <div class="form-outline">
                                                     <select name="lokasi_distrik" id="lokasi_distrik" required>
-                                                        <option>- Pilih Kecamatan/Distrik -</option>
+                                                        <option value="">- Pilih Kecamatan/Distrik -</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -569,6 +527,18 @@
 
             });
             
+        </script>
+
+        <script>
+            $(function() {
+            $('.only-number').on('keydown', '.number', function(e){
+                -1!==$
+                .inArray(e.keyCode,[46,8,9,27,13,110,190]) || /65|67|86|88/
+                .test(e.keyCode) && (!0 === e.ctrlKey || !0 === e.metaKey)
+                || 35 <= e.keyCode && 40 >= e.keyCode || (e.shiftKey|| 48 > e.keyCode || 57 < e.keyCode)
+                && (96 > e.keyCode || 105 < e.keyCode) && e.preventDefault()
+            });
+            })
         </script>
 
       
