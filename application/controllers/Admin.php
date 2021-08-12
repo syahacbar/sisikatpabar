@@ -23,24 +23,24 @@ class Admin extends MY_Controller{
         $data['kabupaten'] = $get_kab->result();
 
         $lapharian = $this->db->query("SELECT COUNT(*) total, 
-                                        DATE_FORMAT(r.tgl_laporan, '%d %b') tanggal,
-                                        MONTH(r.tgl_laporan) bulan,
-                                        DATE_FORMAT(r.tgl_laporan, '%a') hari
-                                        FROM laporan r
-                                        WHERE YEARWEEK(r.tgl_laporan, 1) = YEARWEEK(NOW(), 1)
-                                        GROUP BY DATE(r.tgl_laporan)
-                                        ORDER BY DATE(r.tgl_laporan) ASC");
+            DATE_FORMAT(r.tgl_laporan, '%d %b') tanggal,
+            MONTH(r.tgl_laporan) bulan,
+            DATE_FORMAT(r.tgl_laporan, '%a') hari
+            FROM laporan r
+            WHERE YEARWEEK(r.tgl_laporan, 1) = YEARWEEK(NOW(), 1)
+            GROUP BY DATE(r.tgl_laporan)
+            ORDER BY DATE(r.tgl_laporan) ASC");
         $lapbulanan = $this->db->query("SELECT COUNT(*) total,
-                                        MONTHNAME(r.tgl_laporan) bulan
-                                        FROM laporan r
-                                        GROUP BY MONTH(r.tgl_laporan)
-                                        ORDER BY DATE(r.tgl_laporan) ASC");
+            MONTHNAME(r.tgl_laporan) bulan
+            FROM laporan r
+            GROUP BY MONTH(r.tgl_laporan)
+            ORDER BY DATE(r.tgl_laporan) ASC");
         $maxmingguan = $this->db->query("SELECT COUNT(*) total, 
-                                        DAYOFMONTH(r.tgl_laporan) tanggal,
-                                        MONTH(r.tgl_laporan) bulan,
-                                        DATE_FORMAT(r.tgl_laporan, '%a') hari
-                                        FROM laporan r
-                                        WHERE YEARWEEK(r.tgl_laporan, 1) = YEARWEEK(NOW(), 1)");
+            DAYOFMONTH(r.tgl_laporan) tanggal,
+            MONTH(r.tgl_laporan) bulan,
+            DATE_FORMAT(r.tgl_laporan, '%a') hari
+            FROM laporan r
+            WHERE YEARWEEK(r.tgl_laporan, 1) = YEARWEEK(NOW(), 1)");
 
         $data['countlapall'] = $this->Laporan_model->count_all_laporan();
         $data['countlapmenunggu'] = $this->Laporan_model->count_all_laporan('0');
@@ -156,9 +156,9 @@ class Admin extends MY_Controller{
         $data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
         $data['users'] = $this->ion_auth->users()->result();
         foreach ($data['users'] as $k => $user)
-            {
-                $data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
-            }
+        {
+            $data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
+        }
         $data['_view'] = 'auth/index';
         $this->load->view('admin/layout',$data);
 
@@ -210,7 +210,7 @@ class Admin extends MY_Controller{
             }
         }
 
-                    
+        
     }
 
     function cetakword()
@@ -222,23 +222,6 @@ class Admin extends MY_Controller{
     }
 
     function docx() {
-        
-        /*$phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $paper = new \PhpOffice\PhpWord\Style\Paper();        
-        $section = $phpWord->addSection(array(
-            'pageSizeW' => $paper->getWidth(), 
-            'pageSizeH' => $paper->getHeight(), 
-            'orientation' => 'landscape',
-            'marginLeft' => 500, 
-            'marginRight' => 500,
-            'marginTop' => 800, 
-            'marginBottom' => 800
-        ));
-        
-        
-        
-        $filename = date('Y-m-d H:i:s') . '.docx';      
-        */
         
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $paper = new \PhpOffice\PhpWord\Style\Paper();   
@@ -311,23 +294,23 @@ class Admin extends MY_Controller{
     function skruasjalan()
     {        
         $data['_view'] = 'admin/skruasjalan';
-        $this->load->view('admin/skruasjalan',$data);
+        $this->load->view('admin/layout',$data);
     }
 
     // Upload SK Ruas Jalan
     function uploadsk()
     {
-            $config['upload_path']   = FCPATH.'/upload/skruasjalan/';
-            $config['allowed_types'] = 'pdf';
-            $this->load->library('upload',$config);
+        $config['upload_path']   = FCPATH.'/upload/skruasjalan/';
+        $config['allowed_types'] = 'pdf';
+        $this->load->library('upload',$config);
 
-            if($this->upload->do_upload('filektp')){
-                $namask=$this->upload->data('file_name');
-                $filesk=$this->input->post('file_sk');
-                $token=$this->input->post('token_sk');
-                $uploaded_on=date("Y-m-d H:i:s");
-                $this->db->insert('upload',array('file_name'=>$namask,'file_sk'=>$filesk,'token'=>$token,'uploaded_on'=>$uploaded_on));
-            }
+        if($this->upload->do_upload('filektp')){
+            $namask=$this->upload->data('file_name');
+            $filesk=$this->input->post('file_sk');
+            $token=$this->input->post('token_sk');
+            $uploaded_on=date("Y-m-d H:i:s");
+            $this->db->insert('upload',array('file_name'=>$namask,'file_sk'=>$filesk,'token'=>$token,'uploaded_on'=>$uploaded_on));
+        }
 
     }
 
