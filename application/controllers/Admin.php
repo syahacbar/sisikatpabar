@@ -47,7 +47,7 @@ class Admin extends MY_Controller{
         $data['countlapsetuju'] = $this->Laporan_model->count_all_laporan('1');
         $data['countlaptolak'] = $this->Laporan_model->count_all_laporan('2');
 
-        $data['updatelaporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_Laporan','DESC','1');
+        $data['updatelaporan'] = $this->Laporan_model->get_all_laporan(NULL,'5',NULL,NULL,'tgl_Laporan','DESC','1');
         $data['maxmingguan'] = $maxmingguan->row();
         $data['lapharian'] = $lapharian->result();
         $data['lapbulanan'] = $lapbulanan->result();
