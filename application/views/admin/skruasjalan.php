@@ -194,11 +194,13 @@
 
                             <div class="row mb-4">
                                 <div id="content">
+
+                                <!-- Unggah File -->
                                 <div id="identity" class="row mb-4">
-                                    <h6>Unggah File</h6>
+                                    <h6>Unggah Foto KTP</h6>
                                     <div class="dropzone sk" id="sk">
                                         <div class="dz-message">
-                                            <h3> Klik atau Seret File ke sini</h3>
+                                            <h3> Klik atau Drop gambar disini</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -226,24 +228,29 @@
             </div>
             
             <script>
-                var sk_upload= new Dropzone(".sk",{
-                    autoProcessQueue: true,
-                    url: "<?php echo site_url('upload/skruasjalan') ?>",
-                    maxFilesize: 50,
-                    maxFiles: 1,
-                    method:"post",
-                    acceptedFiles:"application/pdf",
-                    paramName:"fileskruasjalan",
-                    dictInvalidFileType:"Type file ini tidak dizinkan",
-                    addRemoveLinks:true,
-                });
+                Dropzone.autoDiscover = false;
+                $(document).ready(function(){   
 
-                sk_upload.on("sending",function(a,b,c){
-                    a.token=Math.random();
-                    c.append("token_skruasjalan",a.token);
-                    c.append("kodelap", $('#kodelap').val());
-                });
+                    var sk_upload= new Dropzone(".sk",{
+                        autoProcessQueue: true,
+                        url: "<?php echo site_url('upload/skruasjalan') ?>",
+                        maxFilesize: 50,
+                        // maxFiles: 1,
+                        method:"post",
+                        acceptedFiles:"application/pdf",
+                        paramName:"filesk",
+                        dictInvalidFileType:"Type file ini tidak dizinkan",
+                        addRemoveLinks:true,
+                    });
 
+                    sk_upload.on("sending",function(a,b,c){
+                        a.token=Math.random();
+                        c.append("token_foto",a.token); //Menmpersiapkan token untuk masing masing foto
+                        c.append("filesk", $('#filesk').val());
+                    });
+
+
+                });
             </script>
     </body>
 </html>

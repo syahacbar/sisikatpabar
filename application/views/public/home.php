@@ -184,7 +184,7 @@
                                 </div>
                                 <!-- Email -->
 
-                                <!-- Unggah Bukti -->
+                                <!-- Unggah KTP -->
                                 <div id="identity" class="row mb-4">
                                     <h6>Unggah Foto KTP</h6>
                                     <div class="dropzone ktp" id="ktp">
@@ -347,6 +347,7 @@
                                 <div id="policy" class="form-check d-flex justify-content-center mb-4">
                                   <label class="form-check-label">Dengan ini, saya menyatakan bahwa informasi yang saya berikan adalah benar dan dapat dipertanggungjawabkan.</label>
                                 </div>
+                                
                                 <!-- Akhir Kebijakan Privasi -->
                                 <input type="hidden" id="kodelap" name="kodelap" value="<?php echo $kodelap;?>">
                                 <!-- Tombol Kirim -->
