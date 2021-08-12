@@ -1,7 +1,6 @@
 <?php echo $map['js']; ?>
-<script src='https://www.google.com/recaptcha/api.js'></script>
     <!-- Header Web -->
-        <header id="header" class="masthead">
+        <header id="header" class="masthead"> 
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     <!-- Header - Bagian tulisan SISIKAT dan tagline-->

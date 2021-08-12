@@ -27,11 +27,25 @@ class Auth extends CI_Controller
 	 */
 	public function login_history()
 	{
-		$this->db->order_by('logintime', 'DESC');
-		$log = $this->db->get('login_history')->result_array();
-		$this->data['loginhistory'] = $log;
-		$this->data['_view'] = 'auth/login_history';
-		$this->load->view('admin/layout',$this->data);
+		$user = $this->ion_auth->user()->row();
+    	$user_groups = $this->ion_auth->get_users_groups($user->id)->row();
+    	if($user_groups->name=='admin')
+    	{
+    		$this->db->order_by('logintime', 'DESC');
+			$log = $this->db->get('login_history')->result_array();
+			$this->data['loginhistory'] = $log;
+			$this->data['_view'] = 'auth/login_history';
+    		$this->load->view('admin/layout',$this->data);
+    	} 
+    	else
+    	{
+    		$this->db->where('username',$user->username);
+    		$this->db->order_by('logintime', 'DESC');
+			$log = $this->db->get('login_history')->result_array();
+			$this->data['loginhistory'] = $log;
+			$this->data['_view'] = 'auth/login_history';
+    		$this->load->view('adminkab/layout',$this->data);
+    	}
 		//$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'login_history', $this->data);
 	}
 
@@ -200,7 +214,17 @@ class Auth extends CI_Controller
 
 			// render
 			//$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'change_password', $this->data);
-			$this->load->view('admin/layout',$this->data);
+			$user = $this->ion_auth->user()->row();
+        	$user_groups = $this->ion_auth->get_users_groups($user->id)->row();
+        	if($user_groups->name=='admin')
+        	{
+        		$this->load->view('admin/layout',$this->data);
+        	} 
+        	else
+        	{
+        		$this->load->view('adminkab/layout',$this->data);
+        	}
+			
 		}
 		else
 		{
@@ -222,9 +246,15 @@ class Auth extends CI_Controller
 		}
 	}
 
+	public function forgot_password()
+	{
+		$nomorwhatsapp = $this->input->post('nomorwhatsapp');
+		// blm selesai nanti klo sdh mood baru selesaikan
+	}
+
 	/**
 	 * Forgot password
-	 */
+	 
 	public function forgot_password()
 	{
 		$this->data['title'] = $this->lang->line('forgot_password_heading');

@@ -41,7 +41,12 @@ class Admin extends MY_Controller{
                                         DATE_FORMAT(r.tgl_laporan, '%a') hari
                                         FROM laporan r
                                         WHERE YEARWEEK(r.tgl_laporan, 1) = YEARWEEK(NOW(), 1)");
-        
+
+        $data['countlapall'] = $this->Laporan_model->count_all_laporan();
+        $data['countlapmenunggu'] = $this->Laporan_model->count_all_laporan('0');
+        $data['countlapsetuju'] = $this->Laporan_model->count_all_laporan('1');
+        $data['countlaptolak'] = $this->Laporan_model->count_all_laporan('2');
+
         $data['updatelaporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_Laporan','DESC','1');
         $data['maxmingguan'] = $maxmingguan->row();
         $data['lapharian'] = $lapharian->result();

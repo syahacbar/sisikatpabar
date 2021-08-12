@@ -40,6 +40,12 @@ class Adminkab extends CI_Controller{
         
         $user = $this->ion_auth->user()->row();
         $user_groups = $this->ion_auth->get_users_groups($user->id)->row();
+
+        $data['countlapall'] = $this->Laporan_model->count_all_laporan(NULL,$user_groups->kode_kab);
+        $data['countlapmenunggu'] = $this->Laporan_model->count_all_laporan('0',$user_groups->kode_kab);
+        $data['countlapsetuju'] = $this->Laporan_model->count_all_laporan('1',$user_groups->kode_kab);
+        $data['countlaptolak'] = $this->Laporan_model->count_all_laporan('2',$user_groups->kode_kab);
+
         $data['updatelaporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user_groups->kode_kab,'5',NULL,NULL,'tgl_laporan','DESC','0');
         $data['maxmingguan'] = $maxmingguan->row();
         $data['lapharian'] = $lapharian->result();

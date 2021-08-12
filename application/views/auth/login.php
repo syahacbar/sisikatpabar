@@ -51,6 +51,11 @@
                                         </form>
                                         <?php echo form_close();?>
                                     </div>
+
+                                    <div class="card-footer text-center py-3">
+                                        <div class="small">Kembali ke halaman<a href="<?php echo site_url();?>"> sisikat.com</a></div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
