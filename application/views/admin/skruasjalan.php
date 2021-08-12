@@ -1,3 +1,14 @@
+<?php echo form_open_multipart('upload/skruasjalan');?>
+
+<?php
+    $uploadDir = 'uploads';
+    if (!empty($_FILES)) {
+    $tmpFile = $_FILES['file']['tmp_name'];
+    $filename = $uploadDir.'/'.time().'-'. $_FILES['file']['name'];
+    move_uploaded_file($tmpFile,$filename);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -23,8 +34,59 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="<?php echo base_url();?>resources/admintheme/js/datatables-simple-demo.js"></script>
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
+
         <!-- Jquery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+            div#skruasjalan .card.mb-4 {
+                padding: 15px;
+            }
+
+            .dz-default.dz-message span {
+                font-size: 0;
+            }
+
+            .dz-default.dz-message span:after {
+                font-size: 16px !important;
+                content: "Seret atau pilih file untuk diunggah";
+                text-align: center;
+            }
+
+            .dz-default.dz-message span:before {
+                content: " ";
+                background-image: url(https://image.flaticon.com/icons/png/512/337/337946.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                height: 65px !important;
+                display: block;
+                font-size: 0;
+            }
+
+            form#image-upload {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            div#skruasjalan .col-md-12 {
+                margin-bottom: 20px;
+            }
+
+            div#skruasjalan .dropzone {
+                min-height: 150px;
+                border: 1px solid rgb(206 212 218);
+                background: white;
+                padding: 20px 20px;
+                border-radius: 5px;
+            }
+
+            div#skruasjalan button#uploadFile {
+                margin-top: 20px;
+            }
+        </style>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -119,143 +181,69 @@
                     </div>
                 </nav>
             </div>
-            <div id="layoutSidenav_content">
-                <main>
-                    <?php                    
-                        if(isset($_view) && $_view)
-                         $this->load->view($_view);
-                    ?>    
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; 2021 | Sistem Informasi Infrastruktur Berbasis Parisipasi Masyarakat</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
+            
 
+                <div id="layoutSidenav_content">
+                    <main>
+                        <div id="skruasjalan" class="container-fluid px-4">
+                            <h2 class="mt-4">SK Ruas Jalan</h2>
+                            <div class="card mb-4">
+                            <ol class="breadcrumb mb-4">
+                                <li class="breadcrumb-item active"></li>
+                            </ol>
 
-
-    <!-- Modal Detail Setiap Infrastruktur -->
-    <div class="modal fade" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="modalDetailTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalDetailTitle">Laporan</h5>
-                        <button id="closeBtn" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <h5 class="card-title">Data Pelapor</h5>
-                <div class="row">
-                    <div id="idcard" class="col-sm-5">
-                        <div class="card">
-                        <div class="card-body">
-                            <img src="xxx" id="imgModal" alt="id-card" >
-                        </div>
-                        </div>
-                    </div>
-                    
-                    <div id="identity" class="col-sm-7">
-                        <div class="card">
-                        <div class="card-body">
-                            <table class="table">
-                            <tbody>
-                                <tr>
-                                <td width="30%">NIK</td>
-                                <td>:</td>
-                                <td><span id="nikModal"></span></td>
-                                </tr>
-                                <tr>
-                                <td width="30%">Nama Lengkap</td>
-                                <td>:</td>
-                                <td><span id="namaModal"></span></td>
-                                </tr>
-                                <tr>
-                                <td width="30%">Alamat Lengkap</td>
-                                <td>:</td>
-                                <td><span id="alamatModal"></span></td>
-                                </tr>
-                                <tr>
-                                <td width="30%">Email</td>
-                                <td>:</td>
-                                <td><span id="emailModal"></span></td>
-                                </tr>
-                                <tr>
-                                <td width="30%">Nomor HP</td>
-                                <td>:</td>
-                                <td><span id="nohpModal"></span></td>
-                                </tr>
-                            </tbody>
-                            </table>
-                        </div>
-                        </div>
-                    </div>
-                    <div id="report" class="col-sm-12">
-                        <h4 class="card-title">Detail Laporan <span id="kodelap"></span></h4>
-                        <div class="card">
-                        <div class="card-body">
-                            <table class="table">
-                            <tbody>
-                                <tr>
-                                <td width="35%">Jenis Infrastruktur</td>
-                                <td>:</td>
-                                <td><span id="infra"></span></td>
-                                </tr>
-                                <tr>
-                                <td width="35%">Koordinat Lokasi</td>
-                                <td>:</td>
-                                <td>
-                                    <span id="koordinat"></span>
-                                </td>
-                                </tr>
-                                <tr>
-                                <td width="35%">Nama Ruas Jalan</td>
-                                <td>:</td>
-                                <td><span id="ruasjalan"></span></td>
-                                </tr>
-                                <tr>
-                                <td width="35%">Kec/Distrik</td>
-                                <td>:</td>
-                                <td><span id="lokasidistrik"></span></td>
-                                </tr>
-                                <tr>
-                                <td width="35%">Kab/Kota</td>
-                                <td>:</td>
-                                <td><span id="lokasikabkota"></span></td>
-                                </tr>
-                            </tbody>
-                            </table>
-                            <h5>Isi Laporan:</h5>
-                            <p id="pengaduan"><p>
-                            
-                            <h5>Dokumentasi:</h5>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <img id="dok1" src="" alt="jalan1">
+                            <div class="row mb-4">
+                                <div id="content">
+                                <div id="identity" class="row mb-4">
+                                    <h6>Unggah File</h6>
+                                    <div class="dropzone sk" id="sk">
+                                        <div class="dz-message">
+                                            <h3> Klik atau Seret File ke sini</h3>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-sm-4">
-                                    <img id="dok2" src="" alt="jalan2">   
+                                    <!-- <button type="button" id="submit_dropzone_form">UPLOAD</button> -->
+                                <button id="btnSubmit" name="submit" type="submit" class="btn btn-primary btn-block mb-4">Kirim Laporan</button>
+                                <!-- Tombol Kirim -->
                                 </div>
-                                <div class="col-sm-4">    
-                                    <img id="dok3" src="" alt="jalan3">
+                            </div> 
+                        </div>
+                    </main>
+
+                    <footer class="py-4 bg-light mt-auto">
+                        <div class="container-fluid px-4">
+                            <div class="d-flex align-items-center justify-content-between small">
+                                <div class="text-muted">Copyright &copy; 2021 | Sistem Informasi Infrastruktur Berbasis Parisipasi Masyarakat</div>
+                                <div>
+                                    <a href="#">Privacy Policy</a>
+                                    &middot;
+                                    <a href="#">Terms &amp; Conditions</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </footer>
                 </div>
             </div>
-            </div>
-        </div>
-    </div>
-    <!-- Akhir Modal Detail Setiap Infrastruktur -->
+            
+            <script>
+                var sk_upload= new Dropzone(".sk",{
+                    autoProcessQueue: true,
+                    url: "<?php echo site_url('upload/skruasjalan') ?>",
+                    maxFilesize: 50,
+                    maxFiles: 1,
+                    method:"post",
+                    acceptedFiles:"application/pdf",
+                    paramName:"fileskruasjalan",
+                    dictInvalidFileType:"Type file ini tidak dizinkan",
+                    addRemoveLinks:true,
+                });
+
+                sk_upload.on("sending",function(a,b,c){
+                    a.token=Math.random();
+                    c.append("token_skruasjalan",a.token);
+                    c.append("kodelap", $('#kodelap').val());
+                });
+
+            </script>
     </body>
 </html>

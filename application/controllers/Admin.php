@@ -68,7 +68,7 @@ class Admin extends MY_Controller{
         }
         else
         {
-            $data['laporan'] = $this->Laporan_model->get_all_laporan(NULL);
+            $data['laporan'] = $this->Laporan_model->get_all_laporan(NULL); 
             $data['infrastruktur'] = 'Semua Infrastruktur';
         }
 
@@ -258,6 +258,29 @@ class Admin extends MY_Controller{
         header('Cache-Control: max-age=0'); //no cache
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         $objWriter->save('php://output');
+    }
+
+    function skruasjalan()
+    {        
+        $data['_view'] = 'admin/skruasjalan';
+        $this->load->view('admin/skruasjalan',$data);
+    }
+
+    function uploadsk()
+    {
+            $config['upload_path']   = FCPATH.'/upload/skruasjalan/';
+            $config['allowed_types'] = '*';
+            $this->load->library('upload',$config);
+
+            if($this->upload->do_upload('fileskruasjalan')){
+                $token=$this->input->post('token');
+                $file=$this->input->post('filesk');
+                $nama=$this->upload->data('namask');
+                $kategori='skruasjalan';
+                $uploaded_on=date("Y-m-d H:i:s");
+                $this->db->insert('upload',array('namask'=>$nama,'token'=>$token,'filesk'=>$file,'skruasjalan'=>$kategori,'uploaded_on'=>$uploaded_on,'kodelap'=>$kodelap));
+            }
+
     }
 
 }
