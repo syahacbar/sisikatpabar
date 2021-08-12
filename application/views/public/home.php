@@ -335,26 +335,25 @@
 
                                 </div>
 
+                                <!-- Kebijakan Privasi -->
+                                <div id="policy" class="form-check d-flex justify-content-center mb-4">
+                                <label class="form-check-label">Dengan ini, saya menyatakan bahwa informasi yang saya berikan adalah benar dan dapat dipertanggungjawabkan.</label>
+                                </div>       
+                                <!-- Akhir Kebijakan Privasi -->
+
                                 <div class="row mb-4">
-                                    <div class="col">
-                                      <div class="form-outline">
+                                    <div class="col-md-6 captchaLogin">
+                                        <div class="form-outline">
                                         <?php echo $recaptcha;?>
-                                      </div>
+                                        </div>
                                     </div>
 
-                                    <div class="col">
-                                        <!-- Kebijakan Privasi -->
-                                        <div id="policy" class="form-check d-flex justify-content-center mb-4">
-                                        <label class="form-check-label">Dengan ini, saya menyatakan bahwa informasi yang saya berikan adalah benar dan dapat dipertanggungjawabkan.</label>
-                                        </div>       
-                                        <!-- Akhir Kebijakan Privasi -->
-                                    </div>
-
-                                    <div class="col">
+                                    <div class="col-md-6">
                                         <input type="hidden" id="kodelap" name="kodelap" value="<?php echo $kodelap;?>">
-                                    <!-- Tombol Kirim -->
-                                    <button id="btnSubmit" name="submit" type="submit" class="btn btn-primary btn-block mb-4">Kirim Laporan</button>
-                                    <!-- Tombol Kirim -->
+                                        <!-- Tombol Kirim -->
+                                        <button id="btnSubmit" name="submit" type="submit" class="btn btn-primary btn-block mb-4">Kirim Laporan</button>
+                                        <!-- Tombol Kirim -->
+                                    </div>
                                 </div>
 
                             <?php echo form_close(); ?>
