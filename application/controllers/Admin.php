@@ -318,19 +318,19 @@ class Admin extends MY_Controller{
     function uploadsk()
     {
             $config['upload_path']   = FCPATH.'/upload/skruasjalan/';
-            $config['allowed_types'] = '*';
+            $config['allowed_types'] = 'pdf';
             $this->load->library('upload',$config);
 
-            if($this->upload->do_upload('fileskruasjalan')){
-                $token=$this->input->post('token');
-                $file=$this->input->post('filesk');
-                $nama=$this->upload->data('namask');
-                $kategori='skruasjalan';
+            if($this->upload->do_upload('filektp')){
+                $namask=$this->upload->data('file_name');
+                $filesk=$this->input->post('file_sk');
+                $token=$this->input->post('token_sk');
                 $uploaded_on=date("Y-m-d H:i:s");
-                $this->db->insert('upload',array('namask'=>$nama,'token'=>$token,'filesk'=>$file,'skruasjalan'=>$kategori,'uploaded_on'=>$uploaded_on,'kodelap'=>$kodelap));
+                $this->db->insert('upload',array('file_name'=>$namask,'file_sk'=>$filesk,'token'=>$token,'uploaded_on'=>$uploaded_on));
             }
 
     }
+
 
     function proseslaporan($idlap)
     {
