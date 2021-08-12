@@ -45,7 +45,7 @@ class Laporan_model extends CI_Model
         return $this->db->get_where('wilayah_2020', array('kode' => $kab))->row();
     }
         
-    function get_all_laporan_bykabkota($kab=NULL,$limit=NULL,$offset=NULL,$infrastruktur=NULL,$order=NULL,$asdesc=NULL)
+    function get_all_laporan_bykabkota($kab=NULL,$limit=NULL,$offset=NULL,$infrastruktur=NULL,$order=NULL,$asdesc=NULL,$status=NULL)
     {
         $this->db->select('l.*');
         $this->db->select('(SELECT a.nama FROM wilayah_2020 a WHERE a.kode=l.kab_pelapor) AS kabpelapor');
@@ -66,7 +66,10 @@ class Laporan_model extends CI_Model
         {
             $this->db->where('l.infrastruktur',$infrastruktur);
         }
-
+        if($status!=NULL)
+        {
+            $this->db->where('l.status',$status);
+        }
         $this->db->from('laporan l');
 
         if ($order!=NULL && $asdesc!=NULL)
@@ -133,7 +136,7 @@ class Laporan_model extends CI_Model
     }
      
      
-    function get_all_laporan($infrastruktur=NULL,$limit=NULL,$offset=NULL,$group=NULL,$order=NULL,$asdesc=NULL)
+    function get_all_laporan($infrastruktur=NULL,$limit=NULL,$offset=NULL,$group=NULL,$order=NULL,$asdesc=NULL, $status=NULL)
     {
         $this->db->select('l.*');
         $this->db->select('(SELECT a.nama FROM wilayah_2020 a WHERE a.kode=l.kab_pelapor) AS kabpelapor');
@@ -150,6 +153,12 @@ class Laporan_model extends CI_Model
         {
             $this->db->where('l.infrastruktur',$infrastruktur);
         }
+
+        if ($status!=NULL)
+        {
+            $this->db->where('l.status',$status);
+        }
+
         $this->db->from('laporan l');
 
         if ($limit!=NULL)

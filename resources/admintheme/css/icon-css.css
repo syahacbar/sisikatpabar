@@ -7,7 +7,9 @@ svg.svg-inline--fa.fa-external-link-alt.fa-w-16 {
     vertical-align: middle !important;
 }
 
+
 /* Admin panel form */
+
 #admin tbody td:nth-last-child(1) a.btn.btn-info,
 #admin tbody td:nth-last-child(1) a.btn.btn-danger,
 #admin tbody td:nth-last-child(1) a.btn.btn-primary {
@@ -45,12 +47,12 @@ svg.svg-inline--fa.fa-external-link-alt.fa-w-16 {
     justify-content: space-between;
 }
 
-#admin .table-bordered > :not(caption) > *,
-#admin .dataTable-table > :not(caption) > * {
+#admin .table-bordered> :not(caption)>*,
+#admin .dataTable-table> :not(caption)>* {
     border-width: 1px;
 }
 
-#admin .dataTable-table > thead > tr > th {
+#admin .dataTable-table>thead>tr>th {
     vertical-align: bottom;
     text-align: left;
     border-bottom: none;
@@ -58,11 +60,80 @@ svg.svg-inline--fa.fa-external-link-alt.fa-w-16 {
     /* border: 1px solid #e8e8e8 !important; */
 }
 
-#admin .dataTable-table > thead > tr {
+#admin .dataTable-table>thead>tr {
     border: 1px solid #e8e8e8 !important;
 }
 
-#admin .table-bordered > :not(caption) > * > *,
-#admin .dataTable-table > :not(caption) > * > * {
+#admin .table-bordered> :not(caption)>*>*,
+#admin .dataTable-table> :not(caption)>*>* {
     border-width: 1px !important;
+}
+
+
+/* Button Infrastruktur adminkab */
+
+button.btn.btn-success.btnTerima,
+button.btn.btn-danger.btnTolak {
+    width: 60px;
+    height: 40px;
+    font-size: 13px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2px;
+}
+
+button.btn.btn-danger.btnTolak.disabled,
+button.btn.btn-success.btnTerima.disabled {
+    opacity: 0.4;
+}
+
+
+/* Bagian card total laporan di bagian dashboard */
+
+.row.lapmasuk {
+    padding: 15px 15px 0 15px;
+}
+
+.row.lapmasuk h1 {
+    text-align: center;
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.row.lapmasuk .card.bg-primary.text-white.mb-4,
+.row.lapmasuk .card.bg-warning.text-white.mb-4,
+.row.lapmasuk .card.bg-success.text-white.mb-4,
+.row.lapmasuk .card.bg-danger.text-white.mb-4 {
+    border: 0;
+}
+
+.row.lapmasuk .card-footer.d-flex.align-items-center.justify-content-between {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 10px !important;
+}
+
+
+/* Tabel Admin Infrastruktur dan Tabel Admin Kabupaten - Tabel Infrastruktur Admin-Kabupaten */
+
+.tabelinfraAdmin thead th:nth-child(2),
+.tabelkabAdmin thead th:nth-child(2),
+.tabelkabAdmin thead th:nth-child(6),
+.tabelinfraAdmin td:nth-child(3),
+.tabeldashboardAdmin td:nth-child(3),
+.tabelinfraAdmin thead th:nth-child(5) {
+    min-width: 150px;
+}
+
+.tabelinfraAdmin thead th:nth-child(7) {
+    min-width: 145px;
+}
+
+.tabelinfraAdmin td:nth-child(6),
+.tabeldashboardAdmin td:nth-child(6) {
+    min-width: 175px;
 }
