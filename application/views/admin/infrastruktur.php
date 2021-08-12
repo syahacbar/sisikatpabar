@@ -58,7 +58,7 @@
                                 <i class="fas fa-external-link-alt"></i> Detail
                             </a>
 
-                            
+
                             <a class="btn btn-info <?php echo ($lap['status']=='1') ? 'disabled' : ''; ?>"><i class="fas fa-check"></i> Terima</a>
 
                             <a class="btn btn-danger <?php echo ($lap['status']=='2') ? 'disabled' : ''; ?>"><i class="fas fa-ban"></i> Tolak</a>

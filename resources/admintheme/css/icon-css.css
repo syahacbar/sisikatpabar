@@ -3,7 +3,7 @@ svg.svg-inline--fa.fa-external-link-alt.fa-w-16 {
     font-size: 12px;
 }
 
-tbody td:nth-last-child(1) {
+#admin tbody td:nth-last-child(1) {
     vertical-align: middle !important;
 }
 
