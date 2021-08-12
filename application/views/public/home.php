@@ -1,5 +1,5 @@
 <?php echo $map['js']; ?>
-
+<script src='https://www.google.com/recaptcha/api.js'></script>
     <!-- Header Web -->
         <header id="header" class="masthead">
             <div class="container px-5">
@@ -335,13 +335,14 @@
                                     </div>
 
                                 </div>
-                                <!-- Akhir Doc. Laporan -->                                
-                                
-                                <!-- <div class="dropzone dokumentasi" id="dokumentasi">
-                                  <div class="dz-message">
-                                    <h3> Klik atau Drop gambar dokumentasi disini</h3>
-                                  </div>
-                                </div>  -->
+
+                                <div class="row mb-4">
+                                    <div class="col">
+                                      <div class="form-outline">
+                                        <?php echo $recaptcha;?>
+                                      </div>
+                                    </div>
+                                </div>
 
                                 <!-- Kebijakan Privasi -->
                                 <div id="policy" class="form-check d-flex justify-content-center mb-4">

@@ -7,6 +7,7 @@ class Lapor extends CI_Controller{
         $this->load->model('Laporan_model');
         $this->load->model('M_setting');
         $this->load->library('session');
+        $this->load->library('recaptcha');
     } 
 
 
@@ -15,6 +16,8 @@ class Lapor extends CI_Controller{
      */
     function index()
     {
+        $recaptcha = $this->recaptcha->create_box();
+
         $setting=$this->M_setting->list_setting();
         $this->load->library('googlemaps');
         $config['center'] = "$setting->latitude, $setting->longitude";
@@ -49,6 +52,7 @@ class Lapor extends CI_Controller{
         $data['jum_lap_jalan'] = $this->Laporan_model->get_infrastruktur('jalan')->num_rows();
         $data['kodelap'] = $kodelap;
         $data['_view'] = 'public/home';
+        $data['recaptcha'] = $recaptcha;
         $data['title'] = 'SI-SIKAT | Beranda';
         $this->load->view('public/layout',$data);
 
@@ -79,7 +83,7 @@ class Lapor extends CI_Controller{
 
         $this->load->library('form_validation');
         $this->form_validation->set_rules('nik','NIK','required');
-        
+        $is_valid = $this->recaptcha->is_valid();
         if($this->form_validation->run())     
         {   
             $params = array(
@@ -101,22 +105,29 @@ class Lapor extends CI_Controller{
                 'lokasi_distrik' => $this->input->post('lokasi_distrik'),
                 'kodelap' => $this->input->post('kodelap'),
             );
-            
-            $laporan_id = $this->Laporan_model->add_laporan($params);
+            if($is_valid['success'])
+            {
+                $laporan_id = $this->Laporan_model->add_laporan($params);
 
-            $namapelapor = $this->input->post('nama_pelapor');
-            $nowapelapor = $this->input->post('no_hp');
-            //$nowakabid = $this->M_setting->get_nowa_kabid($this->input->post('lokasi_kabkota'))->phone;
-            $nowakabid = '085244146207';
-            $kodelap = $this->input->post('kodelap');
-            $distrik = $this->M_setting->get_wilayah($this->input->post('lokasi_distrik'));
-            $kabupaten = $this->M_setting->get_wilayah($this->input->post('lokasi_kabkota'));
-            $image = $this->M_setting->get_image($kodelap);
-            $imageurl = base_url().'upload/dokumentasi/'.$image;
-            $ruasjalan = $this->input->post('lokasi_namajalan');
+                $namapelapor = $this->input->post('nama_pelapor');
+                $nowapelapor = $this->input->post('no_hp');
+                //$nowakabid = $this->M_setting->get_nowa_kabid($this->input->post('lokasi_kabkota'))->phone;
+                $nowakabid = '085244146207';
+                $kodelap = $this->input->post('kodelap');
+                $distrik = $this->M_setting->get_wilayah($this->input->post('lokasi_distrik'));
+                $kabupaten = $this->M_setting->get_wilayah($this->input->post('lokasi_kabkota'));
+                $image = $this->M_setting->get_image($kodelap);
+                $imageurl = base_url().'upload/dokumentasi/'.$image;
+                $ruasjalan = $this->input->post('lokasi_namajalan');
 
-            $this->wasendpelapor($nowapelapor,$namapelapor,$ruasjalan,$distrik,$kabupaten);
-            $this->wasendkabid($nowakabid,$kodelap,$ruasjalan,$kabupaten,$distrik,$imageurl);
+                $this->wasendpelapor($nowapelapor,$namapelapor,$ruasjalan,$distrik,$kabupaten);
+                $this->wasendkabid($nowakabid,$kodelap,$ruasjalan,$kabupaten,$distrik,$imageurl);
+
+            }
+            else
+            {
+                echo "reCAPTCHA not solved/an error occured";
+            }
             
         }        
     }
