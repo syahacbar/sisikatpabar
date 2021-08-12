@@ -792,8 +792,15 @@ class Auth extends CI_Controller
 
 
 		$this->data['_view'] = 'auth/edit_user';
-		$this->load->view('admin/layout',$this->data);
-		//$this->_render_page('auth/edit_user', $this->data);
+		if(!$this->ion_auth->is_admin())
+		{
+				$this->load->view('adminkab/layout',$this->data);
+		}
+		else
+		{
+				$this->load->view('admin/layout',$this->data);
+		}
+		
 	}
 
 	/**
