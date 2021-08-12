@@ -77,8 +77,8 @@
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Kode Laporan</th>
                                             <th>Tanggal Laporan</th>
+                                            <th>Kode Laporan</th>
                                             <th>Infrastruktur</th>
                                             <th>Pengaduan</th>
                                             <th>Lokasi</th>
@@ -95,8 +95,8 @@
                                         ?>
                                         <tr>
                                             <td><?php echo $no++;?></td>
-                                            <td><?php echo $res['kodelap'];?></td>
                                             <td><?php echo $res['tgl_laporan'];?></td>
+                                            <td><?php echo $res['kodelap'];?></td>
                                             <td><?php echo $res['infrastruktur'];?></td>
                                             <td><?php echo $res['pengaduan'];?></td>
                                             <td><?php echo $res['lokasi_namajalan'];?></td>
