@@ -29,9 +29,8 @@
             </div>
         </form>
         </div>
-        <div class="card-body">
-                    
-            <table id="datatablesSimple" class="table table-striped">
+        <div class="card-body">      
+            <table id="datatablesSimple" class="table table-striped tabelinfraAdmin">
                 <thead>
                     <tr>
                         <th>No.</th>
@@ -40,7 +39,6 @@
                         <th>Pengaduan</th>
                         <th>Lokasi</th>
                         <th>Kec./Distrik</th>
-                        <th>Kab./Kota</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
@@ -55,7 +53,6 @@
                         <td><?php echo $lap['pengaduan'];?></td>
                         <td><?php echo $lap['lokasi_namajalan'];?></td>
                         <td><?php echo $lap['lokasidistrik'];?></td>
-                        <td><?php echo $lap['lokasikabkota'];?></td>
                         <td><?php if ($lap['status']=='1') { echo 'Diterima';} elseif ($lap['status']=='2') { echo 'Ditolak'; } else { echo 'Menunggu'; } ?></td>
                         <td>
                             <a
@@ -85,11 +82,9 @@
                                 data-bs-target="#modalDetail" data-bs-toggle="modal" class="modalDetail btn btn-primary" >
                                 <i class="fas fa-external-link-alt"></i> Detail
                             </a>
-                            <a id="ATerima" data-id="<?php echo $lap['kodelap'];?>" class="btn btn-info"><i class="fas fa-check"></i> Terima</a>
-                            
-                            <a id="tolaklaporan" class="btn btn-danger <?php echo ($lap['status']=='2') ? 'disabled' : ''; ?>"><i class="fas fa-ban"></i> Tolak</a>
 
-                            <button id="<?php echo $lap['kodelap'];?>" value="<?php echo $lap['id'];?>" class="btn btn-info btnTerima  <?php echo ($lap['status']=='1') ? 'disabled' : ''; ?>" >Terima</button>
+                            <button id="<?php echo $lap['kodelap'];?>" value="<?php echo $lap['id'];?>" class="btn btn-success btnTerima  <?php echo ($lap['status']=='1') ? 'disabled' : ''; ?>" ><i class="fas fa-check"></i>Terima</button>
+                            <button id="<?php echo $lap['kodelap'];?>" value="<?php echo $lap['id'];?>" class="btn btn-danger btnTolak  <?php echo ($lap['status']=='2') ? 'disabled' : ''; ?>" ><i class="fas fa-ban"></i>Tolak</button>
 
                         </td>
                     </tr>
@@ -167,25 +162,6 @@
             img3.src = "<?php echo base_url('upload/dokumentasi/');?>"+dokumentasi3;
         });
 
-        // $("#ATerima a").click(function(e) {
-        //     e.preventDefault();
-        //     var status = '1';
-        //     var idlap = $('#ATerima').attr("data-id");
-            // $.ajax({
-            //     type: "POST",
-            //     url: '<?php //echo site_url() ?>adminkab/proseslaporan/'+idlap,
-            //     data: {status:status,idlap:idlap},
-            //     success:function(data)
-            //     {
-            //         alert('SUCCESS!!'+idlap);
-            //     },
-            //     error:function()
-            //     {
-            //         alert('FAILED');
-            //     }
-            // });
-
-        // });
         $(".btnTerima").click(function() {
             var idlap = $(this).val();
             var status = 1;
@@ -201,11 +177,29 @@
                     },
                     error:function()
                     {
-                        alert('FAILED');
+                        alert('Gagal Merubah Status Laporan : '+kodelap);
                     }
                 });
+        });
 
-
+        $(".btnTolak").click(function() {
+            var idlap = $(this).val();
+            var status = 2;
+            var kodelap = $(this).attr('id');
+                $.ajax({
+                    type: "POST",
+                    url: '<?php echo site_url() ?>adminkab/proseslaporan/'+idlap,
+                    data: {status:status,idlap:idlap},
+                    success:function(data)
+                    {
+                        alert('Sukses Merubah Status Laporan : '+kodelap);
+                        location.reload();
+                    },
+                    error:function()
+                    {
+                        alert('Gagal Merubah Status Laporan : '+kodelap);
+                    }
+                });
         });
     });
 </script>

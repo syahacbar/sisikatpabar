@@ -42,7 +42,7 @@ class Admin extends MY_Controller{
                                         FROM laporan r
                                         WHERE YEARWEEK(r.tgl_laporan, 1) = YEARWEEK(NOW(), 1)");
         
-        $data['updatelaporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_Laporan','DESC');
+        $data['updatelaporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_Laporan','DESC','1');
         $data['maxmingguan'] = $maxmingguan->row();
         $data['lapharian'] = $lapharian->result();
         $data['lapbulanan'] = $lapbulanan->result();
@@ -54,24 +54,49 @@ class Admin extends MY_Controller{
     function infrastruktur($q=NULL)
     {
         $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
-        $data['kabupaten'] = $get_kab->result();
+        if($this->input->post('btnFilter', TRUE))
+        {
+            $status = $this->input->post('status', TRUE);
+            
+            $data['status'] = $status;
 
-        if($q=='jalan')
-        {
-            $data['laporan'] = $this->Laporan_model->get_all_laporan('jalan');
-            $data['infrastruktur'] = 'Jalan';
-        } 
-        elseif($q=='drainase')
-        {
-            $data['laporan'] = $this->Laporan_model->get_all_laporan('drainase');
-            $data['infrastruktur'] = 'Drainase';
+            if($q=='jalan')
+            {
+                $data['laporan'] = $this->Laporan_model->get_all_laporan('jalan',NULL,NULL,NULL,'tgl_laporan','DESC',$status);
+                $data['infrastruktur'] = 'Infrastruktur Jalan';
+            } 
+            elseif($q=='drainase')
+            {
+                $data['laporan'] = $this->Laporan_model->get_all_laporan('drainase',NULL,NULL,NULL,'tgl_laporan','DESC',$status);
+                $data['infrastruktur'] = 'Infrastruktur Drainase';
+            }
+            else
+            {
+                $data['laporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_laporan','DESC',$status); 
+                $data['infrastruktur'] = 'Semua Infrastruktur';
+            }
         }
         else
         {
-            $data['laporan'] = $this->Laporan_model->get_all_laporan(NULL); 
-            $data['infrastruktur'] = 'Semua Infrastruktur';
-        }
+            $data['status'] = '1';
 
+            if($q=='jalan')
+            {
+                $data['laporan'] = $this->Laporan_model->get_all_laporan('jalan',NULL,NULL,NULL,'tgl_laporan','DESC','1');
+                $data['infrastruktur'] = 'Infrastruktur Jalan';
+            } 
+            elseif($q=='drainase')
+            {
+                $data['laporan'] = $this->Laporan_model->get_all_laporan('drainase',NULL,NULL,NULL,'tgl_laporan','DESC','1');
+                $data['infrastruktur'] = 'Infrastruktur Drainase';
+            }
+            else
+            {
+                $data['laporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_laporan','DESC','1'); 
+                $data['infrastruktur'] = 'Semua Infrastruktur';
+            }
+        }
+        $data['kabupaten'] = $get_kab->result();
         $data['_view'] = 'admin/infrastruktur';
         $this->load->view('admin/layout',$data);
     }
@@ -80,16 +105,33 @@ class Admin extends MY_Controller{
     function kabkota($kabkota=NULL)
     {
         $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
-        $data['kabupaten'] = $get_kab->result();
-        $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($kabkota);
-        if ($kabkota==NULL)
+        if($this->input->post('btnFilter', TRUE))
         {
-            $data['kabkota'] = 'Semua Kab/Kota';
-        } else {
-            $data['kabkota'] = $this->Laporan_model->get_kabkota($kabkota)->nama;
+            $status = $this->input->post('status', TRUE);
+            $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($kabkota,NULL,NULL,NULL,NULL,NULL,$status);
+            $data['status'] = $status;
+
+            if ($kabkota==NULL)
+            {
+                $data['kabkota'] = 'Semua Kab/Kota';
+            } else {
+                $data['kabkota'] = $this->Laporan_model->get_kabkota($kabkota)->nama;
+            }
         }
-                
+        else
+        {
+            $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($kabkota,NULL,NULL,NULL,NULL,NULL,'1');
+            $data['status'] = '1';
+
+            if ($kabkota==NULL)
+            {
+                $data['kabkota'] = 'Semua Kab/Kota';
+            } else {
+                $data['kabkota'] = $this->Laporan_model->get_kabkota($kabkota)->nama;
+            }
+        }    
         $data['_view'] = 'admin/kabupaten';
+        $data['kabupaten'] = $get_kab->result();
         $this->load->view('admin/layout',$data);
     }
 
@@ -266,6 +308,7 @@ class Admin extends MY_Controller{
         $this->load->view('admin/skruasjalan',$data);
     }
 
+    // Upload SK Ruas Jalan
     function uploadsk()
     {
             $config['upload_path']   = FCPATH.'/upload/skruasjalan/';
@@ -281,6 +324,12 @@ class Admin extends MY_Controller{
                 $this->db->insert('upload',array('namask'=>$nama,'token'=>$token,'filesk'=>$file,'skruasjalan'=>$kategori,'uploaded_on'=>$uploaded_on,'kodelap'=>$kodelap));
             }
 
+    }
+
+    function proseslaporan($idlap)
+    {
+        $status = $this->input->post('status');
+        $this->Laporan_model->proseslaporan($idlap,$status);
     }
 
 }

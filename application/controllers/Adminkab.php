@@ -40,7 +40,7 @@ class Adminkab extends CI_Controller{
         
         $user = $this->ion_auth->user()->row();
         $user_groups = $this->ion_auth->get_users_groups($user->id)->row();
-        $data['updatelaporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user_groups->kode_kab,NULL,NULL,NULL,'tgl_laporan','DESC');
+        $data['updatelaporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user_groups->kode_kab,'5',NULL,NULL,'tgl_laporan','DESC','0');
         $data['maxmingguan'] = $maxmingguan->row();
         $data['lapharian'] = $lapharian->result();
         $data['lapbulanan'] = $lapbulanan->result();

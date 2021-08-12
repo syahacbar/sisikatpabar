@@ -3,6 +3,50 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active"></li>
                         </ol>
+
+                        <div class="col-xl-12">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                <i class="fas fa-bars"></i>
+                                    Laporan Bulanan
+                                </div>
+                                <div class="row lapmasuk">
+                                <div class="col-xl-3 col-md-6">
+                                    <div class="card bg-primary text-white mb-4">
+                                        <h1>80</h1>
+                                        <div class="card-footer d-flex align-items-center justify-content-between">
+                                            <a class="small text-white stretched-link" href="#">Total Laporan Masuk</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6">
+                                    <div class="card bg-warning text-white mb-4">
+                                        <h1>50</h1>
+                                        <div class="card-footer d-flex align-items-center justify-content-between">
+                                            <a class="small text-white stretched-link" href="#">Laporan Menunggu Verifikasi</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6">
+                                    <div class="card bg-success text-white mb-4">
+                                        <h1>20</h1>
+                                        <div class="card-footer d-flex align-items-center justify-content-between">
+                                            <a class="small text-white stretched-link" href="#">Laporan Disetujui</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6">
+                                    <div class="card bg-danger text-white mb-4">
+                                        <h1>13</h1>
+                                        <div class="card-footer d-flex align-items-center justify-content-between">
+                                            <a class="small text-white stretched-link" href="#">Laporan Ditolak</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="card mb-4">
@@ -29,7 +73,7 @@
                                 Update Laporan Terbaru
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple" class="table table-striped">
+                                <table id="datatablesSimple" class="table table-striped tabeldashboardAdmin">
                                     <thead>
                                         <tr>
                                             <th>No.</th>

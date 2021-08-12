@@ -1,21 +1,39 @@
-<div class="container-fluid px-4">
-    <h2 class="mt-4">Laporan Pengaduan <?php echo ucwords(strtolower($kabkota));?></h2>
+<div id="admin" class="container-fluid px-4">
+    <h2 class="mt-4">Data Pelaporan SI-SIKAT <?php echo ucwords(strtolower($kabkota));?></h2>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active"></li>
     </ol>
     <div class="card mb-4">
-       
+        <div class="card-header">
+            <form id="filter" name="filter" method="post" action="">
+                <div class="row">
+                    <div class="col-md-2">
+                        <select class="form-control" name="status" id="status">
+                            <option value="" <?php echo ($status=='') ? 'selected' : '';?>>- Semua Status -</option>
+                            <option value="0" <?php echo ($status=='0') ? 'selected' : '';?>>Menunggu</option>
+                            <option value="1" <?php echo ($status=='1') ? 'selected' : '';?>>Diterima</option>
+                            <option value="2" <?php echo ($status=='2') ? 'selected' : '';?>>Ditolak</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <input name="btnFilter" type="submit" id="btn-filter" class="btn btn-primary" value="Filter">
+                    </div>
+                </div>
+            </form>
+        </div> 
         <div class="card-body">
-            <table id="datatablesSimple">
+            <table id="datatablesSimple" class="tabelkabAdmin">
                 <thead>
                     <tr>
                         <th width="10">No.</th>
                         <th>Tanggal Dilaporkan</th>
+                        <th>Kode Laporan</th>
                         <th>Infrastruktur</th>
                         <th>Pengaduan</th>
                         <th>Lokasi</th>
                         <th>Kec./Distrik</th>
-                        <th>Detail</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,10 +41,12 @@
                     <tr>
                         <td><?php echo $no++;?></td>
                         <td><?php echo $lap['tgl_laporan'];?></td>
+                        <td><?php echo $lap['kodelap'];?></td>
                         <td><?php echo $lap['infrastruktur'];?></td>
                         <td><?php echo $lap['pengaduan'];?></td>
+                        <td><?php echo $lap['lokasi_namajalan'];?></td>
                         <td><?php echo $lap['lokasidistrik'];?></td>
-                        <td><?php echo $lap['lokasikabkota'];?></td>
+                        <td><?php if ($lap['status']=='1') { echo 'Diterima';} elseif ($lap['status']=='2') { echo 'Ditolak'; } else { echo 'Menunggu'; } ?></td>
                         <td>
                         <a
                                 id="#modalDetail"
@@ -55,6 +75,9 @@
                                 data-bs-target="#modalDetail" data-bs-toggle="modal" class="modalDetail btn btn-primary" >
                                 <i class="fas fa-external-link-alt"></i> Detail
                             </a>
+                            <button id="<?php echo $lap['kodelap'];?>" value="<?php echo $lap['id'];?>" class="btn btn-success btnTerima  <?php echo ($lap['status']=='1') ? 'disabled' : ''; ?>" ><i class="fas fa-check"></i>Terima</button>
+                            <button id="<?php echo $lap['kodelap'];?>" value="<?php echo $lap['id'];?>" class="btn btn-danger btnTolak  <?php echo ($lap['status']=='2') ? 'disabled' : ''; ?>" ><i class="fas fa-ban"></i>Tolak</button>
+
                         </td>
                     </tr>
                 <?php } ?>
@@ -129,6 +152,46 @@
             img1.src = "<?php echo base_url('upload/dokumentasi/');?>"+dokumentasi1;
             img2.src = "<?php echo base_url('upload/dokumentasi/');?>"+dokumentasi2;
             img3.src = "<?php echo base_url('upload/dokumentasi/');?>"+dokumentasi3;
+        });
+
+        $(".btnTerima").click(function() {
+            var idlap = $(this).val();
+            var status = 1;
+            var kodelap = $(this).attr('id');
+                $.ajax({
+                    type: "POST",
+                    url: '<?php echo site_url() ?>admin/proseslaporan/'+idlap,
+                    data: {status:status,idlap:idlap},
+                    success:function(data)
+                    {
+                        alert('Sukses Merubah Status Laporan : '+kodelap);
+                        location.reload();
+                    },
+                    error:function()
+                    {
+                        alert('Gagal Merubah Status Laporan : '+kodelap);
+                    }
+                });
+        });
+
+        $(".btnTolak").click(function() {
+            var idlap = $(this).val();
+            var status = 2;
+            var kodelap = $(this).attr('id');
+                $.ajax({
+                    type: "POST",
+                    url: '<?php echo site_url() ?>admin/proseslaporan/'+idlap,
+                    data: {status:status,idlap:idlap},
+                    success:function(data)
+                    {
+                        alert('Sukses Merubah Status Laporan : '+kodelap);
+                        location.reload();
+                    },
+                    error:function()
+                    {
+                        alert('Gagal Merubah Status Laporan : '+kodelap);
+                    }
+                });
         });
 
     });
