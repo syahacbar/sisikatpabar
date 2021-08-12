@@ -332,7 +332,6 @@
                                             </div>
                                         </div> 
                                     </div>
-
                                 </div>
 
                                 <!-- Kebijakan Privasi -->
@@ -342,20 +341,13 @@
                                 <!-- Akhir Kebijakan Privasi -->
 
                                 <div class="row mb-4">
-                                    <div class="col-md-6 captchaLogin">
-                                        <div class="form-outline">
-                                        <?php echo $recaptcha;?>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <input type="hidden" id="kodelap" name="kodelap" value="<?php echo $kodelap;?>">
-                                        <!-- Tombol Kirim -->
-                                        <button id="btnSubmit" name="submit" type="submit" class="btn btn-primary btn-block mb-4">Kirim Laporan</button>
-                                        <!-- Tombol Kirim -->
-                                    </div>
+                                    <center><?php echo $recaptcha;?></center>
                                 </div>
 
+                                <input type="hidden" id="kodelap" name="kodelap" value="<?php echo $kodelap;?>">
+                                <!-- Tombol Kirim -->
+                                <button id="btnSubmit" name="submit" type="submit" class="btn btn-primary btn-block mb-4">Kirim Laporan</button>
+                                <!-- Tombol Kirim -->
                             <?php echo form_close(); ?>
                         </div>
                     </div>

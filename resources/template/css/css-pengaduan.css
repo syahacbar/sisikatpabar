@@ -1,529 +1,450 @@
-/* CSS Untuk file index.html */
-
-
-/* Logo website */
-
-a.navbar-brand img.d-inline-block.align-top {
-    width: 170px;
-    height: auto;
-}
-
-
-/* Gambar bg warna merah bagian header */
-
-.masthead {
-    background-color: #ecf0f6;
-    padding-top: 8rem;
-    padding-bottom: 5rem;
-    background-image: url(../assets/img/header_1.png);
-    background-position: center bottom !important;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-
-/* Background navigasi topbar */
-
-#mainNav {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    background-color: #fff;
-    background-image: url(../assets/img/transparent_bg.svg), linear-gradient(163deg, #cd0c43, #cd0c43 49%, #cd0c43);
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-
-/* Topbar navigation button ketika active */
-
-#mainNav .navbar-nav .nav-item .nav-link.active {
-    color: #000 !important;
-    font-weight: bold;
-}
-
-
-/* Topbar navigation button  */
-
-#mainNav .navbar-nav .nav-item .nav-link {
-    color: #ffffff;
-    font-weight: bold;
-}
-
-
-/* Topbar navigation button ketika klik/hover */
-
-#mainNav .navbar-nav a.nav-link.me-lg-3:hover {
-    color: #000 !important;
-}
-
-
-/* Button menu topbar ketika diklik */
-
-.navbar-toggler:focus {
-    text-decoration: none;
-    outline: 0;
-    box-shadow: none;
-    border: 0 !important;
-}
-
-
-/* Button masuk topbar */
-
-#mainNav button.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0 {
-    background-color: #4e2eeb !important;
-    border: 0;
-}
-
-#mainNav .navbar-toggler {
-    font-size: 0.875rem;
-    padding: 0;
-    border: 0;
-    font-weight: bold;
-    font-weight: bold;
-    height: 50px;
-    width: 45px;
-    color: #Fff;
-}
-
-
-/* Tulisan SISIKAT dan sistem informasi bagian header */
-
-header#header h1.display-1.lh-1.mb-3,
-header#header h2.display-4.text-center.lh-1.mb-4 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-    color: #fff;
-}
-
-
-/* Tulisan SISIKAT dan sistem informasi bagian header */
-
-.masthead .text-muted {
-    color: #ffffff !important;
-    margin-bottom: 10px !important;
-}
-
-
-/* Button Lapor Sekarang */
-
-header#header a.me-lg-3.mb-4.mb-lg-0:last-child {
-    padding: 20px 40px;
-    background-color: #4e2eeb !important;
-    border-radius: 50px;
-    color: #fff;
-    text-decoration: none;
-}
-
-
-/* Icon garis 3 di menu navbar */
-
-#mainNav i.bi.bi-list {
-    font-size: 15px !important;
-    color: transparent !important;
-}
-
-
-/* Tombol masuk di modal Login */
-
-#feedbackModal .modal-content button.btn.btn-primary {
-    background-color: #4e2eeb;
-    border: 0;
-    width: 100%;
-    border-radius: 30px;
-    margin: 10px 0;
-}
-
-.px-5 {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-}
-
-.modal-body.border-0.p-4 img.d-inline-block.align-top {
-    filter: invert(1);
-    margin: 5px 20%;
-    width: 60%;
-}
-
-
-/* Tulisan login pada modal login */
-
-.modal-body.border-0.p-4 h1.display-1.lh-1.mb-3,
-h2.display-4.text-center.lh-1.mb-4 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    margin-top: 20px;
-    font-size: 28px;
-}
-
-
-/* Tombol masuk pada modal login */
-
-div#loginpage .btn-primary {
-    color: #fff;
-    background-color: #2937f0 !important;
-    border: 0 !important;
-    border-radius: 30px !important;
-}
-
-
-/* Lebar modal login */
-
-div#loginpage .modal-content {
-    width: 350px !important;
-    max-width: 350px !important;
-    min-width: 350px !important;
-    margin: 0 auto !important;
-}
-
-
-/* Block Formulir */
-
-#formulir {
-    padding-top: 2rem;
-    background-color: #fff;
-    background-image: url(../assets/img/bg_2.png);
-    background-position: bottom left;
-    background-repeat: no-repeat;
-    background-size: contain;
-    max-width: 100%;
-}
-
-
-/* Bidang form */
-
-#formulir input {
-    border-radius: 5px;
-    border: 0;
-    background-color: #ecf0f6;
-    box-shadow: none !important;
-    height: 45px;
-}
-
-
-/* Tulisan Form Lapor */
-
-#formulir h2 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    background-image: url(../assets/img/transparent_bg.svg), linear-gradient(163deg, #cd0c43, #cd0c43 49%, #cd0c43);
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin-bottom: 2rem !important;
-    margin: 0;
-}
-
-#formulir h3,
-#formulir h6 {
-    font-family: 'Poppins', sans-serif;
-}
-
-
-/* Bagian Data laporan */
-
-#formulir .report {
-    margin-top: 50px;
-}
-
-
-/* Bidang Textarea */
-
-#formulir textarea {
-    border-radius: 5px;
-    border: 0;
-    background-color: #ecf0f6;
-}
-
-
-/* textarea alamat */
-
-#formulir textarea.form-control {
-    height: 165px;
-}
-
-#formulir .align-items-center {
-    align-items: end !important;
-}
-
-
-/* Button Kirim Laporan */
-
-#formulir button.btn.btn-primary.btn-block.mb-4 {
-    margin-bottom: 4rem !important;
-    width: 100%;
-    padding: 10px;
-    background-color: #4e2eeb;
-    border: 0;
-}
-
-#formulir .container-fluid.px-5 .row {
-    background-color: #ecf0f6;
-    margin: 20px 0 !important;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-#formulir .container-fluid.px-5 .row .col-md-6.mb-5 {
-    margin-bottom: 0 !important;
-}
-
-#formulir .col-lg-6 .container-fluid.px-5 {
-    padding: 0 !important;
-}
-
-#formulir #policy .form-check-input:checked {
-    background-color: #2937f0;
-    border-color: #2937f0;
-    height: 25px;
-    width: 40px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#formulir div#newest .text-muted {
-    color: #6c757d !important;
-    line-height: 1.8;
-    margin-bottom: 5px !important;
-}
-
-#formulir div#radio input {
-    background-color: #4e2eeb;
-    border-color: #4e2eeb;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-}
-
-#formulir div#radio input .form-check .form-check-input {
-    float: left;
-    margin-left: -1.5em;
-    border-radius: 50%;
-}
-
-#formulir div#radio .form-check {
-    padding-left: 1em !important;
-    display: flex;
-    align-items: center;
-    height: 45px;
-    width: 33.33%;
-}
-
-#formulir div#radio .form-label {
-    margin-bottom: 0;
-}
-
-@media (min-width: 768px) {
-    div#formulir .container.px-5 {
-        width: 60% !important;
-        margin-left: 20% !important;
-        padding: 60px !important;
+    /* CSS Untuk file index.html */
+    /* Logo website */
+    
+    a.navbar-brand img.d-inline-block.align-top {
+        width: 170px;
+        height: auto;
     }
-}
-
-div#formulir .container.px-5 {
-    background-color: #fff;
-    padding: 20px !important;
-    box-shadow: 0 10px 30px 0 rgb(0 0 0 / 20%);
-    margin-bottom: 30px;
-    margin-top: -240px;
-}
-
-div#formulir .row.mb-4 select {
-    background-color: #ecf0f6 !important;
-    width: 100%;
-    height: 45px;
-    border: 0;
-    border-radius: 5px;
-    color: #757575;
-    padding: 10px !important;
-}
-
-.col-md-6.mb-5 img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-@media (max-width: 768px) {
+    /* Gambar bg warna merah bagian header */
+    
+    .masthead {
+        background-color: #ecf0f6;
+        padding-top: 8rem;
+        padding-bottom: 5rem;
+        background-image: url(../assets/img/header_1.png);
+        background-position: center bottom !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    /* Background navigasi topbar */
+    
+    #mainNav {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color: #fff;
+        background-image: url(../assets/img/transparent_bg.svg), linear-gradient(163deg, #cd0c43, #cd0c43 49%, #cd0c43);
+        background-position: top;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    /* Topbar navigation button ketika active */
+    
+    #mainNav .navbar-nav .nav-item .nav-link.active {
+        color: #000 !important;
+        font-weight: bold;
+    }
+    /* Topbar navigation button  */
+    
+    #mainNav .navbar-nav .nav-item .nav-link {
+        color: #ffffff;
+        font-weight: bold;
+    }
+    /* Topbar navigation button ketika klik/hover */
+    
+    #mainNav .navbar-nav a.nav-link.me-lg-3:hover {
+        color: #000 !important;
+    }
+    /* Button menu topbar ketika diklik */
+    
+    .navbar-toggler:focus {
+        text-decoration: none;
+        outline: 0;
+        box-shadow: none;
+        border: 0 !important;
+    }
+    /* Button masuk topbar */
+    
+    #mainNav button.btn.btn-primary.rounded-pill.px-3.mb-2.mb-lg-0 {
+        background-color: #4e2eeb !important;
+        border: 0;
+    }
+    
+    #mainNav .navbar-toggler {
+        font-size: 0.875rem;
+        padding: 0;
+        border: 0;
+        font-weight: bold;
+        font-weight: bold;
+        height: 50px;
+        width: 45px;
+        color: #Fff;
+    }
+    /* Tulisan SISIKAT dan sistem informasi bagian header */
+    
+    header#header h1.display-1.lh-1.mb-3,
+    header#header h2.display-4.text-center.lh-1.mb-4 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 900;
+        color: #fff;
+    }
+    /* Tulisan SISIKAT dan sistem informasi bagian header */
+    
+    .masthead .text-muted {
+        color: #ffffff !important;
+        margin-bottom: 10px !important;
+    }
+    /* Button Lapor Sekarang */
+    
+    header#header a.me-lg-3.mb-4.mb-lg-0:last-child {
+        padding: 20px 40px;
+        background-color: #4e2eeb !important;
+        border-radius: 50px;
+        color: #fff;
+        text-decoration: none;
+    }
+    /* Icon garis 3 di menu navbar */
+    
+    #mainNav i.bi.bi-list {
+        font-size: 15px !important;
+        color: transparent !important;
+    }
+    /* Tombol masuk di modal Login */
+    
+    #feedbackModal .modal-content button.btn.btn-primary {
+        background-color: #4e2eeb;
+        border: 0;
+        width: 100%;
+        border-radius: 30px;
+        margin: 10px 0;
+    }
+    
+    .px-5 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    .modal-body.border-0.p-4 img.d-inline-block.align-top {
+        filter: invert(1);
+        margin: 5px 20%;
+        width: 60%;
+    }
+    /* Tulisan login pada modal login */
+    
+    .modal-body.border-0.p-4 h1.display-1.lh-1.mb-3,
+    h2.display-4.text-center.lh-1.mb-4 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+        margin-top: 20px;
+        font-size: 28px;
+    }
+    /* Tombol masuk pada modal login */
+    
+    div#loginpage .btn-primary {
+        color: #fff;
+        background-color: #2937f0 !important;
+        border: 0 !important;
+        border-radius: 30px !important;
+    }
+    /* Lebar modal login */
+    
+    div#loginpage .modal-content {
+        width: 350px !important;
+        max-width: 350px !important;
+        min-width: 350px !important;
+        margin: 0 auto !important;
+    }
+    /* Block Formulir */
+    
+    #formulir {
+        padding-top: 2rem;
+        background-color: #fff;
+        background-image: url(../assets/img/bg_2.png);
+        background-position: bottom left;
+        background-repeat: no-repeat;
+        background-size: contain;
+        max-width: 100%;
+    }
+    /* Bidang form */
+    
+    #formulir input {
+        border-radius: 5px;
+        border: 0;
+        background-color: #ecf0f6;
+        box-shadow: none !important;
+        height: 45px;
+    }
+    /* Tulisan Form Lapor */
+    
+    #formulir h2 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 900;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        background-image: url(../assets/img/transparent_bg.svg), linear-gradient(163deg, #cd0c43, #cd0c43 49%, #cd0c43);
+        background-position: top;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-bottom: 2rem !important;
+        margin: 0;
+    }
+    
+    #formulir h3,
+    #formulir h6 {
+        font-family: 'Poppins', sans-serif;
+    }
+    /* Bagian Data laporan */
+    
+    #formulir .report {
+        margin-top: 50px;
+    }
+    /* Bidang Textarea */
+    
+    #formulir textarea {
+        border-radius: 5px;
+        border: 0;
+        background-color: #ecf0f6;
+    }
+    /* textarea alamat */
+    
+    #formulir textarea.form-control {
+        height: 165px;
+    }
+    
+    #formulir .align-items-center {
+        align-items: end !important;
+    }
+    /* Button Kirim Laporan */
+    
+    #formulir button.btn.btn-primary.btn-block.mb-4 {
+        margin-bottom: 4rem !important;
+        width: 50%;
+        padding: 10px;
+        background-color: #4e2eeb;
+        border: 0;
+        margin: 0 25%;
+    }
+    
+    #formulir .container-fluid.px-5 .row {
+        background-color: #ecf0f6;
+        margin: 20px 0 !important;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    
+    #formulir .container-fluid.px-5 .row .col-md-6.mb-5 {
+        margin-bottom: 0 !important;
+    }
+    
+    #formulir .col-lg-6 .container-fluid.px-5 {
+        padding: 0 !important;
+    }
+    
+    #formulir #policy .form-check-input:checked {
+        background-color: #2937f0;
+        border-color: #2937f0;
+        height: 25px;
+        width: 40px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #formulir div#newest .text-muted {
+        color: #6c757d !important;
+        line-height: 1.8;
+        margin-bottom: 5px !important;
+    }
+    
+    #formulir div#radio input {
+        background-color: #4e2eeb;
+        border-color: #4e2eeb;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+    }
+    
+    #formulir div#radio input .form-check .form-check-input {
+        float: left;
+        margin-left: -1.5em;
+        border-radius: 50%;
+    }
+    
+    #formulir div#radio .form-check {
+        padding-left: 1em !important;
+        display: flex;
+        align-items: center;
+        height: 45px;
+        width: 33.33%;
+    }
+    
+    #formulir div#radio .form-label {
+        margin-bottom: 0;
+    }
+    
+    @media (min-width: 768px) {
+        div#formulir .container.px-5 {
+            width: 60% !important;
+            margin-left: 20% !important;
+            padding: 60px !important;
+        }
+    }
+    
+    div#formulir .container.px-5 {
+        background-color: #fff;
+        padding: 20px !important;
+        box-shadow: 0 10px 30px 0 rgb(0 0 0 / 20%);
+        margin-bottom: 30px;
+        margin-top: -240px;
+    }
+    
+    div#formulir .row.mb-4 select {
+        background-color: #ecf0f6 !important;
+        width: 100%;
+        height: 45px;
+        border: 0;
+        border-radius: 5px;
+        color: #757575;
+        padding: 10px !important;
+    }
+    
     .col-md-6.mb-5 img {
         width: 100%;
         border-radius: 10px;
-        margin-bottom: 10px !important;
     }
-}
-
-#formulir div#newest .col-md-6.mb-5 button {
-    margin: 10px 0;
-    background-color: orange;
-    border: 0;
-}
-
-#formulir .form-check.d-flex.justify-content-center.mb-4 label.form-check-label {
-    font-weight: normal;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-/* Field input nik */
-
-@media (max-width: 768px) {
-    input#nik {
+    
+    @media (max-width: 768px) {
+        .col-md-6.mb-5 img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px !important;
+        }
+    }
+    
+    #formulir div#newest .col-md-6.mb-5 button {
+        margin: 10px 0;
+        background-color: orange;
+        border: 0;
+    }
+    
+    #formulir .form-check.d-flex.justify-content-center.mb-4 label.form-check-label {
+        font-weight: normal;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /* Field input nik */
+    
+    @media (max-width: 768px) {
+        input#nik {
+            margin-bottom: 15px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        select#kab_pelapor {
+            margin-top: 15px;
+        }
+    }
+    /* Margin di bawah kolom kabupaten dan kecamatan */
+    
+    select#kab_pelapor,
+    select#kec_pelapor {
         margin-bottom: 15px;
     }
-}
-
-@media (max-width: 768px) {
-    select#kab_pelapor {
-        margin-top: 15px;
-    }
-}
-
-
-/* Margin di bawah kolom kabupaten dan kecamatan */
-
-select#kab_pelapor,
-select#kec_pelapor {
-    margin-bottom: 15px;
-}
-
-
-/* Statistik */
-
-section#statistik {
-    padding-top: 2rem;
-    background-color: #ecf0f6;
-    /* background-image: url(https://ensiklopediakesaguan.com/wp-content/uploads/2021/06/login_bottom.png);
+    /* Statistik */
+    
+    section#statistik {
+        padding-top: 2rem;
+        background-color: #ecf0f6;
+        /* background-image: url(https://ensiklopediakesaguan.com/wp-content/uploads/2021/06/login_bottom.png);
     background-position: bottom right;
     background-repeat: no-repeat;
     background-size: contain; */
-    padding-bottom: 200px;
-}
-
-section#statistik h2 {
-    margin-bottom: 3rem !important;
-}
-
-
-/* Untuk tombol lihat selengkapnya di statistik */
-
-section#statistik .more-btn.col-lg-12.order-lg-1.mb-5.mb-lg-0 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-
-/* Untuk a tombol lihat selengkapnya di statistik */
-
-section#statistik .more-btn.col-lg-12.order-lg-1.mb-5.mb-lg-0 a.btn.btn-outline-primary {
-    padding: 10px 30px;
-}
-
-
-/* FOOTER */
-
-footer.bg-black.text-center.py-5 .text-white-50.small,
-footer.bg-black.text-center.py-5 * {
-    color: #fff !important;
-}
-
-footer.bg-black.text-center.py-5 {
-    padding: 10px 10px 0px 10px;
-    bottom: 0;
-    width: 100%;
-    clear: both;
-    position: relative;
-    height: 150px;
-    margin-top: 150px;
-}
-
-footer.bg-black {
-    margin-top: 4rem;
-    background-color: #fff;
-    background-image: url(../assets/img/transparent_bg.svg), linear-gradient(163deg, #cd0c43, #cd0c43 49%, #cd0c43);
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-
-/* Unggah File Lampiran */
-
-.form-outline.mb-4 .form-control-file {
-    background-color: transparent;
-    width: 100%;
-}
-
-input#form6Example9 {
-    background-color: transparent;
-}
-
-input#form6Example10 {
-    position: relative;
-    background-color: orange;
-    width: 40px;
-    height: 25px;
-}
-
-
-/* Modal */
-
-.modal-dialog {
-    max-width: 100%;
-    margin: 1.75rem auto;
-}
-
-div#exampleModalScrollable {
-    padding: 0 !important;
-    width: 90% !important;
-    margin: 0 5%;
-}
-
-
-/* Counter */
-
-.counter {
-    background-color: #eaecf0;
-    text-align: center;
-}
-
-.employees,
-.customer,
-.design,
-.order {
-    margin: 20px 10px !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.counter-count {
-    font-size: 70px;
-    font-weight: 900;
-    position: relative;
-    color: #ffffff;
-    text-align: center;
-    line-height: 92px;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@media (max-width: 470px) {
+        padding-bottom: 200px;
+    }
+    
+    section#statistik h2 {
+        margin-bottom: 3rem !important;
+    }
+    /* Untuk tombol lihat selengkapnya di statistik */
+    
+    section#statistik .more-btn.col-lg-12.order-lg-1.mb-5.mb-lg-0 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    /* Untuk a tombol lihat selengkapnya di statistik */
+    
+    section#statistik .more-btn.col-lg-12.order-lg-1.mb-5.mb-lg-0 a.btn.btn-outline-primary {
+        padding: 10px 30px;
+    }
+    /* FOOTER */
+    
+    footer.bg-black.text-center.py-5 .text-white-50.small,
+    footer.bg-black.text-center.py-5 * {
+        color: #fff !important;
+    }
+    
+    footer.bg-black.text-center.py-5 {
+        padding: 10px 10px 0px 10px;
+        bottom: 0;
+        width: 100%;
+        clear: both;
+        position: relative;
+        height: 150px;
+        margin-top: 150px;
+    }
+    
+    footer.bg-black {
+        margin-top: 4rem;
+        background-color: #fff;
+        background-image: url(../assets/img/transparent_bg.svg), linear-gradient(163deg, #cd0c43, #cd0c43 49%, #cd0c43);
+        background-position: top;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    /* Unggah File Lampiran */
+    
+    .form-outline.mb-4 .form-control-file {
+        background-color: transparent;
+        width: 100%;
+    }
+    
+    input#form6Example9 {
+        background-color: transparent;
+    }
+    
+    input#form6Example10 {
+        position: relative;
+        background-color: orange;
+        width: 40px;
+        height: 25px;
+    }
+    /* Modal */
+    
+    .modal-dialog {
+        max-width: 100%;
+        margin: 1.75rem auto;
+    }
+    
+    div#exampleModalScrollable {
+        padding: 0 !important;
+        width: 90% !important;
+        margin: 0 5%;
+    }
+    /* Counter */
+    
+    .counter {
+        background-color: #eaecf0;
+        text-align: center;
+    }
+    
+    .employees,
+    .customer,
+    .design,
+    .order {
+        margin: 20px 10px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
     .counter-count {
         font-size: 70px;
         font-weight: 900;
@@ -531,695 +452,606 @@ div#exampleModalScrollable {
         color: #ffffff;
         text-align: center;
         line-height: 92px;
-        width: 140px;
-        height: 140px;
+        width: 200px;
+        height: 200px;
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-}
-
-
-/* Statistik untuk small device */
-
-section#statistik .col-lg-6.col-md-6.col-sm-6.col-xs-6 {
-    width: 40% !important;
-    flex: 0 0 40%;
-    margin: 0 5% !important;
-}
-
-.employee-p,
-.customer-p,
-.order-p,
-.design-p {
-    font-size: 20px;
-    color: #000000;
-    line-height: 34px;
-    text-align: center;
-}
-
-.col-lg-6.col-md-6.col-sm-6.col-xs-12 p.employee-p {
-    text-align: center;
-}
-
-p.counter-count {
-    background: #4e2eeb;
-}
-
-
-/* Popup Untuk detail laporan terakhir */
-
-.modal-content {
-    position: relative;
-    width: 100% !important;
-    pointer-events: auto;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 0;
-    outline: 0;
-    margin: 0;
-    border-radius: 20px !important;
-    background-image: url(../assets/img/bg_2.png);
-    background-position: top left;
-    background-repeat: no-repeat;
-    background-size: contain;
-    min-width: 100%;
-}
-
-
-/* Button tutup pada modal detail laporan terakhir */
-
-.btn-secondary {
-    color: #fff;
-    background-color: #4e2eeb;
-    border-color: #4e2eeb;
-    padding: 5px 20px;
-    border-radius: 30px;
-}
-
-
-/* Tinggi modal */
-
-div#newreport.modal-dialog {
-    transform: none;
-    height: 60%;
-}
-
-
-/* Modal detail lapran terbaru */
-
-div#newreport.modal-dialog {
-    transform: none;
-    height: auto;
-    width: 66%;
-}
-
-
-/* Untuk gambar laporan terbaru  */
-
-div#report-detail .carousel-inner img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-@media (max-width: 580px) {
+    
+    @media (max-width: 470px) {
+        .counter-count {
+            font-size: 70px;
+            font-weight: 900;
+            position: relative;
+            color: #ffffff;
+            text-align: center;
+            line-height: 92px;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    /* Statistik untuk small device */
+    
+    section#statistik .col-lg-6.col-md-6.col-sm-6.col-xs-6 {
+        width: 40% !important;
+        flex: 0 0 40%;
+        margin: 0 5% !important;
+    }
+    
+    .employee-p,
+    .customer-p,
+    .order-p,
+    .design-p {
+        font-size: 20px;
+        color: #000000;
+        line-height: 34px;
+        text-align: center;
+    }
+    
+    .col-lg-6.col-md-6.col-sm-6.col-xs-12 p.employee-p {
+        text-align: center;
+    }
+    
+    p.counter-count {
+        background: #4e2eeb;
+    }
+    /* Popup Untuk detail laporan terakhir */
+    
+    .modal-content {
+        position: relative;
+        width: 100% !important;
+        pointer-events: auto;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 0;
+        outline: 0;
+        margin: 0;
+        border-radius: 20px !important;
+        background-image: url(../assets/img/bg_2.png);
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-size: contain;
+        min-width: 100%;
+    }
+    /* Button tutup pada modal detail laporan terakhir */
+    
+    .btn-secondary {
+        color: #fff;
+        background-color: #4e2eeb;
+        border-color: #4e2eeb;
+        padding: 5px 20px;
+        border-radius: 30px;
+    }
+    /* Tinggi modal */
+    
+    div#newreport.modal-dialog {
+        transform: none;
+        height: 60%;
+    }
+    /* Modal detail lapran terbaru */
+    
     div#newreport.modal-dialog {
         transform: none;
         height: auto;
-        width: 90%;
+        width: 66%;
     }
+    /* Untuk gambar laporan terbaru  */
+    
     div#report-detail .carousel-inner img {
         width: 100%;
         height: 250px;
         object-fit: cover;
         border-radius: 10px;
     }
-}
-
-.modal-header.bg-gradient-primary-to-secondary.p-4 {
-    display: none;
-}
-
-.modal-content button.btn.btn-primary {
-    background-color: orange;
-    border: 0;
-    width: 100%;
-}
-
-.bg-gradient-primary-to-secondary h5 {
-    color: #000 !important;
-    text-shadow: none !important;
-}
-
-.bg-gradient-primary-to-secondary {
-    background: orange;
-    color: #000 !important;
-}
-
-.btn-primary:disabled,
-.btn-primary.disabled {
-    color: #fff;
-    background-color: #ffa500;
-    border: 0;
-    opacity: 1 !important;
-}
-
-
-/* Dropdown Pilih Infrastruktur */
-
-button#dropdownMenuButton {
-    width: 100%;
-    background-color: #ecf0f6;
-    color: #6c757d;
-    text-align: left;
-    border: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.btn-check:focus+.btn-secondary,
-.btn-secondary:focus {
-    color: #fff;
-    background-color: transparent;
-    border: 0 !important;
-    box-shadow: none !important;
-}
-
-.btn-check:checked+.btn-secondary:focus,
-.btn-check:active+.btn-secondary:focus,
-.btn-secondary:active:focus,
-.btn-secondary.active:focus,
-.show>.btn-secondary.dropdown-toggle:focus {
-    box-shadow: none !important;
-}
-
-h1.display-1.lh-1.mb-3,
-h2.display-4.text-center.lh-1.mb-4 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900;
-}
-
-
-/* CSS Untuk file index.html */
-
-
-/* Gambar pada laporan terbaru */
-
-div#laporan img {
-    vertical-align: middle !important;
-    width: 100% !important;
-    margin-top: 2rem !important;
-    border-radius: 10px !important;
-    height: 120px;
-    object-fit: cover;
-}
-
-
-/* Button Detail pada Laporan terakhir */
-
-div#laporan .btn-primary {
-    color: #fff;
-    background-color: #2937f0;
-    border-color: #2937f0;
-    margin-top: 20px;
-    padding: 5px 20px;
-    border-radius: 30px;
-}
-
-div#laporan h2 {
-    margin-top: 0;
-}
-
-@media (max-width: 768px) {
-    #img {
+    
+    @media (max-width: 580px) {
+        div#newreport.modal-dialog {
+            transform: none;
+            height: auto;
+            width: 90%;
+        }
+        div#report-detail .carousel-inner img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    }
+    
+    .modal-header.bg-gradient-primary-to-secondary.p-4 {
         display: none;
     }
-}
-
-
-/* Blok Laporan */
-
-div#laporan {
-    padding-top: 0;
-}
-
-
-/* Drag and Drop File */
-
-.drop-zone {
-    max-width: 100%;
-    height: auto;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-weight: 500;
-    font-size: 20px;
-    cursor: pointer;
-    color: #000;
-    border: 2px dashed #4e2eeb;
-    margin-bottom: 5px !important;
-    flex-direction: column;
-}
-
-
-/* Icon cloud upload file */
-
-.drop-zone i:before {
-    font-size: 60px;
-    color: #4e2eeb;
-}
-
-span.drop-zone__prompt i {
-    display: block;
-}
-
-.drop-zone--over {
-    border-style: solid;
-}
-
-.drop-zone__input {
-    display: none;
-}
-
-.drop-zone__thumb {
-    width: 250px;
-    height: 250px;
-    overflow: hidden;
-    background-color: #cccccc;
-    background-size: 100%;
-    position: relative;
-    object-position: center center;
-    background-repeat: no-repeat;
-}
-
-.drop-zone__thumb::after {
-    content: attr(data-label);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 5px 0;
-    color: #ffffff;
-    background: rgba(0, 0, 0, 0.75);
-    font-size: 14px;
-    text-align: center;
-}
-
-
-/* Tulisan di bawah logo unggah file */
-
-.form-outline span.drop-zone__prompt,
-#img-upload span.drop-zone__prompt {
-    font-size: 16px;
-    color: #4e2eeb;
-}
-
-@media (max-width: 990px) {
-    div#date .col-lg-6.col-md-12.col-sm-12.col-xs-12 {
-        margin: 0 0 20px 0;
+    
+    .modal-content button.btn.btn-primary {
+        background-color: orange;
+        border: 0;
+        width: 100%;
     }
-}
-
-@media (max-width: 580px) {
-    div#date .col-lg-2.col-md-4.col-sm-4.col-xs-4 {
-        margin-bottom: 18px;
-        width: 33.33%;
+    
+    .bg-gradient-primary-to-secondary h5 {
+        color: #000 !important;
+        text-shadow: none !important;
     }
-}
-
-
-/* Tanggal lahir */
-
-div#date select {
-    border: 0;
-    height: 45px;
-    background-color: #ecf0f6;
-    border-radius: 5px;
-    color: #7c848c;
-    width: 100%;
-}
-
-
-/* Unggah foto KTP */
-
-@media (min-width: 560px) {
-    div#img-upload {
+    
+    .bg-gradient-primary-to-secondary {
+        background: orange;
+        color: #000 !important;
+    }
+    
+    .btn-primary:disabled,
+    .btn-primary.disabled {
+        color: #fff;
+        background-color: #ffa500;
+        border: 0;
+        opacity: 1 !important;
+    }
+    /* Dropdown Pilih Infrastruktur */
+    
+    button#dropdownMenuButton {
+        width: 100%;
+        background-color: #ecf0f6;
+        color: #6c757d;
+        text-align: left;
+        border: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .btn-check:focus+.btn-secondary,
+    .btn-secondary:focus {
+        color: #fff;
+        background-color: transparent;
+        border: 0 !important;
+        box-shadow: none !important;
+    }
+    
+    .btn-check:checked+.btn-secondary:focus,
+    .btn-check:active+.btn-secondary:focus,
+    .btn-secondary:active:focus,
+    .btn-secondary.active:focus,
+    .show>.btn-secondary.dropdown-toggle:focus {
+        box-shadow: none !important;
+    }
+    
+    h1.display-1.lh-1.mb-3,
+    h2.display-4.text-center.lh-1.mb-4 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 900;
+    }
+    /* CSS Untuk file index.html */
+    /* Gambar pada laporan terbaru */
+    
+    div#laporan img {
+        vertical-align: middle !important;
+        width: 100% !important;
+        margin-top: 2rem !important;
+        border-radius: 10px !important;
+        height: 120px;
+        object-fit: cover;
+    }
+    /* Button Detail pada Laporan terakhir */
+    
+    div#laporan .btn-primary {
+        color: #fff;
+        background-color: #2937f0;
+        border-color: #2937f0;
+        margin-top: 20px;
+        padding: 5px 20px;
+        border-radius: 30px;
+    }
+    
+    div#laporan h2 {
+        margin-top: 0;
+    }
+    
+    @media (max-width: 768px) {
+        #img {
+            display: none;
+        }
+    }
+    /* Blok Laporan */
+    
+    div#laporan {
+        padding-top: 0;
+    }
+    /* Drag and Drop File */
+    
+    .drop-zone {
+        max-width: 100%;
+        height: auto;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-weight: 500;
+        font-size: 20px;
+        cursor: pointer;
+        color: #000;
+        border: 2px dashed #4e2eeb;
+        margin-bottom: 5px !important;
+        flex-direction: column;
+    }
+    /* Icon cloud upload file */
+    
+    .drop-zone i:before {
+        font-size: 60px;
+        color: #4e2eeb;
+    }
+    
+    span.drop-zone__prompt i {
+        display: block;
+    }
+    
+    .drop-zone--over {
+        border-style: solid;
+    }
+    
+    .drop-zone__input {
+        display: none;
+    }
+    
+    .drop-zone__thumb {
+        width: 250px;
+        height: 250px;
+        overflow: hidden;
+        background-color: #cccccc;
+        background-size: 100%;
+        position: relative;
+        object-position: center center;
+        background-repeat: no-repeat;
+    }
+    
+    .drop-zone__thumb::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 5px 0;
+        color: #ffffff;
+        background: rgba(0, 0, 0, 0.75);
+        font-size: 14px;
+        text-align: center;
+    }
+    /* Tulisan di bawah logo unggah file */
+    
+    .form-outline span.drop-zone__prompt,
+    #img-upload span.drop-zone__prompt {
+        font-size: 16px;
+        color: #4e2eeb;
+    }
+    
+    @media (max-width: 990px) {
+        div#date .col-lg-6.col-md-12.col-sm-12.col-xs-12 {
+            margin: 0 0 20px 0;
+        }
+    }
+    
+    @media (max-width: 580px) {
+        div#date .col-lg-2.col-md-4.col-sm-4.col-xs-4 {
+            margin-bottom: 18px;
+            width: 33.33%;
+        }
+    }
+    /* Tanggal lahir */
+    
+    div#date select {
+        border: 0;
+        height: 45px;
+        background-color: #ecf0f6;
+        border-radius: 5px;
+        color: #7c848c;
+        width: 100%;
+    }
+    /* Unggah foto KTP */
+    
+    @media (min-width: 560px) {
+        div#img-upload {
+            margin-top: 20px;
+        }
+    }
+    /* Pilihan Laki-Laki dan Perempuan pada Blok Jenis Kelamin */
+    
+    .form-check.col-lg-6.col-md-6.col-sm-6.col-xs-6 {
+        width: 50%;
+    }
+    /* Jenis Kelamin */
+    
+    div#radio {
         margin-top: 20px;
     }
-}
-
-
-/* Pilihan Laki-Laki dan Perempuan pada Blok Jenis Kelamin */
-
-.form-check.col-lg-6.col-md-6.col-sm-6.col-xs-6 {
-    width: 50%;
-}
-
-
-/* Jenis Kelamin */
-
-div#radio {
-    margin-top: 20px;
-}
-
-
-/* Block RT/RW dst. */
-
-.col-lg-6.col-md-6.col-sm-6.col-xs-6 {
-    width: 50% !important;
-    flex: 0 0 50%;
-}
-
-
-/* Unggah File Dropzone */
-
-.upload-file {
-    margin-bottom: 50px;
-}
-
-form#dropzoneFrom {
-    border: 2px dashed #4e2eeb;
-}
-
-.upload-btn {
-    margin-top: 20px;
-}
-
-.upload-btn button#submit-all {
-    background-color: #4e2eeb;
-    padding: 5px 20px;
-    border-radius: 30px;
-    border: 0;
-    color: #fff;
-}
-
-
-/* Untuk Tooltip Foto Dokumentasi*/
-
-div#dokumentasi {
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 0;
-}
-
-
-/* Mengatur button tanda tanya */
-
-.row.mb-4 .col button.btn.btn-primary {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
-    margin-top: -15px;
-    width: 100%;
-    height: 35px;
-    position: absolute;
-    z-index: 999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.row.mb-4 .col button.btn.btn-primary i.bi.bi-question-octagon-fill {
-    color: red;
-    font-size: 25px;
-    margin-top: -5px !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-}
-
-
-/* Icon tanya tanya font-awesome */
-
-div#foto1 i.fas.fa-question,
-div#foto2 i.fas.fa-question,
-div#fotoselfi i.fas.fa-question {
-    color: red;
-    font-size: 18px !important;
-}
-
-
-/* Menghilangkan shadow pada button tanda tanya */
-
-.row.mb-4 .col .btn-check:focus+.btn,
-.row.mb-4 .col .btn:focus {
-    box-shadow: none !important
-}
-
-
-/* Mengatur setiap kolom unggah bukti */
-
-div#foto1,
-div#foto2,
-div#fotoselfi {
-    border: 1px solid #4e2eeb;
-    padding: 0;
-    margin: 0 12px;
-    margin-top: 10px;
-}
-
-
-/* Ukuran modal bantuan */
-
-div#modalBantuan .modal-dialog,
-div#modalBantuan1 .modal-dialog,
-div#modalBantuan2 .modal-dialog {
-    max-width: 400px;
-}
-
-@media (max-width: 560px) {
+    /* Block RT/RW dst. */
+    
+    .col-lg-6.col-md-6.col-sm-6.col-xs-6 {
+        width: 50% !important;
+        flex: 0 0 50%;
+    }
+    /* Unggah File Dropzone */
+    
+    .upload-file {
+        margin-bottom: 50px;
+    }
+    
+    form#dropzoneFrom {
+        border: 2px dashed #4e2eeb;
+    }
+    
+    .upload-btn {
+        margin-top: 20px;
+    }
+    
+    .upload-btn button#submit-all {
+        background-color: #4e2eeb;
+        padding: 5px 20px;
+        border-radius: 30px;
+        border: 0;
+        color: #fff;
+    }
+    /* Untuk Tooltip Foto Dokumentasi*/
+    
+    div#dokumentasi {
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 0;
+    }
+    /* Mengatur button tanda tanya */
+    
+    .row.mb-4 .col button.btn.btn-primary {
+        background-color: transparent;
+        border: 0;
+        padding: 0;
+        margin-top: -15px;
+        width: 100%;
+        height: 35px;
+        position: absolute;
+        z-index: 999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .row.mb-4 .col button.btn.btn-primary i.bi.bi-question-octagon-fill {
+        color: red;
+        font-size: 25px;
+        margin-top: -5px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+    }
+    /* Icon tanya tanya font-awesome */
+    
+    div#foto1 i.fas.fa-question,
+    div#foto2 i.fas.fa-question,
+    div#fotoselfi i.fas.fa-question {
+        color: red;
+        font-size: 18px !important;
+    }
+    /* Menghilangkan shadow pada button tanda tanya */
+    
+    .row.mb-4 .col .btn-check:focus+.btn,
+    .row.mb-4 .col .btn:focus {
+        box-shadow: none !important
+    }
+    /* Mengatur setiap kolom unggah bukti */
+    
+    div#foto1,
+    div#foto2,
+    div#fotoselfi {
+        border: 1px solid #4e2eeb;
+        padding: 0;
+        margin: 0 12px;
+        margin-top: 10px;
+    }
+    /* Ukuran modal bantuan */
+    
     div#modalBantuan .modal-dialog,
     div#modalBantuan1 .modal-dialog,
     div#modalBantuan2 .modal-dialog {
-        width: 90%;
-        min-width: 90%;
+        max-width: 400px;
     }
-}
-
-
-/* Untuk gambar dalam modal bantuan */
-
-div#modalBantuan img,
-div#modalBantuan1 img,
-div#modalBantuan2 img {
-    width: 100%;
-    height: auto;
-    margin-top: 10px;
-}
-
-div#modalBantuan .modal-header,
-div#modalBantuan1 .modal-header,
-div#modalBantuan2 .modal-header {
-    padding-bottom: 0;
-}
-
-
-/* Tambah gambar di atas tulisan foto pertama dst. di kolom unggah bukti */
-
-div#dokumentasi .dz-message:before {
-    content: " ";
-    background-image: url(../assets/img/upload-icon.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 65px !important;
-    display: block;
-}
-
-
-/* Kebijakan Privasi */
-
-div#policy {
-    padding-left: 0;
-    /* margin: 44px 0; */
-}
-
-div#dokumentasi a.dz-remove:after {
-    content: "Hapus Gambar";
-    font-size: 14px;
-}
-
-div#dokumentasi a.dz-remove {
-    text-decoration: none;
-    margin-top: 15px;
-    font-size: 0 !important;
-}
-
-
-/* Upload KTP Button */
-
-div#ktp .dz-message:before {
-    content: " ";
-    background-image: url(../assets/img/upload-icon.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 65px !important;
-    display: block;
-}
-
-div#ktp {
-    border: 1px solid #4e2eeb;
-    padding: 0;
-}
-
-div#ktp .dz-preview.dz-image-preview {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 250px;
-    margin: 10px auto;
-}
-
-div#ktp .dz-preview .dz-remove {
-    text-decoration: none;
-    margin-top: 10px;
-}
-
-div#ktp p,
-div#foto1 p,
-div#foto2 p,
-div#fotoselfi p {
-    color: #4e2eeb;
-    margin-top: 10px;
-}
-
-
-/* Unggah KTP */
-
-div#identity {
-    width: 100%;
-    margin: 0;
-}
-
-div#identity h6,
-div#identity p {
-    padding-left: 0;
-}
-
-div#identity h6 {
-    margin-top: 20px;
-}
-
-
-/* Maps */
-
-@media (min-width: 450px) {
-    div#maps .alert.alert-warning.alert-dismissible.fade.show {
-        padding-top: 5px;
+    
+    @media (max-width: 560px) {
+        div#modalBantuan .modal-dialog,
+        div#modalBantuan1 .modal-dialog,
+        div#modalBantuan2 .modal-dialog {
+            width: 90%;
+            min-width: 90%;
+        }
+    }
+    /* Untuk gambar dalam modal bantuan */
+    
+    div#modalBantuan img,
+    div#modalBantuan1 img,
+    div#modalBantuan2 img {
+        width: 100%;
+        height: auto;
+        margin-top: 10px;
+    }
+    
+    div#modalBantuan .modal-header,
+    div#modalBantuan1 .modal-header,
+    div#modalBantuan2 .modal-header {
+        padding-bottom: 0;
+    }
+    /* Tambah gambar di atas tulisan foto pertama dst. di kolom unggah bukti */
+    
+    div#dokumentasi .dz-message:before {
+        content: " ";
+        background-image: url(../assets/img/upload-icon.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 65px !important;
+        display: block;
+    }
+    /* Kebijakan Privasi */
+    
+    div#policy {
+        padding-left: 0;
+        /* margin: 44px 0; */
+    }
+    
+    div#dokumentasi a.dz-remove:after {
+        content: "Hapus Gambar";
         font-size: 14px;
-        font-family: inherit;
-        font-weight: normal;
-        color: #000;
-        padding-bottom: 5px;
-        display: flex;
-        align-items: center;
-        height: 55px;
     }
-}
-
-@media (max-width: 449px) {
-    div#maps .alert.alert-warning.alert-dismissible.fade.show {
-        height: 80px;
-        padding-top: 5px;
-        font-size: 14px;
-        font-family: inherit;
-        font-weight: normal;
-        color: #000;
-        padding-bottom: 5px;
+    
+    div#dokumentasi a.dz-remove {
+        text-decoration: none;
+        margin-top: 15px;
+        font-size: 0 !important;
+    }
+    /* Upload KTP Button */
+    
+    div#ktp .dz-message:before {
+        content: " ";
+        background-image: url(../assets/img/upload-icon.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 65px !important;
+        display: block;
+    }
+    
+    div#ktp {
+        border: 1px solid #4e2eeb;
+        padding: 0;
+    }
+    
+    div#ktp .dz-preview.dz-image-preview {
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+        margin: 10px auto;
+    }
+    
+    div#ktp .dz-preview .dz-remove {
+        text-decoration: none;
+        margin-top: 10px;
+    }
+    
+    div#ktp p,
+    div#foto1 p,
+    div#foto2 p,
+    div#fotoselfi p {
+        color: #4e2eeb;
+        margin-top: 10px;
+    }
+    /* Unggah KTP */
+    
+    div#identity {
+        width: 100%;
+        margin: 0;
+    }
+    
+    div#identity h6,
+    div#identity p {
+        padding-left: 0;
+    }
+    
+    div#identity h6 {
+        margin-top: 20px;
+    }
+    /* Maps */
+    
+    @media (min-width: 450px) {
+        div#maps .alert.alert-warning.alert-dismissible.fade.show {
+            padding-top: 5px;
+            font-size: 14px;
+            font-family: inherit;
+            font-weight: normal;
+            color: #000;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+            height: 55px;
+        }
+    }
+    
+    @media (max-width: 449px) {
+        div#maps .alert.alert-warning.alert-dismissible.fade.show {
+            height: 80px;
+            padding-top: 5px;
+            font-size: 14px;
+            font-family: inherit;
+            font-weight: normal;
+            color: #000;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+    }
+    
+    div#maps p {
+        margin: 0;
+        /* height: 40px; */
+        display: flex;
+        justify-content: center;
         align-items: center;
     }
-}
-
-div#maps p {
-    margin: 0;
-    /* height: 40px; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-div#maps button.btn-close {
-    padding: 18px;
-}
-
-
-/* Pilih Jenis Infrastruktur */
-
-#formulir .form-check-input {
-    border-radius: 30px;
-    border: 0;
-    box-shadow: none !important;
-    height: 15px;
-    width: 15px !important;
-}
-
-
-/* radio button jenis infra */
-
-.form-check-input:checked[type=radio] {
-    background-image: none !important;
-    background-color: red !important;
-}
-
-div#jenisinfra .col-md-6 {
-    width: 30%;
-}
-
-div#ruasnamajalan {
-    margin-bottom: 0 !important;
-}
-
-div#ruasnamajalan textarea.form-control {
-    height: 100px;
-}
-
-div#ruasnamajalan .col-md-6 {
-    margin-bottom: 10px;
-}
-
-div#ruasnamajalan .col-md-6 .row {
-    margin-bottom: 10px !important;
-    padding: 0;
-    margin: 0;
-}
-
-div#ruasnamajalan .form-outline,
-div#ruasnamajalan .col {
-    padding: 0;
-}
-
-
-/* Captcha Login Page */
-
-.col-md-4.captchaLogin {
-    margin-bottom: 15px;
-}
-
-.col-md-4.captchaLogin {
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    margin: 0;
-    width: 304px;
-}
-
-.col-md-8.pernyataan {
-    display: flex;
-}
-
-.col-md-8.pernyataan div#policy {
-    margin: 0 !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.col-md-6.captchaLogin {
-    width: 304px !important;
-}
-
-#formulir button.btn.btn-primary.btn-block.mb-4 {
-    margin-bottom: 0;
-    width: 100%;
-    padding: 10px;
-    background-color: #4e2eeb;
-    border: 0;
-    height: 75px;
-    margin: 0 10px;
-    width: 370px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    
+    div#maps button.btn-close {
+        padding: 18px;
+    }
+    /* Pilih Jenis Infrastruktur */
+    
+    #formulir .form-check-input {
+        border-radius: 30px;
+        border: 0;
+        box-shadow: none !important;
+        height: 15px;
+        width: 15px !important;
+    }
+    /* radio button jenis infra */
+    
+    .form-check-input:checked[type=radio] {
+        background-image: none !important;
+        background-color: red !important;
+    }
+    
+    div#jenisinfra .col-md-6 {
+        width: 30%;
+    }
+    
+    div#ruasnamajalan {
+        margin-bottom: 0 !important;
+    }
+    
+    div#ruasnamajalan textarea.form-control {
+        height: 100px;
+    }
+    
+    div#ruasnamajalan .col-md-6 {
+        margin-bottom: 10px;
+    }
+    
+    div#ruasnamajalan .col-md-6 .row {
+        margin-bottom: 10px !important;
+        padding: 0;
+        margin: 0;
+    }
+    
+    div#ruasnamajalan .form-outline,
+    div#ruasnamajalan .col {
+        padding: 0;
+    }
+    /* Captcha Login Page */
+    
+    .captchaLogin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
