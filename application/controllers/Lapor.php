@@ -104,6 +104,7 @@ class Lapor extends CI_Controller{
                 'lokasi_kabkota' => $this->input->post('lokasi_kabkota'),
                 'lokasi_distrik' => $this->input->post('lokasi_distrik'),
                 'kodelap' => $this->input->post('kodelap'),
+                'status' => '0'
             );
             if($is_valid['success'])
             {

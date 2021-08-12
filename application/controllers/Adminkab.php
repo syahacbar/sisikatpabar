@@ -18,7 +18,7 @@ class Adminkab extends CI_Controller{
     function index()
     {
 
-        $lapharian = $this->db->query("SELECT COUNT(*) total, 
+        $lapharian = $this->db->query("SELECT COUNT(*) total,  
                                         DATE_FORMAT(r.tgl_laporan, '%d %b') tanggal,
                                         MONTH(r.tgl_laporan) bulan,
                                         DATE_FORMAT(r.tgl_laporan, '%a') hari
