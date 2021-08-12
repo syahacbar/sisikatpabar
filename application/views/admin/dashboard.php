@@ -1,5 +1,5 @@
-<div class="container-fluid px-4">
-                        <h2 class="mt-4">Dashboard</h2>
+                      <div class="container-fluid px-4">
+                        <h2 class="mt-4">Dashboard Admin Provinsi</h2>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active"></li>
                         </ol>
@@ -29,7 +29,7 @@
                                 Update Laporan Terbaru
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
+                                <table id="datatablesSimple" class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th>No.</th>
@@ -63,16 +63,6 @@
                                         </tr>
                                     <?php } ?>
                                     </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot>
                                 </table>
                             </div>
                         </div>

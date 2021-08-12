@@ -1,11 +1,37 @@
 <div id="admin" class="container-fluid px-4">
     <h2 class="mt-4">Data Pelaporan SI-SIKAT <?php echo $infrastruktur;?></h2>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active"></li>
+        <li class="breadcrumb-item active"></li> 
     </ol>
     <div class="card mb-4">
+        <div class="card-header">
+        <form id="filter" name="filter" method="post" action="">
+            <div class="row">
+                <div class="col-md-2">
+                    <select class="form-control" name="lokasi_distrik" id="lokasi_distrik">
+                        <option value="" <?php echo ($kodekec=='') ? 'selected' : '';?>>- Semua Kecamatan/Distrik -</option>
+                        <?php foreach($form_kec as $kec) { ?>
+                            <option value="<?php echo $kec->kode;?>" <?php echo ($kodekec==$kec->kode) ? 'selected' : '';?>><?php echo $kec->nama;?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select class="form-control" name="status" id="status">
+                        <option value="" <?php echo ($status=='') ? 'selected' : '';?>>- Semua Status -</option>
+                        <option value="0" <?php echo ($status=='0') ? 'selected' : '';?>>Menunggu</option>
+                        <option value="1" <?php echo ($status=='1') ? 'selected' : '';?>>Diterima</option>
+                        <option value="2" <?php echo ($status=='2') ? 'selected' : '';?>>Ditolak</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <input name="btnFilter" type="submit" id="btn-filter" class="btn btn-primary" value="Filter">
+                </div>
+            </div>
+        </form>
+        </div>
         <div class="card-body">
-            <table id="datatablesSimple">
+                    
+            <table id="datatablesSimple" class="table table-striped">
                 <thead>
                     <tr>
                         <th>No.</th>
@@ -59,11 +85,12 @@
                                 data-bs-target="#modalDetail" data-bs-toggle="modal" class="modalDetail btn btn-primary" >
                                 <i class="fas fa-external-link-alt"></i> Detail
                             </a>
-
+                            <a id="ATerima" data-id="<?php echo $lap['kodelap'];?>" class="btn btn-info"><i class="fas fa-check"></i> Terima</a>
                             
-                            <a class="btn btn-info <?php echo ($lap['status']=='1') ? 'disabled' : ''; ?>"><i class="fas fa-check"></i> Terima</a>
+                            <a id="tolaklaporan" class="btn btn-danger <?php echo ($lap['status']=='2') ? 'disabled' : ''; ?>"><i class="fas fa-ban"></i> Tolak</a>
 
-                            <a class="btn btn-danger <?php echo ($lap['status']=='2') ? 'disabled' : ''; ?>"><i class="fas fa-ban"></i> Tolak</a>
+                            <button id="<?php echo $lap['kodelap'];?>" value="<?php echo $lap['id'];?>" class="btn btn-info btnTerima  <?php echo ($lap['status']=='1') ? 'disabled' : ''; ?>" >Terima</button>
+
                         </td>
                     </tr>
                 <?php } ?>
@@ -140,5 +167,45 @@
             img3.src = "<?php echo base_url('upload/dokumentasi/');?>"+dokumentasi3;
         });
 
+        // $("#ATerima a").click(function(e) {
+        //     e.preventDefault();
+        //     var status = '1';
+        //     var idlap = $('#ATerima').attr("data-id");
+            // $.ajax({
+            //     type: "POST",
+            //     url: '<?php //echo site_url() ?>adminkab/proseslaporan/'+idlap,
+            //     data: {status:status,idlap:idlap},
+            //     success:function(data)
+            //     {
+            //         alert('SUCCESS!!'+idlap);
+            //     },
+            //     error:function()
+            //     {
+            //         alert('FAILED');
+            //     }
+            // });
+
+        // });
+        $(".btnTerima").click(function() {
+            var idlap = $(this).val();
+            var status = 1;
+            var kodelap = $(this).attr('id');
+                $.ajax({
+                    type: "POST",
+                    url: '<?php echo site_url() ?>adminkab/proseslaporan/'+idlap,
+                    data: {status:status,idlap:idlap},
+                    success:function(data)
+                    {
+                        alert('Sukses Merubah Status Laporan : '+kodelap);
+                        location.reload();
+                    },
+                    error:function()
+                    {
+                        alert('FAILED');
+                    }
+                });
+
+
+        });
     });
 </script>
