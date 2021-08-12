@@ -172,6 +172,7 @@ class Admin extends MY_Controller{
         $startdate = $this->input->post('startdate', TRUE);
         $todate = $this->input->post('todate', TRUE);
         $formatcetak = $this->input->post('RBFormatCetak',TRUE);
+        $Statuslap = $this->input->post('RBStatuslap',TRUE);
         if ($formatcetak == 'cetakword')
         {
             $this->docx();
@@ -185,8 +186,8 @@ class Admin extends MY_Controller{
             }
             
 
-            $data['laporan'] = $this->Laporan_model->get_cetak_laporan($infrastruktur,$kabupaten,$startdate,$todate,NULL,NULL,NULL,'tgl_laporan','DESC');
-            if($infrastruktur != NULL && $kabupaten != NULL)
+            $data['laporan'] = $this->Laporan_model->get_cetak_laporan($infrastruktur,$kabupaten,$startdate,$todate,NULL,NULL,NULL,'tgl_laporan','DESC',$Statuslap);
+            if($infrastruktur != NULL && $kabupaten != NULL && $Statuslap != NULL)
             {
                 if ($infrastruktur == 'semua' && $kabupaten == 'semua')
                 {
