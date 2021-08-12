@@ -34,12 +34,13 @@
                                                 <input class="form-control" id="password" type="password" name="password" placeholder="Password" />
                                                 <label for="password">Kata sandi</label>
                                             </div>
-                                            <div class="form-check mb-3">
+                                            <div class="form-check mb-3 lupaIngat">
                                                 <input class="form-check-input" id="remember" type="checkbox" value="1" />
                                                 <label class="form-check-label" for="remember">Ingat kata sandi</label> 
                                                 <a style="text-align: right;" class="small" href="forgot_password">Lupa kata sandi?</a>
                                             </div>
-                                            <div class="form-check mb-3">
+
+                                            <div id="captchaLogin" class="form-check mb-3">
                                                 <center><?php echo $recaptcha;?></center>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
