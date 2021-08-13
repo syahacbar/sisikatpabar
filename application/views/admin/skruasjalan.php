@@ -42,20 +42,22 @@
 
                     <div class="row mb-4">
                         <div id="content">
+                        <?php echo form_open_multipart('',array('id'=>'formuploadsk')); ?>
                             <div id="identity" class="row mb-4">
-                                <input type="text" name="namask" class="form-control">
+                                <input id="namask" type="text" name="namask" class="form-control">
                             </div>
                             <div id="identity" class="row mb-4">
-                                <h6>Unggah Foto KTP</h6>
-                                <div class="dropzone ktp" id="ktp">
+                                <h6>Unggah File SK Ruas Jalan</h6>
+                                <div class="dropzone skruasjalan" id="skruasjalan">
                                     <div class="dz-message">
-                                        <h3> Klik atau Drop gambar disini</h3>
+                                        <h3> Klik atau Drop file PDF disini</h3>
                                     </div>
                                 </div>
                             </div>
                             <!-- <button type="button" id="submit_dropzone_form">UPLOAD</button> -->
-                            <button id="btnSubmit" name="submit" type="submit" class="btn btn-primary btn-block mb-4">Kirim Laporan</button>
+                                <button id="btnSubmit" name="submit" type="submit" class="btn btn-primary btn-block mb-4">Kirim File</button>
                             <!-- Tombol Kirim -->
+                            <?php echo form_close(); ?>
                         </div>
                     </div> 
                 </div>
@@ -64,9 +66,9 @@
             
             
             <script>
-                var sk_upload= new Dropzone(".sk",{
-                    autoProcessQueue: true,
-                    url: "<?php echo site_url('upload/skruasjalan') ?>",
+                var sk_upload= new Dropzone(".skruasjalan",{
+                    autoProcessQueue: false,
+                    url: "<?php echo site_url('admin/uploadsk') ?>",
                     maxFilesize: 50,
                     maxFiles: 1,
                     method:"post",
@@ -75,11 +77,16 @@
                     dictInvalidFileType:"Type file ini tidak dizinkan",
                     addRemoveLinks:true,
                 });
-
+                
                 sk_upload.on("sending",function(a,b,c){
                     a.token=Math.random();
                     c.append("token_skruasjalan",a.token);
-                    c.append("kodelap", $('#kodelap').val());
+                    c.append("namask",$('#namask').val());
+                });
+
+                $('#formuploadsk').submit(function(e) {
+                    e.preventDefault();
+                    sk_upload.processQueue();
                 });
 
             </script>
