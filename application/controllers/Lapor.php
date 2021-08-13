@@ -128,7 +128,7 @@ class Lapor extends CI_Controller{
         }
             
     }        
-}
+
 
     function uploadktp()
     {
