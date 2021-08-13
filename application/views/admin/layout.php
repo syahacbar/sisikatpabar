@@ -12,7 +12,10 @@
         <link href="<?php echo base_url();?>resources/admintheme/css/icon-css.css" rel="stylesheet" />
         <link href="<?php echo base_url();?>resources/admintheme/css/css-modal.css" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="<?php echo base_url();?>resources/template/assets/favicon.png" />
+<<<<<<< HEAD
+=======
         <link href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.css' type='text/css' rel='stylesheet'>
+>>>>>>> d8393c8958f8d55dbaf24d9d58676c131e51e79b
 
         <!-- JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
@@ -23,10 +26,14 @@
         <script src="<?php echo base_url();?>resources/admintheme/assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="<?php echo base_url();?>resources/admintheme/js/datatables-simple-demo.js"></script>
+<<<<<<< HEAD
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+=======
         <script src='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js' type='text/javascript'></script>
 
         <!-- Jquery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+>>>>>>> d8393c8958f8d55dbaf24d9d58676c131e51e79b
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -256,7 +263,14 @@
             </div>
             </div>
         </div>
+<<<<<<< HEAD
+        </div>
+        <!-- Akgier Modal Detail Setiap Infrastruktur -->
+
+
+=======
     </div>
     <!-- Akhir Modal Detail Setiap Infrastruktur -->
+>>>>>>> d8393c8958f8d55dbaf24d9d58676c131e51e79b
     </body>
 </html>
