@@ -95,7 +95,7 @@
                                             <td><?php echo $res['pengaduan'];?></td>
                                             <td><?php echo $res['lokasi_namajalan'];?></td>
                                             <td><?php echo $res['lokasidistrik'];?></td>
-                                            <td><?php echo $res['nama_pelapor']."<br>".$res['nik'];?></td>
+                                            <td><?php echo $res['nama_pelapor']."<br>".$res['no_hp'];?></td>
                                             <td><?php switch ($res['status']) {  case 0: echo "Menunggu"; break; case 1: echo "Diterima"; break; case 2: echo "Ditolak"; break; } ?></td>
                                     <?php } ?>
                                     </tbody>
