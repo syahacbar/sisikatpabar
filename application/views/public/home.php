@@ -340,9 +340,9 @@
                                 </div>       
                                 <!-- Akhir Kebijakan Privasi -->
 
-                                <div class="row mb-4">
-                                    <center><?php echo $recaptcha;?></center>
-                                </div>
+                               <!--  <div class="row mb-4">
+                                    <center><?php //echo $recaptcha;?></center>
+                                </div> -->
 
                                 <input type="hidden" id="kodelap" name="kodelap" value="<?php echo $kodelap;?>">
                                 <!-- Tombol Kirim -->
