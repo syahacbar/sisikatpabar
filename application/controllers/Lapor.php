@@ -7,7 +7,7 @@ class Lapor extends CI_Controller{
         $this->load->model('Laporan_model');
         $this->load->model('M_setting');
         $this->load->library('session');
-        $this->load->library('recaptcha');
+        $this->load->library('recaptcha'); 
     } 
 
 
@@ -35,8 +35,6 @@ class Lapor extends CI_Controller{
 
         $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
         $data['kabupaten'] = $get_kab->result();
-        #$data['laporan1'] = $this->Laporan_model->get_all_laporan(NULL,3,0,NULL,'tgl_Laporan','DESC'); 
-        #$data['laporan2'] = $this->Laporan_model->get_all_laporan(NULL,3,3,NULL,'tgl_Laporan','DESC');
         
 
         $last_idlap = $this->Laporan_model->get_lastrow();
