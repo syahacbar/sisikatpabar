@@ -138,3 +138,25 @@ button.btn.btn-success.btnTerima.disabled {
 .tabeldashboardAdmin td:nth-child(6) {
     min-width: 175px;
 }
+
+
+/* CSS untuk SK Ruas Jalan */
+
+div#identity div#skruasjalan {
+    border: 1px solid #ced4da;
+}
+
+div#identity div#skruasjalan h3 {
+    font-size: 18px;
+}
+
+div#identity div#skruasjalan .dz-message:before {
+    content: " ";
+    background-image: url(https://image.flaticon.com/icons/png/512/337/337946.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 65px !important;
+    display: block;
+    margin-bottom: 20px;
+}

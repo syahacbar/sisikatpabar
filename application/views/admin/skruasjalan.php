@@ -1,37 +1,5 @@
 <div class="container-fluid px-4">
-    <h2 class="mt-4">Dashboard Admin Provinsi</h2>
-    <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active"></li>
-    </ol>
-
     <div class="col-xl-12">
-        <div class="card mb-4">
-            <div class="card-header">
-                <i class="fas fa-bars"></i>
-                Laporan Bulanan
-            </div>
-            <div class="row">
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-area me-1"></i>
-                            Statistik Laporan Harian
-                        </div>
-                        <div class="card-body"><canvas id="laporanharian" width="100%" height="40"></canvas></div>
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-bar me-1"></i>
-                            Statistik Laporan Bulanan
-                        </div>
-                        <div class="card-body"><canvas id="laporanbulanan" width="100%" height="40"></canvas></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <main>
             <div id="skruasjalan" class="container-fluid px-4">
                 <h2 class="mt-4">SK Ruas Jalan</h2>
@@ -40,28 +8,33 @@
                         <li class="breadcrumb-item active"></li>
                     </ol>
 
-                    <div class="row mb-4">
+                    <div class=" container row mb-4">
                         <div id="content">
                         <?php echo form_open_multipart('',array('id'=>'formuploadsk')); ?>
+                        <label for="skruasjalan">Nama File SK</label>
                             <div id="identity" class="row mb-4">
-                                <input id="namask" type="text" name="namask" class="form-control">
+                                <div class="col">
+                                    <input id="namask" type="text" name="namask" class="form-control" placeholder="Ketikkan nama file SK di sini">
+                                </div>
                             </div>
                             <div id="identity" class="row mb-4">
-                                <h6>Unggah File SK Ruas Jalan</h6>
-                                <div class="dropzone skruasjalan" id="skruasjalan">
-                                    <div class="dz-message">
-                                        <h3> Klik atau Drop file PDF disini</h3>
+                                <div class="col">
+                                    <h6>Unggah File SK Ruas Jalan</h6>
+                                    <div class="dropzone skruasjalan" id="skruasjalan">
+                                        <div class="dz-message">
+                                            <h3> Klik atau Drop file PDF disini</h3>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- <button type="button" id="submit_dropzone_form">UPLOAD</button> -->
                                 <button id="btnSubmit" name="submit" type="submit" class="btn btn-primary btn-block mb-4">Kirim File</button>
                             <!-- Tombol Kirim -->
-                            <?php echo form_close(); ?>
-                        </div>
-                    </div> 
-                </div>
-            </main>
+                        <?php echo form_close(); ?>
+                    </div>
+                </div> 
+            </div>
+        </main>
 
             
             
