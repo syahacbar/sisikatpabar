@@ -486,7 +486,8 @@
                     $.ajax({
                        url: "<?php echo site_url('lapor/add') ?>",
                        type: "POST",
-                       data: {nik: nik, nama_pelapor: nama_pelapor, kab_pelapor:kab_pelapor, kec_pelapor:kec_pelapor,des_pelapor:des_pelapor,alamat_pelapor:alamat_pelapor,email:email,no_hp:no_hp,infrastruktur:infrastruktur,latitude:latitude,longitude:longitude,lokasi_namajalan:lokasi_namajalan,lokasi_kabkota:lokasi_kabkota,lokasi_distrik:lokasi_distrik,pengaduan:pengaduan,kodelap:kodelap},
+                       data: {nik: nik, nama_pelapor: nama_pelapor, kab_pelapor:kab_pelapor, kec_pelapor:kec_pelapor,des_pelapor:des_pelapor,alamat_pelapor:alamat_pelapor,email:email,no_hp:no_hp,infrastruktur:infrastruktur,latitude:latitude,longitude:longitude,lokasi_namajalan:lokasi_namajalan,lokasi_kabkota:lokasi_kabkota,lokasi_distrik:lokasi_distrik,pengaduan:pengaduan,kodelap:kodelap,'g-recaptcha-response': grecaptcha.getResponse()
+},
                        error: function() {
                           alert('Something is wrong');
                        },

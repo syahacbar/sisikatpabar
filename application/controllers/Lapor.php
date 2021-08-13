@@ -82,7 +82,7 @@ class Lapor extends CI_Controller{
         $this->load->library('form_validation');
         $this->form_validation->set_rules('nik','NIK','required');
         $is_valid = $this->recaptcha->is_valid();
-        if($this->form_validation->run())     
+        if($this->form_validation->run() && $is_valid['success'])     
         {   
             $params = array(
                 'tgl_laporan' => date("Y-m-d H:i:s"),
