@@ -3,7 +3,7 @@
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active"></li>
     </ol>
-    <div class="card mb-4">
+    <div class="card mb-4" style="width:50%">
        
         <div class="card-body">
             <table id="datatablesSimple">

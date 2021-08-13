@@ -23,26 +23,31 @@ class Admin extends MY_Controller{
         $data['kabupaten'] = $get_kab->result();
 
         $lapharian = $this->db->query("SELECT COUNT(*) total, 
-                                        DATE_FORMAT(r.tgl_laporan, '%d %b') tanggal,
-                                        MONTH(r.tgl_laporan) bulan,
-                                        DATE_FORMAT(r.tgl_laporan, '%a') hari
-                                        FROM laporan r
-                                        WHERE YEARWEEK(r.tgl_laporan, 1) = YEARWEEK(NOW(), 1)
-                                        GROUP BY DATE(r.tgl_laporan)
-                                        ORDER BY DATE(r.tgl_laporan) ASC");
+            DATE_FORMAT(r.tgl_laporan, '%d %b') tanggal,
+            MONTH(r.tgl_laporan) bulan,
+            DATE_FORMAT(r.tgl_laporan, '%a') hari
+            FROM laporan r
+            WHERE YEARWEEK(r.tgl_laporan, 1) = YEARWEEK(NOW(), 1)
+            GROUP BY DATE(r.tgl_laporan)
+            ORDER BY DATE(r.tgl_laporan) ASC");
         $lapbulanan = $this->db->query("SELECT COUNT(*) total,
-                                        MONTHNAME(r.tgl_laporan) bulan
-                                        FROM laporan r
-                                        GROUP BY MONTH(r.tgl_laporan)
-                                        ORDER BY DATE(r.tgl_laporan) ASC");
+            MONTHNAME(r.tgl_laporan) bulan
+            FROM laporan r
+            GROUP BY MONTH(r.tgl_laporan)
+            ORDER BY DATE(r.tgl_laporan) ASC");
         $maxmingguan = $this->db->query("SELECT COUNT(*) total, 
-                                        DAYOFMONTH(r.tgl_laporan) tanggal,
-                                        MONTH(r.tgl_laporan) bulan,
-                                        DATE_FORMAT(r.tgl_laporan, '%a') hari
-                                        FROM laporan r
-                                        WHERE YEARWEEK(r.tgl_laporan, 1) = YEARWEEK(NOW(), 1)");
-        
-        $data['updatelaporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_Laporan','DESC');
+            DAYOFMONTH(r.tgl_laporan) tanggal,
+            MONTH(r.tgl_laporan) bulan,
+            DATE_FORMAT(r.tgl_laporan, '%a') hari
+            FROM laporan r
+            WHERE YEARWEEK(r.tgl_laporan, 1) = YEARWEEK(NOW(), 1)");
+
+        $data['countlapall'] = $this->Laporan_model->count_all_laporan();
+        $data['countlapmenunggu'] = $this->Laporan_model->count_all_laporan('0');
+        $data['countlapsetuju'] = $this->Laporan_model->count_all_laporan('1');
+        $data['countlaptolak'] = $this->Laporan_model->count_all_laporan('2');
+
+        $data['updatelaporan'] = $this->Laporan_model->get_all_laporan(NULL,'5',NULL,NULL,'tgl_Laporan','DESC','1');
         $data['maxmingguan'] = $maxmingguan->row();
         $data['lapharian'] = $lapharian->result();
         $data['lapbulanan'] = $lapbulanan->result();
@@ -54,24 +59,49 @@ class Admin extends MY_Controller{
     function infrastruktur($q=NULL)
     {
         $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
-        $data['kabupaten'] = $get_kab->result();
+        if($this->input->post('btnFilter', TRUE))
+        {
+            $status = $this->input->post('status', TRUE);
+            
+            $data['status'] = $status;
 
-        if($q=='jalan')
-        {
-            $data['laporan'] = $this->Laporan_model->get_all_laporan('jalan');
-            $data['infrastruktur'] = 'Jalan';
-        } 
-        elseif($q=='drainase')
-        {
-            $data['laporan'] = $this->Laporan_model->get_all_laporan('drainase');
-            $data['infrastruktur'] = 'Drainase';
+            if($q=='jalan')
+            {
+                $data['laporan'] = $this->Laporan_model->get_all_laporan('jalan',NULL,NULL,NULL,'tgl_laporan','DESC',$status);
+                $data['infrastruktur'] = 'Infrastruktur Jalan';
+            } 
+            elseif($q=='drainase')
+            {
+                $data['laporan'] = $this->Laporan_model->get_all_laporan('drainase',NULL,NULL,NULL,'tgl_laporan','DESC',$status);
+                $data['infrastruktur'] = 'Infrastruktur Drainase';
+            }
+            else
+            {
+                $data['laporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_laporan','DESC',$status); 
+                $data['infrastruktur'] = 'Semua Infrastruktur';
+            }
         }
         else
         {
-            $data['laporan'] = $this->Laporan_model->get_all_laporan(NULL);
-            $data['infrastruktur'] = 'Semua Infrastruktur';
-        }
+            $data['status'] = '1';
 
+            if($q=='jalan')
+            {
+                $data['laporan'] = $this->Laporan_model->get_all_laporan('jalan',NULL,NULL,NULL,'tgl_laporan','DESC','1');
+                $data['infrastruktur'] = 'Infrastruktur Jalan';
+            } 
+            elseif($q=='drainase')
+            {
+                $data['laporan'] = $this->Laporan_model->get_all_laporan('drainase',NULL,NULL,NULL,'tgl_laporan','DESC','1');
+                $data['infrastruktur'] = 'Infrastruktur Drainase';
+            }
+            else
+            {
+                $data['laporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_laporan','DESC','1'); 
+                $data['infrastruktur'] = 'Semua Infrastruktur';
+            }
+        }
+        $data['kabupaten'] = $get_kab->result();
         $data['_view'] = 'admin/infrastruktur';
         $this->load->view('admin/layout',$data);
     }
@@ -80,16 +110,33 @@ class Admin extends MY_Controller{
     function kabkota($kabkota=NULL)
     {
         $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
-        $data['kabupaten'] = $get_kab->result();
-        $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($kabkota);
-        if ($kabkota==NULL)
+        if($this->input->post('btnFilter', TRUE))
         {
-            $data['kabkota'] = 'Semua Kab/Kota';
-        } else {
-            $data['kabkota'] = $this->Laporan_model->get_kabkota($kabkota)->nama;
+            $status = $this->input->post('status', TRUE);
+            $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($kabkota,NULL,NULL,NULL,NULL,NULL,$status);
+            $data['status'] = $status;
+
+            if ($kabkota==NULL)
+            {
+                $data['kabkota'] = 'Semua Kab/Kota';
+            } else {
+                $data['kabkota'] = $this->Laporan_model->get_kabkota($kabkota)->nama;
+            }
         }
-                
+        else
+        {
+            $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($kabkota,NULL,NULL,NULL,NULL,NULL,'1');
+            $data['status'] = '1';
+
+            if ($kabkota==NULL)
+            {
+                $data['kabkota'] = 'Semua Kab/Kota';
+            } else {
+                $data['kabkota'] = $this->Laporan_model->get_kabkota($kabkota)->nama;
+            }
+        }    
         $data['_view'] = 'admin/kabupaten';
+        $data['kabupaten'] = $get_kab->result();
         $this->load->view('admin/layout',$data);
     }
 
@@ -109,9 +156,9 @@ class Admin extends MY_Controller{
         $data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
         $data['users'] = $this->ion_auth->users()->result();
         foreach ($data['users'] as $k => $user)
-            {
-                $data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
-            }
+        {
+            $data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
+        }
         $data['_view'] = 'auth/index';
         $this->load->view('admin/layout',$data);
 
@@ -125,6 +172,7 @@ class Admin extends MY_Controller{
         $startdate = $this->input->post('startdate', TRUE);
         $todate = $this->input->post('todate', TRUE);
         $formatcetak = $this->input->post('RBFormatCetak',TRUE);
+        $Statuslap = $this->input->post('RBStatuslap',TRUE);
         if ($formatcetak == 'cetakword')
         {
             $this->docx();
@@ -138,8 +186,8 @@ class Admin extends MY_Controller{
             }
             
 
-            $data['laporan'] = $this->Laporan_model->get_cetak_laporan($infrastruktur,$kabupaten,$startdate,$todate,NULL,NULL,NULL,'tgl_laporan','DESC');
-            if($infrastruktur != NULL && $kabupaten != NULL)
+            $data['laporan'] = $this->Laporan_model->get_cetak_laporan($infrastruktur,$kabupaten,$startdate,$todate,NULL,NULL,NULL,'tgl_laporan','DESC',$Statuslap);
+            if($infrastruktur != NULL && $kabupaten != NULL && $Statuslap != NULL)
             {
                 if ($infrastruktur == 'semua' && $kabupaten == 'semua')
                 {
@@ -162,7 +210,7 @@ class Admin extends MY_Controller{
             }
         }
 
-                    
+        
     }
 
     function cetakword()
@@ -174,23 +222,6 @@ class Admin extends MY_Controller{
     }
 
     function docx() {
-        
-        /*$phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $paper = new \PhpOffice\PhpWord\Style\Paper();        
-        $section = $phpWord->addSection(array(
-            'pageSizeW' => $paper->getWidth(), 
-            'pageSizeH' => $paper->getHeight(), 
-            'orientation' => 'landscape',
-            'marginLeft' => 500, 
-            'marginRight' => 500,
-            'marginTop' => 800, 
-            'marginBottom' => 800
-        ));
-        
-        
-        
-        $filename = date('Y-m-d H:i:s') . '.docx';      
-        */
         
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $paper = new \PhpOffice\PhpWord\Style\Paper();   
@@ -258,6 +289,36 @@ class Admin extends MY_Controller{
         header('Cache-Control: max-age=0'); //no cache
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
         $objWriter->save('php://output');
+    }
+
+    function skruasjalan()
+    {        
+        $data['_view'] = 'admin/skruasjalan';
+        $this->load->view('admin/layout',$data);
+    }
+
+    // Upload SK Ruas Jalan
+    function uploadsk()
+    {
+        $config['upload_path']   = FCPATH.'/upload/skruasjalan/';
+        $config['allowed_types'] = 'pdf';
+        $this->load->library('upload',$config);
+
+        if($this->upload->do_upload('fileskruasjalan')){
+            $filesk=$this->upload->data('file_name');
+            $namask=$this->input->post('namask');
+            $token=$this->input->post('token_skruasjalan');
+            $uploaded_on=date("Y-m-d H:i:s");
+            $this->db->insert('skruasjalan',array('namask'=>$namask,'filesk'=>$filesk,'token'=>$token,'uploaded_on'=>$uploaded_on));
+        }
+
+    }
+
+
+    function proseslaporan($idlap)
+    {
+        $status = $this->input->post('status');
+        $this->Laporan_model->proseslaporan($idlap,$status);
     }
 
 }

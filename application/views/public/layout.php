@@ -52,6 +52,7 @@
         <script src="<?php echo base_url('resources/datatables/bootstrap/js/bootstrap.min.js')?>"></script>
         <script src="<?php echo base_url('resources/datatables/datatables/js/jquery.dataTables.min.js')?>"></script>
         <script src="<?php echo base_url('resources/datatables/datatables/js/dataTables.bootstrap.min.js')?>"></script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
 
     <body id="page-top">
@@ -122,10 +123,10 @@
                               <label for="password" class="form-label">Kata Sandi</label>
                               <input name="password" type="password" class="form-control" id="password">
                             </div>
-                            <div class="mb-3 form-check">
-                              <input name="remember" type="checkbox" class="form-check-input" id="remember">
-                              <label class="form-check-label" for="remember">Biarkan saya tetap masuk</label>
+                            <div class="mb-3">
+                                 <?php echo $recaptcha2;?> 
                             </div>
+                            
                             <button type="submit" class="btn btn-primary">MASUK</button>
                           <?php echo form_close();?>
 

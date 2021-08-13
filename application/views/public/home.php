@@ -1,7 +1,6 @@
 <?php echo $map['js']; ?>
-
     <!-- Header Web -->
-        <header id="header" class="masthead">
+        <header id="header" class="masthead"> 
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     <!-- Header - Bagian tulisan SISIKAT dan tagline-->
@@ -100,75 +99,69 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <?php echo form_open_multipart('lapor/add',array('id'=>'formlaporan')); ?>
 
-                                <!-- NIK -->
-                                <div class="row mb-4">
-                                    <div class="col">
-                                      <div class="form-outline">
-                                        <input id="nik" name="nik" type="text" class="form-control" placeholder="Ketik NIK Anda" required/>
-                                      </div>
-                                    </div>
-                                </div>   
-                                <!-- Akhir NIK -->
 
-                                <!-- Nama -->
+                                <!-- NIK dan Nama -->
                                 <div class="row mb-4">
-                                  <div class="col">
-                                    <div class="form-outline">
-                                      <input name="nama_pelapor" type="text" class="form-control" placeholder="Ketik Nama Anda" required/>
+                                    <div class="col-md-6">
+                                      <!-- <div id="only-number" class="form-outline">
+                                            <input id="nik" id="number" name="nik" type="text" class="form-control" placeholder="Ketik NIK Anda" required/>
+                                      </div> -->
+
+                                      <div class="form-group form-outline only-number">
+                                        <input type="text" name="nik" class="form-control number" placeholder="Ketik NIK Anda" required>
                                     </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-outline">
+                                            <input name="nama_pelapor" type="text" class="form-control" placeholder="Ketik Nama Anda" required/>
+                                        </div>
                                   </div>
                                 </div>
-                                <!-- Akhir Nama -->
+                                <!-- Akhir NIK dan Nama -->
 
-                                <!-- Alamat -->
-                                <div class="row mb-4">
-                                    <div class="col">
+
+                                <div id="alamatuser" class="row mb-4">
+                                    <div class="col-md-6">
                                       <div class="form-outline">
-                                        <textarea name="alamat_pelapor" class="form-control" rows="4" placeholder="Ketik alamat Anda dengan format: Nama Jalan, No. Rumah/Blok, Nama Kompleks, RT/RW" required></textarea>
+                                            <textarea name="alamat_pelapor" class="form-control" rows="6" placeholder="Ketik alamat Anda dengan format: Nama Jalan, No. Rumah/Blok, Nama Kompleks, RT/RW" required></textarea>
                                       </div>
                                     </div>
-                                </div>
-                                <!-- Akhir Alamat --> 
 
-                                <!-- Kabupaten -->
-                                <div class="row mb-4">
-                                    <div class="col">
-                                      <div class="form-outline">
-                                      <select name="kab_pelapor" id="kab_pelapor">
-                                            <option><i class="fas fa-chevron-down"></i>- Pilih Kabupaten/Kota -</option>
-                                            <?php 
-                                                foreach($kabupaten as $kab)
-                                                {
-                                                    echo '<option value="'.$kab->kode.'">'.$kab->nama.'</option>';
-                                                }
-                                            ?>
-                                        </select>
-                                      </div>
-                                    </div>
-                                </div>
-                                <!-- Akhir Kabupaten -->     
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="form-outline">
+                                                <select name="kab_pelapor" id="kab_pelapor" required>
+                                                    <option value=""><i class="fas fa-chevron-down"></i>- Pilih Kabupaten/Kota -</option>
+                                                    <?php 
+                                                        foreach($kabupaten as $kab)
+                                                        {
+                                                            echo '<option value="'.$kab->kode.'">'.$kab->nama.'</option>';
+                                                        }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
 
-                                <!-- Kecamatan -->
-                                <div class="row mb-4">
-                                    <div class="col">
-                                      <div class="form-outline">
-                                        <select name="kec_pelapor" id="kec_pelapor">
-                                            <option>- Pilih Kecamatan/Distrik -</option>
-                                        </select>
-                                      </div>
-                                    </div>
-                                </div>
-                                <!-- Akhir Kecamatan --> 
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-outline">
+                                                    <select name="kec_pelapor" id="kec_pelapor" required>
+                                                        <option value="">- Pilih Kecamatan/Distrik -</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                <!-- Kel./Desa -->
-                                <div class="row mb-4">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <select name="des_pelapor" id="des_pelapor">
-                                            <option><i class="fas fa-chevron-down"></i>- Pilih Kelurahan/Desa -</option>
-                                        </select>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <select name="des_pelapor" id="des_pelapor" required>
+                                                    <option value=""><i class="fas fa-chevron-down"></i>- Pilih Kelurahan/Desa -</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Akhir Kel./Desa -->                                                                   
+                                </div>                                                                 
 
                                 <!-- Email dan Nomor HP-->
                                 <div class="row mb-4">
@@ -178,15 +171,16 @@
                                     </div>
                                   </div>
 
+
                                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                    <div class="form-outline">
-                                      <input name="no_hp" type="text" class="form-control" placeholder="Ketik Nomor HP Anda" required/>
+                                    <div class="form-group form-outline only-number">
+                                        <input type="text" name="no_hp" class="form-control number" placeholder="Ketik Nomor WhatsApp Anda" required>
                                     </div>
                                   </div>
                                 </div>
                                 <!-- Email -->
 
-                                <!-- Unggah Bukti -->
+                                <!-- Unggah KTP -->
                                 <div id="identity" class="row mb-4">
                                     <h6>Unggah Foto KTP</h6>
                                     <div class="dropzone ktp" id="ktp">
@@ -201,83 +195,91 @@
                                     <h3>Data Laporan</h3>
                                     <p>Isi formulir laporan pengaduan tentang infrastruktur dibawah ini.</p>
                                 </div>
-                                <div class="row mb-4">
-                                    <div class="col">
-                                        <select name="infrastruktur">
-                                            <option><i class="fas fa-chevron-down"></i>Pilih Jenis Infrastruktur</option>
-                                            <option value="Jalan">Jalan</option>
-                                            <option value="Drainase">Drainase</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Akhir Jenis Infrastruktur-->
 
                                 <!-- Maps -->
-                                <div class="row mb-4">
+                                <div id="maps" class="row mb-4">
                                     <div class="col">
+                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                            <p>Tandai lokasi yang dilaporkan dengan menggeser penanda merah pada peta berikut ini.</p>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
                                       <div class="form-outline">
-                                        <label class="form-label">Tandai Lokasi Yang Dilaporkan Dengan Menggeser Penanda Merah Pada Peta Berikut Ini</label>
                                         <?php echo $map['html']; ?>
                                       </div>
                                     </div>
                                 </div>
                                 <!-- Akhir Maps -->
 
+
                                 <!-- Latitude & Longitude -->
                                 <div class="row mb-4">
                                     <div class="col">
                                       <div class="form-outline">
-                                        <input name="latitude" type="text" id="latitude" class="form-control" placeholder="Latitude" value="<?php echo set_value('latitude'); ?>" readonly/>
+                                        <input name="latitude" type="text" id="latitude" class="form-control" placeholder="Latitude" value="<?php echo set_value('latitude'); ?>" readonly required/>
                                       </div>
                                     </div>
 
                                     <div class="col">
                                       <div class="form-outline">
-                                        <input name="longitude" type="text" id="longitude" class="form-control" placeholder="Longitude" value="<?php echo set_value('longitude'); ?>" readonly/>
+                                        <input name="longitude" type="text" id="longitude" class="form-control" placeholder="Longitude" value="<?php echo set_value('longitude'); ?>" readonly required/>
                                       </div>
                                     </div>
                                 </div>
                                 <!-- Akhir Latitude & Longitude -->
 
+                                <div id="jenisinfra" class="row mb-4">
+                                    <label class="form-label">Pilih Jenis Infrastruktur</label>
+                                    <div class="col-md-6">
+                                        <div class="form-check" name="infrastruktur">
+                                            <input class="form-check-input" value="jalan" type="radio" name="flexRadioDefault" id="flexRadioDefault1" required>
+                                                <label class="form-check-label" value="jalan" for="flexRadioDefault1">Jalan</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" value="jalan" type="radio" name="flexRadioDefault" id="flexRadioDefault2" required>
+                                                <label class="form-check-label" value="drainase" for="flexRadioDefault2">Drainase</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Akhir Jenis Infrastruktur-->
+
                                 <!-- Ruas Jalan -->
-                                <div class="row mb-4">
-                                    <div class="col">
+                                <div id="ruasnamajalan" class="row mb-4">
+                                    <div class="col-md-6">
                                       <div class="form-outline">
-                                        <input name="lokasi_namajalan" type="text" class="form-control" placeholder="Ruas Nama Jalan" required/>
+                                        <textarea name="lokasi_namajalan" type="text" class="form-control" rows="4" placeholder="Ketik ruas nama jalan di sini" required></textarea>
                                       </div>
                                     </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="form-outline">
+                                                <select name="lokasi_kabkota" id="lokasi_kabkota" required>
+                                                    <option value="">- Pilih Kabupaten/Kota -</option>
+                                                    <?php 
+                                                        foreach($kabupaten as $kab)
+                                                        {
+                                                            echo '<option value="'.$kab->kode.'">'.$kab->nama.'</option>';
+                                                        }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-outline">
+                                                    <select name="lokasi_distrik" id="lokasi_distrik" required>
+                                                        <option value="">- Pilih Kecamatan/Distrik -</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <!-- Akhir Ruas Jalan -->
-
-                                <!-- Kabupaten -->
-                                <div class="row mb-4">
-                                    <div class="col">
-                                      <div class="form-outline">
-                                        <select name="lokasi_kabkota" id="lokasi_kabkota">
-                                            <option>- Pilih Kabupaten/Kota -</option>
-                                            <?php 
-                                                foreach($kabupaten as $kab)
-                                                {
-                                                    echo '<option value="'.$kab->kode.'">'.$kab->nama.'</option>';
-                                                }
-                                            ?>
-                                        </select>
-                                      </div>
-                                    </div>
-                                </div>
-                                <!-- Akhir Kabupaten -->
-
-                                <!-- Kecamatan -->
-                                <div class="row mb-4">
-                                    <div class="col">
-                                      <div class="form-outline">
-                                        <select name="lokasi_distrik" id="lokasi_distrik">
-                                            <option>- Pilih Kecamatan/Distrik -</option>
-                                        </select>
-                                      </div>
-                                    </div>
-                                </div>
-                                <!-- Akhir Kecamatan -->
 
                                 <!-- Isi Laporan -->
                                 <div class="row mb-4">
@@ -326,21 +328,18 @@
                                             </div>
                                         </div> 
                                     </div>
-
                                 </div>
-                                <!-- Akhir Doc. Laporan -->                                
-                                
-                                <!-- <div class="dropzone dokumentasi" id="dokumentasi">
-                                  <div class="dz-message">
-                                    <h3> Klik atau Drop gambar dokumentasi disini</h3>
-                                  </div>
-                                </div>  -->
 
                                 <!-- Kebijakan Privasi -->
                                 <div id="policy" class="form-check d-flex justify-content-center mb-4">
-                                  <label class="form-check-label">Dengan ini, saya menyatakan bahwa informasi yang saya berikan adalah benar dan dapat dipertanggungjawabkan.</label>
-                                </div>
+                                <label class="form-check-label">Dengan ini, saya menyatakan bahwa informasi yang saya berikan adalah benar dan dapat dipertanggungjawabkan.</label>
+                                </div>       
                                 <!-- Akhir Kebijakan Privasi -->
+
+                                <div class="row mb-4">
+                                    <center><?php echo $recaptcha;?></center>
+                                </div> 
+
                                 <input type="hidden" id="kodelap" name="kodelap" value="<?php echo $kodelap;?>">
                                 <!-- Tombol Kirim -->
                                 <button id="btnSubmit" name="submit" type="submit" class="btn btn-primary btn-block mb-4">Kirim Laporan</button>
@@ -367,25 +366,7 @@
             Dropzone.autoDiscover = false;
             $(document).ready(function(){     
 
-                $(document).on('click','#lapdetail',function(){
-                    var slokasi_namajalan = $(this).data('slokasi_namajalan');
-                    var slokasi_kabkota = $(this).data('slokasi_kabkota');
-                    var slokasi_distrik = $(this).data('slokasi_distrik');
-                    var slokasi_koordinat = $(this).data('slokasi_koordinat');
-                    var spengaduan = $(this).data('spengaduan');
-                    var sdokumentasi1 = $(this).data('sdokumentasi1');
-                    var sdokumentasi2 = $(this).data('sdokumentasi2');
-                    $('#slokasi_namajalant').text(slokasi_namajalan);
-                    $('#slokasi_namajalan').text(slokasi_namajalan);
-                    $('#slokasi_kabkota').text(slokasi_kabkota);
-                    $('#slokasi_distrik').text(slokasi_distrik);
-                    $('#slokasi_koordinat').text(slokasi_koordinat);
-                    $('#spengaduan').text(spengaduan);
-                    $("#sdokumentasi1").attr("src", sdokumentasi1);
-                    $("#sdokumentasi2").attr("src", sdokumentasi2);
-                   
-                })
-
+               
                 $("#lokasi_kabkota").change(function (){
                     var url = "<?php echo site_url('lapor/add_ajax_kec');?>/"+$(this).val();
                     $('#lokasi_distrik').load(url);
@@ -404,7 +385,7 @@
 
 
                 var ktp_upload= new Dropzone(".ktp",{
-                    autoProcessQueue: false,
+                    autoProcessQueue: true,
                     url: "<?php echo site_url('lapor/uploadktp') ?>",
                     maxFilesize: 50,
                     maxFiles: 1,
@@ -422,7 +403,7 @@
                 });
 
                 var dokumentasi1_upload= new Dropzone(".dokumentasi1",{
-                    autoProcessQueue: false,
+                    autoProcessQueue: true,
                     url: "<?php echo site_url('lapor/uploaddokumentasi1') ?>",
                     maxFilesize: 50,
                     maxFiles: 1,
@@ -440,7 +421,7 @@
                     c.append("kategori","dokumentasi1");
                 });
                 var dokumentasi2_upload= new Dropzone(".dokumentasi2",{
-                    autoProcessQueue: false,
+                    autoProcessQueue: true,
                     url: "<?php echo site_url('lapor/uploaddokumentasi2') ?>",
                     maxFilesize: 50,
                     maxFiles: 1,
@@ -458,7 +439,7 @@
                     c.append("kategori","dokumentasi2");
                 });
                 var dokumentasi3_upload= new Dropzone(".dokumentasi3",{
-                    autoProcessQueue: false,
+                    autoProcessQueue: true,
                     url: "<?php echo site_url('lapor/uploaddokumentasi3') ?>",
                     maxFilesize: 50,
                     maxFiles: 1,
@@ -478,10 +459,10 @@
 
                 $('#formlaporan').submit(function(e) {
                     e.preventDefault();
-                    ktp_upload.processQueue();
-                    dokumentasi1_upload.processQueue();
-                    dokumentasi2_upload.processQueue();
-                    dokumentasi3_upload.processQueue();
+                    //ktp_upload.processQueue();
+                    //dokumentasi1_upload.processQueue();
+                    //dokumentasi2_upload.processQueue();
+                    //dokumentasi3_upload.processQueue();
 
 
                    var nik = $("input[name='nik']").val();
@@ -495,7 +476,7 @@
                    var infrastruktur = $("select[name='infrastruktur']").val();  
                    var latitude = $("input[name='latitude']").val();  
                    var longitude = $("input[name='longitude']").val();  
-                   var lokasi_namajalan = $("input[name='lokasi_namajalan']").val();                    
+                   var lokasi_namajalan = $("textarea[name='lokasi_namajalan']").val();                    
                    var lokasi_kabkota = $("select[name='lokasi_kabkota']").val();               
                    var lokasi_distrik = $("select[name='lokasi_distrik']").val();           
                    var pengaduan = $("textarea[name='pengaduan']").val();      
@@ -505,7 +486,8 @@
                     $.ajax({
                        url: "<?php echo site_url('lapor/add') ?>",
                        type: "POST",
-                       data: {nik: nik, nama_pelapor: nama_pelapor, kab_pelapor:kab_pelapor, kec_pelapor:kec_pelapor,des_pelapor:des_pelapor,alamat_pelapor:alamat_pelapor,email:email,no_hp:no_hp,infrastruktur:infrastruktur,latitude:latitude,longitude:longitude,lokasi_namajalan:lokasi_namajalan,lokasi_kabkota:lokasi_kabkota,lokasi_distrik:lokasi_distrik,pengaduan:pengaduan,kodelap:kodelap},
+                       data: {nik: nik, nama_pelapor: nama_pelapor, kab_pelapor:kab_pelapor, kec_pelapor:kec_pelapor,des_pelapor:des_pelapor,alamat_pelapor:alamat_pelapor,email:email,no_hp:no_hp,infrastruktur:infrastruktur,latitude:latitude,longitude:longitude,lokasi_namajalan:lokasi_namajalan,lokasi_kabkota:lokasi_kabkota,lokasi_distrik:lokasi_distrik,pengaduan:pengaduan,kodelap:kodelap,'g-recaptcha-response': grecaptcha.getResponse()
+},
                        error: function() {
                           alert('Something is wrong');
                        },
@@ -520,6 +502,18 @@
 
             });
             
+        </script>
+
+        <script>
+            $(function() {
+            $('.only-number').on('keydown', '.number', function(e){
+                -1!==$
+                .inArray(e.keyCode,[46,8,9,27,13,110,190]) || /65|67|86|88/
+                .test(e.keyCode) && (!0 === e.ctrlKey || !0 === e.metaKey)
+                || 35 <= e.keyCode && 40 >= e.keyCode || (e.shiftKey|| 48 > e.keyCode || 57 < e.keyCode)
+                && (96 > e.keyCode || 105 < e.keyCode) && e.preventDefault()
+            });
+            })
         </script>
 
       

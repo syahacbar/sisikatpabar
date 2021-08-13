@@ -5,8 +5,9 @@ class Lapor extends CI_Controller{
     {
         parent::__construct();
         $this->load->model('Laporan_model');
-        $this->load->model('m_setting');
+        $this->load->model('M_setting');
         $this->load->library('session');
+        $this->load->library('recaptcha'); 
     } 
 
 
@@ -15,7 +16,9 @@ class Lapor extends CI_Controller{
      */
     function index()
     {
-        $setting=$this->m_setting->list_setting();
+        $recaptcha = $this->recaptcha->create_box();
+
+        $setting=$this->M_setting->list_setting();
         $this->load->library('googlemaps');
         $config['center'] = "$setting->latitude, $setting->longitude";
         $config['zoom'] = "$setting->zoom";
@@ -32,8 +35,6 @@ class Lapor extends CI_Controller{
 
         $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
         $data['kabupaten'] = $get_kab->result();
-        $data['laporan1'] = $this->Laporan_model->get_all_laporan(NULL,3,0,NULL,'tgl_Laporan','DESC'); 
-        $data['laporan2'] = $this->Laporan_model->get_all_laporan(NULL,3,3,NULL,'tgl_Laporan','DESC');
         
 
         $last_idlap = $this->Laporan_model->get_lastrow();
@@ -49,6 +50,8 @@ class Lapor extends CI_Controller{
         $data['jum_lap_jalan'] = $this->Laporan_model->get_infrastruktur('jalan')->num_rows();
         $data['kodelap'] = $kodelap;
         $data['_view'] = 'public/home';
+        $data['recaptcha'] = $recaptcha;
+        $data['recaptcha2'] = $recaptcha;
         $data['title'] = 'SI-SIKAT | Beranda';
         $this->load->view('public/layout',$data);
 
@@ -79,8 +82,8 @@ class Lapor extends CI_Controller{
 
         $this->load->library('form_validation');
         $this->form_validation->set_rules('nik','NIK','required');
-        
-        if($this->form_validation->run())     
+        $is_valid = $this->recaptcha->is_valid();
+        if($this->form_validation->run() && $is_valid['success'])     
         {   
             $params = array(
                 'tgl_laporan' => date("Y-m-d H:i:s"),
@@ -100,14 +103,29 @@ class Lapor extends CI_Controller{
                 'lokasi_kabkota' => $this->input->post('lokasi_kabkota'),
                 'lokasi_distrik' => $this->input->post('lokasi_distrik'),
                 'kodelap' => $this->input->post('kodelap'),
+                'status' => '0'
             );
-            
-            $laporan_id = $this->Laporan_model->add_laporan($params);
+                
+                $laporan_id = $this->Laporan_model->add_laporan($params);
 
-            //redirect('lapor');
+                $namapelapor = $this->input->post('nama_pelapor');
+                $nowapelapor = $this->input->post('no_hp');
+                //$nowakabid = $this->M_setting->get_nowa_kabid($this->input->post('lokasi_kabkota'))->phone;
+                $nowakabid = '085244146207';
+                $kodelap = $this->input->post('kodelap');
+                $distrik = $this->M_setting->get_wilayah($this->input->post('lokasi_distrik'));
+                $kabupaten = $this->M_setting->get_wilayah($this->input->post('lokasi_kabkota'));
+                $image = $this->M_setting->get_image($kodelap);
+                $imageurl = base_url().'upload/dokumentasi/'.$image;
+                $ruasjalan = $this->input->post('lokasi_namajalan');
+
+                $this->wasendpelapor($nowapelapor,$namapelapor,$ruasjalan,$distrik,$kabupaten);
+                $this->wasendkabid($nowakabid,$kodelap,$ruasjalan,$kabupaten,$distrik,$imageurl);
+
+        }
             
-        }        
-    }
+    }        
+
 
     function uploadktp()
     {
@@ -175,6 +193,62 @@ class Lapor extends CI_Controller{
                 $this->db->insert('upload',array('nama_file'=>$nama,'token'=>$token,'kategori'=>$kategori,'uploaded_on'=>$uploaded_on,'kodelap'=>$kodelap));
             }
 
+    }
+
+    function wasendpelapor($nowapelapor,$nama,$ruasjalan,$distrik,$kabupaten)
+    {
+        $setting=$this->M_setting->list_setting();
+        $userkey = $setting->userkey;
+        $passkey = $setting->passkey;
+        $telepon = $nowapelapor;
+        $message = 'Hai *'.$nama.'*, '.PHP_EOL.'Laporan Anda Tentang Ruas Jalan *'.$ruasjalan.'* di Distrik *'.strtoupper($distrik).' '.$kabupaten.'* telah kami terima dan akan diverifikasi lebih lanjut. '.PHP_EOL.' '.PHP_EOL.'Terima Kasih. | Sisikat.com'.PHP_EOL.' '.PHP_EOL.'*-Don\'t Reply!-*';;
+        $url = 'https://console.zenziva.net/wareguler/api/sendWA/';
+        $curlHandle = curl_init();
+        curl_setopt($curlHandle, CURLOPT_URL, $url);
+        curl_setopt($curlHandle, CURLOPT_HEADER, 0);
+        curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curlHandle, CURLOPT_SSL_VERIFYHOST, 2);
+        curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($curlHandle, CURLOPT_TIMEOUT,30);
+        curl_setopt($curlHandle, CURLOPT_POST, 1);
+        curl_setopt($curlHandle, CURLOPT_POSTFIELDS, array(
+            'userkey' => $userkey,
+            'passkey' => $passkey,
+            'to' => $telepon,
+            'message' => $message
+        ));
+        $results = json_decode(curl_exec($curlHandle), true);
+        curl_close($curlHandle);
+                         
+    }
+
+    function wasendkabid($nowakabid,$kodelap,$ruasjalan,$kabupaten,$distrik,$imageurl)
+    {
+        $setting=$this->M_setting->list_setting();
+        $userkey = $setting->userkey;
+        $passkey = $setting->passkey;
+        $telepon = $nowakabid;
+        $image_link =  $imageurl;
+        $caption  = 'Yth. Kabid. Bina Marga *'.$kabupaten.'* '.PHP_EOL.' '.PHP_EOL.'Anda mendapatkan 1 laporan tentang Ruas Jalan *'.$ruasjalan.'* di Distrik *'.strtoupper($distrik).'*.'.PHP_EOL.'Silahkan masuk ke Sistem Informasi SISIKAT untuk melihat detail laporan.'.PHP_EOL.'Kode: *'.$kodelap.'* '.PHP_EOL.' '.PHP_EOL.'Terima Kasih. | Sisikat.com'.PHP_EOL.' '.PHP_EOL.'*-Don\'t Reply!-*';
+        $url = 'https://console.zenziva.net/wareguler/api/sendWAFile/';
+        $curlHandle = curl_init();
+        curl_setopt($curlHandle, CURLOPT_URL, $url);
+        curl_setopt($curlHandle, CURLOPT_HEADER, 0);
+        curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curlHandle, CURLOPT_SSL_VERIFYHOST, 2);
+        curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($curlHandle, CURLOPT_TIMEOUT,30);
+        curl_setopt($curlHandle, CURLOPT_POST, 1);
+        curl_setopt($curlHandle, CURLOPT_POSTFIELDS, array(
+            'userkey' => $userkey,
+            'passkey' => $passkey,
+            'to' => $telepon,
+            'link' => $image_link,
+            'caption' => $caption
+        ));
+        $results = json_decode(curl_exec($curlHandle), true);
+        curl_close($curlHandle);   
+                         
     }
 
 

@@ -1,33 +1,3 @@
-<!-- <h1><?php echo lang('login_heading');?></h1>
-<p><?php echo lang('login_subheading');?></p>
-
-<div id="infoMessage"><?php echo $message;?></div>
-
-<?php echo form_open("auth/login");?>
-
-  <p>
-    <?php echo lang('login_identity_label', 'identity');?>
-    <?php echo form_input($identity);?>
-  </p>
-
-  <p>
-    <?php echo lang('login_password_label', 'password');?>
-    <?php echo form_input($password);?>
-  </p>
-
-  <p>
-    <?php echo lang('login_remember_label', 'remember');?>
-    <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?>
-  </p>
-
-
-  <p><?php echo form_submit('submit', lang('login_submit_btn'));?></p>
-
-<?php echo form_close();?>
-
-<p><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p> -->
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -40,6 +10,7 @@
         <link href="<?php echo base_url();?>resources/admintheme/css/styles.css" rel="stylesheet" />
         <link href="<?php echo base_url();?>resources/admintheme/css/login-css.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body class="bg-primary">
         <div id="layoutAuthentication">
@@ -63,12 +34,17 @@
                                                 <input class="form-control" id="password" type="password" name="password" placeholder="Password" />
                                                 <label for="password">Kata sandi</label>
                                             </div>
-                                            <div class="form-check mb-3">
+                                            <div class="form-check mb-3 lupaIngat">
                                                 <input class="form-check-input" id="remember" type="checkbox" value="1" />
-                                                <label class="form-check-label" for="remember">Ingat kata sandi</label>
+                                                <label class="form-check-label" for="remember">Ingat kata sandi</label> 
+                                                <a style="text-align: right;" class="small" href="forgot_password">Lupa kata sandi?</a>
+                                            </div>
+
+                                            <div id="captchaLogin" class="form-check mb-3">
+                                                <center><?php echo $recaptcha;?></center>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="forgot_password">Lupa kata sandi?</a>
+                                                
                                             </div>
                                             <div id="loginbutton">
                                                 <button type="submit" class="btn btn-primary">MASUK</button>
@@ -76,6 +52,11 @@
                                         </form>
                                         <?php echo form_close();?>
                                     </div>
+
+                                    <div class="card-footer text-center py-3">
+                                        <div class="small">Kembali ke halaman<a href="<?php echo site_url();?>"> sisikat.com</a></div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

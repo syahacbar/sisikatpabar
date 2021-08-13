@@ -15,6 +15,7 @@ class Auth extends CI_Controller
 		$this->load->database();
 		$this->load->library(['ion_auth', 'form_validation']);
 		$this->load->helper(['url', 'language']);
+        $this->load->library('recaptcha');
 
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
@@ -26,11 +27,25 @@ class Auth extends CI_Controller
 	 */
 	public function login_history()
 	{
-		$this->db->order_by('logintime', 'DESC');
-		$log = $this->db->get('login_history')->result_array();
-		$this->data['loginhistory'] = $log;
-		$this->data['_view'] = 'auth/login_history';
-		$this->load->view('admin/layout',$this->data);
+		$user = $this->ion_auth->user()->row();
+    	$user_groups = $this->ion_auth->get_users_groups($user->id)->row();
+    	if($user_groups->name=='admin')
+    	{
+    		$this->db->order_by('logintime', 'DESC');
+			$log = $this->db->get('login_history')->result_array();
+			$this->data['loginhistory'] = $log;
+			$this->data['_view'] = 'auth/login_history';
+    		$this->load->view('admin/layout',$this->data);
+    	} 
+    	else
+    	{
+    		$this->db->where('username',$user->username);
+    		$this->db->order_by('logintime', 'DESC');
+			$log = $this->db->get('login_history')->result_array();
+			$this->data['loginhistory'] = $log;
+			$this->data['_view'] = 'auth/login_history';
+    		$this->load->view('adminkab/layout',$this->data);
+    	}
 		//$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'login_history', $this->data);
 	}
 
@@ -75,12 +90,12 @@ class Auth extends CI_Controller
 	public function login()
 	{
 		$this->data['title'] = $this->lang->line('login_heading');
-
+		$recaptcha = $this->recaptcha->create_box();
 		// validate form input
 		$this->form_validation->set_rules('identity', str_replace(':', '', $this->lang->line('login_identity_label')), 'required');
 		$this->form_validation->set_rules('password', str_replace(':', '', $this->lang->line('login_password_label')), 'required');
-
-		if ($this->form_validation->run() === TRUE)
+		$is_valid = $this->recaptcha->is_valid();
+		if ($this->form_validation->run() === TRUE && $is_valid['success'])
 		{
 			// check to see if the user is logging in
 			// check for "remember me"
@@ -98,7 +113,7 @@ class Auth extends CI_Controller
 				{
 					redirect('admin', 'refresh');
 				} else {
-					redirect('Adminkab', 'refresh');
+					redirect('adminkab', 'refresh');
 				}
 			}
 			else
@@ -114,7 +129,7 @@ class Auth extends CI_Controller
 			// the user is not logging in so display the login page
 			// set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-
+			$this->data['recaptcha'] = $recaptcha;
 			$this->data['identity'] = [
 				'name' => 'identity',
 				'id' => 'identity',
@@ -199,7 +214,17 @@ class Auth extends CI_Controller
 
 			// render
 			//$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'change_password', $this->data);
-			$this->load->view('admin/layout',$this->data);
+			$user = $this->ion_auth->user()->row();
+        	$user_groups = $this->ion_auth->get_users_groups($user->id)->row();
+        	if($user_groups->name=='admin')
+        	{
+        		$this->load->view('admin/layout',$this->data);
+        	} 
+        	else
+        	{
+        		$this->load->view('adminkab/layout',$this->data);
+        	}
+			
 		}
 		else
 		{
@@ -221,9 +246,15 @@ class Auth extends CI_Controller
 		}
 	}
 
+	public function forgot_password()
+	{
+		$nomorwhatsapp = $this->input->post('nomorwhatsapp');
+		// blm selesai nanti klo sdh mood baru selesaikan
+	}
+
 	/**
 	 * Forgot password
-	 */
+	 
 	public function forgot_password()
 	{
 		$this->data['title'] = $this->lang->line('forgot_password_heading');
@@ -643,12 +674,12 @@ class Auth extends CI_Controller
 
 		if (isset($_POST) && !empty($_POST))
 		{
-			// do we have a valid request?
+			/* do we have a valid request?
 			if ($this->_valid_csrf_nonce() === FALSE || $id != $this->input->post('id'))
 			{
 				show_error($this->lang->line('error_csrf'));
 			}
-
+			*/
 			// update the password if it was posted
 			if ($this->input->post('password'))
 			{
@@ -761,8 +792,15 @@ class Auth extends CI_Controller
 
 
 		$this->data['_view'] = 'auth/edit_user';
-		$this->load->view('admin/layout',$this->data);
-		//$this->_render_page('auth/edit_user', $this->data);
+		if(!$this->ion_auth->is_admin())
+		{
+				$this->load->view('adminkab/layout',$this->data);
+		}
+		else
+		{
+				$this->load->view('admin/layout',$this->data);
+		}
+		
 	}
 
 	/**

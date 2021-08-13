@@ -1,3 +1,17 @@
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 98%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0;
+    outline: 0;
+    border-radius: 15px;
+    margin: 0 1%;
+}
+
 @media (max-width: 449px) {
     div#identity {
         padding-top: 0;
@@ -7,7 +21,7 @@
     .col-sm-12 {
         margin: 10px 0;
         padding: 15px;
-        padding-top: 3rem;
+        padding-top: 1rem;
     }
 
     @media (min-width: 450px) {
@@ -82,7 +96,7 @@
     #report img {
         width: 100%;
         border-radius: 5px;
-        margin: 0;
+        margin: 10px 0;
         height: 200px;
         object-fit: cover;
     }
@@ -134,4 +148,18 @@
 
     div#idcard {
         margin-bottom: 15px;
+    }
+
+    /* Modal close button */
+    button#closeBtn {
+        background-color: red;
+        border: 0;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 5px;
+        width: 35px;
+    }
+
+    tbody span {
+        font-weight: 500;
     }

@@ -12,6 +12,10 @@
         <link href="<?php echo base_url();?>resources/admintheme/css/icon-css.css" rel="stylesheet" />
         <link href="<?php echo base_url();?>resources/admintheme/css/css-modal.css" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="<?php echo base_url();?>resources/template/assets/favicon.png" />
+<<<<<<< HEAD
+=======
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.css' type='text/css' rel='stylesheet'>
+>>>>>>> d8393c8958f8d55dbaf24d9d58676c131e51e79b
 
         <!-- JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
@@ -22,19 +26,25 @@
         <script src="<?php echo base_url();?>resources/admintheme/assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="<?php echo base_url();?>resources/admintheme/js/datatables-simple-demo.js"></script>
+<<<<<<< HEAD
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+=======
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js' type='text/javascript'></script>
+
+        <!-- Jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+>>>>>>> d8393c8958f8d55dbaf24d9d58676c131e51e79b
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Panel Admin SISIKAT</a>
+            <a class="navbar-brand ps-3" href="<?php echo base_url('admin');?>">Panel Admin SISIKAT</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                    
                 </div>
             </form>
             <!-- Navbar-->
@@ -103,6 +113,12 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Admin Kab/Kota
                             </a>
+
+                            <div class="sb-sidenav-menu-heading">Pengaturan</div>
+                            <a class="nav-link <?php if($this->uri->segment(2)=='skruasjalan'){ echo'active'; }?>" href="<?php echo site_url('admin/skruasjalan');?>">
+                                <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
+                                SK Ruas Jalan
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -135,120 +151,126 @@
 
 
 
-        <!-- Modal Detail Setiap Infrastruktur -->
-        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Laporan</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h5 class="card-title">Data Pelapor</h5>
-            <div class="row">
-                <div id="idcard" class="col-sm-5">
-                    <div class="card">
-                    <div class="card-body">
-                        <img src="http://1.bp.blogspot.com/-cKbR2Cw8BLU/VrLaPvhz9pI/AAAAAAAAAcE/Pe9LhaTN1sY/s1600/Scan%2BKTP.JPG" alt="id-card" >
-                    </div>
-                    </div>
+    <!-- Modal Detail Setiap Infrastruktur -->
+    <div class="modal fade" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="modalDetailTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalDetailTitle">Laporan</h5>
+                        <button id="closeBtn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                
-                <div id="identity" class="col-sm-7">
-                    <div class="card">
-                    <div class="card-body">
-                        <table class="table">
-                        <tbody>
-                            <tr>
-                            <td width="30%">NIK</td>
-                            <td>:</td>
-                            <td>1904502455xxx</td>
-                            </tr>
-                            <tr>
-                            <td width="30%">Nama Lengkap</td>
-                            <td>:</td>
-                            <td>Gajah Mada Bin Gajah Duduk</td>
-                            </tr>
-                            <tr>
-                            <td width="30%">Alamat Lengkap</td>
-                            <td>:</td>
-                            <td>(Alamat Rumah, RT/RW, Kab./Kota, Kec./Distrik, dan Kel./Desa)</td>
-                            </tr>
-                            <tr>
-                            <td width="30%">Email</td>
-                            <td>:</td>
-                            <td>myemail@email.com</td>
-                            </tr>
-                            <tr>
-                            <td width="30%">Nomor HP</td>
-                            <td>:</td>
-                            <td>0812474147444</td>
-                            </tr>
-                        </tbody>
-                        </table>
+                <div class="modal-body">
+                    <h5 class="card-title">Data Pelapor</h5>
+                <div class="row">
+                    <div id="idcard" class="col-sm-5">
+                        <div class="card">
+                        <div class="card-body">
+                            <img src="xxx" id="imgModal" alt="id-card" >
+                        </div>
+                        </div>
                     </div>
+                    
+                    <div id="identity" class="col-sm-7">
+                        <div class="card">
+                        <div class="card-body">
+                            <table class="table">
+                            <tbody>
+                                <tr>
+                                <td width="30%">NIK</td>
+                                <td>:</td>
+                                <td><span id="nikModal"></span></td>
+                                </tr>
+                                <tr>
+                                <td width="30%">Nama Lengkap</td>
+                                <td>:</td>
+                                <td><span id="namaModal"></span></td>
+                                </tr>
+                                <tr>
+                                <td width="30%">Alamat Lengkap</td>
+                                <td>:</td>
+                                <td><span id="alamatModal"></span></td>
+                                </tr>
+                                <tr>
+                                <td width="30%">Email</td>
+                                <td>:</td>
+                                <td><span id="emailModal"></span></td>
+                                </tr>
+                                <tr>
+                                <td width="30%">Nomor HP</td>
+                                <td>:</td>
+                                <td><span id="nohpModal"></span></td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                        </div>
                     </div>
-                </div>
-                <div id="report" class="col-sm-12">
-                    <h4 class="card-title">Detail Laporan</h4>
-                    <div class="card">
-                    <div class="card-body">
-                        <table class="table">
-                        <tbody>
-                            <tr>
-                            <td width="35%">Jenis Infrastruktur</td>
-                            <td>:</td>
-                            <td>Jalan</td>
-                            </tr>
-                            <tr>
-                            <td width="35%">Koordinat Lokasi</td>
-                            <td>:</td>
-                            <td>Latitude: | Longitude: </td>
-                            </tr>
-                            <tr>
-                            <td width="35%">Nama Ruas Jalan</td>
-                            <td>:</td>
-                            <td>Jalan Pertanian Kebuk Jeruk Kebun Anggur</td>
-                            </tr>
-                            <tr>
-                            <td width="35%">Alamat Lengkap</td>
-                            <td>:</td>
-                            <td>(Kab./Kota, Kec./Distrik, dan Kel./Desa)</td>
-                            </tr>
-                        </tbody>
-                        </table>
-                        <h5>Isi Laporan:</h5>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<p>
-                        
-                        <h5>Dokumentasi:</h5>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <img src="https://images.pexels.com/photos/325288/pexels-photo-325288.jpeg" alt="jalan1">
-                            </div>
-                            <div class="col-sm-4">
-                                <img src="https://images.pexels.com/photos/2902747/pexels-photo-2902747.jpeg" alt="jalan2">   
-                            </div>
-                            <div class="col-sm-4">    
-                                <img src="https://images.pexels.com/photos/614484/pexels-photo-614484.jpeg" alt="jalan3">
+                    <div id="report" class="col-sm-12">
+                        <h4 class="card-title">Detail Laporan <span id="kodelap"></span></h4>
+                        <div class="card">
+                        <div class="card-body">
+                            <table class="table">
+                            <tbody>
+                                <tr>
+                                <td width="35%">Jenis Infrastruktur</td>
+                                <td>:</td>
+                                <td><span id="infra"></span></td>
+                                </tr>
+                                <tr>
+                                <td width="35%">Koordinat Lokasi</td>
+                                <td>:</td>
+                                <td>
+                                    <span id="koordinat"></span>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td width="35%">Nama Ruas Jalan</td>
+                                <td>:</td>
+                                <td><span id="ruasjalan"></span></td>
+                                </tr>
+                                <tr>
+                                <td width="35%">Kec/Distrik</td>
+                                <td>:</td>
+                                <td><span id="lokasidistrik"></span></td>
+                                </tr>
+                                <tr>
+                                <td width="35%">Kab/Kota</td>
+                                <td>:</td>
+                                <td><span id="lokasikabkota"></span></td>
+                                </tr>
+                            </tbody>
+                            </table>
+                            <h5>Isi Laporan:</h5>
+                            <p id="pengaduan"><p>
+                            
+                            <h5>Dokumentasi:</h5>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <img id="dok1" src="" alt="jalan1">
+                                </div>
+                                <div class="col-sm-4">
+                                    <img id="dok2" src="" alt="jalan2">   
+                                </div>
+                                <div class="col-sm-4">    
+                                    <img id="dok3" src="" alt="jalan3">
+                                </div>
                             </div>
                         </div>
-                        
-
-
-                    </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
             </div>
             </div>
         </div>
+<<<<<<< HEAD
         </div>
         <!-- Akgier Modal Detail Setiap Infrastruktur -->
 
 
+=======
+    </div>
+    <!-- Akhir Modal Detail Setiap Infrastruktur -->
+>>>>>>> d8393c8958f8d55dbaf24d9d58676c131e51e79b
     </body>
 </html>
