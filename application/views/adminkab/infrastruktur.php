@@ -34,9 +34,9 @@
                         </td>
 
                         <td>
-                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalLong">
+                            <a href="#exampleModalLong" class="btn btn-info" data-toggle="modal" data-target="#exampleModalLong">
                                 <i class="fas fa-external-link-alt"></i>
-                            </button>
+                            </a>
                         </td>
                     </tr>
                 <?php } ?>
