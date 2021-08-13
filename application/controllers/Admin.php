@@ -304,12 +304,12 @@ class Admin extends MY_Controller{
         $config['allowed_types'] = 'pdf';
         $this->load->library('upload',$config);
 
-        if($this->upload->do_upload('filektp')){
-            $namask=$this->upload->data('file_name');
-            $filesk=$this->input->post('file_sk');
-            $token=$this->input->post('token_sk');
+        if($this->upload->do_upload('fileskruasjalan')){
+            $filesk=$this->upload->data('file_name');
+            $namask=$this->input->post('namask');
+            $token=$this->input->post('token_skruasjalan');
             $uploaded_on=date("Y-m-d H:i:s");
-            $this->db->insert('upload',array('file_name'=>$namask,'file_sk'=>$filesk,'token'=>$token,'uploaded_on'=>$uploaded_on));
+            $this->db->insert('skruasjalan',array('namask'=>$namask,'filesk'=>$filesk,'token'=>$token,'uploaded_on'=>$uploaded_on));
         }
 
     }
