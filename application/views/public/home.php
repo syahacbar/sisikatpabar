@@ -176,10 +176,6 @@
                                     <div class="form-group form-outline only-number">
                                         <input type="text" name="no_hp" class="form-control number" placeholder="Ketik Nomor WhatsApp Anda" required>
                                     </div>
-
-                                    <!-- <div id="only-number" class="form-outline">
-                                      <input id="number" name="no_hp" type="text" class="form-control" placeholder="Ketik Nomor WhatsApp Anda" required/>
-                                    </div> -->
                                   </div>
                                 </div>
                                 <!-- Email -->
@@ -340,9 +336,9 @@
                                 </div>       
                                 <!-- Akhir Kebijakan Privasi -->
 
-                               <!--  <div class="row mb-4">
-                                    <center><?php //echo $recaptcha;?></center>
-                                </div> -->
+                                <div class="row mb-4">
+                                    <center><?php echo $recaptcha;?></center>
+                                </div> 
 
                                 <input type="hidden" id="kodelap" name="kodelap" value="<?php echo $kodelap;?>">
                                 <!-- Tombol Kirim -->

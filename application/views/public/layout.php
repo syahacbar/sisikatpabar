@@ -124,7 +124,7 @@
                               <input name="password" type="password" class="form-control" id="password">
                             </div>
                             <div class="mb-3">
-                              <?php echo $recaptcha;?>
+                              <!-- <?php //echo $recaptcha;?> -->
                             </div>
                             
                             <button type="submit" class="btn btn-primary">MASUK</button>
