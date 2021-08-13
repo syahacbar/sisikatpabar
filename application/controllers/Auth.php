@@ -113,7 +113,7 @@ class Auth extends CI_Controller
 				{
 					redirect('admin', 'refresh');
 				} else {
-					redirect('Adminkab', 'refresh');
+					redirect('adminkab', 'refresh');
 				}
 			}
 			else
