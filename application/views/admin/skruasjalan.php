@@ -44,7 +44,7 @@
                                 <tr>
                                     
                                     <td><?php echo $no++;?></td>
-                                    <td><?php echo $sk['filesk'];?></td>
+                                    <td><?php echo $sk['namask'];?></td>
                                     <td><?php echo $sk['uploaded_on'];?></td>
                                 </tr>
                                 <?php } ?>
