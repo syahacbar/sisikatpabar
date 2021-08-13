@@ -51,6 +51,7 @@ class Lapor extends CI_Controller{
         $data['kodelap'] = $kodelap;
         $data['_view'] = 'public/home';
         $data['recaptcha'] = $recaptcha;
+        $data['recaptcha2'] = $recaptcha;
         $data['title'] = 'SI-SIKAT | Beranda';
         $this->load->view('public/layout',$data);
 
