@@ -49,6 +49,12 @@
                         <td><?php echo $lap['lokasikabkota'];?></td>
                         <td><?php if ($lap['status']=='1') { echo 'Diterima';} elseif ($lap['status']=='2') { echo 'Ditolak'; } else { echo 'Menunggu'; } ?></td>
                         <td>
+<<<<<<< HEAD
+                            <a href="#exampleModalLong" class="btn btn-info" data-toggle="modal" data-target="#exampleModalLong">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </td>
+=======
                         <a
                                 id="#modalDetail"
                                 data-nik="<?php echo $lap['nik'] ?>"
@@ -81,6 +87,7 @@
                             <button id="<?php echo $lap['kodelap'];?>" value="<?php echo $lap['id'];?>" class="btn btn-danger btnTolak  <?php echo ($lap['status']=='2') ? 'disabled' : ''; ?>" ><i class="fas fa-ban"></i>Tolak</button>
 
                       </td>
+>>>>>>> d8393c8958f8d55dbaf24d9d58676c131e51e79b
                     </tr>
                 <?php } ?>
                 </tbody>

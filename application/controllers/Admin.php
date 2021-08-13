@@ -293,6 +293,9 @@ class Admin extends MY_Controller{
 
     function skruasjalan()
     {        
+        $get_skruasjalan= $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
+        $data['skruasjalan'] = $get_skruasjalan->result();
+
         $data['_view'] = 'admin/skruasjalan';
         $this->load->view('admin/layout',$data);
     }

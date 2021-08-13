@@ -160,3 +160,11 @@ div#identity div#skruasjalan .dz-message:before {
     display: block;
     margin-bottom: 20px;
 }
+
+.card.mb-4.unggahfilesk {
+    padding: 10px;
+}
+
+.card.mb-4.unggahfilesk h6 {
+    padding: 0;
+}
