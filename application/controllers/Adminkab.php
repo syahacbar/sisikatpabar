@@ -71,7 +71,7 @@ class Adminkab extends CI_Controller{
             
             $data['kodekec'] = $kodekec;
             $data['status'] = $status;
-            $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota_filter($user_groups->kode_kab,NULL,NULL,NULL,$kodekec,$status);
+            $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota_filter($user_groups->kode_kab,NULL,NULL,NULL,$kodekec,$status,'tgl_laporan','DESC');
             $data['infrastruktur'] = 'Infrastruktur '.ucwords(strtolower($this->M_setting->get_wilayah($user_groups->kode_kab)));
         }
         else
@@ -82,17 +82,17 @@ class Adminkab extends CI_Controller{
         
             if($q=='jalan')
             {
-                $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user_groups->kode_kab,NULL,NULL,'jalan');
+                $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user_groups->kode_kab,NULL,NULL,'jalan','tgl_laporan','DESC');
                 $data['infrastruktur'] = 'Infrastruktur Jalan '.ucwords(strtolower($this->M_setting->get_wilayah($user_groups->kode_kab)));
             } 
             elseif($q=='drainase')
             {
-                $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user_groups->kode_kab,NULL,NULL,'drainase');
+                $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user_groups->kode_kab,NULL,NULL,'drainase','tgl_laporan','DESC');
                 $data['infrastruktur'] = 'Infrastruktur Drainase '.ucwords(strtolower($this->M_setting->get_wilayah($user_groups->kode_kab)));
             }
             else
             {
-                $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user_groups->kode_kab,NULL,NULL,NULL);
+                $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user_groups->kode_kab,NULL,NULL,NULL,'tgl_laporan','DESC');
                 $data['infrastruktur'] = 'Semua Infrastruktur '.ucwords(strtolower($this->M_setting->get_wilayah($user_groups->kode_kab)));
             }
         }
@@ -107,7 +107,7 @@ class Adminkab extends CI_Controller{
 
     function proseslaporan($idlap)
     {
-        $status = $this->input->post('status');
-        $this->Laporan_model->proseslaporan($idlap,$status);
-    }
+        $param = array('status' => $this->input->post('status'));
+        $this->Laporan_model->update_laporan($idlap,$param);
+    } 
 }

@@ -92,7 +92,7 @@ class Laporan_model extends CI_Model
         return $query->result_array();
     }
 
-    function get_all_laporan_bykabkota_filter($kab=NULL,$limit=NULL,$offset=NULL,$infrastruktur=NULL,$kodekec=NULL,$status=NULL)
+    function get_all_laporan_bykabkota_filter($kab=NULL,$limit=NULL,$offset=NULL,$infrastruktur=NULL,$kodekec=NULL,$status=NULL,$order=NULL,$asdesc=NULL)
     {
         $this->db->select('l.*');
         $this->db->select('(SELECT a.nama FROM wilayah_2020 a WHERE a.kode=l.kab_pelapor) AS kabpelapor');
@@ -123,6 +123,10 @@ class Laporan_model extends CI_Model
         }
 
         $this->db->from('laporan l');
+        if ($order!=NULL && $asdesc!=NULL)
+        {
+            $this->db->order_by($order, $asdesc);
+        }
 
         if ($limit!=NULL)
         {

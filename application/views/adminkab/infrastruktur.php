@@ -154,7 +154,7 @@
             var dokumentasi1 = $(this).data('dokumentasi1');
             var dokumentasi2 = $(this).data('dokumentasi2');
             var dokumentasi3 = $(this).data('dokumentasi3');
-             const img1 = document.getElementById("dok1");
+             const img1 = document.getElementById("dok1"); 
              const img2 = document.getElementById("dok2");
              const img3 = document.getElementById("dok3");
             img1.src = "<?php echo base_url('upload/dokumentasi/');?>"+dokumentasi1;
@@ -162,7 +162,8 @@
             img3.src = "<?php echo base_url('upload/dokumentasi/');?>"+dokumentasi3;
         });
 
-        $(".btnTerima").click(function() {
+        $("#datatablesSimple").on("click", ".btnTerima", function(){
+        //$(".btnTerima").click(function() {
             var idlap = $(this).val();
             var status = 1;
             var kodelap = $(this).attr('id');
@@ -181,8 +182,8 @@
                     }
                 });
         });
-
-        $(".btnTolak").click(function() {
+        $("#datatablesSimple").on("click", ".btnTolak", function(){
+        //$(".btnTolak").click(function() {
             var idlap = $(this).val();
             var status = 2;
             var kodelap = $(this).attr('id');
