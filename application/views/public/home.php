@@ -199,7 +199,7 @@
                                 <!-- Maps -->
                                 <div id="maps" class="row mb-4">
                                     <div class="col">
-                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <div class="alert alert-info alert-dismissible fade show" role="alert">
                                             <p>Tandai lokasi yang dilaporkan dengan menggeser penanda merah pada peta berikut ini.</p>
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>

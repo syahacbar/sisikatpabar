@@ -17,13 +17,18 @@
             <div id="layoutAuthentication_content">
                 <main>
                     <div class="container">
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center"> 
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <img class="mb-4" src="https://sisikat.com/resources/template/assets/logo-sisikat.png" alt="" width="72" height="72">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
-                                        <div id="infoMessage"><?php echo $message;?></div>
+                                        <?php if(isset($message)){ ?>
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <p><?php echo $message;?></p>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                    <?php } ?>
                                         <?php echo form_open("auth/login");?>
                                         <form>
                                             <div class="form-floating mb-3">
