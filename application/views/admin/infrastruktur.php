@@ -156,7 +156,8 @@
             img3.src = "<?php echo base_url('upload/dokumentasi/');?>"+dokumentasi3;
         });
 
-        $(".btnTerima").click(function() {
+        $("#datatablesSimple").on("click", ".btnTerima", function(){
+        //$(".btnTerima").click(function() {
             var idlap = $(this).val();
             var status = 1;
             var kodelap = $(this).attr('id');
@@ -176,7 +177,8 @@
                 });
         });
 
-        $(".btnTolak").click(function() {
+        $("#datatablesSimple").on("click", ".btnTolak", function(){
+        //$(".btnTolak").click(function() {
             var idlap = $(this).val();
             var status = 2;
             var kodelap = $(this).attr('id');
