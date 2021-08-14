@@ -139,6 +139,19 @@ button.btn.btn-success.btnTerima.disabled {
     min-width: 175px;
 }
 
+.adminDashboard td:nth-child(2) {
+    min-width: 150px;
+}
+
+.adminDashboard td:nth-child(5) {
+    min-width: 800px;
+}
+
+.lapHarian .col-xl-6.col-md-6 .row,
+.lapBulanan .col-xl-6.col-md-6 .row {
+    padding: 0 12px;
+}
+
 
 /* CSS untuk SK Ruas Jalan */
 

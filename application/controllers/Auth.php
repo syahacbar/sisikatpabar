@@ -627,7 +627,11 @@ class Auth extends CI_Controller
 				'value' => $this->form_validation->set_value('password_confirm'),
 				'class' => 'form-control',
 			];
-
+			
+			// 	Ambild ata user
+			// $this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
+			$this->data['users'] = $this->ion_auth->users()->result();
+			
 			$this->data['_view'] = 'auth/create_user';
 			$this->load->view('admin/layout',$this->data);
 
@@ -637,9 +641,10 @@ class Auth extends CI_Controller
 	/**
 	* Redirect a user checking if is admin
 	*/
+	
 	public function redirectUser(){
 		if ($this->ion_auth->is_admin()){
-			redirect('admin/users', 'refresh');
+			redirect('auth/create_user', 'refresh');
 		}
 		redirect('/', 'refresh');
 	}
