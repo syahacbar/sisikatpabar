@@ -231,13 +231,13 @@
                                     <label class="form-label">Pilih Jenis Infrastruktur</label>
                                     <div class="col-md-6">
                                         <div class="form-check" name="infrastruktur">
-                                            <input class="form-check-input" value="jalan" type="radio" name="flexRadioDefault" id="flexRadioDefault1" required>
+                                            <input class="form-check-input" value="jalan" type="radio" name="infrastruktur" id="flexRadioDefault1" required>
                                                 <label class="form-check-label" value="jalan" for="flexRadioDefault1">Jalan</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-check">
-                                            <input class="form-check-input" value="jalan" type="radio" name="flexRadioDefault" id="flexRadioDefault2" required>
+                                            <input class="form-check-input" value="jalan" type="radio" name="infrastruktur" id="flexRadioDefault2" required>
                                                 <label class="form-check-label" value="drainase" for="flexRadioDefault2">Drainase</label>
                                         </div>
                                     </div>
