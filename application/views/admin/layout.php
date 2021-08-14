@@ -103,7 +103,7 @@
                             </a>
 
                              <div class="sb-sidenav-menu-heading">Manajemen Pengguna</div>
-                            <a class="nav-link <?php if($this->uri->segment(2)=='users'){ echo'active'; }?>" href="<?php echo site_url('admin/users');?>">
+                            <a class="nav-link <?php if($this->uri->segment(2)=='users'){ echo'active'; }?>" href="<?php echo site_url('auth/create_user');?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Admin Kab/Kota
                             </a>

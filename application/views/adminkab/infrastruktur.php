@@ -86,13 +86,6 @@
                             <button id="<?php echo $lap['kodelap'];?>" value="<?php echo $lap['id'];?>" class="btn btn-success btnTerima  <?php echo ($lap['status']=='1') ? 'disabled' : ''; ?>" ><i class="fas fa-check"></i>Terima</button>
                             <button id="<?php echo $lap['kodelap'];?>" value="<?php echo $lap['id'];?>" class="btn btn-danger btnTolak  <?php echo ($lap['status']=='2') ? 'disabled' : ''; ?>" ><i class="fas fa-ban"></i>Tolak</button>
 
-<<<<<<< HEAD
-                        <td>
-                            <a href="#exampleModalLong" class="btn btn-info" data-toggle="modal" data-target="#exampleModalLong">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-=======
->>>>>>> d8393c8958f8d55dbaf24d9d58676c131e51e79b
                         </td>
                     </tr>
                 <?php } ?>

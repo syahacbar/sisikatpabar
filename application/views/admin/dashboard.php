@@ -1,4 +1,5 @@
-                      <div class="container-fluid px-4">
+                    
+                     <div class="container-fluid px-4">
                         <h2 class="mt-4">Dashboard Admin Provinsi</h2>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active"></li>
@@ -42,70 +43,78 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area me-1"></i>
-                                        Statistik Laporan Harian
-                                    </div>
-                                    <div class="card-body"><canvas id="laporanharian" width="100%" height="40"></canvas></div>
+                        <div class="row lapHarian">
+                            <div class="col-xl-6 col-md-6">
+                                <div class="row">
+                                  <div class="card mb-4">
+                                      <div class="card-header">
+                                          <i class="fas fa-chart-area me-1"></i>
+                                          Statistik Laporan Harian
+                                      </div>
+                                      <div class="card-body"><canvas id="laporanharian" width="100%" height="40"></canvas></div>
+                                  </div>
+                                </div>
+
+                                <div class="row lapBulanan">
+                                  <div class="card mb-4">
+                                      <div class="card-header">
+                                          <i class="fas fa-chart-bar me-1"></i>
+                                          Statistik Laporan Bulanan
+                                      </div>
+                                      <div class="card-body"><canvas id="laporanbulanan" width="100%" height="40"></canvas></div>
+                                  </div>
                                 </div>
                             </div>
-                            <div class="col-xl-6">
+
+                            <div class="col-xl-6 col-md-6">
                                 <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar me-1"></i>
-                                        Statistik Laporan Bulanan
-                                    </div>
-                                    <div class="card-body"><canvas id="laporanbulanan" width="100%" height="40"></canvas></div>
+                                  <div class="card-header">
+                                      <i class="fas fa-table me-1"></i>
+                                      Update Laporan Terbaru
+                                  </div>
+
+                                <div class="card-body adminDashboard">
+                                    <table id="datatablesSimple" class="table table-striped tabeldashboardAdmin">
+                                        <thead>
+                                            <tr>
+                                                <th>No.</th>
+                                                <th>Tanggal Laporan</th>
+                                                <th>Kode Laporan</th>
+                                                <th>Infrastruktur</th>
+                                                <th>Pengaduan</th>
+                                                <th>Lokasi</th>
+                                                <!-- <th>Kec./Distrik</th> -->
+                                                <th>Kab./Kota</th>
+                                                <th>Pelapor</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php 
+                                                $no = 1;
+                                                foreach ($updatelaporan as $res) {
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $no++;?></td>
+                                                <td><?php echo $res['tgl_laporan'];?></td>
+                                                <td><?php echo $res['kodelap'];?></td>
+                                                <td><?php echo $res['infrastruktur'];?></td>
+                                                <td><?php echo $res['pengaduan'];?></td>
+                                                <td><?php echo $res['lokasi_namajalan'];?></td>
+                                                <!-- <td><?php //echo $res['lokasidistrik'];?></td> -->
+                                                <td><?php echo $res['lokasikabkota'];?></td>
+                                                <td><?php echo $res['nama_pelapor']."<br>".$res['nik'];?></td>
+                                                <td><?php switch ($res['status']) {  case 0: echo "Menunggu"; break; case 1: echo "Diterima"; break; case 2: echo "Ditolak"; break; } ?></td>
+                                            </tr>
+                                        <?php } ?>
+                                        </tbody>
+                                    </table>
                                 </div>
+
                             </div>
+
                         </div>
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Update Laporan Terbaru
-                            </div>
-                            <div class="card-body">
-                                <table id="datatablesSimple" class="table table-striped tabeldashboardAdmin">
-                                    <thead>
-                                        <tr>
-                                            <th>No.</th>
-                                            <th>Tanggal Laporan</th>
-                                            <th>Kode Laporan</th>
-                                            <th>Infrastruktur</th>
-                                            <th>Pengaduan</th>
-                                            <th>Lokasi</th>
-                                            <th>Kec./Distrik</th>
-                                            <th>Kab./Kota</th>
-                                            <th>Pelapor</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php 
-                                            $no = 1;
-                                            foreach ($updatelaporan as $res) {
-                                        ?>
-                                        <tr>
-                                            <td><?php echo $no++;?></td>
-                                            <td><?php echo $res['tgl_laporan'];?></td>
-                                            <td><?php echo $res['kodelap'];?></td>
-                                            <td><?php echo $res['infrastruktur'];?></td>
-                                            <td><?php echo $res['pengaduan'];?></td>
-                                            <td><?php echo $res['lokasi_namajalan'];?></td>
-                                            <td><?php echo $res['lokasidistrik'];?></td>
-                                            <td><?php echo $res['lokasikabkota'];?></td>
-                                            <td><?php echo $res['nama_pelapor']."<br>".$res['nik'];?></td>
-                                            <td><?php switch ($res['status']) {  case 0: echo "Menunggu"; break; case 1: echo "Diterima"; break; case 2: echo "Ditolak"; break; } ?></td>
-                                        </tr>
-                                    <?php } ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                      </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 <script>
