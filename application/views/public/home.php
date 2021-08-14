@@ -473,7 +473,7 @@
                    var des_pelapor = $("select[name='des_pelapor']").val();        
                    var email = $("input[name='email']").val();        
                    var no_hp = $("input[name='no_hp']").val();     
-                   var infrastruktur = $("select[name='infrastruktur']").val();  
+                   var infrastruktur = $("input[name='infrastruktur']").val();  
                    var latitude = $("input[name='latitude']").val();  
                    var longitude = $("input[name='longitude']").val();  
                    var lokasi_namajalan = $("textarea[name='lokasi_namajalan']").val();                    
