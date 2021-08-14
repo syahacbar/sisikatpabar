@@ -116,7 +116,7 @@
                             </a>
                             <h2 class="display-4 text-center lh-1 mb-4">Login</h2>
                             <div class="mb-3">
-                              <label for="identity" class="form-label">Email</label>
+                              <label for="identity" class="form-label">Username</label>
                               <input name="identity" type="text" class="form-control" id="identity" aria-describedby="emailHelp">
                             </div>
                             <div class="mb-3">

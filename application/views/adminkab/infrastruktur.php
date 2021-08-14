@@ -182,6 +182,7 @@
                     }
                 });
         });
+        
         $("#datatablesSimple").on("click", ".btnTolak", function(){
         //$(".btnTolak").click(function() {
             var idlap = $(this).val();
