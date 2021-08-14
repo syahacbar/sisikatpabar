@@ -103,7 +103,7 @@
                                                 <td><?php echo $res['lokasi_namajalan'];?></td>
                                                 <!-- <td><?php //echo $res['lokasidistrik'];?></td> -->
                                                 <td><?php echo $res['lokasikabkota'];?></td>
-                                                <td><?php echo $res['nama_pelapor']."<br>".$res['nik'];?></td>
+                                                <td><?php echo $res['nama_pelapor']."<br>".$res['no_hp'];?></td>
                                                 <td><?php switch ($res['status']) {  case 0: echo "Menunggu"; break; case 1: echo "Diterima"; break; case 2: echo "Ditolak"; break; } ?></td>
                                             </tr>
                                         <?php } ?>
@@ -114,7 +114,7 @@
                             </div>
 
                         </div>
-                      </div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 <script>

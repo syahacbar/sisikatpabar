@@ -42,6 +42,7 @@
         </div>
     </div>
 
+
     <div class="row lapHarian">
         <div class="col-xl-6 col-md-6">
             <div class="row">
