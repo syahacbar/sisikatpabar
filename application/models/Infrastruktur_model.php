@@ -20,8 +20,9 @@ class Infrastruktur_model extends CI_Model
 
     private function _get_datatables_query()
     {
-        $this->db->select('l.*,a.nama AS lokasinamadistrik');
+        $this->db->select('l.*,a.nama AS lokasinamadistrik, b.nama AS lokasinamakab');
         $this->db->join('wilayah_2020 a', 'a.kode = l.lokasi_distrik');
+        $this->db->join('wilayah_2020 b', 'b.kode = l.lokasi_kabkota');
 
         
         $this->db->from('laporan l');

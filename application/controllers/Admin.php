@@ -14,6 +14,7 @@ class Admin extends MY_Controller{
         parent::__construct(); 
         $this->load->model('Laporan_model');
         $this->load->model('M_skruasjalan');
+        $this->load->model("Infrastruktur_model");
         
     }
 
@@ -322,6 +323,40 @@ class Admin extends MY_Controller{
     {
         $status = $this->input->post('status');
         $this->Laporan_model->proseslaporan($idlap,$status);
+    }
+
+    function dashboard_table_list()
+    {
+        header('Content-Type: application/json');
+        $list = $this->Infrastruktur_model->get_datatables();
+        $data = array();
+        $no = $this->input->post('start');
+        //looping data mahasiswa
+        foreach ($list as $laporan) {
+
+            $no++;
+            $row = array();
+            //row pertama akan kita gunakan untuk btn edit dan delete
+            $row[] = $no;
+            $row[] = $laporan->tgl_laporan;
+            $row[] = $laporan->kodelap;
+            $row[] = $laporan->infrastruktur;
+            $row[] = $laporan->pengaduan;
+            $row[] = $laporan->lokasi_namajalan;
+            $row[] = $laporan->lokasinamakab;
+            $row[] = $laporan->nama_pelapor;
+            $row[] = $laporan->status;
+            $data[] = $row;
+        }
+        $output = array(
+            "draw" => $this->input->post('draw'),
+            "recordsTotal" => $this->Infrastruktur_model->count_all(),
+            "recordsFiltered" => $this->Infrastruktur_model->count_filtered(),
+            "data" => $data,
+        );
+        //output to json format
+        $this->output->set_output(json_encode($output));
+
     }
 
 }

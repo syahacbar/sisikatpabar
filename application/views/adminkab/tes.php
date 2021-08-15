@@ -26,9 +26,9 @@
                 <div class="panel-heading">
                     <select id="filterStatus" name="filterStatus" aria-controls="filterStatus" class="custom-select custom-select-sm form-control form-control-sm">
                         <option value="">- Semua Status -</option>
-                        <option value="0">Menunggu</option>
-                        <option value="1">Disetujui</option>
-                        <option value="2">Ditolak</option>
+                        <option value="Menunggu">Menunggu</option>
+                        <option value="Disetujui">Disetujui</option>
+                        <option value="Ditolak">Ditolak</option>
                     </select>
                 </div>
                 <div class="panel-body">
@@ -38,8 +38,8 @@
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Kode Laporan</th>
                             <th>Tanggal Dilaporkan</th>
+                            <th>Kode Laporan</th>
                             <th>Pengaduan</th>
                             <th>Lokasi</th>
                             <th>Kec./Distrik</th>
@@ -77,6 +77,48 @@
         $('#filterStatus').change(function(){
           tableInfrastruktur.draw();
        });
+
+        $("#tableInfrastruktur").on("click", ".btnTerima", function(){
+        //$(".btnTerima").click(function() {
+            var idlap = $(this).val();
+            var status = 1;
+            var kodelap = $(this).attr('id');
+                $.ajax({
+                    type: "POST",
+                    url: '<?php echo site_url() ?>adminkab/proseslaporan/'+idlap,
+                    data: {status:status,idlap:idlap},
+                    success:function(data)
+                    {
+                        alert('Sukses Merubah Status Laporan : '+kodelap);
+                        location.reload();
+                    },
+                    error:function()
+                    {
+                        alert('Gagal Merubah Status Laporan : '+kodelap);
+                    }
+                });
+        });
+        
+        $("#tableInfrastruktur").on("click", ".btnTolak", function(){
+        //$(".btnTolak").click(function() {
+            var idlap = $(this).val();
+            var status = 2;
+            var kodelap = $(this).attr('id');
+                $.ajax({
+                    type: "POST",
+                    url: '<?php echo site_url() ?>adminkab/proseslaporan/'+idlap,
+                    data: {status:status,idlap:idlap},
+                    success:function(data)
+                    {
+                        alert('Sukses Merubah Status Laporan : '+kodelap);
+                        location.reload();
+                    },
+                    error:function()
+                    {
+                        alert('Gagal Merubah Status Laporan : '+kodelap);
+                    }
+                });
+        });
     } );
 
     

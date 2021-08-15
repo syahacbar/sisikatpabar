@@ -129,30 +129,52 @@ class Adminkab extends CI_Controller{
         $no = $this->input->post('start');
         //looping data mahasiswa
         foreach ($list as $laporan) {
-            if ($laporan->status=='1') 
-            { 
-                $status = 'Menunggu'; 
-            } 
-            elseif ($laporan->status=='2') 
-            { 
-                $status = 'Ditolak'; 
-            } 
-            else 
-            { 
-                $status = 'Menunggu'; 
-            };
 
             $no++;
             $row = array();
             //row pertama akan kita gunakan untuk btn edit dan delete
             $row[] = $no;
-            $row[] = $laporan->kodelap;
             $row[] = $laporan->tgl_laporan;
+            $row[] = $laporan->kodelap;
             $row[] = $laporan->pengaduan;
             $row[] = $laporan->lokasi_namajalan;
             $row[] = $laporan->lokasinamadistrik;
-            $row[] = $status;
-            $row[] = '<button type="btn btn-sm btn-primary">Detail</button>';
+            $row[] = $laporan->status;
+            $row[] = '<button class="btn btn-sm btn-primary" data-bs-target="#modalDetail" data-bs-toggle="modal">Detail</button>&nbsp;<button class="btn btn-sm btn-info">Terima</button>&nbsp;<button class="btn btn-sm btn-danger">Tolak</button>';
+            $data[] = $row;
+        }
+        $output = array(
+            "draw" => $this->input->post('draw'),
+            "recordsTotal" => $this->Infrastruktur_model->count_all(),
+            "recordsFiltered" => $this->Infrastruktur_model->count_filtered(),
+            "data" => $data,
+        );
+        //output to json format
+        $this->output->set_output(json_encode($output));
+
+    }
+
+    function dashboard_table_list()
+    {
+        header('Content-Type: application/json');
+        $list = $this->Infrastruktur_model->get_datatables();
+        $data = array();
+        $no = $this->input->post('start');
+        //looping data mahasiswa
+        foreach ($list as $laporan) {
+
+            $no++;
+            $row = array();
+            //row pertama akan kita gunakan untuk btn edit dan delete
+            $row[] = $no;
+            $row[] = $laporan->tgl_laporan;
+            $row[] = $laporan->kodelap;
+            $row[] = $laporan->infrastruktur;
+            $row[] = $laporan->pengaduan;
+            $row[] = $laporan->lokasi_namajalan;
+            $row[] = $laporan->lokasinamadistrik;
+            $row[] = $laporan->nama_pelapor;
+            $row[] = $laporan->status;
             $data[] = $row;
         }
         $output = array(
