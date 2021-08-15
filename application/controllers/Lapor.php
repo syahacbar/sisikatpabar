@@ -103,7 +103,7 @@ class Lapor extends CI_Controller{
                 'lokasi_kabkota' => $this->input->post('lokasi_kabkota'),
                 'lokasi_distrik' => $this->input->post('lokasi_distrik'),
                 'kodelap' => $this->input->post('kodelap'),
-                'status' => '0'
+                'status' => 'Menunggu'
             );
                 
                 $laporan_id = $this->Laporan_model->add_laporan($params);
