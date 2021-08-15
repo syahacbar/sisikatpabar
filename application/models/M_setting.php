@@ -29,7 +29,7 @@ class M_setting extends CI_Model {
 
     public function get_nowa_kabid($kodekab)
     {
-      $query = $this->db->query("SELECT u.* FROM users u, users_groups ug, groups g WHERE u.id=ug.user_id AND g.id=ug.group_id AND g.kode_kab='$kodekab'");
+      $query = $this->db->query("SELECT u.* FROM users u, users_groups ug, groups g WHERE u.id=ug.user_id AND g.id=ug.group_id AND g.kode_kab='$kodekab' AND u.active='1'");
       return $query->row();
     }
 	
