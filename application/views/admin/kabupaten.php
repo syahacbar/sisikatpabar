@@ -46,7 +46,7 @@
                         <td><?php echo $lap['pengaduan'];?></td>
                         <td><?php echo $lap['lokasi_namajalan'];?></td>
                         <td><?php echo $lap['lokasidistrik'];?></td>
-                        <td><?php if ($lap['status']=='1') { echo 'Diterima';} elseif ($lap['status']=='2') { echo 'Ditolak'; } else { echo 'Menunggu'; } ?></td>
+                        <td><?php echo $lap['status'] ?></td>
                         <td>
                         <a
                                 id="#modalDetail"
@@ -75,8 +75,8 @@
                                 data-bs-target="#modalDetail" data-bs-toggle="modal" class="modalDetail btn btn-primary" >
                                 <i class="fas fa-external-link-alt"></i> Detail
                             </a>
-                            <button id="<?php echo $lap['kodelap'];?>" value="<?php echo $lap['id'];?>" class="btn btn-success btnTerima  <?php echo ($lap['status']=='1') ? 'disabled' : ''; ?>" ><i class="fas fa-check"></i>Terima</button>
-                            <button id="<?php echo $lap['kodelap'];?>" value="<?php echo $lap['id'];?>" class="btn btn-danger btnTolak  <?php echo ($lap['status']=='2') ? 'disabled' : ''; ?>" ><i class="fas fa-ban"></i>Tolak</button>
+                            <button id="<?php echo $lap['kodelap'];?>" value="<?php echo $lap['id'];?>" class="btn btn-success btnTerima  <?php echo ($lap['status']=='Diterima') ? 'disabled' : ''; ?>" ><i class="fas fa-check"></i>Terima</button>
+                            <button id="<?php echo $lap['kodelap'];?>" value="<?php echo $lap['id'];?>" class="btn btn-danger btnTolak  <?php echo ($lap['status']=='Ditolak') ? 'disabled' : ''; ?>" ><i class="fas fa-ban"></i>Tolak</button>
 
                         </td>
                     </tr>
@@ -157,7 +157,7 @@
         $("#datatablesSimple").on("click", ".btnTerima", function(){
             //$(".btnTerima").click(function() {
             var idlap = $(this).val();
-            var status = 1;
+            var status = 'Diterima';
             var kodelap = $(this).attr('id');
                 $.ajax({
                     type: "POST",
@@ -178,7 +178,7 @@
         $("#datatablesSimple").on("click", ".btnTolak", function(){
         //$(".btnTolak").click(function() {
             var idlap = $(this).val();
-            var status = 2;
+            var status = 'Ditolak';
             var kodelap = $(this).attr('id');
                 $.ajax({
                     type: "POST",

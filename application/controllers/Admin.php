@@ -45,9 +45,9 @@ class Admin extends MY_Controller{
             WHERE YEARWEEK(r.tgl_laporan, 1) = YEARWEEK(NOW(), 1)");
 
         $data['countlapall'] = $this->Laporan_model->count_all_laporan();
-        $data['countlapmenunggu'] = $this->Laporan_model->count_all_laporan('0');
-        $data['countlapsetuju'] = $this->Laporan_model->count_all_laporan('1');
-        $data['countlaptolak'] = $this->Laporan_model->count_all_laporan('2');
+        $data['countlapmenunggu'] = $this->Laporan_model->count_all_laporan('Menunggu');
+        $data['countlapsetuju'] = $this->Laporan_model->count_all_laporan('Diterima');
+        $data['countlaptolak'] = $this->Laporan_model->count_all_laporan('Ditolak');
 
         $data['updatelaporan'] = $this->Laporan_model->get_all_laporan(NULL,'5',NULL,NULL,'tgl_Laporan','DESC','1');
         $data['maxmingguan'] = $maxmingguan->row();
