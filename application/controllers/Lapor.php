@@ -10,7 +10,7 @@ class Lapor extends CI_Controller{
         $this->load->library('recaptcha'); 
     } 
 
- 
+
     /*
      * Listing of laporan
      */

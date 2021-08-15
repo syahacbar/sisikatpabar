@@ -7,6 +7,7 @@ class Adminkab extends CI_Controller{
         parent::__construct();  
         $this->load->model('Laporan_model');
         $this->load->model('M_setting');
+        $this->load->model("Infrastruktur_model");
         if (!$this->ion_auth->logged_in())
           {
              // redirect them to the login page
@@ -113,6 +114,55 @@ class Adminkab extends CI_Controller{
 
     function tesdatatables()
     {
-        
+        $data['infrastruktur'] = '';
+        $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
+        $data['kabupaten'] = $get_kab->result();
+        $data['_view'] = 'adminkab/tes';
+        $this->load->view('adminkab/layout',$data);
+    }
+
+    function infrastruktur_list()
+    {
+        header('Content-Type: application/json');
+        $list = $this->Infrastruktur_model->get_datatables();
+        $data = array();
+        $no = $this->input->post('start');
+        //looping data mahasiswa
+        foreach ($list as $laporan) {
+            if ($laporan->status=='1') 
+            { 
+                $status = 'Menunggu'; 
+            } 
+            elseif ($laporan->status=='2') 
+            { 
+                $status = 'Ditolak'; 
+            } 
+            else 
+            { 
+                $status = 'Menunggu'; 
+            };
+
+            $no++;
+            $row = array();
+            //row pertama akan kita gunakan untuk btn edit dan delete
+            $row[] = $no;
+            $row[] = $laporan->kodelap;
+            $row[] = $laporan->tgl_laporan;
+            $row[] = $laporan->pengaduan;
+            $row[] = $laporan->lokasi_namajalan;
+            $row[] = $laporan->lokasinamadistrik;
+            $row[] = $status;
+            $row[] = '<button type="btn btn-sm btn-primary">Detail</button>';
+            $data[] = $row;
+        }
+        $output = array(
+            "draw" => $this->input->post('draw'),
+            "recordsTotal" => $this->Infrastruktur_model->count_all(),
+            "recordsFiltered" => $this->Infrastruktur_model->count_filtered(),
+            "data" => $data,
+        );
+        //output to json format
+        $this->output->set_output(json_encode($output));
+
     }
 }

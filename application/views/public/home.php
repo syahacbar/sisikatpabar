@@ -464,6 +464,8 @@
                     //dokumentasi2_upload.processQueue();
                     //dokumentasi3_upload.processQueue();
 
+                    document.getElementById("btnSubmit").classList.add('disabled');
+
 
                    var nik = $("input[name='nik']").val();
                    var nama_pelapor = $("input[name='nama_pelapor']").val();                  
@@ -480,7 +482,7 @@
                    var lokasi_kabkota = $("select[name='lokasi_kabkota']").val();               
                    var lokasi_distrik = $("select[name='lokasi_distrik']").val();           
                    var pengaduan = $("textarea[name='pengaduan']").val();      
-                   var kodelap = $("input[name='kodelap']").val(); 
+                   var kodelap = $("input[name='kodelap']").val();
 
 
                     $.ajax({

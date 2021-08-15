@@ -9,7 +9,7 @@
         <title>SI-SIKAT | ADMIN KAB/KOTA</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="<?php echo base_url();?>resources/admintheme/css/styles.css" rel="stylesheet" />
-        <link href="<?php echo base_url();?>resources/admintheme/css/icon-css.css" rel="stylesheet" />
+        <!-- <link href="<?php echo base_url();?>resources/admintheme/css/icon-css.css" rel="stylesheet" /> -->
         <link href="<?php echo base_url();?>resources/admintheme/css/css-modal.css" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="<?php echo base_url();?>resources/template/assets/favicon.png" />
         <!-- JS -->
