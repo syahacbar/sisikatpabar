@@ -10,9 +10,9 @@
                     <div class="col-md-2">
                         <select class="form-control" name="status" id="status">
                             <option value="" <?php echo ($status=='') ? 'selected' : '';?>>- Semua Status -</option>
-                            <option value="0" <?php echo ($status=='0') ? 'selected' : '';?>>Menunggu</option>
-                            <option value="1" <?php echo ($status=='1') ? 'selected' : '';?>>Diterima</option>
-                            <option value="2" <?php echo ($status=='2') ? 'selected' : '';?>>Ditolak</option>
+                            <option value="Menunggu" <?php echo ($status=='Menunggu') ? 'selected' : '';?>>Menunggu</option>
+                            <option value="Diterima" <?php echo ($status=='Diterima') ? 'selected' : '';?>>Diterima</option>
+                            <option value="Ditolak" <?php echo ($status=='Ditolak') ? 'selected' : '';?>>Ditolak</option>
                         </select>
                     </div>
                     <div class="col">
