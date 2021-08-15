@@ -18,7 +18,7 @@ class Infrastruktur_model extends CI_Model
         $this->load->database();
     }
 
-    private function _get_datatables_query()
+    private function _get_datatables_query($kode_kab=NULL)
     {
         $this->db->select('l.*,a.nama AS lokasinamadistrik, b.nama AS lokasinamakab');
         $this->db->join('wilayah_2020 a', 'a.kode = l.lokasi_distrik');
@@ -30,6 +30,11 @@ class Infrastruktur_model extends CI_Model
         if($this->input->post('selectStatus'))
         {
             $this->db->where('l.status', $this->input->post('selectStatus'));
+        }
+
+        if($kode_kab != NULL)
+        {
+            $this->db->where('l.lokasi_kabkota', $kode_kab);
         }
 
         $i = 0;
@@ -59,9 +64,9 @@ class Infrastruktur_model extends CI_Model
         }
     }
 
-    function get_datatables()
+    function get_datatables($kode_kab=NULL)
     {
-        $this->_get_datatables_query();
+        $this->_get_datatables_query($kode_kab);
         if ($this->input->post('length') != -1)
             $this->db->limit($this->input->post('length'), $this->input->post('start'));
         $query = $this->db->get();

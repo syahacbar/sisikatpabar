@@ -156,8 +156,10 @@ class Adminkab extends CI_Controller{
 
     function dashboard_table_list()
     {
+        $user = $this->ion_auth->user()->row();
+        $user_groups = $this->ion_auth->get_users_groups($user->id)->row();
         header('Content-Type: application/json');
-        $list = $this->Infrastruktur_model->get_datatables();
+        $list = $this->Infrastruktur_model->get_datatables($user_groups->kode_kab);
         $data = array();
         $no = $this->input->post('start');
         //looping data mahasiswa
