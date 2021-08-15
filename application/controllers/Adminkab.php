@@ -110,4 +110,9 @@ class Adminkab extends CI_Controller{
         $param = array('status' => $this->input->post('status'));
         $this->Laporan_model->update_laporan($idlap,$param);
     } 
+
+    function tesdatatables()
+    {
+        
+    }
 }

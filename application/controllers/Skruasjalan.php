@@ -8,6 +8,7 @@ class Skruasjalan extends CI_Controller{
         $this->load->model('m_setting');
         $this->load->library('session');
         $this->load->model('M_skruasjalan');
+        $this->load->library('recaptcha'); 
     } 
 
 
@@ -15,7 +16,10 @@ class Skruasjalan extends CI_Controller{
      * Listing of laporan
      */
     function index ()
-    {
+    {       
+
+        $recaptcha = $this->recaptcha->create_box();
+        $data['recaptcha2'] = $recaptcha;
         $data['_view'] = 'public/skruasjalan';
         $data['title'] = 'SI-SIKAT | SK Ruas Jalan';
         $data['skruasjalan'] = $this->M_skruasjalan->get_all_skruasjalan();

@@ -7,6 +7,7 @@ class Statistik extends CI_Controller{
         $this->load->model('Laporan_model');
         $this->load->model('m_setting');
         $this->load->library('session');
+        $this->load->library('recaptcha'); 
     } 
 
 
@@ -15,6 +16,9 @@ class Statistik extends CI_Controller{
      */
     function index()
     {
+        $recaptcha = $this->recaptcha->create_box();
+        $data['recaptcha2'] = $recaptcha;
+
         $getkab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
         $data['kabupaten'] = $getkab->result();
 
