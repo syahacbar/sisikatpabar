@@ -642,6 +642,7 @@ class Auth extends CI_Controller
 			//$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'create_user', $this->data);
 		}
 	}
+	
 	/**
 	* Redirect a user checking if is admin
 	*/
