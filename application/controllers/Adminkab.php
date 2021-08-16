@@ -7,7 +7,7 @@ class Adminkab extends CI_Controller{
         parent::__construct();  
         $this->load->model('Laporan_model');
         $this->load->model('M_setting');
-        $this->load->model("Infrastruktur_model");
+        $this->load->model("M_laporan");
         if (!$this->ion_auth->logged_in())
           {
              // redirect them to the login page
@@ -114,17 +114,23 @@ class Adminkab extends CI_Controller{
 
     function tesdatatables()
     {
+        $user = $this->ion_auth->user()->row();
+        $user_groups = $this->ion_auth->get_users_groups($user->id)->row();
+        $get_kec = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 8 AND kode LIKE '$user_groups->kode_kab%' ORDER BY kode ASC");
         $data['infrastruktur'] = '';
         $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
         $data['kabupaten'] = $get_kab->result();
+        $data['form_kec'] = $get_kec->result();
         $data['_view'] = 'adminkab/tes';
         $this->load->view('adminkab/layout',$data);
     }
 
     function infrastruktur_list()
     {
+        $user = $this->ion_auth->user()->row();
+        $user_groups = $this->ion_auth->get_users_groups($user->id)->row();
         header('Content-Type: application/json');
-        $list = $this->Infrastruktur_model->get_datatables();
+        $list = $this->M_laporan->get_datatables($user_groups->kode_kab);
         $data = array();
         $no = $this->input->post('start');
         //looping data mahasiswa
@@ -140,13 +146,13 @@ class Adminkab extends CI_Controller{
             $row[] = $laporan->lokasi_namajalan;
             $row[] = $laporan->lokasinamadistrik;
             $row[] = $laporan->status;
-            $row[] = '<button class="btn btn-sm btn-primary" data-bs-target="#modalDetail" data-bs-toggle="modal">Detail</button>&nbsp;<button class="btn btn-sm btn-info">Terima</button>&nbsp;<button class="btn btn-sm btn-danger">Tolak</button>';
+            $row[] = '<button data-bs-target="#modal_lapdetail" data-bs-toggle="modal" id="btnDetail" class="btn btn-sm btn-primary view_lapdetail" data-idlap="'.$laporan->id.'">Detail</button>&nbsp;<button class="btn btn-sm btn-info btnTerima" id="'.$laporan->kodelap.'" value="'.$laporan->id.'">Terima</button>&nbsp;<button class="btn btn-sm btn-danger btnTolak" id="'.$laporan->kodelap.'" value="'.$laporan->id.'">Tolak</button>';
             $data[] = $row;
         }
         $output = array(
             "draw" => $this->input->post('draw'),
-            "recordsTotal" => $this->Infrastruktur_model->count_all(),
-            "recordsFiltered" => $this->Infrastruktur_model->count_filtered(),
+            "recordsTotal" => $this->M_laporan->count_all(),
+            "recordsFiltered" => $this->M_laporan->count_filtered(),
             "data" => $data,
         );
         //output to json format
@@ -154,12 +160,20 @@ class Adminkab extends CI_Controller{
 
     }
 
+     public function detail_laporan()
+    {
+        $id = $this->input->get('idlap');
+        $get_laporan = $this->M_laporan->get_laporan_by_id($id);
+        echo json_encode($get_laporan); 
+        exit();
+    }
+
     function dashboard_table_list()
     {
         $user = $this->ion_auth->user()->row();
         $user_groups = $this->ion_auth->get_users_groups($user->id)->row();
         header('Content-Type: application/json');
-        $list = $this->Infrastruktur_model->get_datatables($user_groups->kode_kab);
+        $list = $this->M_laporan->get_datatables($user_groups->kode_kab);
         $data = array();
         $no = $this->input->post('start');
         //looping data mahasiswa
@@ -181,12 +195,14 @@ class Adminkab extends CI_Controller{
         }
         $output = array(
             "draw" => $this->input->post('draw'),
-            "recordsTotal" => $this->Infrastruktur_model->count_all(),
-            "recordsFiltered" => $this->Infrastruktur_model->count_filtered(),
+            "recordsTotal" => $this->M_laporan->count_all(),
+            "recordsFiltered" => $this->M_laporan->count_filtered(),
             "data" => $data,
         );
         //output to json format
         $this->output->set_output(json_encode($output));
 
     }
+
+   
 }

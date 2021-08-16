@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Infrastruktur_model extends CI_Model
+class M_laporan extends CI_Model
 {
     //set nama tabel yang akan kita tampilkan datanya
     var $table = 'laporan';
@@ -35,6 +35,11 @@ class Infrastruktur_model extends CI_Model
         if($kode_kab != NULL)
         {
             $this->db->where('l.lokasi_kabkota', $kode_kab);
+        }
+
+        if($this->input->post('selectDistrik'))
+        {
+            $this->db->where('l.lokasi_distrik', $this->input->post('selectDistrik'));
         }
 
         $i = 0;
@@ -85,4 +90,15 @@ class Infrastruktur_model extends CI_Model
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
+
+    public function get_laporan_by_id($id)
+    {
+        return $this->db->select('*')
+                        ->from('laporan')
+                        ->where(['id'=>$id])
+                        ->get()
+                        ->row();
+    }
+
+
 }
