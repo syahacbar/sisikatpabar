@@ -69,6 +69,8 @@
 </div>  
 
 
+
+
 <script>
     $(document).ready(function() {
        var tableInfrastruktur = $('#tableInfrastruktur').DataTable({
@@ -103,6 +105,8 @@
             var idlap = $(this).val();
             var status = 'Diterima';
             var kodelap = $(this).attr('id');
+            
+            //kodelap.classList.add("disabled");
             $.ajax({
                 type: "POST",
                 url: '<?php echo site_url() ?>adminkab/proseslaporan/'+idlap,
@@ -139,28 +143,36 @@
             });
         });
 
-       // $('.view_lapdetail').click(function(){
+       $("#tableInfrastruktur").on("click", ".view_lapdetail", function(){
+            var idlap = $(this).data('idlap');
+            $.ajax({
+                  url : "<?php echo base_url(); ?>adminkab/detail_laporan",
+                  data:{idlap : idlap},
+                  method:'GET',
+                  dataType:'json',
+                  success:function(response) {
+                    $(".modal-content #idlap").text(response.kodelap); 
+                    $(".modal-content #nikModal").text(response.nik);
+                    $(".modal-content #namaModal").text(response.nama);
+                    $(".modal-content #alamatModal").html(response.alamat_pelapor+"<br>"+response.despelapor+"<br>"+response.kecpelapor+"<br>"+response.kabpelapor);
+                    $(".modal-content #nohpModal").text(response.no_hp);
+                    $(".modal-content #emailModal").text(response.email);
+                    $(".modal-content #imgktp").attr("src","<?php echo base_url('upload/ktp/');?>"+response.ktp);
+                    $(".modal-content #dok1").attr("src","<?php echo base_url('upload/dokumentasi/');?>"+response.dokumentasi1);
+                    $(".modal-content #dok2").attr("src","<?php echo base_url('upload/dokumentasi/');?>"+response.dokumentasi2);
+                    $(".modal-content #dok3").attr("src","<?php echo base_url('upload/dokumentasi/');?>"+response.dokumentasi3);
+                    $(".modal-content #infra").text(response.infrastruktur);
+                    $(".modal-content #koordinat").html(response.latitude+", "+response.longitude);
+                    $(".modal-content #ruasjalan").text(response.lokasi_namajalan);
+                    $(".modal-content #lokasikabkota").html(response.lokasinamakab);
+                    $(".modal-content #lokasidistrik").html(response.lokasinamadistrik);
+                    $(".modal-content #pengaduan").text(response.pengaduan);
 
-       //        var idlap = $(this).attr('relid'); //get the attribute value
-              
-       //        $.ajax({
-       //            url : "<?php echo base_url(); ?>adminkab/detail_laporan",
-       //            data:{idlap : idlap},
-       //            method:'GET',
-       //            dataType:'json',
-       //            success:function(response) {
-       //              $('.modal-body #idlap').html('tess ini ID'); 
-       //              $('#modal_lapdetail').modal({backdrop: 'static', keyboard: true, show: true});
-       //          }
-       //      });
-       //    });
 
-       $(document).on("click", ".view_lapdetail", function () {
-        var idlap = $(this).data('idlap');
-        $(".modal-body #idlap").text(idlap);
-
-       });
-   } );
-
+                    $("#modal_lapdetail").modal({backdrop: 'static', keyboard: true, show: true});
+                }
+            });      
+        });
+});
     
 </script>

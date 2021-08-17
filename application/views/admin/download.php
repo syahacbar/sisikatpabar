@@ -115,14 +115,14 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="RBStatuslap" value="1">
+                                                <input class="form-check-input" type="radio" name="RBStatuslap" value="Diterima">
                                                 <label class="form-check-label">Diterima</label>
                                             </div>
                                         </div>
 
                                         <div class="col">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="RBStatuslap" value="2">
+                                                <input class="form-check-input" type="radio" name="RBStatuslap" value="Ditolak">
                                                 <label class="form-check-label">Ditolak</label>
                                             </div> 
                                         </div>

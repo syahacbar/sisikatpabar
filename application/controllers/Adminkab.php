@@ -62,43 +62,23 @@ class Adminkab extends CI_Controller{
         
         $user = $this->ion_auth->user()->row();
         $user_groups = $this->ion_auth->get_users_groups($user->id)->row();
-        
-        $get_kec = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 8 AND kode LIKE '$user_groups->kode_kab%' ORDER BY kode ASC");        
-
-        if($this->input->post('btnFilter', TRUE))
+        $get_kec = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 8 AND kode LIKE '$user_groups->kode_kab%' ORDER BY kode ASC");
+    
+        if($q=='jalan')
         {
-            $kodekec = $this->input->post('lokasi_distrik', TRUE);
-            $status = $this->input->post('status', TRUE);
-            
-            $data['kodekec'] = $kodekec;
-            $data['status'] = $status;
-            $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota_filter($user_groups->kode_kab,NULL,NULL,NULL,$kodekec,$status,'tgl_laporan','DESC');
-            $data['infrastruktur'] = 'Infrastruktur '.ucwords(strtolower($this->M_setting->get_wilayah($user_groups->kode_kab)));
+            $data['infrastruktur'] = 'Infrastruktur Jalan '.ucwords(strtolower($this->M_setting->get_wilayah($user_groups->kode_kab)));
+            $data['kodeinf'] = 'jalan';
+        } 
+        elseif($q=='drainase')
+        {
+            $data['infrastruktur'] = 'Infrastruktur Drainase '.ucwords(strtolower($this->M_setting->get_wilayah($user_groups->kode_kab)));
+            $data['kodeinf'] = 'drainase';
         }
         else
         {
-            $data['kodekec'] = '';
-            $data['status'] = '';
-
-        
-            if($q=='jalan')
-            {
-                $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user_groups->kode_kab,NULL,NULL,'jalan','tgl_laporan','DESC');
-                $data['infrastruktur'] = 'Infrastruktur Jalan '.ucwords(strtolower($this->M_setting->get_wilayah($user_groups->kode_kab)));
-            } 
-            elseif($q=='drainase')
-            {
-                $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user_groups->kode_kab,NULL,NULL,'drainase','tgl_laporan','DESC');
-                $data['infrastruktur'] = 'Infrastruktur Drainase '.ucwords(strtolower($this->M_setting->get_wilayah($user_groups->kode_kab)));
-            }
-            else
-            {
-                $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($user_groups->kode_kab,NULL,NULL,NULL,'tgl_laporan','DESC');
-                $data['infrastruktur'] = 'Semua Infrastruktur '.ucwords(strtolower($this->M_setting->get_wilayah($user_groups->kode_kab)));
-            }
+            $data['infrastruktur'] = 'Semua Infrastruktur '.ucwords(strtolower($this->M_setting->get_wilayah($user_groups->kode_kab)));
+            $data['kodeinf'] = '';
         }
-
-        
 
         $data['form_kec'] = $get_kec->result();
         $data['kabupaten'] = $get_kab->result();
@@ -112,29 +92,17 @@ class Adminkab extends CI_Controller{
         $this->Laporan_model->update_laporan($idlap,$param);
     } 
 
-    function tesdatatables()
-    {
-        $user = $this->ion_auth->user()->row();
-        $user_groups = $this->ion_auth->get_users_groups($user->id)->row();
-        $get_kec = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 8 AND kode LIKE '$user_groups->kode_kab%' ORDER BY kode ASC");
-        $data['infrastruktur'] = '';
-        $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
-        $data['kabupaten'] = $get_kab->result();
-        $data['form_kec'] = $get_kec->result();
-        $data['_view'] = 'adminkab/tes';
-        $this->load->view('adminkab/layout',$data);
-    }
-
-    function infrastruktur_list()
+    function infrastruktur_list($kodeinf=NULL)
     {
         $user = $this->ion_auth->user()->row();
         $user_groups = $this->ion_auth->get_users_groups($user->id)->row();
         header('Content-Type: application/json');
-        $list = $this->M_laporan->get_datatables($user_groups->kode_kab);
+        $list = $this->M_laporan->get_datatables($user_groups->kode_kab,$kodeinf);
         $data = array();
         $no = $this->input->post('start');
         //looping data mahasiswa
         foreach ($list as $laporan) {
+            if($laporan->status=="Diterima"){ $classbtnTerima = "disabled"; $classbtnTolak = ""; } else { $classbtnTerima = ""; $classbtnTolak = "disabled";}
 
             $no++;
             $row = array();
@@ -146,7 +114,7 @@ class Adminkab extends CI_Controller{
             $row[] = $laporan->lokasi_namajalan;
             $row[] = $laporan->lokasinamadistrik;
             $row[] = $laporan->status;
-            $row[] = '<button data-bs-target="#modal_lapdetail" data-bs-toggle="modal" id="btnDetail" class="btn btn-sm btn-primary view_lapdetail" data-idlap="'.$laporan->id.'">Detail</button>&nbsp;<button class="btn btn-sm btn-info btnTerima" id="'.$laporan->kodelap.'" value="'.$laporan->id.'">Terima</button>&nbsp;<button class="btn btn-sm btn-danger btnTolak" id="'.$laporan->kodelap.'" value="'.$laporan->id.'">Tolak</button>';
+            $row[] = '<button data-bs-target="#modal_lapdetail" data-bs-toggle="modal" id="btnDetail" class="btn btn-sm btn-primary view_lapdetail" data-idlap="'.$laporan->id.'">Detail</button>&nbsp;<button class="btn btn-sm btn-info btnTerima '.$classbtnTerima.'" id="'.$laporan->kodelap.'" value="'.$laporan->id.'">Terima</button>&nbsp;<button class="btn btn-sm btn-danger btnTolak '.$classbtnTolak.'" id="'.$laporan->kodelap.'" value="'.$laporan->id.'">Tolak</button>';
             $data[] = $row;
         }
         $output = array(
