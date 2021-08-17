@@ -167,7 +167,7 @@
             <div id="identity" class="col-sm-7">
                 <div class="card">
                     <div class="card-body">
-                        <table class="table">
+                        <table class="table table-striped">
                             <tbody>
                                 <tr>
                                     <td width="30%">NIK</td>
@@ -203,7 +203,7 @@
                 <h4 class="card-title">Detail Laporan</span></h4>
                 <div class="card">
                     <div class="card-body">
-                        <table class="table">
+                        <table class="table table-striped">
                             <tbody>
                                 <tr>
                                     <td width="35%">Jenis Infrastruktur</td>

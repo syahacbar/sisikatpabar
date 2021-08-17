@@ -878,11 +878,12 @@ class Ion_auth_model extends CI_Model
 
 		if (!empty($groups))
 		{
-			// add to groups
-			foreach ($groups as $group)
-			{
-				$this->add_to_group($group, $id);
-			}
+			// // add to groups
+			// foreach ($groups as $group)
+			// {
+			// 	$this->add_to_group($group, $id);
+			// }
+			$this->add_to_group($groups, $id);
 		}
 
 		$this->trigger_events('post_register');

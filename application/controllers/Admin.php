@@ -91,31 +91,19 @@ class Admin extends MY_Controller{
     function kabkota($kabkota=NULL)
     {
         $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
-        if($this->input->post('btnFilter', TRUE))
-        {
-            $status = $this->input->post('status', TRUE);
-            $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($kabkota,NULL,NULL,NULL,NULL,NULL,$status);
-            $data['status'] = $status;
+        
+        $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($kabkota,NULL,NULL,NULL,NULL,NULL,'1');
+        $data['status'] = '1';
 
-            if ($kabkota==NULL)
-            {
-                $data['kabkota'] = 'Semua Kab/Kota';
-            } else {
-                $data['kabkota'] = $this->Laporan_model->get_kabkota($kabkota)->nama;
-            }
+        if ($kabkota==NULL)
+        {
+            $data['kabkota'] = 'Semua Kab/Kota';
+            $data['kodekab'] = '';
+        } else {
+            $data['kabkota'] = $this->Laporan_model->get_kabkota($kabkota)->nama;
+            $data['kodekab'] = $kabkota;
         }
-        else
-        {
-            $data['laporan'] = $this->Laporan_model->get_all_laporan_bykabkota($kabkota,NULL,NULL,NULL,NULL,NULL,'1');
-            $data['status'] = '1';
-
-            if ($kabkota==NULL)
-            {
-                $data['kabkota'] = 'Semua Kab/Kota';
-            } else {
-                $data['kabkota'] = $this->Laporan_model->get_kabkota($kabkota)->nama;
-            }
-        }    
+            
         $data['_view'] = 'admin/kabupaten';
         $data['kabupaten'] = $get_kab->result();
         $this->load->view('admin/layout',$data);
@@ -326,6 +314,43 @@ class Admin extends MY_Controller{
             $row[] = $laporan->lokasi_namajalan;
             $row[] = $laporan->lokasinamadistrik;
             $row[] = $laporan->lokasinamakab;
+            $row[] = $laporan->status;
+            $row[] = '<button data-bs-target="#modal_lapdetail" data-bs-toggle="modal" id="btnDetail" class="btn btn-sm btn-primary view_lapdetail" data-idlap="'.$laporan->id.'">Detail</button>&nbsp;<button class="btn btn-sm btn-info btnTerima '.$classbtnTerima.'" id="'.$laporan->kodelap.'" value="'.$laporan->id.'">Terima</button>&nbsp;<button class="btn btn-sm btn-danger btnTolak '.$classbtnTolak.'" id="'.$laporan->kodelap.'" value="'.$laporan->id.'">Tolak</button>';
+            $data[] = $row;
+        }
+        $output = array(
+            "draw" => $this->input->post('draw'),
+            "recordsTotal" => $this->M_laporan->count_all(),
+            "recordsFiltered" => $this->M_laporan->count_filtered(),
+            "data" => $data,
+        );
+        //output to json format
+        $this->output->set_output(json_encode($output));
+
+    }
+
+    function infrastrukturkab_list()
+    {
+        $user = $this->ion_auth->user()->row();
+        $user_groups = $this->ion_auth->get_users_groups($user->id)->row();
+        header('Content-Type: application/json');
+        $list = $this->M_laporan->get_datatables();
+        $data = array();
+        $no = $this->input->post('start');
+        
+        foreach ($list as $laporan) {
+            if($laporan->status=="Diterima"){ $classbtnTerima = "disabled"; $classbtnTolak = ""; } else { $classbtnTerima = ""; $classbtnTolak = "disabled";}
+
+            $no++;
+            $row = array();
+            //row pertama akan kita gunakan untuk btn edit dan delete
+            $row[] = $no;
+            $row[] = $laporan->tgl_laporan;
+            $row[] = $laporan->kodelap;
+            $row[] = $laporan->infrastruktur;
+            $row[] = $laporan->pengaduan;
+            $row[] = $laporan->lokasi_namajalan;
+            $row[] = $laporan->lokasinamadistrik;
             $row[] = $laporan->status;
             $row[] = '<button data-bs-target="#modal_lapdetail" data-bs-toggle="modal" id="btnDetail" class="btn btn-sm btn-primary view_lapdetail" data-idlap="'.$laporan->id.'">Detail</button>&nbsp;<button class="btn btn-sm btn-info btnTerima '.$classbtnTerima.'" id="'.$laporan->kodelap.'" value="'.$laporan->id.'">Terima</button>&nbsp;<button class="btn btn-sm btn-danger btnTolak '.$classbtnTolak.'" id="'.$laporan->kodelap.'" value="'.$laporan->id.'">Tolak</button>';
             $data[] = $row;

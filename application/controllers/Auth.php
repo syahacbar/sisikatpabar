@@ -80,7 +80,9 @@ class Auth extends CI_Controller
 				$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
 			}
 
-			$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'index', $this->data);
+			//$this->_render_page('auth' . DIRECTORY_SEPARATOR . 'index', $this->data);
+			$this->data['_view'] = 'auth/index';
+			$this->load->view('admin/layout',$this->data);
 		}
 	}
 
@@ -449,7 +451,7 @@ class Auth extends CI_Controller
 		{
 			// redirect them to the auth page
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("admin/users", 'refresh');
+			redirect("auth/create_user", 'refresh');
 		}
 		else
 		{
@@ -508,7 +510,7 @@ class Auth extends CI_Controller
 			}
 
 			// redirect them back to the auth page
-			redirect('admin/users', 'refresh');
+			redirect('auth/create_user', 'refresh');
 		}
 	}
 
@@ -557,13 +559,14 @@ class Auth extends CI_Controller
 				'company' => $this->input->post('company'),
 				'phone' => $this->input->post('phone'),
 			];
+			$group = $this->input->post('groups');
 		}
-		if ($this->form_validation->run() === TRUE && $this->ion_auth->register($identity, $password, $email, $additional_data))
+		if ($this->form_validation->run() === TRUE && $this->ion_auth->register($identity, $password, $email, $additional_data,$group))
 		{
 			// check to see if we are creating the user
 			// redirect them back to the admin page
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("admin/users", 'refresh');
+			redirect("auth/create_user", 'refresh');
 		}
 		else
 		{
@@ -635,6 +638,10 @@ class Auth extends CI_Controller
 			{
 				$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
 			}
+
+
+			$groups = $this->ion_auth->groups()->result_array();
+			$this->data['groups'] = $groups;
 			
 			$this->data['_view'] = 'auth/create_user';
 			$this->load->view('admin/layout',$this->data);

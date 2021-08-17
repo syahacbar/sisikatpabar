@@ -72,15 +72,27 @@
                                 </div>
                               </div>
                               <div class="row">
-                                <label for="country" class="control-label"><?php echo lang('create_user_password_label', 'password');?></label>
+                                <label for="password" class="control-label"><?php echo lang('create_user_password_label', 'password');?></label>
                                 <div class="col">
                                     <?php echo form_input($password);?>
                                 </div>
                               </div>
                               <div class="row">
-                                <label for="country" class="control-label"><?php echo lang('create_user_password_confirm_label', 'password_confirm');?></label>
+                                <label for="password_confirm" class="control-label"><?php echo lang('create_user_password_confirm_label', 'password_confirm');?></label>
                                 <div class="col">
                                     <?php echo form_input($password_confirm);?>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <label for="group" class="control-label">Groups</label>
+                                <div class="col">
+                                    <select name="groups" class="form-control">
+                                      <option value="">-- Pilih Group --</option>  
+                                    <?php foreach ($groups as $group):?>
+                                      <option value="<?php echo $group['id'];?>"><?php echo htmlspecialchars($group['description'],ENT_QUOTES,'UTF-8');?></option>
+                                    <?php endforeach?>
+
+                                    </select>
                                 </div>
                               </div>
                             <br>
@@ -125,8 +137,9 @@
                                         <?php echo anchor("auth/edit_group/".$group->id, htmlspecialchars($group->name,ENT_QUOTES,'UTF-8')) ;?><br />
                                               <?php endforeach?>
                                     </td>
-                                    <td><?php echo ($user->active) ? anchor("auth/deactivate/".$user->id, 'Deactivate',array('class'=>'btn btn-sm btn-danger')) : anchor("auth/activate/". $user->id, 'Activate' ,array('class'=>'btn btn-sm btn-success'));?></td>
-                                    <td><?php echo anchor("auth/edit_user/".$user->id, 'Edit',array('class'=>'btn btn-sm btn-primary')) ;?></td>
+                                    <td><?php echo ($user->active=='1') ? 'Aktif' : 'Tidak Aktif';?></td>
+                                    <td><?php echo ($user->active) ? anchor("auth/deactivate/".$user->id, 'Non Aktifkan',array('class'=>'btn btn-sm btn-danger')) : anchor("auth/activate/". $user->id, 'Aktifkan' ,array('class'=>'btn btn-sm btn-success'));?>
+                                    <?php echo anchor("auth/edit_user/".$user->id, 'Edit',array('class'=>'btn btn-sm btn-primary')) ;?></td>
                                   </tr>
                                 <?php endforeach;?>
                               </tbody>
