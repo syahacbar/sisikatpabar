@@ -103,7 +103,7 @@ class Adminkab extends CI_Controller{
         $no = $this->input->post('start');
         //looping data mahasiswa
         foreach ($list as $laporan) {
-            if($laporan->status=="Diterima"){ $classbtnTerima = "disabled"; $classbtnTolak = ""; } else { $classbtnTerima = ""; $classbtnTolak = "disabled";}
+            if($laporan->status=="Diterima"){ $classbtnTerima = "disabled"; $classbtnTolak = ""; } elseif($laporan->status=="Ditolak") { $classbtnTerima = ""; $classbtnTolak = "disabled";} elseif($laporan->status=="Menunggu") { $classbtnTerima = ""; $classbtnTolak = ""; }
 
             $no++;
             $row = array();

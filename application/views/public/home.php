@@ -108,7 +108,7 @@
                                       </div> -->
 
                                       <div class="form-group form-outline only-number">
-                                        <input type="number" name="nik" class="form-control number" placeholder="Ketik NIK Anda" required>
+                                        <input type="text" name="nik" class="form-control number" placeholder="Ketik NIK Anda" required>
                                     </div>
                                     </div>
 
@@ -497,7 +497,7 @@
                           alert('Something is wrong');
                        },
                        success: function(data) {
-                            alert("Record added successfully");
+                            alert("Laporan Berhasil Terkirim");
                             spinner.hide();
                             location.reload();
                        }

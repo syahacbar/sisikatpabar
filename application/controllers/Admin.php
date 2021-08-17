@@ -304,8 +304,7 @@ class Admin extends MY_Controller{
         $no = $this->input->post('start');
         
         foreach ($list as $laporan) {
-            if($laporan->status=="Diterima"){ $classbtnTerima = "disabled"; $classbtnTolak = ""; } else { $classbtnTerima = ""; $classbtnTolak = "disabled";}
-
+            if($laporan->status=="Diterima"){ $classbtnTerima = "disabled"; $classbtnTolak = ""; } elseif($laporan->status=="Ditolak") { $classbtnTerima = ""; $classbtnTolak = "disabled";} elseif($laporan->status=="Menunggu") { $classbtnTerima = ""; $classbtnTolak = ""; }
             $no++;
             $row = array();
             //row pertama akan kita gunakan untuk btn edit dan delete
@@ -341,7 +340,7 @@ class Admin extends MY_Controller{
         $no = $this->input->post('start');
         
         foreach ($list as $laporan) {
-            if($laporan->status=="Diterima"){ $classbtnTerima = "disabled"; $classbtnTolak = ""; } else { $classbtnTerima = ""; $classbtnTolak = "disabled";}
+            if($laporan->status=="Diterima"){ $classbtnTerima = "disabled"; $classbtnTolak = ""; } elseif($laporan->status=="Ditolak") { $classbtnTerima = ""; $classbtnTolak = "disabled";} elseif($laporan->status=="Menunggu") { $classbtnTerima = ""; $classbtnTolak = ""; }
 
             $no++;
             $row = array();
