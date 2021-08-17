@@ -153,7 +153,7 @@
                   success:function(response) {
                     $(".modal-content #idlap").text(response.kodelap); 
                     $(".modal-content #nikModal").text(response.nik);
-                    $(".modal-content #namaModal").text(response.nama);
+                    $(".modal-content #namaModal").text(response.nama_pelapor);
                     $(".modal-content #alamatModal").html(response.alamat_pelapor+"<br>"+response.despelapor+"<br>"+response.kecpelapor+"<br>"+response.kabpelapor);
                     $(".modal-content #nohpModal").text(response.no_hp);
                     $(".modal-content #emailModal").text(response.email);
@@ -167,6 +167,8 @@
                     $(".modal-content #lokasikabkota").html(response.lokasinamakab);
                     $(".modal-content #lokasidistrik").html(response.lokasinamadistrik);
                     $(".modal-content #pengaduan").text(response.pengaduan);
+                    $(".modal-footer .btnTolak").attr("id",response.kodelap);
+                    $(".modal-footer .btnTolak").attr("value",idlap);
 
 
                     $("#modal_lapdetail").modal({backdrop: 'static', keyboard: true, show: true});

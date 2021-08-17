@@ -254,10 +254,10 @@
                 </div>
             </div>
         </div>
-        <div class="modal-footer">
+        <!-- <div class="modal-footer">
             <button class="btn btn-sm btn-info btnTerima" id="" value=""><i class="fa fa-check-circle"></i> Terima</button>&nbsp;
             <button class="btn btn-sm btn-danger btnTolak" id="" value=""><i class="fa fa-ban"></i> Tolak</button>
-        </div>
+        </div> -->
     </div>
   </div>
 </div>
@@ -266,8 +266,6 @@
 </html>
 <script>
     $(document).ready(function() {
-        $("#modal_lapdetail").on("click", ".btn-closemodal", function(){
-            $('#modal_lapdetail').modal('hide');
-        });
+        
     });
 </script>
