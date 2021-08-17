@@ -26,6 +26,18 @@ class Skruasjalan extends CI_Controller{
         $this->load->view('public/layout',$data);
     }
 
+    function download()
+    {
+        $this->load->helper('download');
+        $idsk = $this->input->post('idsk');
+
+        $skruasjalan = $this->M_skruasjalan->get_skruasjalan($idsk);
+
+        $data = 'Here is some text!';
+        $name = $skruasjalan->filesk;
+        force_download(FCPATH.'upload/skruasjalan/'.$name, null);
+    }
+
 
    
 }

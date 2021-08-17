@@ -9,5 +9,11 @@ class M_skruasjalan extends CI_Model {
 		return $query->result_array();
 	}
     
+
+    public function get_skruasjalan($id)
+    {
+       $query = $this->db->get_where('skruasjalan',array('id'=>$id));
+       return $query->row();
+   }
 }
 
