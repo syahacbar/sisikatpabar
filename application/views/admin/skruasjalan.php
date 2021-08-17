@@ -73,8 +73,10 @@
                 
                 sk_upload.on("sending",function(a,b,c){
                     a.token=Math.random();
+                    a.inputnamask = $("input[name='namask']").val();
                     c.append("token_skruasjalan",a.token);
-                    c.append("namask",$('#namask').val());
+                    c.append("namask",a.inputnamask);
+
                 });
 
                 $('#formuploadsk').submit(function(e) {
