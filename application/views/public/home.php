@@ -347,6 +347,7 @@
                             <?php echo form_close(); ?>
                         </div>
                     </div>
+                    <div id="loader"></div>
                 </div>
             </div>  
         </div>
@@ -364,6 +365,7 @@
             }
 
             Dropzone.autoDiscover = false;
+            var spinner = $('#loader');
             $(document).ready(function(){     
 
                
@@ -459,6 +461,7 @@
 
                 $('#formlaporan').submit(function(e) {
                     e.preventDefault();
+                    spinner.show();
                     //ktp_upload.processQueue();
                     //dokumentasi1_upload.processQueue();
                     //dokumentasi2_upload.processQueue();
@@ -495,6 +498,7 @@
                        },
                        success: function(data) {
                             alert("Record added successfully");
+                            spinner.hide();
                             location.reload();
                        }
                     });
