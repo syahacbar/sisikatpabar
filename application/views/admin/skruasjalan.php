@@ -70,7 +70,7 @@
                     dictInvalidFileType:"Type file ini tidak dizinkan",
                     addRemoveLinks:true,
                 });
-                
+
                 sk_upload.on("sending",function(a,b,c){
                     a.token=Math.random();
                     a.inputnamask = $("input[name='namask']").val();
@@ -82,7 +82,7 @@
                 $('#formuploadsk').submit(function(e) {
                     e.preventDefault();
                     sk_upload.processQueue();
-                    location.reload();
+                    //location.reload();
                 });
 
             </script>
