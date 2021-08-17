@@ -108,7 +108,7 @@
                                       </div> -->
 
                                       <div class="form-group form-outline only-number">
-                                        <input pattern="\d+" type="text" name="nik" class="form-control number" placeholder="Ketik NIK Anda" required>
+                                        <input type="number" name="nik" class="form-control number" placeholder="Ketik NIK Anda" required>
                                     </div>
                                     </div>
 
