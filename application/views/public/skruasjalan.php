@@ -27,10 +27,10 @@
                     <iframe class="embed-responsive-item" src="<?php echo base_url('upload/skruasjalan/').$sk['filesk'];?>"></iframe>
                 </div>
               </div>
-              <form method="post" action="<?php echo site_url('skruasjalan/download');?>">
-                  <input type="hidden" name="idsk" value="<?php echo $sk['id'];?>">
+              <!-- <form method="post" action="<?php //echo site_url('skruasjalan/download');?>">
+                  <input type="hidden" name="idsk" value="<?php //echo $sk['id'];?>">
                   <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-download"></i> Download</button>
-              </form>
+              </form> -->
               
             </div>
           </div>

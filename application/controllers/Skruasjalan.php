@@ -29,13 +29,12 @@ class Skruasjalan extends CI_Controller{
     function download()
     {
         $this->load->helper('download');
+        $this->load->helper('file');
         $idsk = $this->input->post('idsk');
 
         $skruasjalan = $this->M_skruasjalan->get_skruasjalan($idsk);
-
-        $data = 'Here is some text!';
-        $name = $skruasjalan->filesk;
-        force_download(FCPATH.'upload/skruasjalan/'.$name, null);
+        $file = 'upload/skruasjalan/'.$skruasjalan->filesk;
+        force_download($file, NULL);
     }
 
 
