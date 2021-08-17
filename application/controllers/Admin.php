@@ -61,7 +61,7 @@ class Admin extends MY_Controller{
     function infrastruktur($q=NULL)
     {
         $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
-        
+        $data['kabupaten'] = $get_kab->result();
 
             if($q=='jalan')
             {
@@ -82,7 +82,7 @@ class Admin extends MY_Controller{
                 $data['kodeinf'] = '';
             }
         
-        $data['kabupaten'] = $get_kab->result();
+        
         $data['_view'] = 'admin/infrastruktur';
         $this->load->view('admin/layout',$data);
     }
@@ -262,6 +262,8 @@ class Admin extends MY_Controller{
 
     function skruasjalan()
     {        
+        $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
+        $data['kabupaten'] = $get_kab->result();
         $data['skruasjalan'] = $this->M_skruasjalan->get_all_skruasjalan();
 
         $data['_view'] = 'admin/skruasjalan';

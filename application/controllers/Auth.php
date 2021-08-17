@@ -27,6 +27,8 @@ class Auth extends CI_Controller
 	 */
 	public function login_history()
 	{
+		$get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
+    	$this->data['kabupaten'] = $get_kab->result();
 		$user = $this->ion_auth->user()->row();
     	$user_groups = $this->ion_auth->get_users_groups($user->id)->row();
     	if($user_groups->name=='admin')
@@ -479,6 +481,8 @@ class Auth extends CI_Controller
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('confirm', $this->lang->line('deactivate_validation_confirm_label'), 'required');
 		$this->form_validation->set_rules('id', $this->lang->line('deactivate_validation_user_id_label'), 'required|alpha_numeric');
+		$get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
+    	$this->data['kabupaten'] = $get_kab->result();
 
 		if ($this->form_validation->run() === FALSE)
 		{
@@ -669,6 +673,8 @@ class Auth extends CI_Controller
 	public function edit_user($id)
 	{
 		$this->data['title'] = $this->lang->line('edit_user_heading');
+		$get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
+    	$this->data['kabupaten'] = $get_kab->result();
 
 		if (!$this->ion_auth->logged_in() || (!$this->ion_auth->is_admin() && !($this->ion_auth->user()->row()->id == $id)))
 		{

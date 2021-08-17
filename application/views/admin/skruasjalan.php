@@ -58,6 +58,7 @@
         </div>
 
            <script>
+            Dropzone.autoDiscover = false;
                 var sk_upload= new Dropzone(".skruasjalan",{
                     autoProcessQueue: false,
                     url: "<?php echo site_url('admin/uploadsk') ?>",
