@@ -7,13 +7,13 @@
                     <div class="col-lg-9">
                         <div class="mb-5 mb-lg-0 text-center text-lg-start">
                             <h1 class="display-1 lh-1 mb-3">SI-SIKAT</h1>
-                            <p class="lead fw-normal text-muted mb-5">
+                            <p class="lead fw-normal text-muted mb-5" style="font-size:16px">
                                 Adalah akronim dari Sistem Partisipasi Masyarakat.<br> 
                                 Dengan tujuan utama dari sistem ini adalah untuk meningkatan kinerja Bidang Bina Marga Dinas PUPR Provinsi Papua Barat dalam melakukan penyiapan bahan dan perumusan konsep kebijakan teknis yang berkenaan dengan kebinamargaan khususnya dalam perencanaan infrastruktur jalan.
                             </p>
-                            <p class="lead fw-normal text-muted mb-5">     
+                            <p class="lead fw-normal text-muted mb-5" style="font-size:16px">     
                                 Laporan langsung dari masyarakat melalui media ini diharapkan dapat menjadi masukan terhadap perkembangan infrastruktur jalan di Provinsi Papua Barat.
-                            <p class="lead fw-normal text-muted mb-5">
+                            <p class="lead fw-normal text-muted mb-5" style="font-size:16px">
                                 Selanjutnya data Laporan Pengaduan yang telah diterima nantinya akan diverifikasi kembali oleh Bidang Bina Marga OPD Dinas PUPR Provinsi Papua Barat sebelum dirumuskan menjadi konsep kebijakan teknis dalam perencanaan infrastruktur jalan di Provinsi Papua Barat.
                             </p>
                             <div class="d-flex flex-column flex-lg-row align-items-center">
