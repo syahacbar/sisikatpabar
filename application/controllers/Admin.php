@@ -14,7 +14,7 @@ class Admin extends MY_Controller{
         parent::__construct(); 
         $this->load->model('Laporan_model');
         $this->load->model('M_skruasjalan');
-        $this->load->model("Infrastruktur_model");
+        $this->load->model("M_laporan");
         
     }
 
@@ -61,48 +61,27 @@ class Admin extends MY_Controller{
     function infrastruktur($q=NULL)
     {
         $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
-        if($this->input->post('btnFilter', TRUE))
-        {
-            $status = $this->input->post('status', TRUE);
-            
-            $data['status'] = $status;
-
-            if($q=='jalan')
-            {
-                $data['laporan'] = $this->Laporan_model->get_all_laporan('jalan',NULL,NULL,NULL,'tgl_laporan','DESC',$status);
-                $data['infrastruktur'] = 'Infrastruktur Jalan';
-            } 
-            elseif($q=='drainase')
-            {
-                $data['laporan'] = $this->Laporan_model->get_all_laporan('drainase',NULL,NULL,NULL,'tgl_laporan','DESC',$status);
-                $data['infrastruktur'] = 'Infrastruktur Drainase';
-            }
-            else
-            {
-                $data['laporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_laporan','DESC',$status); 
-                $data['infrastruktur'] = 'Semua Infrastruktur';
-            }
-        }
-        else
-        {
-            $data['status'] = '1';
+        
 
             if($q=='jalan')
             {
                 $data['laporan'] = $this->Laporan_model->get_all_laporan('jalan',NULL,NULL,NULL,'tgl_laporan','DESC','1');
                 $data['infrastruktur'] = 'Infrastruktur Jalan';
+                $data['kodeinf'] = 'jalan';
             } 
             elseif($q=='drainase')
             {
                 $data['laporan'] = $this->Laporan_model->get_all_laporan('drainase',NULL,NULL,NULL,'tgl_laporan','DESC','1');
                 $data['infrastruktur'] = 'Infrastruktur Drainase';
+                $data['kodeinf'] = 'drainase';
             }
             else
             {
                 $data['laporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_laporan','DESC','1'); 
                 $data['infrastruktur'] = 'Semua Infrastruktur';
+                $data['kodeinf'] = '';
             }
-        }
+        
         $data['kabupaten'] = $get_kab->result();
         $data['_view'] = 'admin/infrastruktur';
         $this->load->view('admin/layout',$data);
@@ -325,10 +304,55 @@ class Admin extends MY_Controller{
         $this->Laporan_model->proseslaporan($idlap,$status);
     }
 
+    function infrastruktur_list($kodeinf=NULL)
+    {
+        $user = $this->ion_auth->user()->row();
+        $user_groups = $this->ion_auth->get_users_groups($user->id)->row();
+        header('Content-Type: application/json');
+        $list = $this->M_laporan->get_datatables(NULL,$kodeinf);
+        $data = array();
+        $no = $this->input->post('start');
+        
+        foreach ($list as $laporan) {
+            if($laporan->status=="Diterima"){ $classbtnTerima = "disabled"; $classbtnTolak = ""; } else { $classbtnTerima = ""; $classbtnTolak = "disabled";}
+
+            $no++;
+            $row = array();
+            //row pertama akan kita gunakan untuk btn edit dan delete
+            $row[] = $no;
+            $row[] = $laporan->tgl_laporan;
+            $row[] = $laporan->kodelap;
+            $row[] = $laporan->pengaduan;
+            $row[] = $laporan->lokasi_namajalan;
+            $row[] = $laporan->lokasinamadistrik;
+            $row[] = $laporan->lokasinamakab;
+            $row[] = $laporan->status;
+            $row[] = '<button data-bs-target="#modal_lapdetail" data-bs-toggle="modal" id="btnDetail" class="btn btn-sm btn-primary view_lapdetail" data-idlap="'.$laporan->id.'">Detail</button>&nbsp;<button class="btn btn-sm btn-info btnTerima '.$classbtnTerima.'" id="'.$laporan->kodelap.'" value="'.$laporan->id.'">Terima</button>&nbsp;<button class="btn btn-sm btn-danger btnTolak '.$classbtnTolak.'" id="'.$laporan->kodelap.'" value="'.$laporan->id.'">Tolak</button>';
+            $data[] = $row;
+        }
+        $output = array(
+            "draw" => $this->input->post('draw'),
+            "recordsTotal" => $this->M_laporan->count_all(),
+            "recordsFiltered" => $this->M_laporan->count_filtered(),
+            "data" => $data,
+        );
+        //output to json format
+        $this->output->set_output(json_encode($output));
+
+    }
+
+    public function detail_laporan()
+    {
+        $id = $this->input->get('idlap');
+        $get_laporan = $this->M_laporan->get_laporan_by_id($id);
+        echo json_encode($get_laporan); 
+        exit();
+    }
+
     function dashboard_table_list()
     {
         header('Content-Type: application/json');
-        $list = $this->Infrastruktur_model->get_datatables();
+        $list = $this->M_laporan->get_datatables();
         $data = array();
         $no = $this->input->post('start');
         //looping data mahasiswa
@@ -350,8 +374,8 @@ class Admin extends MY_Controller{
         }
         $output = array(
             "draw" => $this->input->post('draw'),
-            "recordsTotal" => $this->Infrastruktur_model->count_all(),
-            "recordsFiltered" => $this->Infrastruktur_model->count_filtered(),
+            "recordsTotal" => $this->M_laporan->count_all(),
+            "recordsFiltered" => $this->M_laporan->count_filtered(),
             "data" => $data,
         );
         //output to json format

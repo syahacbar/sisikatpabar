@@ -98,24 +98,6 @@ class M_laporan extends CI_Model
 
     public function get_laporan_by_id($id)
     {
-        // return $this->db->select('*')
-        //                 ->from('laporan')
-        //                 ->where(['id'=>$id])
-        //                 ->get()
-        //                 ->row();
-
-        // return $this->db->select('l.*,a.nama AS lokasinamadistrik, b.nama AS lokasinamakab, x.nama AS despelapor, y.nama AS kecpelapor, z.nama AS kabpelapor')
-        //     ->join('wilayah_2020 a', 'a.kode = l.lokasi_distrik')
-        //     ->join('wilayah_2020 b', 'b.kode = l.lokasi_kabkota')
-        //     ->join('wilayah_2020 x', 'x.kode = l.des_pelapor')
-        //     ->join('wilayah_2020 y', 'y.kode = l.kec_pelapor')
-        //     ->join('wilayah_2020 z', 'z.kode = l.kab_pelapor')
-        //     ->join('upload u', 'u.kodlap = l.kodelap')
-        
-        //     ->from('laporan l')
-        //     ->where('l.id', $id)
-        //     ->get()->row();
-
         $query = $this->db->query("SELECT l.*, a.nama AS lokasinamadistrik, b.nama AS lokasinamakab, x.nama AS despelapor, y.nama AS kecpelapor, z.nama AS kabpelapor,
             (SELECT DISTINCT u.nama_file FROM upload u WHERE u.kodelap = l.kodelap AND u.kategori='ktp') AS ktp,
             (SELECT DISTINCT u.nama_file FROM upload u WHERE u.kodelap = l.kodelap AND u.kategori='dokumentasi1') AS dokumentasi1,
@@ -128,7 +110,7 @@ class M_laporan extends CI_Model
             JOIN wilayah_2020 y ON y.kode=l.kec_pelapor
             JOIN wilayah_2020 z ON z.kode=l.kab_pelapor
             WHERE l.id='$id'");
-        return $query->get()->row();
+        return $query->row();
     }
 
 

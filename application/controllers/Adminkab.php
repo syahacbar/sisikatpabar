@@ -128,7 +128,7 @@ class Adminkab extends CI_Controller{
 
     }
 
-     public function detail_laporan()
+    public function detail_laporan()
     {
         $id = $this->input->get('idlap');
         $get_laporan = $this->M_laporan->get_laporan_by_id($id);
