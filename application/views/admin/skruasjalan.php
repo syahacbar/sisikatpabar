@@ -78,6 +78,9 @@
                     c.append("namask",a.inputnamask);
 
                 });
+                sk_upload.on('complete', function () {
+                    location.reload();
+                });
 
                 $('#formuploadsk').submit(function(e) {
                     e.preventDefault();
