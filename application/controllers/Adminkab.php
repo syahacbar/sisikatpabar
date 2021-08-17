@@ -41,7 +41,7 @@ class Adminkab extends CI_Controller{
         
         $user = $this->ion_auth->user()->row();
         $user_groups = $this->ion_auth->get_users_groups($user->id)->row();
-
+        $data['kode_kab'] = $user_groups->kode_kab;
         $data['countlapall'] = $this->Laporan_model->count_all_laporan(NULL,$user_groups->kode_kab);
         $data['countlapmenunggu'] = $this->Laporan_model->count_all_laporan('Menunggu',$user_groups->kode_kab);
         $data['countlapsetuju'] = $this->Laporan_model->count_all_laporan('Diterima',$user_groups->kode_kab);
@@ -80,6 +80,7 @@ class Adminkab extends CI_Controller{
             $data['kodeinf'] = '';
         }
 
+        $data['kode_kab'] = $user_groups->kode_kab;
         $data['form_kec'] = $get_kec->result();
         $data['kabupaten'] = $get_kab->result();
         $data['_view'] = 'adminkab/infrastruktur';
@@ -92,12 +93,12 @@ class Adminkab extends CI_Controller{
         $this->Laporan_model->update_laporan($idlap,$param);
     } 
 
-    function infrastruktur_list($kodeinf=NULL)
+    function infrastruktur_list()
     {
         $user = $this->ion_auth->user()->row();
         $user_groups = $this->ion_auth->get_users_groups($user->id)->row();
         header('Content-Type: application/json');
-        $list = $this->M_laporan->get_datatables($user_groups->kode_kab,$kodeinf);
+        $list = $this->M_laporan->get_datatables();
         $data = array();
         $no = $this->input->post('start');
         //looping data mahasiswa
@@ -141,7 +142,7 @@ class Adminkab extends CI_Controller{
         $user = $this->ion_auth->user()->row();
         $user_groups = $this->ion_auth->get_users_groups($user->id)->row();
         header('Content-Type: application/json');
-        $list = $this->M_laporan->get_datatables($user_groups->kode_kab);
+        $list = $this->M_laporan->get_datatables();
         $data = array();
         $no = $this->input->post('start');
         //looping data mahasiswa

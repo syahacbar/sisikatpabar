@@ -67,13 +67,13 @@ class Admin extends MY_Controller{
             {
                 $data['laporan'] = $this->Laporan_model->get_all_laporan('jalan',NULL,NULL,NULL,'tgl_laporan','DESC','1');
                 $data['infrastruktur'] = 'Infrastruktur Jalan';
-                $data['kodeinf'] = 'jalan';
+                $data['kodeinf'] = 'Jalan';
             } 
             elseif($q=='drainase')
             {
                 $data['laporan'] = $this->Laporan_model->get_all_laporan('drainase',NULL,NULL,NULL,'tgl_laporan','DESC','1');
                 $data['infrastruktur'] = 'Infrastruktur Drainase';
-                $data['kodeinf'] = 'drainase';
+                $data['kodeinf'] = 'Drainase';
             }
             else
             {
@@ -304,12 +304,12 @@ class Admin extends MY_Controller{
         $this->Laporan_model->proseslaporan($idlap,$status);
     }
 
-    function infrastruktur_list($kodeinf=NULL)
+    function infrastruktur_list()
     {
         $user = $this->ion_auth->user()->row();
         $user_groups = $this->ion_auth->get_users_groups($user->id)->row();
         header('Content-Type: application/json');
-        $list = $this->M_laporan->get_datatables(NULL,$kodeinf);
+        $list = $this->M_laporan->get_datatables();
         $data = array();
         $no = $this->input->post('start');
         

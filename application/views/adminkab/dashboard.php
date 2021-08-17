@@ -230,6 +230,9 @@ var myLineChart = new Chart(ctx, {
                 //panggil method ajax list dengan ajax
                 "url": '<?php echo site_url('adminkab/dashboard_table_list');?>',
                 "type": "POST",
+                "data": function(data){
+                  data.selectKab = '<?php echo $kode_kab;?>';
+                }
               },
               
             });

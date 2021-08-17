@@ -18,7 +18,7 @@ class M_laporan extends CI_Model
         $this->load->database();
     }
 
-    private function _get_datatables_query($kode_kab=NULL,$infrastruktur=NULL)
+    private function _get_datatables_query()
     {
         $this->db->select('l.*,a.nama AS lokasinamadistrik, b.nama AS lokasinamakab');
         $this->db->join('wilayah_2020 a', 'a.kode = l.lokasi_distrik');
@@ -32,14 +32,14 @@ class M_laporan extends CI_Model
             $this->db->where('l.status', $this->input->post('selectStatus'));
         }
 
-        if($kode_kab != NULL)
+        if($this->input->post('selectKab'))
         {
-            $this->db->where('l.lokasi_kabkota', $kode_kab);
+            $this->db->where('l.lokasi_kabkota', $this->input->post('selectKab'));
         }
 
-        if($infrastruktur != NULL)
+        if($this->input->post('selectInfrastruktur'))
         {
-            $this->db->where('l.infrastruktur', $infrastruktur);
+            $this->db->where('l.infrastruktur', $this->input->post('selectInfrastruktur'));
         }
 
         if($this->input->post('selectDistrik'))
@@ -74,9 +74,9 @@ class M_laporan extends CI_Model
         }
     }
 
-    function get_datatables($kode_kab=NULL,$kodeinf=NULL)
+    function get_datatables()
     {
-        $this->_get_datatables_query($kode_kab,$kodeinf);
+        $this->_get_datatables_query();
         if ($this->input->post('length') != -1)
             $this->db->limit($this->input->post('length'), $this->input->post('start'));
         $query = $this->db->get();
@@ -92,6 +92,10 @@ class M_laporan extends CI_Model
 
     public function count_all()
     {
+        if($this->input->post('selectKab'))
+        {
+            $this->db->where('lokasi_kabkota', $this->input->post('selectKab'));
+        }
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }

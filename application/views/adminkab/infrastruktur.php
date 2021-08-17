@@ -83,11 +83,13 @@
         "order": [],
         "ajax": {
                 //panggil method ajax list dengan ajax
-                "url": '<?php echo site_url('adminkab/infrastruktur_list/').$kodeinf;?>',
+                "url": '<?php echo site_url('adminkab/infrastruktur_list');?>',
                 "type": "POST",
                 "data": function(data){
                  data.selectStatus = $('#filterStatus').val();
                  data.selectDistrik = $('#filterDistrik').val();
+                 data.selectInfrastruktur = '<?php echo $kodeinf;?>';
+                 data.selectKab = '<?php echo $kode_kab;?>';
              }
          },
 

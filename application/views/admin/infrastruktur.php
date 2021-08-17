@@ -74,10 +74,11 @@
         "order": [],
         "ajax": {
                 //panggil method ajax list dengan ajax
-                "url": '<?php echo site_url('admin/infrastruktur_list/').$kodeinf;?>',
+                "url": '<?php echo site_url('admin/infrastruktur_list');?>',
                 "type": "POST",
                 "data": function(data){
                  data.selectStatus = $('#filterStatus').val();
+                 data.selectInfrastruktur = '<?php echo $kodeinf;?>';
              }
          },
 
