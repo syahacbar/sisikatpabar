@@ -172,7 +172,7 @@ class Admin extends MY_Controller{
         } elseif ($formatcetak == 'cetakpdf')
         { 
             $data['laporan'] = $this->Laporan_model->get_cetak_laporan($infrastruktur,$kabupaten,$startdate,$todate,NULL,NULL,NULL,'tgl_laporan','DESC',$status);
-            if($infrastruktur != NULL && $kabupaten != NULL && $Statuslap != NULL)
+            if($infrastruktur != NULL && $kabupaten != NULL && $status != NULL)
             {
                 if ($infrastruktur == 'semua' && $kabupaten == 'semua')
                 {
