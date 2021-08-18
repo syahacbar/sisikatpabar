@@ -182,7 +182,7 @@ class Admin extends MY_Controller{
         
     }
 
-    function cetakword()
+    function cetakexcel()
     {
         $data['laporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_Laporan','DESC');
         $data['filename'] = "sakarep";              
@@ -190,75 +190,7 @@ class Admin extends MY_Controller{
         $this->load->view('admin/cetakword',$data);
     }
 
-    function docx() {
-        
-        $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $paper = new \PhpOffice\PhpWord\Style\Paper();   
-
-        $phpWord->getCompatibility()->setOoxmlVersion(14);
-        $phpWord->getCompatibility()->setOoxmlVersion(15);
-
-        $targetFile = "./global/uploads/";
-        $filename = 'tes.docx';
-
-        $section = $phpWord->addSection(array(
-            'pageSizeW' => $paper->getWidth(), 
-            'pageSizeH' => $paper->getHeight(), 
-            'orientation' => 'landscape',
-            'marginLeft' => 500, 
-            'marginRight' => 500,
-            'marginTop' => 800, 
-            'marginBottom' => 800
-        ));
-        $section->getStyle()->setBreakType('continuous');
-        $header = $section->addHeader();
-        $header->headerTop(10);
-
-
-
-        $section->addImage(base_url('resources/admintheme/assets/img/noimage.jpg'), array('align'=>'center' ,'topMargin' => -5));
-
-        $section->addTextBreak(-5);
-        $center = $phpWord->addParagraphStyle('p2Style', array('align'=>'center','marginTop' => 1));
-        $section->addText('this is my name',array('bold' => true,'underline'=>'single','name'=>'TIMOTHYfont','size' => 14),$center);
-        $section->addTextBreak(-.5);
-
-        $section->addText('Tel:    00971-55-25553443 Fax: 00971-55- 2553443',array('name'=>'Times New Roman','size' => 13),$center);
-        $section->addTextBreak(-.5);
-        $section->addText('Quotation',array('bold' => true,'underline'=>'single','name'=>'Times New Roman','size' => 16),$center);
-        $section->addTextBreak(-.5);
-        $tableStyle = array('borderSize' => 1, 'borderColor' => '999999', 'afterSpacing' => 0, 'Spacing'=> 0, 'cellMargin'=>0  );
-        $styleCell = array('borderTopSize'=>1 ,'borderTopColor' =>'black','borderLeftSize'=>1,'borderLeftColor' =>'black','borderRightSize'=>1,'borderRightColor'=>'black','borderBottomSize' =>1,'borderBottomColor'=>'black' );
-        $fontStyle = array('italic'=> true, 'size'=>11, 'name'=>'Times New Roman','afterSpacing' => 0, 'Spacing'=> 0, 'cellMargin'=>0 );
-        $TfontStyle = array('bold'=>true, 'italic'=> true, 'size'=>11, 'name' => 'Times New Roman', 'afterSpacing' => 0, 'Spacing'=> 0, 'cellMargin'=>0);
-        $cfontStyle = array('allCaps'=>true,'italic'=> true, 'size'=>11, 'name' => 'Times New Roman','afterSpacing' => 0, 'Spacing'=> 0, 'cellMargin'=>0);
-        $noSpace = array('textBottomSpacing' => -1);
-        
-        $table = $section->addTable('myOwnTableStyle',array('borderSize' => 1, 'borderColor' => '999999', 'afterSpacing' => 0, 'Spacing'=> 0, 'cellMargin'=>0  ));
-        $table2 = $section->addTable('myOwnTableStyle');
-        $table->addRow(-0.5, array('exactHeight' => -5));
-        $countrystate = 'tes colom';
-        $table->addCell(500,$styleCell)->addText('No.',$TfontStyle);
-        $table->addCell(2000,$styleCell)->addText('Tanggal<br>Pengaduan',$fontStyle);
-        $table->addCell(2000,$styleCell)->addText('Jenis<br>Infrastruktur',$fontStyle);
-       /* $table->addCell(2000,$styleCell)->addText('Isi Laporan/<br>Pengaduan',$fontStyle);
-        $table->addCell(2000,$styleCell)->addText('Nama/<br>Ruas Jalan',$fontStyle);
-        $table->addCell(2000,$styleCell)->addText('Kec./<br>Distrik',$fontStyle);
-        $table->addCell(2000,$styleCell)->addText('Kab./Kota',$fontStyle);
-        $table->addCell(2000,$styleCell)->addText('Titik Lokasi<br>(Koordinat)',$fontStyle);
-        $table->addCell(2000,$styleCell)->addText('Nama Pelapor/<br>N I K',$fontStyle);
-        $table->addCell(2000,$styleCell)->addText('No. HP/<br>Email',$fontStyle);
-        $table->addCell(2000,$styleCell)->addText('Alamat Lengkap<br>(Sesuai KTP)',$fontStyle);
-        $table->addCell(2000,$styleCell)->addText('Dokumentasi',$fontStyle);
-        
-        */
-        $section->addTextBreak(-1);
-        header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document'); //mime type
-        header('Content-Disposition: attachment;filename="'.$filename.'"'); //tell browser what's the file name
-        header('Cache-Control: max-age=0'); //no cache
-        $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-        $objWriter->save('php://output');
-    }
+    
 
     function skruasjalan()
     {        
