@@ -1,3 +1,9 @@
+<style>
+    .tabelSK td:last-child {
+        min-width: 150px;
+    }
+</style>
+
 <div class="container-fluid px-4">
     <h2 class="mt-4">SK Ruas Jalan</h2>
     <ol class="breadcrumb mb-4">
@@ -58,8 +64,14 @@
         </div>
 
            <script>
+<<<<<<< Updated upstream
             Dropzone.autoDiscover = false;
                 var sk_upload= new Dropzone(".skruasjalan",{
+=======
+               Dropzone.autoDiscover = false;
+
+                var sk_upload= new Dropzone(".skruasjalan", {
+>>>>>>> Stashed changes
                     autoProcessQueue: false,
                     url: "<?php echo site_url('admin/uploadsk') ?>",
                     maxFilesize: 50,

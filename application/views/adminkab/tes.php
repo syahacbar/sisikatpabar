@@ -15,6 +15,16 @@
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
 
+<style>
+    table.tabeladminkabInfra td:nth-child(2),
+    table.tabeladminkabInfra td:nth-child(5) {
+        min-width: 150px;
+    }
+
+    table.tabeladminkabInfra td:last-child {
+        min-width: 171px;
+    }
+</style>
 
 <div id="admin" class="container-fluid px-4">
     <div class="row"><br></div>
@@ -49,7 +59,7 @@
                 <div class="panel-body">
 
                 </div>
-                <table class="table table-striped table-bordered table-hover" id="tableInfrastruktur">
+                <table class="table table-striped table-bordered table-hover tabeladminkabInfra" id="tableInfrastruktur">
                     <thead>
                         <tr>
                             <th>No.</th>
