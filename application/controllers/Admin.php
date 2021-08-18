@@ -188,8 +188,8 @@ class Admin extends MY_Controller{
                     $this->load->view('admin/cetakpdfinfsemuakab',$data);
                 } elseif ($infrastruktur != 'semua' && $kabupaten != 'semua') {
                     $data['infrastruktur'] = $infrastruktur;
-                    $data['range'] = $range;
-                    $data['range'] = $range;
+                    $data['range'] = $this->Laporan_model->get_kabkota($kabupaten)->nama;
+                    $data['kabupaten'] = $range;
                     $this->load->view('admin/cetakpdfinfkab',$data);
                 } 
             }
