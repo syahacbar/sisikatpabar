@@ -52,7 +52,7 @@
         <script src="<?php echo base_url('resources/datatables/bootstrap/js/bootstrap.min.js')?>"></script>
         <script src="<?php echo base_url('resources/datatables/datatables/js/jquery.dataTables.min.js')?>"></script>
         <script src="<?php echo base_url('resources/datatables/datatables/js/dataTables.bootstrap.min.js')?>"></script>
-        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <script src='https://www.google.com/recaptcha/api.js?hl=id'></script>
     </head>
 
     <body id="page-top">
