@@ -14,6 +14,8 @@ class Admin extends MY_Controller{
         parent::__construct(); 
         $this->load->model('Laporan_model');
         $this->load->model('M_skruasjalan');
+        $this->load->model('M_laporan');
+
         
     }
 
