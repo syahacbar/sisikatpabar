@@ -15,6 +15,9 @@
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
 
+<!-- Custom CSS -->
+<link href="<?php echo base_url();?>resources/admintheme/css/file-tabel.css" rel="stylesheet" />
+
 <div class="container-fluid px-4">
   <h2 class="mt-4">Dashboard Admin <?php echo $kabupaten;?></h2>
   <ol class="breadcrumb mb-4">
