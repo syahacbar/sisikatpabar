@@ -9,7 +9,12 @@
 <link rel="stylesheet" href="<?php echo base_url();?>resources/admintheme/css/download.css">
 
 
-
+<style>
+div#infoMessage p {
+    font-size: 14px;
+    color: red;
+}
+</style>
       <div class="container-fluid px-4">
       <h2 class="mt-4">Akun Pengguna Admin Kab/Kota</h2>
             <ol class="breadcrumb mb-4">
