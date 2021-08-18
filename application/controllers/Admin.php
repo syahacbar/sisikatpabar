@@ -157,6 +157,8 @@ class Admin extends MY_Controller{
             if($kabupaten == NULL || $kabupaten == 'semua')
             {            
                 $namakab = 'Semua Kab/Kota';
+            } else {
+                $namakab = $this->Laporan_model->get_kabkota($kabupaten)->nama;
             }
 
             if($infrastruktur == NULL || $infrastruktur == 'semua')
