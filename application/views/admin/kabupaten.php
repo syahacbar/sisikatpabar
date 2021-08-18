@@ -15,6 +15,8 @@
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
 
+<!-- Custom CSS -->
+<link href="<?php echo base_url();?>resources/admintheme/css/file-tabel.css" rel="stylesheet" />
 
 <div id="admin" class="container-fluid px-4">
     <div class="row"><br></div>
@@ -39,7 +41,7 @@
                 <div class="panel-body">
 
                 </div>
-                <table class="table table-striped table-bordered table-hover" id="tableInfrastruktur">
+                <table class="table table-striped table-bordered table-hover tabelinfraAdmin" id="tableInfrastruktur">
                     <thead>
                         <tr>
                             <th>No.</th>
