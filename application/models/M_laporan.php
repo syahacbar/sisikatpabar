@@ -117,5 +117,41 @@ class M_laporan extends CI_Model
         return $query->row();
     }
 
+    public function get_all_laporan($infrastruktur=NULL,$kabupaten=NULL,$startdate=NULL,$todate,$range,$status,$namakab)
+    {
+        $this->db->select('l.*, a.nama AS lokasinamadistrik, b.nama AS lokasinamakab, x.nama AS despelapor, y.nama AS kecpelapor, z.nama AS kabpelapor');
+        $this->db->join('wilayah_2020 a', 'a.kode = l.lokasi_distrik');
+        $this->db->join('wilayah_2020 b', 'b.kode = l.lokasi_kabkota');
+        $this->db->join('wilayah_2020 x', 'x.kode=l.des_pelapor');
+        $this->db->join('wilayah_2020 y', 'y.kode=l.kec_pelapor');
+        $this->db->join('wilayah_2020 z', 'z.kode=l.kab_pelapor');        
+        
+        if ($infrastruktur!=NULL && $infrastruktur!='semua')
+        {
+            $this->db->where('l.infrastruktur',$infrastruktur);
+        }
+
+        if ($status!=NULL)
+        {
+            $this->db->where('l.status',$status);
+        }
+
+        if ($kabupaten!=NULL && $kabupaten!='semua')
+        {
+            $this->db->where('l.lokasi_kabkota',$kabupaten);
+        }
+
+        if ($startdate!=NULL && $todate!=NULL)
+        {
+            $this->db->where('l.tgl_laporan >=',$startdate);
+            $this->db->where('l.tgl_laporan <=',$todate);
+        }
+
+        $this->db->from('laporan l');
+
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
 
 }

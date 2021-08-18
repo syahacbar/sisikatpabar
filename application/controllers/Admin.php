@@ -141,20 +141,21 @@ class Admin extends MY_Controller{
         $startdate = $this->input->post('startdate', TRUE);
         $todate = $this->input->post('todate', TRUE);
         $formatcetak = $this->input->post('RBFormatCetak',TRUE);
-        $Statuslap = $this->input->post('RBStatuslap',TRUE);
-        if ($formatcetak == 'cetakword')
+        $status = $this->input->post('RBStatuslap',TRUE);
+        if ($startdate != NULL && $todate != NULL)
         {
-            $this->docx();
-        } elseif ($formatcetak == 'cetakpdf')
-        {
-            if ($startdate != NULL && $todate != NULL)
-            {
-                $range = strtoupper(date_indo($startdate))." S.D. ".strtoupper(date_indo($todate));
-            } else {
-                $range = "TAHUN 2021";
-            }
-            
+            $range = strtoupper(date_indo($startdate))." S.D. ".strtoupper(date_indo($todate));
+        } else {
+            $range = "TAHUN 2021";
+        }
+        $namakab = $this->Laporan_model->get_kabkota($kabupaten)->nama;
 
+        if ($formatcetak == 'cetakexcel')
+        {
+            $this->cetakexcel($infrastruktur,$kabupaten,$startdate,$todate,$range,$status,$namakab);
+
+        } elseif ($formatcetak == 'cetakpdf')
+        { 
             $data['laporan'] = $this->Laporan_model->get_cetak_laporan($infrastruktur,$kabupaten,$startdate,$todate,NULL,NULL,NULL,'tgl_laporan','DESC',$Statuslap);
             if($infrastruktur != NULL && $kabupaten != NULL && $Statuslap != NULL)
             {
@@ -172,7 +173,7 @@ class Admin extends MY_Controller{
                     $this->load->view('admin/cetakpdfinfsemuakab',$data);
                 } elseif ($infrastruktur != 'semua' && $kabupaten != 'semua') {
                     $data['infrastruktur'] = $infrastruktur;
-                    $data['kabupaten'] = $this->Laporan_model->get_kabkota($kabupaten)->nama;
+                    $data['range'] = $range;
                     $data['range'] = $range;
                     $this->load->view('admin/cetakpdfinfkab',$data);
                 } 
@@ -182,9 +183,16 @@ class Admin extends MY_Controller{
         
     }
 
-    function cetakexcel()
+    function cetakexcel($infrastruktur,$kabupaten,$startdate,$todate,$range,$status,$namakab)
     {
-       
+        $data['laporan'] = $this->M_laporan->get_all_laporan($infrastruktur,$kabupaten,$startdate,$todate,$range,$status,$namakab);
+        $data['infrastruktur'] = $infrastruktur;
+        $data['kabupaten'] = $namakab;
+        $data['range'] = $range;
+        $data['status'] = strtoupper($status);
+        $data['filename'] = "DATA LAPORAN PENGADUAN SISIKAT ".strtoupper($infrastruktur)." ".$namakab." ".$range;              
+        $data['_view'] = 'admin/cetakexcel';
+        $this->load->view('admin/cetakexcel',$data);
     }
 
     

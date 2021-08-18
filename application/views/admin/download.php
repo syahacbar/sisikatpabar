@@ -101,8 +101,8 @@
 
                                         <div class="col">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="RBFormatCetak" id="RBInfrastruktur" value="cetakword" required>
-                                                <label class="form-check-label">WORD</label>
+                                                <input class="form-check-input" type="radio" name="RBFormatCetak" id="RBInfrastruktur" value="cetakexcel" required>
+                                                <label class="form-check-label">EXCEL</label>
                                             </div> 
                                         </div>
                                     </div>
