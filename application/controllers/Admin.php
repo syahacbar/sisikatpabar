@@ -184,10 +184,7 @@ class Admin extends MY_Controller{
 
     function cetakexcel()
     {
-        $data['laporan'] = $this->Laporan_model->get_all_laporan(NULL,NULL,NULL,NULL,'tgl_Laporan','DESC');
-        $data['filename'] = "sakarep";              
-        $data['_view'] = 'admin/cetakword';
-        $this->load->view('admin/cetakword',$data);
+       
     }
 
     
