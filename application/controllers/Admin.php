@@ -148,11 +148,21 @@ class Admin extends MY_Controller{
         } else {
             $range = "TAHUN 2021";
         }
-        $namakab = $this->Laporan_model->get_kabkota($kabupaten)->nama;
-
+        
+        
+        
         if ($formatcetak == 'cetakexcel')
         {
-            $this->cetakexcel($infrastruktur,$kabupaten,$startdate,$todate,$range,$status,$namakab);
+            if($kabupaten == NULL || $kabupaten == 'semua')
+            {            
+                $namakab = 'Semua Kab/Kota';
+            }
+
+            if($infrastruktur == NULL || $infrastruktur == 'semua')
+            {
+                $namainf = 'Semua Infrastruktur';
+            }
+            $this->cetakexcel($infrastruktur,$kabupaten,$startdate,$todate,$range,$status,$namakab,$namainf);
 
         } elseif ($formatcetak == 'cetakpdf')
         { 
@@ -183,10 +193,10 @@ class Admin extends MY_Controller{
         
     }
 
-    function cetakexcel($infrastruktur,$kabupaten,$startdate,$todate,$range,$status,$namakab)
+    function cetakexcel($infrastruktur,$kabupaten,$startdate,$todate,$range,$status,$namakab,$namainf)
     {
         $data['laporan'] = $this->M_laporan->get_all_laporan($infrastruktur,$kabupaten,$startdate,$todate,$range,$status,$namakab);
-        $data['infrastruktur'] = $infrastruktur;
+        $data['infrastruktur'] = $namainf;
         $data['kabupaten'] = $namakab;
         $data['range'] = $range;
         $data['status'] = strtoupper($status);

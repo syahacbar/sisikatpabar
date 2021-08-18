@@ -11,13 +11,12 @@
 <head>
 </head>
 <body>
-<strong>
-  DATA LAPORAN PENGADUAN SISIKAT<br>
+<h2 align="center">DATA LAPORAN PENGADUAN SISIKAT</h2><br>
   INFRASTRUKTUR : <?php echo ($infrastruktur != NULL) ? strtoupper($infrastruktur) : '';?><br>
   KAB/KOTA : <?php echo ($kabupaten != NULL) ? strtoupper($kabupaten) : '';?><br>
   RANGE TANGGAL : <?php echo ($range != NULL) ? $range : '';?><br>
   STATUS PELAPORAN : <?php echo ($status != NULL) ? $status : '';?>
-</strong>
+
 <table border=1>
   <tr>
     <th rowspan="2">No.</th>
