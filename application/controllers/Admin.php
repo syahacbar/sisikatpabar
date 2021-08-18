@@ -164,6 +164,8 @@ class Admin extends MY_Controller{
             if($infrastruktur == NULL || $infrastruktur == 'semua')
             {
                 $namainf = 'Semua Infrastruktur';
+            } else {
+                 $namainf = $infrastruktur;
             }
             $this->cetakexcel($infrastruktur,$kabupaten,$startdate,$todate,$range,$status,$namakab,$namainf);
 
