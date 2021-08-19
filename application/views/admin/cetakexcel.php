@@ -27,7 +27,7 @@
   </tr>
   <tr>
       <th>Nama Pelapor/NIK</th>
-      <th>No. HP</th>
+      <th>No. HP (+62)</th>
       <th>Email</th>
       <th>Alamat</th>
       <th>Kelurahan/Kampung</th>
@@ -46,7 +46,7 @@
     <td><?php echo $lap['tgl_laporan'];?></td>
     <td><?php echo $lap['kodelap'];?></td>
     <td><?php echo $lap['nama_pelapor'];?></td>
-    <td><?php echo "+62".$lap['no_hp'];?></td>
+    <td><?php echo $lap['no_hp'];?></td>
     <td><?php echo $lap['email'];?></td>
     <td><?php echo $lap['alamat_pelapor'];?></td>
     <td><?php echo $lap['despelapor'];?></td>
