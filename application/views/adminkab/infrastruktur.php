@@ -51,15 +51,15 @@
                 </div>
                 <table class="table table-striped table-bordered table-hover tabelinfraAdmin" id="tableInfrastruktur">
                     <thead>
-                        <tr>
+                        <tr style="text-align: center;">
                             <th>No.</th>
                             <th>Tanggal Dilaporkan</th>
                             <th>Kode Laporan</th>
                             <th>Pengaduan</th>
                             <th>Lokasi</th>
                             <th>Kec./Distrik</th>
-                            <th>Status</th>
-                            <th>Aksi</th>
+                            <th width="100">Status</th>
+                            <th width="100">Aksi</th>
                         </tr>
                     </thead>
                 </table>
@@ -81,6 +81,18 @@
         "serverSide": true,
         "stateSave": true,
         "order": [],
+        "columnDefs": [ {
+                        "targets": 0,
+                        "orderable": false
+                        },
+                        {
+                        "targets": 6,
+                        "orderable": false
+                        },
+                        {
+                        "targets": 7,
+                        "orderable": false
+                        }  ],
         "ajax": {
                 //panggil method ajax list dengan ajax
                 "url": '<?php echo site_url('adminkab/infrastruktur_list');?>',

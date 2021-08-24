@@ -58,7 +58,7 @@ class Admin extends MY_Controller{
         $data['_view'] = 'admin/dashboard';
         $this->load->view('admin/layout',$data);
     }
-
+ 
     function infrastruktur($q=NULL)
     {
         $get_kab = $this->db->query("SELECT * FROM wilayah_2020 WHERE LENGTH(kode) = 5 AND kode LIKE '92%' ORDER BY kode ASC");
