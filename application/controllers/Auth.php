@@ -33,6 +33,12 @@ class Auth extends CI_Controller
     	$user_groups = $this->ion_auth->get_users_groups($user->id)->row();
     	if($user_groups->name=='admin')
     	{
+    		// $this->db->select('u.username, g.description lg.*');
+    		// $this->db->from('users u, groups g, login_history lg, users_groups ug');
+    		// $this->db->where('lg.username=u.username');
+    		// $this->db->where('u.id=ug.user_id');
+    		// $this->db->where('g.id=ug.group_id');
+    		$this->db->query("SELECT u.username, g.description as namagroup, lg.* FROM users u, groups g, users_groups ug, login_history lg WHERE lg.username=u.username AND u.id=ug.user_id AND g.id=ug.group_id");
     		$this->db->order_by('logintime', 'DESC');
 			$log = $this->db->get('login_history')->result_array();
 			$this->data['loginhistory'] = $log;
@@ -41,7 +47,14 @@ class Auth extends CI_Controller
     	} 
     	else
     	{
-    		$this->db->where('username',$user->username);
+    		// $this->db->select('u.username, g.description lg.*');
+    		// $this->db->from('users u, groups g, login_history lg, users_groups ug');
+    		// $this->db->where('lg.username=u.username');
+    		// $this->db->where('u.user_id=ug.user_id');
+    		// $this->db->where('g.id=ug.group_id');
+    		$this->db->query("SELECT u.username, g.description as namagroup, lg.* FROM users u, groups g, users_groups ug, login_history lg WHERE lg.username=u.username AND u.id=ug.user_id AND g.id=ug.group_id");
+    		// $this->db->order_by('logintime', 'DESC');
+    		// $this->db->where('username',$user->username);
     		$this->db->order_by('logintime', 'DESC');
 			$log = $this->db->get('login_history')->result_array();
 			$this->data['loginhistory'] = $log;

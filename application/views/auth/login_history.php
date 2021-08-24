@@ -12,6 +12,7 @@
                         <th width="10">No.</th>
                         <th width="200">Datetime</th>
                         <th>Username</th>
+                        <th>Groups</th>
                         <th>IP Address</th>
                     </tr>
                 </thead>
@@ -21,6 +22,7 @@
                         <td><?php echo $no++;?></td>
                         <td><?php echo $log['logintime'];?></td>
                         <td><?php echo $log['username'];?></td>
+                        <td><?php echo $log['namagroup'];?></td>
                         <td><?php echo $log['ipaddress'];?></td>
                     </tr>
                 <?php } ?>
