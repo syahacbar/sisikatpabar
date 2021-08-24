@@ -64,14 +64,9 @@
         </div>
 
            <script>
-<<<<<<< Updated upstream
             Dropzone.autoDiscover = false;
                 var sk_upload= new Dropzone(".skruasjalan",{
-=======
-               Dropzone.autoDiscover = false;
 
-                var sk_upload= new Dropzone(".skruasjalan", {
->>>>>>> Stashed changes
                     autoProcessQueue: false,
                     url: "<?php echo site_url('admin/uploadsk') ?>",
                     maxFilesize: 50,
