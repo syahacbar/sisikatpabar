@@ -6,7 +6,7 @@ class M_laporan extends CI_Model
     //set nama tabel yang akan kita tampilkan datanya
     var $table = 'laporan';
     //set kolom order, kolom pertama saya null untuk kolom edit dan hapus
-    var $column_order = array(NULL,'kodelap','tgl_laporan','pengaduan','lokasi_namajalan','lokasi_distrik','status');
+    var $column_order = array(NULL,'tgl_laporan','kodelap','pengaduan','lokasi_namajalan','lokasi_distrik','status');
 
     var $column_search = array('kodelap','tgl_laporan','pengaduan','lokasi_namajalan','lokasi_distrik');
     // default order 
