@@ -22,7 +22,7 @@
                         <td><?php echo $no++;?></td>
                         <td><?php echo $log['logintime'];?></td>
                         <td><?php echo $log['username'];?></td>
-                        <td><?php echo $log['namagroup'];?></td>
+                        <td><?php echo (!$this->ion_auth->is_admin()) ? $log['namagroup'] : 'Admin';?></td>
                         <td><?php echo $log['ipaddress'];?></td>
                     </tr>
                 <?php } ?>
