@@ -68,8 +68,8 @@ $html .='
 <tr>
 	<td align="center">'.$no++.'</td>
 	<td>'.shortdate_indo($lap['tgllaporan']).'</td>
-	<td>'.$lap['pengaduan'].'</td>
 	<td>'.$lap['infrastruktur'].'</td>
+	<td>'.$lap['pengaduan'].'</td>
 	<td>'.$lap['lokasi_namajalan'].'</td>
 	<td>'.$lap['lokasidistrik'].'</td>
 	<td>'.$lap['lokasikabkota'].'</td>
