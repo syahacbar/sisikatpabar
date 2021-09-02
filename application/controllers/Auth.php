@@ -43,7 +43,7 @@ class Auth extends CI_Controller
     	} 
     	else
     	{
-    		$this->db->query("SELECT u.username, g.name as namagroup, lg.* FROM users u, groups g, users_groups ug, login_history lg WHERE lg.username=u.username AND u.id=ug.user_id AND g.id=ug.group_id");
+    		$this->db->query("SELECT u.username, g.name as namagroup, lg.* FROM users u, groups g, users_groups ug, login_history lg WHERE lg.username=u.username AND u.id=ug.user_id AND g.id=ug.group_id AND u.username='".$user->username."'");
     		$this->db->order_by('logintime', 'DESC');
 			$log = $this->db->get('login_history')->result_array();
 			$this->data['loginhistory'] = $log;
@@ -110,11 +110,12 @@ class Auth extends CI_Controller
 			if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
 			{
 				$user = $this->ion_auth->user()->row();
-				$params = array('username' => $user->username, 'logintime' => date('Y-m-d H:i:s'), 'ipaddress'=>$_SERVER['REMOTE_ADDR']);
+				$user_groups  = $this->ion_auth->get_users_groups($user->id)->row();
+				$params = array('username' => $user->username, 'group' => $user_groups->name, 'logintime' => date('Y-m-d H:i:s'), 'ipaddress'=>$_SERVER['REMOTE_ADDR']);
 				$this->db->insert('login_history',$params);
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
 				
-				$user_groups  = $this->ion_auth->get_users_groups($user->id)->row();
+				
 				if ($user_groups->name == 'admin')
 				{
 					redirect('admin', 'refresh');
