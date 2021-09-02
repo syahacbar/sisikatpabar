@@ -78,9 +78,9 @@ $html .='
 	<td>'.$lap['no_hp'].'<br>'.$lap['email'].'</td>
 	<td>'.$lap['alamat_pelapor'].'</td>
 	<td>
-		<img style="image-resolution: 100dpi;" src="'.$dokumentasi1.'"><br>
-		<img style="image-resolution: 100dpi;" src="'.$dokumentasi2.'"><br>
-		<img style="image-resolution: 100dpi;" src="'.$dokumentasi3.'">
+		<img style="max-height: 100; image-resolution: 100dpi;" src="'.$dokumentasi1.'"><br>
+		<img style="max-height: 100; image-resolution: 100dpi;" src="'.$dokumentasi2.'"><br>
+		<img style="max-height: 100; image-resolution: 100dpi;" src="'.$dokumentasi3.'">
 	</td>
 </tr>';
 }
