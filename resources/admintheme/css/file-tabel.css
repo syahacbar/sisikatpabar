@@ -33,7 +33,8 @@
 .btn-info.disabled,
 .btn-info:disabled {
     opacity: .3;
-    cursor: no-drop !important;
+    cursor: not-allowed;
+    pointer-events: all !important;
 }
 
 

@@ -2,39 +2,39 @@
     size: landscape;
     margin: auto 0.5mm;
     font-size: 11px;
-  }
+}
 
-  @media print{
+@media print {
     h2 {
-      font-size: 12px;
-      padding-top: 1rem;
+        font-size: 12px;
+        padding-top: 1rem;
     }
-
     .table thead th,
-    .table tbody td  {
+    .table tbody td {
         font-size: 10px;
     }
-
     .date.col p {
-      font-size: 12px;
+        font-size: 12px;
     }
-  }
+}
+
 
 /* CSS Untuk hasil cetak word */
-  @page Section1 {
+
+@page Section1 {
     size: 595.45pt 841.7pt;
     margin: 42.55pt 23pt;
     mso-header-margin: .5in;
     mso-footer-margin: .5in;
     mso-paper-source: 0;
     font-size: 11px;
-  }
+}
 
-  div.Section1 {
+div.Section1 {
     page: Section1;
-  }
+}
 
-  @page Section2 {
+@page Section2 {
     size: 841.7pt 612pt;
     mso-page-orientation: landscape;
     margin: 42.55pt 23pt;
@@ -42,12 +42,11 @@
     mso-footer-margin: .5in;
     mso-paper-source: 0;
     font-size: 11px;
-    
-  }
+}
 
-  div.Section2 {
+div.Section2 {
     page: Section2;
-  }
+}
 
 @page img {
     width: 50px;
@@ -63,11 +62,10 @@ h2 {
 }
 
 .table thead th,
-.table tbody td  {
+.table tbody td {
     font-size: 11pt;
     padding: 0 5px;
 }
-
 
 #exptoword td img {
     width: 30px;
@@ -79,30 +77,31 @@ h2 {
 
 
 /* Set Footer */
-footer {
-  height: 50px;
 
+footer {
+    height: 50px;
 }
 
 footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid black;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid black;
 }
 
 @page {
-  margin: 20mm;
+    margin: 20mm;
 }
 
 @media print {
-   footer {
-     display: table-footer-group;
+    footer {
+        display: table-footer-group;
     }
-     
-   body {margin: 0;}
+    body {
+        margin: 0;
+    }
 }
 
 footer {
-  display: table-footer-group;
- }
+    display: table-footer-group;
+}
