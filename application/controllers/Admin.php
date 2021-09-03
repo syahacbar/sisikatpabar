@@ -141,6 +141,7 @@ class Admin extends MY_Controller{
         $kabupaten = $this->input->post('kabupaten', TRUE);
         $startdate = $this->input->post('startdate', TRUE);
         $todate = $this->input->post('todate', TRUE);
+        $dok = $this->input->post('RBDok',TRUE);
         $formatcetak = $this->input->post('RBFormatCetak',TRUE);
         $status = $this->input->post('RBStatuslap',TRUE);
         if ($startdate != NULL && $todate != NULL)
@@ -177,20 +178,50 @@ class Admin extends MY_Controller{
                 if ($infrastruktur == 'semua' && $kabupaten == 'semua')
                 {
                     $data['range'] = $range;
-                    $this->load->view('admin/cetakpdfsemuainfsemuakab',$data);
+                    if($dok == '1')
+                    {
+                        $this->load->view('admin/cetakpdfsemuainfsemuakab',$data);
+                    } elseif ($dok == '0')
+                    {
+                        $this->load->view('admin/cetakpdfsemuainfsemuakabtanpadok',$data);
+                    }
+                    
                 } elseif ($infrastruktur == 'semua' && $kabupaten != 'semua') {
                     $data['kabupaten'] = $this->Laporan_model->get_kabkota($kabupaten)->nama;
                     $data['range'] = $range;
-                    $this->load->view('admin/cetakpdfsemuainfkab',$data);
+
+                    if($dok == '1')
+                    {
+                        $this->load->view('admin/cetakpdfsemuainfkab',$data);
+                    } elseif ($dok == '0')
+                    {
+                        $this->load->view('admin/cetakpdfsemuainfkabtanpadok',$data);
+                    }
                 } elseif ($infrastruktur != 'semua' && $kabupaten == 'semua') {
                     $data['infrastruktur'] = $infrastruktur;
                     $data['range'] = $range;
-                    $this->load->view('admin/cetakpdfinfsemuakab',$data);
+
+                    if($dok == '1')
+                    {
+                        $this->load->view('admin/cetakpdfinfsemuakab',$data);
+                    } elseif ($dok == '0')
+                    {
+                        $this->load->view('admin/cetakpdfinfsemuakabtanpadok',$data);
+                    }
+                    
                 } elseif ($infrastruktur != 'semua' && $kabupaten != 'semua') {
                     $data['infrastruktur'] = $infrastruktur;
                     $data['range'] = $this->Laporan_model->get_kabkota($kabupaten)->nama;
                     $data['kabupaten'] = $range;
-                    $this->load->view('admin/cetakpdfinfkab',$data);
+
+                    if($dok == '1')
+                    {
+                        $this->load->view('admin/cetakpdfinfkab',$data);
+                    } elseif ($dok == '0')
+                    {
+                        $this->load->view('admin/cetakpdfinfkabtanpadok',$data);
+                    }
+                    
                 } 
             }
         }

@@ -130,20 +130,20 @@
                     </div>
                     <br>
                     <div class="row">
-                        <label for="country" class="control-label">Pilih Jenis Laporan</label>
+                        <label for="country" class="control-label">Dengan Gambar Dokumentasi</label>
                         <div class="col">
                             <div class="row">
                                 <div class="col">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gambar1" value="denganGambar">
-                                        <label class="form-check-label">Dengan Gambar Dokumentasi</label>
+                                        <input class="form-check-input" type="radio" name="RBDok" value="1">
+                                        <label class="form-check-label">Ya</label>
                                     </div>
                                 </div>
 
                                 <div class="col">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gambar1" value="tanpaGambar">
-                                        <label class="form-check-label">Tanpa Gambar Dokumentasi</label>
+                                        <input class="form-check-input" type="radio" name="RBDok" value="0">
+                                        <label class="form-check-label">Tidak</label>
                                     </div>
                                 </div>
                             </div>
