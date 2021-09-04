@@ -8,7 +8,9 @@ class Adminkab extends CI_Controller{
         $this->load->model('Laporan_model');
         $this->load->model('M_setting');
         $this->load->model("M_laporan");
-        if (!$this->ion_auth->logged_in())
+        $user = $this->ion_auth->user()->row();
+        $user_groups = $this->ion_auth->get_users_groups($user->id)->row();
+        if (!$this->ion_auth->logged_in() || $user_groups->kode_kab == '')
           {
              // redirect them to the login page
              redirect('auth/login', 'refresh');
